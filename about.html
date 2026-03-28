@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edexcel A Geography — May Sprint Tutor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #161a18; --ink2: #222b26; --parchment: #f0f5f0; --cream: #deeade;
+  --gold: #4a9e6b; --gold2: #72c794; --teal: #2d6a7a; --teal2: #3da8c2;
+  --ruby: #7a3a2d; --muted: #5a6e5e;
+  --border: rgba(74,158,107,0.25); --border2: rgba(74,158,107,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--parchment); font-family: 'Crimson Pro', Georgia, serif; font-size: 17px; line-height: 1.7; min-height: 100vh; overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(74,158,107,0.02) 80px, rgba(74,158,107,0.02) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(74,158,107,0.015) 80px, rgba(74,158,107,0.015) 81px); pointer-events: none; z-index: 0; }
+.wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+header { border-bottom: 1px solid var(--border); padding: 2rem 0 1.5rem; }
+.header-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.site-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; color: var(--gold2); letter-spacing: -0.01em; line-height: 1.1; }
+.site-sub { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+.header-badges { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.badge { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid; }
+.badge-green { border-color: var(--gold); color: var(--gold); }
+.badge-blue { border-color: var(--teal2); color: var(--teal2); }
+.badge-red { border-color: rgba(192,80,80,0.5); color: #c05050; }
+.main-layout { display: grid; grid-template-columns: 260px 1fr; gap: 0; min-height: calc(100vh - 120px); }
+.sidebar { border-right: 1px solid var(--border2); padding: 1.5rem 0; position: sticky; top: 0; height: calc(100vh - 90px); overflow-y: auto; }
+.sidebar::-webkit-scrollbar { width: 3px; } .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar-section-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 0 20px 8px; border-bottom: 1px solid var(--border2); margin-bottom: 4px; }
+.nav-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 20px; cursor: pointer; border-left: 2px solid transparent; transition: all 0.15s; }
+.nav-item:hover { background: rgba(74,158,107,0.05); }
+.nav-item.active { border-left-color: var(--gold); background: rgba(74,158,107,0.08); }
+.nav-item.active .nav-title { color: var(--gold2); }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+.dot-physical { background: var(--teal2); } .dot-human { background: #9b8fd0; } .dot-synoptic { background: var(--gold); } .dot-revision { background: #c05060; }
+.nav-content { flex: 1; min-width: 0; }
+.nav-week { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.nav-title { font-size: 13px; color: var(--parchment); line-height: 1.3; margin-top: 1px; }
+.content { padding: 2rem 2.5rem; overflow-y: auto; }
+.week-header { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border2); }
+.week-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.week-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 2px; }
+.tag-physical { background: rgba(61,168,194,0.15); color: var(--teal2); border: 1px solid rgba(61,168,194,0.3); }
+.tag-human { background: rgba(155,143,208,0.15); color: #b5aadd; border: 1px solid rgba(155,143,208,0.3); }
+.tag-synoptic { background: rgba(74,158,107,0.15); color: var(--gold2); border: 1px solid var(--border); }
+.tag-revision { background: rgba(192,80,96,0.15); color: #d07080; border: 1px solid rgba(192,80,96,0.3); }
+.week-number { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+.week-title-text { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--parchment); line-height: 1.2; margin-bottom: 6px; }
+.week-focus { color: var(--muted); font-style: italic; font-size: 15px; }
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--border2); margin-bottom: 1.5rem; overflow-x: auto; }
+.tabs::-webkit-scrollbar { height: 2px; } .tabs::-webkit-scrollbar-thumb { background: var(--border); }
+.tab { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 15px; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; white-space: nowrap; flex-shrink: 0; }
+.tab:hover { color: var(--parchment); } .tab.active { color: var(--gold2); border-bottom-color: var(--gold); }
+.topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.5rem; }
+@media (max-width: 700px) { .topics-grid { grid-template-columns: 1fr; } }
+.topic-card { border: 1px solid var(--border2); border-radius: 4px; padding: 14px 16px; background: rgba(255,255,255,0.02); transition: border-color 0.15s, background 0.15s; }
+.topic-card:hover { border-color: var(--border); background: rgba(74,158,107,0.04); }
+.topic-card-title { font-size: 14px; font-weight: 400; color: var(--gold2); margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+.topic-card-body { font-size: 14px; color: var(--muted); line-height: 1.5; }
+.keyterm-section { margin-bottom: 1.5rem; }
+.section-heading { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border2); }
+.keyterm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+.keyterm-card { background: rgba(61,168,194,0.07); border: 1px solid rgba(61,168,194,0.2); border-radius: 4px; padding: 12px 14px; }
+.keyterm-name { font-size: 13px; color: var(--teal2); margin-bottom: 5px; font-family: 'DM Mono', monospace; letter-spacing: 0.04em; font-weight: 500; }
+.keyterm-def { font-size: 13px; color: var(--parchment); line-height: 1.5; margin-bottom: 5px; }
+.keyterm-tip { font-size: 12px; color: var(--muted); font-style: italic; }
+.case-box { border: 1px solid var(--border); border-radius: 4px; background: rgba(74,158,107,0.04); margin-bottom: 14px; overflow: hidden; }
+.case-header { background: rgba(74,158,107,0.08); padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; border-bottom: 1px solid var(--border2); }
+.case-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--gold); text-transform: uppercase; }
+.case-name { font-size: 14px; color: var(--parchment); }
+.case-location { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-top: 2px; }
+.toggle-icon { color: var(--gold); font-size: 14px; }
+.case-body { padding: 16px; display: none; } .case-body.open { display: block; }
+.case-context { font-size: 14px; color: var(--muted); font-style: italic; margin-bottom: 12px; line-height: 1.5; }
+.case-point { display: flex; gap: 12px; margin-bottom: 10px; }
+.case-num { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); color: #fff; font-family: 'DM Mono', monospace; font-size: 11px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.case-text { flex: 1; font-size: 14px; color: var(--cream); line-height: 1.6; }
+.case-text strong { color: var(--gold2); }
+.case-sig { background: rgba(61,168,194,0.08); border: 1px solid rgba(61,168,194,0.2); border-radius: 3px; padding: 10px 14px; margin-top: 10px; font-size: 13px; color: var(--teal2); font-family: 'DM Mono', monospace; }
+.diagram-guide { border: 1px solid var(--border2); border-radius: 4px; padding: 16px; margin-bottom: 14px; background: rgba(255,255,255,0.015); }
+.diagram-title { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold2); margin-bottom: 8px; }
+.diagram-steps { list-style: none; counter-reset: step-count; }
+.diagram-steps li { font-size: 13px; color: var(--cream); padding: 4px 0 4px 20px; position: relative; line-height: 1.5; }
+.diagram-steps li::before { content: counter(step-count); counter-increment: step-count; position: absolute; left: 0; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--gold); top: 6px; }
+.analysis-card { border: 1px solid var(--border2); border-radius: 4px; padding: 18px; margin-bottom: 14px; background: rgba(255,255,255,0.015); }
+.analysis-heading { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--gold2); margin-bottom: 12px; }
+.analysis-chain { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--teal2); background: rgba(61,168,194,0.08); border: 1px solid rgba(61,168,194,0.25); border-radius: 3px; padding: 10px 14px; margin-bottom: 12px; line-height: 2; letter-spacing: 0.02em; }
+.eval-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.eval-list { margin-bottom: 12px; }
+.eval-item { font-size: 13px; color: var(--cream); padding: 6px 0 6px 18px; position: relative; line-height: 1.5; border-bottom: 1px solid var(--border2); }
+.eval-item:last-child { border-bottom: none; }
+.eval-item::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-family: 'DM Mono', monospace; font-size: 11px; top: 7px; }
+.mistake-box { background: rgba(139,58,45,0.08); border: 1px solid rgba(192,80,80,0.2); border-radius: 3px; padding: 9px 12px; }
+.mistake-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #c05050; margin-bottom: 3px; }
+.mistake-text { font-size: 12px; color: #d07070; font-style: italic; line-height: 1.5; }
+.tutor-section { border-top: 1px solid var(--border2); padding-top: 1.5rem; margin-top: 1.5rem; }
+.tutor-heading { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold2); margin-bottom: 12px; }
+.quick-prompts { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+.quick-btn { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border-radius: 3px; border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.quick-btn:hover { border-color: var(--gold); color: var(--gold2); background: rgba(74,158,107,0.06); }
+.chat-area { border: 1px solid var(--border2); border-radius: 4px; overflow: hidden; background: rgba(0,0,0,0.2); }
+.chat-messages { min-height: 200px; max-height: 420px; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.chat-messages::-webkit-scrollbar { width: 3px; } .chat-messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.msg { max-width: 85%; font-size: 14px; line-height: 1.6; }
+.msg-user { align-self: flex-end; background: rgba(61,168,194,0.15); border: 1px solid rgba(61,168,194,0.25); border-radius: 3px 3px 0 3px; padding: 8px 12px; color: var(--cream); }
+.msg-ai { align-self: flex-start; background: rgba(74,158,107,0.07); border: 1px solid var(--border2); border-radius: 3px 3px 3px 0; padding: 10px 14px; color: var(--parchment); }
+.msg-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 4px; color: var(--muted); }
+.typing { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
+.typing span { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); animation: blink 1.2s infinite; }
+.typing span:nth-child(2) { animation-delay: 0.2s; } .typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes blink { 0%,80%,100%{opacity:0.2} 40%{opacity:1} }
+.chat-input-row { display: flex; border-top: 1px solid var(--border2); background: rgba(255,255,255,0.02); }
+.chat-input { flex: 1; background: transparent; border: none; outline: none; padding: 12px 16px; font-family: 'Crimson Pro', serif; font-size: 15px; color: var(--parchment); resize: none; }
+.chat-input::placeholder { color: var(--muted); }
+.send-btn { padding: 12px 16px; background: transparent; border: none; border-left: 1px solid var(--border2); cursor: pointer; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; transition: all 0.15s; }
+.send-btn:hover { color: var(--gold2); background: rgba(74,158,107,0.06); } .send-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.quiz-card { border: 1px solid var(--border2); border-radius: 4px; padding: 18px; background: rgba(255,255,255,0.015); margin-bottom: 12px; }
+.quiz-q { font-size: 15px; color: var(--parchment); margin-bottom: 12px; line-height: 1.5; }
+.quiz-options { display: flex; flex-direction: column; gap: 7px; }
+.quiz-opt { padding: 9px 14px; border-radius: 3px; border: 1px solid var(--border2); background: transparent; color: var(--cream); font-size: 13px; cursor: pointer; text-align: left; transition: all 0.12s; font-family: 'Crimson Pro', serif; line-height: 1.4; }
+.quiz-opt:hover:not(:disabled) { border-color: var(--gold); background: rgba(74,158,107,0.05); }
+.quiz-opt.correct { background: rgba(45,122,111,0.2); border-color: var(--teal2); color: var(--teal2); }
+.quiz-opt.wrong { background: rgba(139,38,53,0.15); border-color: #c05060; color: #d07080; }
+.quiz-explanation { font-size: 13px; color: var(--muted); margin-top: 10px; font-style: italic; line-height: 1.5; display: none; }
+.quiz-explanation.show { display: block; }
+.quiz-score { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); margin-bottom: 12px; letter-spacing: 0.06em; }
+.progress-bar { height: 2px; background: var(--border2); border-radius: 1px; margin: 1rem 0; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--teal2), var(--gold)); border-radius: 1px; transition: width 0.4s; }
+.mcq-filter-bar { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.mcq-filter-btn { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; padding: 5px 11px; border-radius: 3px; border: 1px solid var(--border2); background: transparent; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+.mcq-filter-btn:hover { border-color: var(--gold); color: var(--gold2); }
+.mcq-filter-btn.active { border-color: var(--gold); background: rgba(74,158,107,0.1); color: var(--gold2); }
+.q-topic-tag { display: inline-block; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 2px; background: rgba(74,158,107,0.1); border: 1px solid var(--border2); color: var(--muted); margin-bottom: 8px; }
+.mcq-results { border: 1px solid var(--border); border-radius: 4px; padding: 18px; margin-bottom: 1.2rem; background: rgba(74,158,107,0.04); }
+.mcq-results-score { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold2); margin-bottom: 6px; }
+.mcq-results-sub { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 14px; }
+.mcq-breakdown { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-top: 10px; }
+.mcq-breakdown-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border2); border-radius: 3px; padding: 8px 12px; }
+.mcq-breakdown-topic { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 3px; }
+.mcq-breakdown-score { font-size: 14px; color: var(--parchment); }
+.mcq-breakdown-score span { color: var(--teal2); font-family: 'DM Mono', monospace; font-size: 13px; }
+.mt { margin-top: 1rem; } .muted { color: var(--muted); }
+@media (max-width: 768px) {
+  .main-layout { grid-template-columns: 1fr; }
+  .sidebar { height: auto; position: static; border-right: none; border-bottom: 1px solid var(--border2); padding: 1rem 0; }
+  .content { padding: 1.5rem 1rem; }
+  .topics-grid { grid-template-columns: 1fr; }
+  .site-title { font-size: 1.4rem; }
+}
+@keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+.content { animation: fadeUp 0.3s ease; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <div>
+        <div class="site-title">Geography Tutor</div>
+        <div class="site-sub">Edexcel A Level · Papers 1, 2 &amp; 3 · May 2026</div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-blue">Physical</span>
+        <span class="badge badge-green">Human</span>
+        <span class="badge badge-red">Synoptic</span>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="main-layout">
+    <nav class="sidebar">
+      <div class="sidebar-section-label">8 Topics + MCQ Revision</div>
+      <div id="navItems"></div>
+    </nav>
+    <main class="content" id="mainContent"></main>
+  </div>
+</div>
+
+<script>
+const TABS = ['overview','keyterms','casestudies','diagrams','analysis','quiz','tutor'];
+
+const weeks = [
+  {
+    id: 0, week: "Topic 1", type: "physical",
+    title: "Tectonic Processes & Hazards",
+    focus: "Plate boundaries, hazard types, vulnerability and disaster risk management",
+    topics: [
+      { title: "Plate Boundary Types", body: "Convergent (destructive): plates collide → subduction → volcanoes and earthquakes. Divergent (constructive): plates separate → rift valleys, basaltic lava. Conservative: plates slide past each other → earthquakes only, no volcanism. Collision: continental-continental → fold mountains." },
+      { title: "Earthquake Hazards", body: "Primary: ground shaking, surface rupture, liquefaction (saturated sediment behaves like liquid). Secondary: landslides, tsunamis, fires. Magnitude (Richter/moment scale) vs intensity (Mercalli scale — felt effects). Depth matters: shallow focus = greater surface damage." },
+      { title: "Volcanic Hazards", body: "Primary: lava flows, pyroclastic flows (fast-moving hot gas + rock), tephra (ash). Secondary: lahars (volcanic mudflows), flooding from ice melt. Eruption style depends on silica content: low silica (basaltic) → effusive; high silica → explosive (e.g. composite volcanoes)." },
+      { title: "Disaster Risk Framework", body: "Risk = Hazard × Vulnerability ÷ Capacity to Cope. LICs more vulnerable: poor infrastructure, high population density, limited emergency services, corruption. HAZARDs are physical events; DISASTERS occur when hazards intersect vulnerable populations. Park Model shows stages of recovery." }
+    ],
+    keyTerms: [
+      { term: "Liquefaction", def: "When waterlogged sediment temporarily loses strength during an earthquake and behaves like a liquid, causing buildings to sink or topple.", tip: "Common in river deltas and reclaimed land — mention Christchurch 2011 or Kobe 1995." },
+      { term: "Pyroclastic flow", def: "A fast-moving avalanche of hot gas, ash and rock fragments travelling at up to 700km/h — the most deadly volcanic hazard.", tip: "Distinguish from lava flows (slow, visible) — pyroclastic flows are near-impossible to outrun." },
+      { term: "Lahar", def: "A volcanic mudflow formed when volcanic material (ash, debris) mixes with water from rainfall, snowmelt or crater lakes.", tip: "Armero disaster 1985 (Colombia) — Nevado del Ruiz lahar killed 23,000. Good secondary hazard example." },
+      { term: "Magnitude vs Intensity", def: "Magnitude measures energy released at the source (Richter/Mw scale). Intensity measures shaking felt at a location (Mercalli scale) — varies with distance and geology.", tip: "A deep magnitude 7.0 may cause less damage than a shallow 6.0 — depth is crucial to mention." },
+      { term: "Disaster Risk Equation", def: "Risk = (Hazard × Vulnerability) ÷ Capacity to Cope. Vulnerability includes poverty, poor governance, high density. Capacity includes technology, early warning systems, preparedness.", tip: "Use this framework in every tectonic hazard essay — it shows sophisticated analytical thinking." },
+      { term: "Park Model", def: "A model showing community quality of life before, during and after a disaster — immediate relief → rehabilitation → reconstruction phases.", tip: "Compare LIC vs HIC recovery curves — LICs recover more slowly and may not return to pre-disaster quality of life." }
+    ],
+    casestudies: [
+      {
+        name: "Nepal Earthquake 2015",
+        location: "Kathmandu, Nepal (LIC/LLDC context)",
+        context: "Magnitude 7.8 earthquake on 25 April 2015, caused by convergent collision of Indian and Eurasian plates. Shallow focus (15km) near densely populated Kathmandu valley.",
+        points: [
+          { text: "<strong>8,964 deaths</strong> — largely due to poorly constructed buildings (unreinforced brick/stone) collapsing on densely packed urban population." },
+          { text: "<strong>600,000+ buildings destroyed</strong> — including UNESCO heritage sites in Kathmandu Durbar Square; reconstruction costs estimated at $7 billion." },
+          { text: "<strong>Landslides</strong> triggered across mountain valleys — secondary hazard that blocked roads and cut off remote villages for weeks." },
+          { text: "<strong>Aid response complications</strong>: mountainous terrain, single airport in Kathmandu caused bottleneck. International aid of $4.1bn pledged but distribution slow." },
+          { text: "<strong>Inequality of impact</strong>: remote hill districts (Gorkha, Sindhupalchok) worst affected but least accessible — illustrates rural-urban vulnerability gap." }
+        ],
+        significance: "✦ Key argument: Physical magnitude alone does not determine disaster severity — poverty, building quality and governance are the critical multipliers of vulnerability."
+      },
+      {
+        name: "Montserrat Volcanic Crisis 1995–97",
+        location: "Montserrat, Caribbean (UK Overseas Territory)",
+        context: "Soufrière Hills composite volcano erupted after 400 years of dormancy. Ongoing crisis — southern half of island rendered uninhabitable by pyroclastic flows and lahars.",
+        points: [
+          { text: "<strong>Plymouth (capital) buried</strong> under 12m of ash and mud by pyroclastic flows in 1997 — entire southern zone became exclusion zone." },
+          { text: "<strong>Population of 11,000 halved</strong> — 7,000 evacuated to north of island or to UK. Significant long-term demographic and economic consequences." },
+          { text: "<strong>19 deaths (25 June 1997)</strong> from a single explosive dome collapse — those who returned to tend farms despite warnings." },
+          { text: "<strong>Monitoring success</strong>: Montserrat Volcano Observatory (MVO) provided continuous monitoring — exclusion zones saved thousands. Shows value of scientific monitoring." },
+          { text: "<strong>£200 million UK aid</strong> — illustrates role of political relationships in disaster response. Colonial ties enabled resource transfer." }
+        ],
+        significance: "✦ Key argument: Effective volcanic management depends more on sustained monitoring, clear communication and political will than on prediction alone."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Plate Boundary Types — How to Draw All Four",
+        steps: [
+          "Destructive/convergent: draw oceanic plate subducting under continental plate at ~45° — add ocean trench at the collision point, magma rising through continental crust to form composite volcano",
+          "Constructive/divergent: draw two plates pulling apart — show magma rising from mantle to fill the gap, forming new oceanic crust and shield volcanoes / rift valleys",
+          "Conservative: draw two plates moving parallel in opposite directions (or at different speeds) — show transform fault, no magma involved",
+          "Collision: draw two continental plates converging — neither subducts (both too buoyant) — crust buckles upward → fold mountains (e.g. Himalayas)",
+          "Always label: plate names, direction of movement (arrows), key landform, and the type of hazard produced at each boundary"
+        ]
+      },
+      {
+        title: "The Park Model — Disaster Response Curve",
+        steps: [
+          "Draw axes: vertical = 'Quality of life / level of economic activity'; horizontal = 'Time'",
+          "Baseline: draw a flat horizontal line representing pre-disaster normality",
+          "At 'disaster point' on time axis: sharp drop — steeper for larger disaster or more vulnerable population",
+          "Relief phase: slight uptick as emergency aid arrives (may be delayed in LICs)",
+          "Rehabilitation phase: gradual recovery — rebuilding infrastructure, restoring services",
+          "Reconstruction phase: curve rises back toward or above baseline — in HICs may exceed pre-disaster level (better buildings, improved infrastructure)",
+          "LIC vs HIC comparison: LIC curve drops further, recovers more slowly, and may not return to original baseline — add this as a second curve on the same axes"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Why LICs Experience Greater Disaster Losses — Reasoning Chain",
+        chain: "Physical hazard event occurs (equal magnitude in LIC and HIC) → LIC: poor building standards (unreinforced structures) → higher casualty rates → limited early warning systems → less preparedness → poor infrastructure slows evacuation and aid → lower capacity to cope → slower recovery → long-term economic damage compounds existing poverty",
+        evals: [
+          "However, some LICs have developed effective community-based preparedness (e.g. Bangladesh cyclone shelters) — capacity to cope is not solely determined by wealth",
+          "Physical geography also matters — a shallow-focus earthquake in a densely settled valley always kills more regardless of development level",
+          "The distinction between 'natural' and 'human-made' disaster is increasingly contested — Sen (1981) argues disasters are always partly failures of political and social systems"
+        ],
+        mistake: "Don't just list factors — link them explicitly to the disaster risk equation (Risk = Hazard × Vulnerability ÷ Capacity). This framework gives your answer analytical structure that examiners reward."
+      },
+      {
+        heading: "Evaluating Hazard Management Strategies",
+        chain: "Prediction (e.g. seismic monitoring, GPS ground deformation) → early warning → evacuation → lives saved → BUT: false alarms erode public trust → 'cry wolf' effect → future warnings ignored → prediction alone insufficient → needs combined approach: prediction + protection (building codes, land use planning) + community preparedness (drills, education)",
+        evals: [
+          "Technology-dependent approaches (seismic networks, satellite monitoring) only work if governments fund them and populations trust the warnings — governance and trust are critical variables",
+          "Retrofitting (strengthening existing buildings) is cost-effective in HICs but unaffordable in LICs — highlights the need for international financial mechanisms (e.g. World Bank disaster risk funds)",
+          "Fatalism and normalisation of risk: communities living near hazards for generations may underestimate risk — cultural attitudes are a genuine barrier to effective management, not just poverty"
+        ],
+        mistake: "Avoid the trap of saying 'HICs manage hazards better than LICs' as a blanket statement. Japan (HIC) had 18,000+ deaths in 2011 Tōhoku earthquake-tsunami — the scale of physical event matters independently of development level."
+      }
+    ],
+    quiz: [
+      { q: "Which type of plate boundary produces both earthquakes AND volcanoes but NO new oceanic crust?", opts: ["Constructive (divergent)", "Destructive (convergent) with subduction", "Conservative (transform)", "Collision boundary"], correct: 1, exp: "At destructive boundaries, the subducting oceanic plate melts as it descends into the mantle → magma rises → volcanoes. The plate is being destroyed, not created. Conservative boundaries produce earthquakes only; constructive boundaries produce new crust." },
+      { q: "The Disaster Risk equation states that risk is determined by:", opts: ["Hazard magnitude × distance from epicentre", "(Hazard × Vulnerability) ÷ Capacity to cope", "Population density × building quality", "Frequency of events × GDP per capita"], correct: 1, exp: "Risk = (Hazard × Vulnerability) ÷ Capacity to Cope. This explains why a moderate earthquake in Haiti (2010) killed 230,000 while a similar event in Chile weeks later killed fewer than 600 — Haiti's vulnerability and low capacity to cope were the determining factors." },
+      { q: "Liquefaction is most likely to occur in which setting?", opts: ["Solid granite bedrock in a mountain range", "Waterlogged, sandy sediment in a river delta or reclaimed land", "Deep ocean floor", "Volcanic rock plateau"], correct: 1, exp: "Liquefaction requires saturated, loose, sandy or silty sediment. When seismic waves pass through, the water pressure in the pores exceeds the grain-to-grain contact → sediment flows like liquid. Common in coastal deltas, flood plains and reclaimed land." },
+      { q: "The Park Model is used to show:", opts: ["The relationship between plate movement speed and earthquake frequency", "Changes in community quality of life before, during and after a disaster", "The different types of volcanic eruption on a global scale", "Population growth rates in disaster-prone regions"], correct: 1, exp: "The Park Model plots quality of life / economic activity against time, showing the drop at disaster point, then recovery through relief → rehabilitation → reconstruction phases. It is most useful for comparing LIC vs HIC recovery rates." }
+    ],
+    quickPrompts: ["Explain why the 2015 Nepal earthquake was so deadly", "What is the difference between a shield and composite volcano?", "Evaluate the effectiveness of volcanic hazard management in Montserrat"]
+  },
+  {
+    id: 1, week: "Topic 2", type: "physical",
+    title: "Coastal Systems & Landscapes",
+    focus: "Coastal processes, landform formation, sediment budgets and management strategies",
+    topics: [
+      { title: "Coastal Processes", body: "Erosion: hydraulic action (wave pressure), abrasion (sand/pebble grinding), attrition (material breaks down), solution (acid dissolves limestone). Transportation: longshore drift (material moved along coast by swash at angle, backwash perpendicular). Deposition: when wave energy drops — beaches, spits, bars." },
+      { title: "Coastal Landforms", body: "Erosional: headlands and bays (differential rock resistance), cliffs and wave-cut platforms, caves-arches-stacks-stumps (progressive erosion of headland). Depositional: beaches, spits (longshore drift + deposition around a change in coastline direction), bars (spit closes off a bay), tombolos (spit joins island to mainland)." },
+      { title: "Littoral Cells & Sediment Budget", body: "A littoral cell is a self-contained unit of sediment circulation. Sediment budget: inputs (cliff erosion, rivers, offshore) vs outputs (longshore drift beyond cell, offshore transport). Negative sediment budget → coastal erosion accelerates. Human interference (groynes, dredging) disrupts sediment supply." },
+      { title: "Coastal Management", body: "Hard engineering: sea walls (reflect wave energy, expensive), groynes (trap sediment, starve adjacent beaches), revetments, breakwaters. Soft engineering: beach nourishment (replenish sand, needs maintenance), managed retreat (allow controlled flooding, restores intertidal habitat). Integrated coastal zone management (ICZM) takes a holistic view." }
+    ],
+    keyTerms: [
+      { term: "Longshore drift", def: "The net movement of sediment along a coastline, driven by swash approaching at an angle (due to prevailing wind direction) while backwash returns perpendicular to the shore.", tip: "Always name the prevailing wind direction and use a diagram — LSD is a process not a landform." },
+      { term: "Wave-cut platform", def: "A gently sloping rock surface exposed at low tide, formed as cliff retreat leaves the base of the former cliff exposed and abraded by wave action.", tip: "Wider platform = older/more rapidly eroding coast. Portland Bill and Robin Hood's Bay are UK examples." },
+      { term: "Littoral cell", def: "A section of coastline that is self-contained in terms of sediment movement — sediment circulates within it rather than moving beyond its boundaries.", tip: "Groynes disrupt cells — sediment builds up on the updrift side, starving the downdrift section. Use Holderness." },
+      { term: "Fetch", def: "The uninterrupted distance of open water over which wind blows to generate waves. Greater fetch = more energy = larger waves and greater erosion potential.", tip: "SW England faces Atlantic fetch of thousands of km → high energy. North Sea fetch shorter → lower energy." },
+      { term: "Eustatic vs isostatic change", def: "Eustatic: global change in sea level (e.g. ice melt raises sea level worldwide). Isostatic: local vertical land movement (e.g. post-glacial rebound — land rises as ice weight removed).", tip: "Scotland is rising isostatically; SE England is sinking — combined with eustatic rise → flood risk in Thames estuary." },
+      { term: "Managed retreat", def: "A coastal management strategy that allows the sea to flood low-lying land in a controlled way, creating intertidal habitat (saltmarsh) that naturally absorbs wave energy.", tip: "Abbotts Hall Farm, Essex — 84 ha of farmland converted to saltmarsh. Cost-effective but controversial with farmers and landowners." }
+    ],
+    casestudies: [
+      {
+        name: "Holderness Coast Erosion",
+        location: "East Yorkshire, UK (Europe's fastest-eroding coastline)",
+        context: "Glacial till cliffs (soft, unconsolidated boulder clay) eroding at average 1–2m per year. 50+ villages lost since Roman times. Total coastline loss ~4km since 1850.",
+        points: [
+          { text: "<strong>Erosion rate 1–2m/year</strong> on average, up to 10m in storm events — driven by North Sea storms, cliff geology (weak glacial till) and powerful wave action." },
+          { text: "<strong>Flamborough Head (hard chalk)</strong> resists erosion, diverting wave energy onto the clay cliffs to north and south — illustrates differential erosion and headland/bay formation." },
+          { text: "<strong>Groynes at Mappleton</strong> (built 1991) protected the village but accelerated erosion at Cowden to the south — classic example of disrupted sediment budget and coastal squeeze." },
+          { text: "<strong>Spurn Head spit</strong> at the southern end — formed by longshore drift carrying sediment south. Shows depositional landform linked directly to erosion further north." },
+          { text: "<strong>Coastal squeeze</strong>: sea walls protect some settlements but prevent beaches from migrating landward as sea level rises → beaches narrow and disappear → hard engineering becomes self-defeating." }
+        ],
+        significance: "✦ Key argument: Hard engineering at one location creates winners and losers — coastal management must consider the entire littoral cell, not individual settlements in isolation."
+      },
+      {
+        name: "Medmerry Managed Retreat",
+        location: "West Sussex, UK (Solent coastline)",
+        context: "Largest managed realignment scheme in Europe (2013). 183 hectares of farmland deliberately flooded to create saltmarsh and intertidal habitat, allowing the shingle barrier beach to be abandoned.",
+        points: [
+          { text: "<strong>£28 million cost</strong> — but estimated to save £300+ million in future hard engineering costs. Demonstrates long-term economic case for soft engineering." },
+          { text: "<strong>7km of new intertidal habitat</strong> created — saltmarsh absorbs 70–90% of wave energy and supports biodiversity (wading birds, invertebrates). Triple benefit: coastal defence, habitat, carbon sink." },
+          { text: "<strong>300 homes and Pagham Harbour SSSI</strong> protected — new earth embankment built 1km inland, relocating the line of defence without expensive sea wall maintenance." },
+          { text: "<strong>EU Water Framework Directive and Habitats Directive</strong> compliance — EU policy drivers required compensation habitat for losses elsewhere. Political context shapes coastal management decisions." }
+        ],
+        significance: "✦ Key argument: Managed retreat is more cost-effective and ecologically beneficial than hard engineering in the long run, but requires political will to remove protection from existing landowners."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Spit Formation — Step-by-Step",
+        steps: [
+          "Draw a straight coastline with a river estuary or bay opening — longshore drift runs left to right (prevailing wind from SW)",
+          "Show swash arriving at an angle and backwash perpendicular — sediment moves along beach in a zigzag pattern",
+          "At the estuary mouth, the coastline changes direction — wave energy drops → deposition begins",
+          "Draw a curved finger of sand/shingle extending across the estuary mouth — this is the spit growing in direction of LSD",
+          "The curved (recurved) tip forms because secondary waves from a different direction push the end of the spit around",
+          "Saltmarsh forms in the sheltered water behind the spit — low energy, fine sediment, vegetation colonises",
+          "Label: prevailing wind, direction of LSD, swash/backwash angles, recurved tip, saltmarsh, open sea vs sheltered water"
+        ]
+      },
+      {
+        title: "Cliff Retreat & Wave-Cut Platform Formation",
+        steps: [
+          "Draw a cliff face with a wave-cut notch at the base (formed by hydraulic action and abrasion at mean tide level)",
+          "Show the overhang above the notch — eventually collapses as notch deepens → cliff retreat",
+          "Draw the gently sloping wave-cut platform extending seaward from the base of the new cliff",
+          "Add: high tide line at the cliff base; low tide line at the outer edge of the platform",
+          "Show abrasion tools (pebbles) on the platform surface — they grind down the platform as waves carry them",
+          "Label: wave-cut notch, wave-cut platform, cliff face, mean high water, mean low water, direction of cliff retreat (arrows)"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Hard vs Soft Engineering — Evaluation Chain",
+        chain: "Hard engineering (e.g. sea wall) → reflects wave energy → protects settlement immediately → BUT: does not address sediment supply → downdrift erosion accelerates → neighbouring communities lose beach → conflict between protected and unprotected areas → maintenance costs increase over time → as sea level rises, hard structures must be raised → increasingly expensive cycle",
+        evals: [
+          "Soft engineering (beach nourishment, managed retreat) works with natural processes — more sustainable but requires ongoing investment and public acceptance of losing some land",
+          "The decision between hard and soft is rarely purely technical — property values, political pressure from landowners and local councillors often override the most cost-effective option",
+          "ICZM (Integrated Coastal Zone Management) attempts to coordinate decisions across the whole cell — but in practice, jurisdiction is fragmented between local authorities, the Environment Agency and private landowners"
+        ],
+        mistake: "Don't say soft engineering is always better — some high-value settlements or infrastructure (power stations, hospitals) genuinely require hard protection. Evaluate by context and time scale."
+      },
+      {
+        heading: "Sea Level Rise & Coastal Vulnerability",
+        chain: "Global warming → ice sheet and glacier melt → eustatic sea level rise (IPCC projection: 0.3–1m by 2100) → low-lying coasts at increased flood risk → storm surge events more frequent and severe → coastal erosion rates accelerate → combined with isostatic sinking in SE England → Thames Estuary particularly vulnerable → requires upgraded defences (Thames Barrier has been raised increasingly often: 4 times 1990s → 50+ times 2010s)",
+        evals: [
+          "Rate of sea level rise is not uniform globally — thermal expansion of oceans, local land subsidence (groundwater extraction, sediment compaction) and ice melt distribution all cause regional variation",
+          "Small island developing states (SIDS) — e.g. Maldives, Tuvalu — face existential threat from even moderate sea level rise, raising questions of climate justice and managed migration",
+          "Uncertainty in projections makes long-term planning difficult — engineers must design for multiple scenarios, increasing costs"
+        ],
+        mistake: "Distinguish eustatic (global sea level) from isostatic (local land) changes — SE England is experiencing both (sea rising + land sinking) while Scotland experiences isostatic uplift which partially offsets eustatic rise."
+      }
+    ],
+    quiz: [
+      { q: "Longshore drift moves sediment in the direction of:", opts: ["The backwash", "The prevailing wind and dominant wave direction", "The offshore current", "The steepest beach gradient"], correct: 1, exp: "Swash arrives at an angle determined by prevailing wind direction; backwash returns perpendicular to shore. This zigzag movement transports sediment along the coast in the direction of the prevailing wind." },
+      { q: "Holderness is eroding rapidly mainly because:", opts: ["It faces high Atlantic fetch and is made of hard granite", "It is composed of soft glacial till (boulder clay) with high North Sea fetch and a negative sediment budget", "Hard engineering groynes are accelerating erosion", "It is experiencing isostatic uplift"], correct: 1, exp: "Weak boulder clay cliffs + powerful North Sea storm waves + negative sediment budget (offshore loss of fine material) = rapid erosion at 1–2m/year. The glacial origin of the material explains its lack of resistance." },
+      { q: "Managed retreat is best described as:", opts: ["Building higher sea walls to hold the current coastline", "Allowing controlled coastal flooding, creating intertidal habitat as a natural sea defence", "Dredging offshore material to nourish beaches", "Removing groynes to restore natural sediment movement"], correct: 1, exp: "Managed retreat (or managed realignment) deliberately breaches sea defences to allow low-lying land to flood, creating saltmarsh that absorbs wave energy. It is cost-effective and creates habitat but requires abandoning some land." },
+      { q: "A negative sediment budget on a coastline means:", opts: ["More sediment is being added than removed, causing accretion", "More sediment is being removed than added, causing erosion to accelerate", "The sediment supply is exactly balanced by erosion", "Sediment is only moved offshore, not along the coast"], correct: 1, exp: "Negative sediment budget: outputs (e.g. offshore transport, material leaving the littoral cell) exceed inputs (cliff erosion, river supply). Result: beach volume decreases → less natural protection → accelerated erosion." }
+    ],
+    quickPrompts: ["Explain the sequence of landforms from a headland being eroded", "How do groynes cause problems for neighbouring beaches?", "Evaluate managed retreat as a coastal management strategy"]
+  },
+  {
+    id: 2, week: "Topic 3", type: "physical",
+    title: "The Water Cycle & Water Insecurity",
+    focus: "Global hydrological cycle, drainage basins, water insecurity causes and management",
+    topics: [
+      { title: "The Global Hydrological Cycle", body: "A closed system — water moves between stores (oceans, ice caps, groundwater, atmosphere) via flows/fluxes (evaporation, precipitation, transpiration, run-off, infiltration). Oceans hold 97% of water; only 3% freshwater of which 2.1% in ice caps/glaciers. Climate change alters cycle intensity: warmer atmosphere holds more moisture → more intense precipitation events." },
+      { title: "Drainage Basin as a System", body: "An open system: inputs (precipitation), stores (soil, rock, vegetation, channels), flows (throughflow, groundwater flow, surface run-off), and outputs (evapotranspiration, river discharge). Storm hydrograph shows response to precipitation: lag time, peak discharge, rising and falling limbs. Factors affecting hydrograph: soil type, vegetation, rock permeability, urbanisation." },
+      { title: "Water Insecurity: Causes", body: "Water stress: <1,700m³ per person per year. Physical scarcity: naturally arid regions (Middle East, sub-Saharan Africa). Economic scarcity: water exists but infrastructure to access it is lacking (much of sub-Saharan Africa). Growing demand: population growth, urbanisation, agriculture (70% of global freshwater use), industry. Climate change intensifies drought and flood cycles." },
+      { title: "Water Management", body: "Supply-side: large dams and reservoirs (reliable but expensive, displaces communities, alters ecology), inter-basin water transfer, desalination (expensive, energy-intensive). Demand-side: pricing, irrigation efficiency (drip vs flood), grey water recycling. International agreements needed for trans-boundary rivers (e.g. Nile, Colorado, Mekong). UN SDG 6: clean water and sanitation for all by 2030." }
+    ],
+    keyTerms: [
+      { term: "Evapotranspiration", def: "The combined loss of water from land surfaces through evaporation (from soil, water bodies) and transpiration (from plant leaves). The largest output from a drainage basin in humid climates.", tip: "Hot + dry + vegetation-rich = high ET. A forest removes more water than a grass field — deforestation alters the water balance." },
+      { term: "Infiltration capacity", def: "The maximum rate at which soil can absorb rainfall. When rainfall intensity exceeds infiltration capacity → overland flow (surface run-off) → faster hydrograph response, higher flood risk.", tip: "Urban surfaces (tarmac, concrete) have near-zero infiltration capacity → rapid run-off → flash flooding. Mention in urbanisation context." },
+      { term: "Lag time", def: "The time delay between peak rainfall and peak discharge on a storm hydrograph. Short lag time = flashy response = higher flood risk.", tip: "Deforestation, urbanisation, steep slopes and impermeable rock all shorten lag time. Clay soils shorten lag; sandy soils lengthen it." },
+      { term: "Water stress", def: "Defined as freshwater availability below 1,700m³ per person per year. Below 1,000m³ = water scarcity. Below 500m³ = absolute scarcity.", tip: "The UN threshold figures are widely cited in exam answers — give them precisely with units." },
+      { term: "Virtual water", def: "The hidden water embedded in the production of food and goods — e.g. 1kg of beef requires ~15,500 litres of water to produce. Water-scarce countries 'import' water through trade.", tip: "Saudi Arabia used its fossil groundwater for wheat production, then switched to importing wheat — importing virtual water instead of pumping." },
+      { term: "Groundwater depletion", def: "Over-abstraction of groundwater from aquifers at rates exceeding natural recharge — aquifer levels fall, land subsides, wells dry up. Often irreversible on human timescales.", tip: "Ogallala Aquifer (US Great Plains) is being depleted at 100× recharge rate — threatens American food production. Good HIC example." }
+    ],
+    casestudies: [
+      {
+        name: "Colorado River — Over-abstraction and Trans-boundary Conflict",
+        location: "USA and Mexico (7 US states, 1 Mexican state)",
+        context: "The Colorado River once flowed into the Gulf of California. Today it rarely reaches the sea. Water allocated to 7 states plus Mexico under the 1922 Colorado River Compact — allocations agreed when the river was in an unusually wet period and have proved unsustainable.",
+        points: [
+          { text: "<strong>Lake Mead (Hoover Dam reservoir)</strong> fell to 27% capacity by 2022 — triggering first-ever Tier 1 water shortage declaration, forcing cuts to Arizona and Nevada allocations." },
+          { text: "<strong>Agriculture uses 80%</strong> of Colorado water — alfalfa (hay crop for cattle) is the single biggest user, much of it grown in the desert to export to Asia. Highlights virtual water and agricultural inefficiency." },
+          { text: "<strong>Mexico receives just 10%</strong> of original river flow under the 1944 treaty — the Colorado Delta ecosystem has largely collapsed; the river rarely reaches the sea since the 1960s." },
+          { text: "<strong>Las Vegas</strong> recycles 93% of indoor water back to Lake Mead — progressive demand management. Agriculture refuses to engage with comparable efficiency improvements." },
+          { text: "<strong>Climate change projections</strong>: Colorado Basin likely to lose 30–50% of average flows by 2100 — making existing allocations even more unsustainable." }
+        ],
+        significance: "✦ Key argument: Water insecurity in the Colorado Basin is primarily a governance and political failure, not a physical shortage — water is misallocated due to historical agreements and powerful agricultural interests."
+      },
+      {
+        name: "Ethiopia's Grand Renaissance Dam (GERD)",
+        location: "Blue Nile, Ethiopia / downstream: Sudan and Egypt",
+        context: "The 6,450MW Grand Ethiopian Renaissance Dam, Africa's largest hydroelectric dam — completed 2022. Ethiopia sees it as essential for development. Egypt fears a significant reduction in Nile flows (97% of Egypt's freshwater comes from the Nile).",
+        points: [
+          { text: "<strong>Egypt's threat perception</strong>: Nile flows could drop by 25% during dam filling years. Egypt has historically threatened military action to protect Nile access — a genuine water conflict risk." },
+          { text: "<strong>Ethiopia's perspective</strong>: 65% of population lacks electricity access. GERD will double Ethiopia's power capacity and enable industrial development — a sovereign development right." },
+          { text: "<strong>No binding agreement</strong> as of 2024 — multiple rounds of AU-mediated talks have failed. Illustrates difficulty of trans-boundary water governance without legal framework." },
+          { text: "<strong>Sudan's ambiguous position</strong>: benefits from flood control and GERD power supply, but fears sudden water release. Shows that water politics are rarely simple bilateral conflicts." }
+        ],
+        significance: "✦ Key argument: Trans-boundary water conflicts arise when upstream development interests clash with downstream security needs — resolving them requires international law and political compromise, not just engineering solutions."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Storm Hydrograph — How to Draw and Annotate",
+        steps: [
+          "Draw axes: vertical = discharge (cumecs/m³/s); horizontal = time (hours after start of storm)",
+          "Draw a bar graph of rainfall above the main graph — rising bars during storm, then stopping",
+          "Plot the hydrograph curve: starts low (baseflow), rises steeply to peak discharge, then falls more gradually (recession limb)",
+          "Mark: lag time (horizontal arrow from peak rainfall to peak discharge), rising limb, falling/recession limb, peak discharge (point at top of curve), baseflow (flat line before storm and long after)",
+          "Annotate a second hydrograph (dashed) showing the effect of urbanisation: shorter lag time, higher peak, steeper rising limb — to illustrate human impact comparison",
+          "Label units on both axes and add a key if showing multiple curves"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Physical vs Economic Water Scarcity — Key Distinction",
+        chain: "Physical scarcity: genuinely arid region → precipitation < evapotranspiration → groundwater reserves limited → population growing faster than water availability → water stress inevitable without massive supply-side investment → e.g. Arabian Peninsula, North Africa",
+        evals: [
+          "Economic scarcity (e.g. sub-Saharan Africa): water physically exists — annual rainfall adequate — but infrastructure to capture, treat and distribute it is absent due to poverty, conflict and governance failures. Requires different solutions (investment in distribution, not desalination)",
+          "The distinction matters for policy: confusing the two leads to expensive supply-side projects in regions where demand management and infrastructure investment are more appropriate",
+          "Climate change blurs the distinction: regions with adequate rainfall today may face physical scarcity by 2050 as precipitation patterns shift — planning must account for future scenarios"
+        ],
+        mistake: "Never just say a country 'has water stress' without specifying whether it is physical or economic scarcity — the causes and solutions are fundamentally different and examiners expect this distinction."
+      },
+      {
+        heading: "Large Dams — Development Tool or Disaster?",
+        chain: "Dam constructed → reliable water storage → irrigation of dry season farming → food security improves → hydroelectric power generated → industrial development enabled → BUT: upstream reservoir floods settlements and farmland → population displaced (often indigenous or poor communities) → downstream sediment supply cut → delta erosion accelerates → fish migration blocked → ecosystem disruption",
+        evals: [
+          "Three Gorges Dam (China): 1.4 million displaced, Yangtze ecosystem severely altered — but 22.5GW of power displaces coal-fired generation → complex net environmental calculus",
+          "World Bank increasingly withdraws from large dam funding due to social and environmental concerns — shift to smaller, distributed water storage and demand management in LICs",
+          "In many LICs, dams are built by Chinese firms with Chinese loans under Belt and Road Initiative — debt burden raises long-term development questions beyond the immediate water/energy gains"
+        ],
+        mistake: "Avoid simplistic 'dams are bad' conclusions. Evaluate specifically: who benefits, who loses, what is the counterfactual (what happens without the dam) and over what time scale."
+      }
+    ],
+    quiz: [
+      { q: "Water stress is defined by the UN as freshwater availability below:", opts: ["500m³ per person per year", "1,000m³ per person per year", "1,700m³ per person per year", "3,000m³ per person per year"], correct: 2, exp: "1,700m³/person/year = water stress threshold. Below 1,000m³ = water scarcity. Below 500m³ = absolute scarcity. These figures are standard UN/World Resources Institute thresholds frequently tested in exams." },
+      { q: "A shorter lag time on a storm hydrograph is most likely caused by:", opts: ["Dense forest cover and high soil permeability", "Urbanisation, impermeable surfaces and steep slopes", "Flat floodplain topography and deep soil", "Low rainfall intensity and long duration storms"], correct: 1, exp: "Urban surfaces (tarmac, roofs) prevent infiltration → rapid surface run-off → water reaches channels quickly → short lag time → flashy hydrograph → higher flood risk. Deforestation also shortens lag time." },
+      { q: "Virtual water refers to:", opts: ["Water that evaporates before it can be used by humans", "The water embedded in the production of food and manufactured goods", "Desalinated water that is not yet potable", "Groundwater that cannot be extracted economically"], correct: 1, exp: "Virtual water is the hidden water cost of production — 1kg beef ≈ 15,500 litres. Countries with physical water scarcity can effectively import water by buying water-intensive goods rather than producing them domestically." },
+      { q: "The Colorado River conflict is best characterised as a problem of:", opts: ["Physical water scarcity caused by climate change alone", "Governance failure — over-allocation of water rights combined with inefficient agricultural use", "Industrial water pollution destroying usable supplies", "International military conflict over river access"], correct: 1, exp: "The Colorado was over-allocated in 1922 (wet period); agriculture uses 80% of water inefficiently (flood irrigation of alfalfa in the desert). The physical water exists — the problem is how rights are allocated and who has power to enforce change." }
+    ],
+    quickPrompts: ["Explain the difference between physical and economic water scarcity with examples", "Draw and explain a storm hydrograph showing the effect of urbanisation", "Evaluate large dams as a solution to water insecurity"]
+  },
+  {
+    id: 3, week: "Topic 4", type: "physical",
+    title: "The Carbon Cycle & Energy Security",
+    focus: "Carbon stores, fluxes, human impacts on the cycle and global energy transitions",
+    topics: [
+      { title: "Carbon Stores & Fluxes", body: "Major stores: lithosphere (fossil fuels, rocks — largest, slowest), oceans (dissolved CO₂, marine organisms), biosphere (plants, soil), atmosphere (CO₂, CH₄). Key fluxes: photosynthesis (atmosphere → biosphere), respiration and decomposition (biosphere → atmosphere), ocean-atmosphere exchange, weathering (slow flux from rocks). Human emissions accelerate atmospheric flux." },
+      { title: "Human Impacts on the Carbon Cycle", body: "Burning fossil fuels: releases carbon stored over millions of years in decades → rapid atmospheric CO₂ rise (280ppm pre-industrial → 422ppm 2024). Deforestation: removes biosphere store → biomass burning releases carbon + less photosynthesis. Agriculture: cattle and rice paddies release CH₄ (methane, 28× warming effect of CO₂ over 100 years). Peatland drainage: exposes stored organic carbon to decomposition." },
+      { title: "Energy Mix & Energy Security", body: "Energy security: uninterrupted access to affordable energy. Energy mix varies by country: Norway (97% renewable hydro), Germany (mix of renewables + coal), Saudi Arabia (oil-dependent). Energy insecurity drives geopolitical tension (Russia-Ukraine gas conflict), affects economic development and inequality. Energy trilemma: sustainability vs security vs affordability." },
+      { title: "Mitigation & Adaptation Strategies", body: "Mitigation: carbon capture and storage (CCS), afforestation/reforestation, renewable energy transition, carbon taxes/trading (EU ETS). Adaptation: flood defences, heat-resistant crops, drought-resistant agriculture. Tension between mitigation (global benefit, long-term) and adaptation (local benefit, short-term, addresses symptoms not causes). Paris Agreement 2015: 1.5–2°C target." }
+    ],
+    keyTerms: [
+      { term: "Carbon flux", def: "The rate of transfer of carbon between stores, measured in gigatonnes of carbon per year (GtC/yr). The net terrestrial flux and ocean uptake partially offset human emissions.", tip: "Oceans absorb ~25–30% of human CO₂ emissions annually — an ecosystem service worth quantifying in essays on carbon management." },
+      { term: "Net Primary Productivity (NPP)", def: "The rate at which plants convert CO₂ into organic matter through photosynthesis, minus respiration losses. High NPP = large carbon sink. Tropical rainforests have the highest NPP globally.", tip: "Deforestation destroys the highest-NPP ecosystems — a double hit: stored carbon released AND future carbon sink destroyed." },
+      { term: "Albedo", def: "The reflectivity of a surface — expressed as a fraction of incoming solar radiation reflected back. Ice/snow: high albedo (~0.8). Ocean: low albedo (~0.06). Deforestation replaces dark forest (low albedo) with lighter crops → initially increases albedo — complicates net warming calculation.", tip: "Positive feedback: Arctic sea ice melts → dark ocean exposed → lower albedo → more heat absorbed → more melting." },
+      { term: "Carbon sequestration", def: "The long-term removal and storage of atmospheric CO₂ — natural (photosynthesis, ocean absorption, rock weathering) or engineered (CCS — compressing CO₂ and injecting underground into geological formations).", tip: "Geological CCS is unproven at scale and expensive. Nature-based solutions (peatland restoration, mangroves) often more cost-effective per tonne of CO₂." },
+      { term: "Energy security", def: "The uninterrupted availability of energy sources at an affordable price. Threatened by: dependence on imports, geopolitical instability in supplier countries, supply chain disruption, price volatility.", tip: "UK North Sea oil and gas decline → increasing import dependence → energy security concerns driving offshore wind investment." },
+      { term: "Energy trilemma", def: "The three competing objectives in energy policy: sustainability (low carbon), security (reliable supply) and affordability (low cost). Maximising all three simultaneously is extremely difficult — trade-offs are inevitable.", tip: "France: nuclear power scores well on security and affordability but raises sustainability concerns (waste). Coal: affordable and secure but unsustainable. Structure your energy policy evaluation around this trilemma." }
+    ],
+    casestudies: [
+      {
+        name: "Amazon Deforestation & the Carbon Cycle",
+        location: "Amazon Basin, Brazil (largest tropical rainforest — 5.5 million km²)",
+        context: "The Amazon contains 10% of all carbon stored in terrestrial ecosystems. Deforestation (mainly for cattle ranching and soy agriculture) has destroyed 20% of the original forest. Scientists warn of a tipping point beyond which the forest self-destructs.",
+        points: [
+          { text: "<strong>2.3 million km² deforested</strong> by 2023 — mainly in Brazil's 'arc of deforestation' (Mato Grosso, Pará). Bolsonaro era (2019–22) saw deforestation rates double." },
+          { text: "<strong>Carbon released</strong>: eastern Amazon is now a net carbon source (emits more than it absorbs) due to deforestation and climate-change-induced droughts and fires — a critical tipping point." },
+          { text: "<strong>Feedback loops</strong>: reduced transpiration → less rainfall recycling → drier conditions → more fires → more deforestation. Regional climate is already changing in SE Amazon." },
+          { text: "<strong>Lula government (2023)</strong> reduced deforestation by 50% through law enforcement and indigenous land demarcation — shows political will can rapidly reverse trends." },
+          { text: "<strong>REDD+ mechanism</strong>: international payments to Brazil for verified carbon sequestration — financial incentive for conservation rather than deforestation. Norway paid $1.2bn to Amazon Fund." }
+        ],
+        significance: "✦ Key argument: Amazon deforestation is both a carbon cycle disaster and a development dilemma — the world wants Brazil to preserve the forest, but Brazilian farmers need income. Solutions require international finance and fair trade rules."
+      },
+      {
+        name: "Germany's Energiewende (Energy Transition)",
+        location: "Germany (Europe's largest economy)",
+        context: "Germany's 'Energiewende' (energy transition) policy: phasing out nuclear power (completed 2023) and fossil fuels while expanding renewables. Aims for 80% renewable electricity by 2030.",
+        points: [
+          { text: "<strong>Renewable share hit 62% of electricity in 2023</strong> — wind (onshore + offshore) is now the largest single source, overtaking coal for the first time." },
+          { text: "<strong>Nuclear phase-out controversy</strong>: closing low-carbon nuclear in 2023 temporarily increased coal burning — a policy decision that worsened short-term CO₂ emissions while maintaining long-term renewable trajectory." },
+          { text: "<strong>Russian gas dependency exposed by Ukraine invasion 2022</strong>: Germany imported 55% of gas from Russia → energy crisis → rush to build LNG terminals, highlighting the security vs sustainability trade-off." },
+          { text: "<strong>Citizen energy cooperatives (Bürgerenergiegenossenschaften)</strong>: 1,000+ community-owned renewable projects — demonstrates social acceptance model for energy transition." },
+          { text: "<strong>Cost</strong>: German household electricity prices are among Europe's highest — affordability tension in the energy trilemma, affecting lower-income households disproportionately." }
+        ],
+        significance: "✦ Key argument: Germany's Energiewende demonstrates that rapid renewable transition is technically possible in a major industrial economy, but governance decisions (nuclear phase-out) and geopolitical dependencies create significant vulnerabilities."
+      }
+    ],
+    diagrams: [
+      {
+        title: "The Carbon Cycle — Key Stores and Fluxes",
+        steps: [
+          "Draw four main stores as boxes: Atmosphere (top centre), Biosphere (left), Lithosphere/geosphere (bottom), Oceans (right)",
+          "Between atmosphere and biosphere: bidirectional arrows — photosynthesis (C into biosphere), respiration and decomposition (C back to atmosphere)",
+          "Between atmosphere and oceans: bidirectional arrows — CO₂ dissolves into ocean (solubility pump), outgassing when ocean warms",
+          "Between lithosphere and atmosphere: slow weathering (very thin arrow), human emissions from fossil fuels (thick arrow — emphasise anthropogenic flux is geologically instant)",
+          "Add annual flux figures in GtC/yr: photosynthesis ≈ 120 GtC/yr, human emissions ≈ 10 GtC/yr, ocean uptake ≈ 2.5 GtC/yr",
+          "Highlight in red the anthropogenic additions — burning fossil fuels, deforestation — to show where the cycle is being disrupted"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Positive Feedback Loops in Climate Change — Reasoning Chain",
+        chain: "Global warming → Arctic sea ice melts → lower albedo (dark ocean replaces white ice) → more solar radiation absorbed → further warming → more ice melts → reinforcing cycle. ALSO: permafrost thaws → frozen organic matter decomposes → releases methane (CH₄) and CO₂ → further atmospheric warming → further permafrost thaw",
+        evals: [
+          "These feedback loops mean warming may be significantly non-linear — tipping points beyond which feedbacks become self-sustaining even if human emissions stopped. Arctic permafrost stores twice the carbon currently in the atmosphere",
+          "Ocean acidification as a parallel consequence: CO₂ dissolved in oceans → carbonic acid → pH falls → coral reefs and shellfish dissolve → marine food chain disrupted → loss of ocean's carbon sink capacity → less natural buffering of atmospheric CO₂",
+          "The IPCC uses 'likely', 'very likely' language carefully — uncertainty about the threshold at which feedbacks become irreversible is a significant policy complication"
+        ],
+        mistake: "Positive feedback doesn't mean good — in climate science it means self-reinforcing (amplifying). Always define the term before using it in an essay to demonstrate you understand the precise meaning."
+      },
+      {
+        heading: "Mitigation vs Adaptation — Policy Trade-off",
+        chain: "Mitigation (e.g. renewables, CCS) → reduces future emissions → slows or halts warming → global public good (benefits all countries regardless of who pays) → free-rider problem → difficult to achieve international agreement → Paris Agreement non-binding targets → insufficient action → warming continues regardless → adaptation also required",
+        evals: [
+          "Adaptation (flood defences, drought crops, cooling centres) addresses existing and near-term climate impacts — nationally beneficial regardless of what other countries do → stronger national incentive to invest vs mitigation",
+          "The poorest and most vulnerable countries contribute least to emissions but bear the greatest adaptation costs — climate justice argument for Loss and Damage payments (agreed at COP27 2022 but underfunded)",
+          "Some mitigation strategies have co-benefits: afforestation sequesters carbon AND provides watershed protection, biodiversity habitat and local cooling — these synergies strengthen the economic case"
+        ],
+        mistake: "Don't treat mitigation and adaptation as alternatives — both are necessary and complementary. An essay that concludes 'we should focus on mitigation not adaptation' misses the reality that adaptation is already urgently needed for climate change that has already occurred."
+      }
+    ],
+    quiz: [
+      { q: "Which carbon store contains the largest amount of carbon but with the slowest flux rates?", opts: ["The atmosphere", "The biosphere (living organisms and soil)", "The lithosphere (fossil fuels and carbonate rocks)", "The oceans"], correct: 2, exp: "The lithosphere contains the most carbon (fossil fuels, carbonate rocks) but turnover is geologically slow — millions of years for carbon to cycle through volcanic outgassing and weathering. Human extraction of fossil fuels dramatically accelerates the flux from this store." },
+      { q: "Deforestation affects the carbon cycle in which ways?", opts: ["Increases photosynthesis; reduces respiration", "Reduces the biosphere carbon store and releases stored carbon via burning and decomposition, while also reducing future carbon sequestration", "Only affects local climate, not the global carbon cycle", "Reduces albedo, causing global cooling"], correct: 1, exp: "Deforestation: (1) destroys existing biosphere store — stored carbon released as CO₂ when burned/decomposed, (2) reduces future photosynthesis capacity — smaller ongoing carbon sink, (3) often replaces dark forest with lighter crops — increases albedo but this is a minor effect vs carbon loss." },
+      { q: "Germany's Energiewende is best used as an example of:", opts: ["A country that successfully achieved zero carbon emissions through policy intervention", "A major industrial economy attempting rapid renewable transition, facing trade-offs between sustainability, security and affordability", "The failure of renewable energy to replace fossil fuels in cold climates", "An LIC energy poverty challenge"], correct: 1, exp: "Germany shows the energy trilemma in action: renewables address sustainability (partial success); Russian gas dependence exposed energy security failure; high household electricity prices show affordability tension. No single dimension is fully achieved." },
+      { q: "A positive feedback loop in climate science means:", opts: ["A beneficial environmental change that improves ecosystem health", "A self-reinforcing cycle that amplifies the original change — e.g. warming → ice melt → lower albedo → more warming", "Government policies that reward carbon reduction", "Ocean absorption of CO₂ slowing global warming"], correct: 1, exp: "Positive feedback = amplifying, not beneficial. The ice-albedo feedback, permafrost methane release and water vapour feedback all amplify initial warming — they do not stabilise the system. Understanding this distinction is fundamental to climate science." }
+    ],
+    quickPrompts: ["Explain the ice-albedo positive feedback loop in detail", "What is the energy trilemma and how does it apply to Germany?", "Evaluate carbon capture and storage as a climate mitigation strategy"]
+  },
+  {
+    id: 4, week: "Topic 5", type: "human",
+    title: "Globalisation",
+    focus: "Causes, dimensions and uneven impacts of globalisation; TNCs and cultural change",
+    topics: [
+      { title: "Causes & Drivers of Globalisation", body: "Technology: containerisation (standardised shipping → 90% of world trade), internet and telecommunications (real-time global communication), cheap air travel. Trade liberalisation: WTO, trade blocs (EU, ASEAN, NAFTA) reduce tariffs and barriers. Deregulation of financial markets (1980s Big Bang in UK) → global capital flows. TNCs seek cheapest production and largest markets globally." },
+      { title: "Transnational Corporations (TNCs)", body: "TNCs operate in multiple countries: headquarters in HIC, manufacturing in LIC (cheap labour, weak regulation). Global production networks: each stage of production in different country (Apple designs in USA, manufactures in China, sells globally). Positive local impacts: employment, skills, infrastructure. Negative: profit repatriation, low wages, environmental degradation, tax avoidance." },
+      { title: "Winners & Losers from Globalisation", body: "Winners: skilled workers and consumers in HICs (cheap goods); emerging economies with export growth (China, South Korea). Losers: unskilled workers in HICs (deindustrialisation, manufacturing job losses); low-wage workers in LICs (exploitation, poor conditions). Growing inequality: Gini coefficient rising in many countries. Washington Consensus (trade liberalisation, privatisation) promoted by World Bank criticised for imposing Western model." },
+      { title: "Cultural & Environmental Impacts", body: "Cultural homogenisation: global brands (McDonald's, Netflix), English as lingua franca, Westernisation of media → threat to local languages and cultures. Cultural hybridity (glocalisation): global brands adapt to local markets (McAloo Tikki in India). Environmental: global supply chains → carbon footprint of trade; e-waste shipped to LICs; deforestation for commodity crops (soy, palm oil) serving global demand." }
+    ],
+    keyTerms: [
+      { term: "Containerisation", def: "The standardisation of shipping containers (20ft and 40ft TEU) enabling rapid, mechanised transfer between ships, trucks and trains — dramatically reduced shipping costs and time, enabling modern global supply chains.", tip: "Containerisation reduced the cost of shipping a TV set from Asia to the UK by 99% in real terms since the 1960s — a key driver of global trade growth." },
+      { term: "TNC (Transnational Corporation)", def: "A company that operates production, distribution or sales across multiple countries. Characterised by a global production network, significant FDI, and ability to shift operations between countries to minimise costs and taxes.", tip: "Distinguish TNC from MNC (multinational) — TNCs have fully integrated global production, not just overseas sales. Apple is a TNC; a British company exporting goods is not." },
+      { term: "Foreign Direct Investment (FDI)", def: "Investment made by a firm or individual in one country into business interests in another country — typically building factories, buying firms, or establishing operations. Distinct from portfolio investment (buying shares).", tip: "China is the world's largest recipient of FDI from the 1990s to 2010s — this enabled its manufacturing growth. FDI flows indicate where global capital goes and why." },
+      { term: "Glocalisation", def: "The adaptation of global products and practices to local cultural contexts — combining globalisation and localisation. TNCs modify products and marketing for different national markets.", tip: "McDonald's serves McAloo Tikki (India), McRice (Philippines), Teriyaki Burger (Japan) — this is glocalisation. Shows globalisation doesn't simply homogenise culture." },
+      { term: "Time-space compression", def: "The process by which technological advances in transport and communication appear to shrink the world — reducing the effective distance between places and the time taken to move goods, people and information.", tip: "David Harvey's concept — use to explain why globalisation accelerated after the internet and cheap air travel, not just trade liberalisation." },
+      { term: "Washington Consensus", def: "A set of economic policies promoted by the World Bank and IMF for developing countries: trade liberalisation, privatisation, deregulation, fiscal austerity. Associated with structural adjustment programmes of the 1980s–90s.", tip: "Controversial — critics argue it imposed Western economic models and increased poverty in sub-Saharan Africa and Latin America during the 1980s. Post-Washington Consensus acknowledges limitations." }
+    ],
+    casestudies: [
+      {
+        name: "Apple Inc. as a Global TNC",
+        location: "Headquartered: Cupertino, California, USA. Manufacturing: Foxconn factories in China, Taiwan, India",
+        context: "Apple exemplifies the global production network model: designed in California, components sourced globally (rare earth minerals from DRC, lithium from Chile, glass from USA/Japan), assembled in China (Foxconn/Pegatron), sold worldwide.",
+        points: [
+          { text: "<strong>iPhone components from 43 countries</strong> — illustrates global supply chain complexity. Apple controls design and branding (high-value) while outsourcing low-margin assembly." },
+          { text: "<strong>Foxconn employs 1.2 million workers</strong> in China — wages have risen due to labour shortages and activism, pushing Apple to diversify to India and Vietnam." },
+          { text: "<strong>$3 trillion valuation (2022)</strong> — yet Apple pays an effective tax rate of 3% in Ireland (EU headquarters) via tax avoidance structures. Ireland attracted Apple with low 12.5% corporate tax rate." },
+          { text: "<strong>E-waste</strong>: 55 million tonnes of electronic waste globally per year — much shipped to Agbogbloshie, Ghana or Guiyu, China where workers extract metals in toxic conditions." },
+          { text: "<strong>Rare earth minerals</strong>: cobalt for batteries sourced from DRC where child labour and dangerous artisanal mining conditions are documented — illustrates 'dark side' of global supply chain." }
+        ],
+        significance: "✦ Key argument: Apple's global production network creates value for shareholders and US workers but externalises costs onto manufacturing workers in LICs and the global environment — the geography of profit does not match the geography of harm."
+      },
+      {
+        name: "China's Rise through Globalisation",
+        location: "People's Republic of China — world's second-largest economy",
+        context: "China's 'reform and opening up' (Deng Xiaoping, 1978 onwards) made it the world's manufacturing hub. WTO accession in 2001 was the pivotal moment — access to global markets + cheap labour + FDI attracted 40 years of rapid growth.",
+        points: [
+          { text: "<strong>800 million people lifted out of poverty</strong> between 1981 and 2021 — the largest poverty reduction in human history, driven by export-led growth." },
+          { text: "<strong>GDP growth averaged 10% per year for 30 years</strong> (1980–2010) — enabled by FDI inflows, cheap labour and integration into global supply chains via special economic zones (Shenzhen)." },
+          { text: "<strong>Manufacturing wages rose 10-15× in real terms since 1990s</strong> — China is now losing labour-intensive manufacturing to Vietnam, Bangladesh, Indonesia as it moves up the value chain." },
+          { text: "<strong>Belt and Road Initiative (BRI) from 2013</strong>: China now exports capital and infrastructure globally — role shifting from recipient to driver of globalisation." },
+          { text: "<strong>Environmental cost</strong>: rapid industrialisation caused severe air, water and soil pollution — 1.2 million premature deaths per year from air pollution (WHO data). Growth came at significant environmental cost." }
+        ],
+        significance: "✦ Key argument: China demonstrates that globalisation can accelerate development at an unprecedented scale — but the model required authoritarian governance, environmental sacrifice and suppression of labour rights that cannot be universally replicated."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Global Production Network — How to Diagram Apple",
+        steps: [
+          "Draw a world map outline (or simplified regions: North America, Europe, East Asia, South Asia, Africa)",
+          "Mark California (USA): R&D, design, marketing, legal — highest value-added, highest-paid workers",
+          "Mark China (Zhengzhou, Shenzhen): Foxconn assembly — low wages, high volumes, 'factory of the world'",
+          "Mark Taiwan: TSMC semiconductor fabrication — Apple Silicon chips",
+          "Mark DRC (Congo): cobalt mining for batteries — lowest wages, most dangerous conditions",
+          "Mark Ireland: European headquarters for tax purposes — low corporate tax rate",
+          "Draw arrows showing flows: components to China for assembly, finished products to global retail, profits to USA and Ireland",
+          "Label each node with what is done there and approximate share of final sale price captured"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Winners and Losers from Globalisation — Reasoning Chain",
+        chain: "Trade liberalisation → LIC manufacturing exports grow → FDI inflows → employment created → wages rise → poverty falls → consumers in HICs get cheaper goods → BUT: HIC manufacturing workers face competition from lower-wage countries → factories close → deindustrialisation → regional unemployment → wage stagnation for unskilled workers → political backlash (Brexit, Trump, anti-globalisation movements)",
+        evals: [
+          "The aggregate gains from trade are real (Ricardian comparative advantage) but distribution of gains is highly uneven — those who gain rarely compensate those who lose, increasing inequality within countries even as global inequality between countries falls",
+          "Globalisation's benefits in LICs are not universal: workers in export industries gain, but subsistence farmers may lose when cheap food imports undercut local agriculture",
+          "Anti-globalisation movements (2016 onwards: Brexit, Trump, rise of protectionism) reflect real economic pain among deindustrialised communities — a political geography consequence of uneven development"
+        ],
+        mistake: "Avoid binary 'globalisation is good/bad' framing. It creates winners and losers at multiple scales (global, national, regional, individual) and the net effect depends heavily on redistribution policies within countries."
+      },
+      {
+        heading: "Cultural Impacts — Homogenisation vs Hybridity",
+        chain: "Global media (Netflix, social media), TNCs (McDonald's, Starbucks) and English-language internet → cultural norms spread globally → local languages and traditions under pressure → linguistic diversity declining (50% of world's 7,000 languages predicted extinct by 2100) → BUT: communities resist and adapt → glocalisation → hybrid cultural forms emerge → K-pop globalises Korean culture → Bollywood reaches global audience",
+        evals: [
+          "Cultural homogenisation is not culturally neutral — it is primarily Americanisation/Westernisation of culture. The power relationship is unequal: Coca-Cola globalises, Ugandan sorghum beer does not",
+          "Internet and social media can reinforce local culture as much as global — YouTube hosts content in 80+ languages, enabling minority language communities to create and distribute content cheaply",
+          "Tourism commodifies local culture as a product for global consumption — this can both preserve and distort traditional practices depending on community control"
+        ],
+        mistake: "Glocalisation is not the same as globalisation — it specifically refers to the *adaptation* of global products to local contexts. Use the term precisely to show conceptual accuracy."
+      }
+    ],
+    quiz: [
+      { q: "Containerisation drove globalisation primarily by:", opts: ["Enabling cultural exchange between countries", "Dramatically reducing the cost and time of international freight shipping", "Increasing the speed of financial transactions", "Allowing digital goods to be distributed globally"], correct: 1, exp: "Standardised containers (TEUs) allow seamless transfer between ships, trains and trucks — mechanised loading/unloading replaced dock labour and reduced shipping costs by ~90% in real terms since the 1950s, making long-distance trade in physical goods economically viable." },
+      { q: "Glocalisation best describes:", opts: ["The process by which all cultures become identical due to global media", "The adaptation of global products and brands to local cultural and market contexts", "The localisation of global trade routes to reduce carbon emissions", "The migration of skilled workers from LICs to HICs"], correct: 1, exp: "Glocalisation = global + local. TNCs modify their products for local markets (McDonald's menu varies by country, Netflix produces local-language content) — cultural exchange is not simply one-way Americanisation." },
+      { q: "A key criticism of TNCs in LIC manufacturing locations is:", opts: ["They pay wages too high for local economies to sustain", "They transfer too much technology to local firms", "They repatriate profits to HIC headquarters while paying low wages and avoiding tax in host countries", "They only employ skilled workers, ignoring the unskilled poor"], correct: 2, exp: "TNC profit repatriation means much of the economic value created in LICs flows back to HIC shareholders. Combined with tax avoidance, low wages and regulatory arbitrage (exploiting weaker environmental/labour rules), the development benefit to host countries is significantly reduced." },
+      { q: "The Washington Consensus refers to:", opts: ["A 1945 agreement to establish the United Nations headquarters in Washington DC", "A set of economic policies (trade liberalisation, privatisation, deregulation) promoted by the World Bank/IMF for developing countries", "A military alliance between the USA and Western Europe", "The agreement to establish the World Trade Organisation"], correct: 1, exp: "The Washington Consensus (1989, John Williamson) listed 10 policy prescriptions for developing countries: fiscal discipline, trade liberalisation, privatisation, deregulation, etc. Strongly criticised for increasing inequality and poverty in countries where it was applied via structural adjustment programmes." }
+    ],
+    quickPrompts: ["Explain the global production network using Apple as an example", "Evaluate whether globalisation has been good for development in LICs", "What is glocalisation and how does it challenge cultural homogenisation arguments?"]
+  },
+  {
+    id: 5, week: "Topic 6", type: "human",
+    title: "Regenerating Places",
+    focus: "Measuring place, deindustrialisation, urban regeneration strategies and players",
+    topics: [
+      { title: "Understanding Place & Change", body: "Place: a location with meaning, identity and attachment. Quantitative indicators: unemployment rate, income, IMD (Index of Multiple Deprivation — 7 domains: income, employment, health, education, housing, crime, living environment). Qualitative indicators: perceptions, photographic evidence, oral histories. Places change over time: deindustrialisation transformed many UK northern cities and port areas." },
+      { title: "Deindustrialisation & Its Impacts", body: "Deindustrialisation: decline of manufacturing (coal, steel, textiles, shipbuilding) in HICs from 1970s. Causes: cheaper overseas production (globalisation), automation, North Sea oil reducing industrial competitiveness (Dutch Disease). Impacts: structural unemployment, population decline, urban decay, reduced tax base, health inequalities, skills mismatch. UK rustbelt: Sheffield (steel), Sunderland (shipbuilding), South Wales (coal)." },
+      { title: "Regeneration Strategies", body: "Property-led: flagship developments (Canary Wharf, London), cultural quarter rebranding, waterfront redevelopment. Community-led: local enterprise partnerships, social enterprise, training programmes. Government intervention: enterprise zones, City Deals, Levelling Up Agenda. Rebranding: using culture, sport or events to change place perception (Manchester music scene, Liverpool European Capital of Culture 2008)." },
+      { title: "Players, Attitudes & Actions", body: "Multiple stakeholders with competing interests: central government (economic growth, electoral politics), local councils (service delivery, planning), developers (profit), residents (community, affordability), businesses (investment environment). Gentrification: middle-class in-migration raises house prices → displaces existing low-income residents — contested outcome of regeneration. Communities of interest vs communities of place." }
+    ],
+    keyTerms: [
+      { term: "Index of Multiple Deprivation (IMD)", def: "An official UK government measure ranking every small area (LSOA) in England across 7 domains of deprivation: income, employment, health, education, housing, crime, living environment. Produces an overall deprivation ranking.", tip: "IMD decile 1 = most deprived 10% of areas. Use as quantitative evidence for any UK regeneration case study — it provides objective baseline data." },
+      { term: "Deindustrialisation", def: "The decline of the secondary (manufacturing) sector — particularly heavy industry — in HICs from the 1970s, driven by globalisation, automation and structural economic change from manufacturing to services.", tip: "In the UK: steel production fell 90% from peak. Sheffield lost 90,000 manufacturing jobs 1970–90. These figures give essays quantitative grounding." },
+      { term: "Gentrification", def: "The process by which a low-income urban area is transformed through the influx of more affluent residents and businesses — improving physical environment and raising property values, but often displacing original residents.", tip: "Brixton, Hackney and Shoreditch in London are textbook examples. Always evaluate: who benefits? Who is displaced? Is regeneration for the existing community or for newcomers?" },
+      { term: "Flagship development", def: "A large, high-profile regeneration project intended to attract investment, change place perception and stimulate further development in the surrounding area — relying on a multiplier effect.", tip: "Canary Wharf (London Docklands), The Sage (Gateshead), Liverpool waterfront. Question whether benefits 'trickle down' to deprived communities or simply gentrify the area." },
+      { term: "Multiplier effect (place context)", def: "In regeneration, investment creates jobs → workers spend wages locally → creates more jobs → local businesses grow → tax revenues increase → further investment possible. A virtuous cycle of regeneration.", tip: "Contrast with 'leakage': if workers commute in from outside the area and spend wages elsewhere, the multiplier is reduced. This is a key limitation of many flagship regeneration schemes." },
+      { term: "Levelling Up Agenda", def: "UK government policy (2019–) aiming to reduce spatial economic inequalities between regions — particularly between London/SE and the North and Midlands. Criticised as underfunded relative to the scale of regional inequality.", tip: "The UK has the highest regional inequality of any G7 country — GDP per head in Inner London is 4× the UK average. Levelling Up is the policy response — evaluate its effectiveness critically." }
+    ],
+    casestudies: [
+      {
+        name: "London Docklands Regeneration (LDDC 1981–98)",
+        location: "East London, UK — Isle of Dogs, Wapping, Surrey Docks",
+        context: "The Docklands were Europe's busiest port until containerisation made the docks obsolete (containers need deep-water berths outside London). By 1980, 150,000 jobs lost. The London Docklands Development Corporation (LDDC) — a quango — was established 1981 to lead regeneration without democratic accountability.",
+        points: [
+          { text: "<strong>Canary Wharf</strong> — 16 million sq ft of office space, 120,000 workers, home to HSBC, Barclays, JPMorgan. Transformed from derelict docks into global financial centre." },
+          { text: "<strong>£7.7 billion public investment</strong> (DLR, Jubilee Line extension, infrastructure) attracted £15bn+ of private investment — property-led, infrastructure-first model." },
+          { text: "<strong>Local community displacement</strong>: original working-class East End communities did not predominantly benefit — new jobs required financial sector skills. Housing prices increased, long-term residents priced out." },
+          { text: "<strong>100,000+ new homes</strong> built, but affordable housing proportion initially low. Community groups argued regeneration was for incomers, not existing residents (Bermondsey, Tower Hamlets)." },
+          { text: "<strong>ExCeL Centre and O2 Arena</strong> (downstream) extended regeneration east — 2012 Olympics legacy (Stratford) continued the eastward trajectory." }
+        ],
+        significance: "✦ Key argument: LDDC regeneration was economically successful (by GVA and employment measures) but socially inequitable — it demonstrates that regeneration and social inclusion are not automatically the same thing."
+      },
+      {
+        name: "Liverpool — Rebranding & Culture-led Regeneration",
+        location: "Liverpool, Merseyside, UK",
+        context: "Liverpool lost 33% of its population and the majority of its port-related employment between 1970 and 1990. Toxteth riots (1981) symbolised social crisis. Cultural assets (Beatles heritage, football, waterfront UNESCO site) became the basis of rebranding.",
+        points: [
+          { text: "<strong>European Capital of Culture 2008</strong>: 9.7 million visitors attracted, £800m economic impact, transformed international perception of city. Shows cultural rebranding can have quantifiable economic effects." },
+          { text: "<strong>Liverpool ONE retail development</strong> (2008): £1 billion private investment, 170 shops, reclaimed 42 acres of city centre. Retail as regeneration anchor alongside culture." },
+          { text: "<strong>Waterfront regeneration</strong>: Albert Dock (1988) — first major heritage-led regeneration in UK. Tate Liverpool, Beatles Story museum attracted 5 million visitors/year." },
+          { text: "<strong>Persistent deprivation</strong>: despite tourism and cultural success, Liverpool still has 6 of the 20 most deprived LSOAs in England (IMD 2019). Regeneration has not eliminated structural poverty." },
+          { text: "<strong>Football economy</strong>: Liverpool FC European success and Everton's new stadium at Bramley-Moore Dock (under construction) — sport-led regeneration with mixed community benefit outcomes." }
+        ],
+        significance: "✦ Key argument: Culture-led regeneration can successfully rebrand a city and attract investment, but it does not automatically address underlying structural deprivation — the geography of cultural success and persistent poverty can coexist in the same city."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Players, Attitudes and Actions — Regeneration Stakeholder Map",
+        steps: [
+          "Draw a central box labelled 'Regeneration Scheme (e.g. new mixed-use development)'",
+          "Draw 6 stakeholder boxes around it: Central Government, Local Council, Developer/Investor, Existing Residents, Incoming Businesses, NGOs/Community Groups",
+          "For each stakeholder, write: their PRIMARY ATTITUDE (for/against/ambivalent) and their MAIN INTEREST",
+          "Central Government: generally supportive — economic growth, job creation, electoral benefit",
+          "Local Council: supportive of growth but concerns about affordable housing and local employment",
+          "Developer: supportive — profit from development, wants planning permission quickly",
+          "Existing residents: often ambivalent/opposed — fear displacement, rising rents, loss of community character",
+          "Draw arrows showing ACTIONS each stakeholder takes: lobbying, planning applications, protests, media campaigns",
+          "Label: 'Players', 'Attitudes', 'Actions' — the PAA synoptic framework"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Property-led vs Community-led Regeneration — Comparison",
+        chain: "Property-led (e.g. Canary Wharf): flagship investment → physical transformation → attracts further private investment → job creation (high-skill) → GDP and tax revenue grow → BUT: benefits flow to high-skilled incomers, not existing community → house prices rise → displacement of original residents → gentrification → social equity concerns",
+        evals: [
+          "Community-led regeneration (e.g. social enterprise, community land trusts) is more likely to benefit existing residents — but struggles to attract private capital and operates at smaller scale, making city-wide transformation slow",
+          "The most successful regeneration combines both: use flagship investment to attract capital, but mandate affordable housing quotas, local employment agreements and community benefit clauses in planning permissions",
+          "Gentrification is not inherently negative — physical environment improves, crime often falls, public services improve. The problem is the displacement of people who cannot afford to stay and benefit from improvements"
+        ],
+        mistake: "Don't just describe what happened in your case study — use it as evidence for a geographic argument. 'The LDDC regenerated Docklands — this shows that property-led regeneration can succeed economically but may fail socially without community inclusion mechanisms.'"
+      },
+      {
+        heading: "Measuring Success of Regeneration — Multiple Indicators",
+        chain: "Regeneration success cannot be measured by single indicator → need quantitative (unemployment rate, IMD score, GVA, inward investment) AND qualitative evidence (resident satisfaction surveys, photographic evidence, perceptions of safety) → GDP or employment growth may mask continued deprivation in specific communities or areas → spatial inequality within regenerated areas",
+        evals: [
+          "Liverpool: European Capital of Culture boosted visitor numbers and investment — but IMD data shows persistent deprivation in same city. Which metric defines 'success'?",
+          "Time-scale matters: regeneration benefits may take 20–30 years to filter through to community level. Short-term political cycles often demand quick wins that may not reflect long-term outcomes",
+          "Whose definition of success? Developers measure success by return on investment; residents measure it by whether the local school improved and whether they can afford to stay"
+        ],
+        mistake: "Always use at least one quantitative measure AND one qualitative measure when evaluating regeneration. Essays that rely solely on employment statistics or solely on resident quotes are considered one-dimensional."
+      }
+    ],
+    quiz: [
+      { q: "The Index of Multiple Deprivation (IMD) measures deprivation across how many domains?", opts: ["3 domains (income, health, education)", "5 domains", "7 domains (including crime and living environment)", "10 domains"], correct: 2, exp: "The IMD has 7 domains: income, employment, health and disability, education/skills/training, crime, barriers to housing and services, and living environment. It ranks every LSOA in England — a decile 1 area is in the most deprived 10%." },
+      { q: "Gentrification most directly refers to:", opts: ["Government-funded regeneration of deprived areas", "The process by which more affluent residents move into a low-income area, raising property values and often displacing original residents", "The conversion of industrial land to residential use", "The decline of town centres due to out-of-town retail"], correct: 1, exp: "Gentrification: middle-class in-migration improves physical environment and raises property values → original low-income residents face rent increases → displacement. It is a contested process — some see it as improvement, others as social cleansing." },
+      { q: "The LDDC (London Docklands Development Corporation) is criticised because:", opts: ["It spent public money without generating any private investment", "It was undemocratically appointed and regeneration benefited incomers rather than existing working-class communities", "It failed to attract any significant businesses to the area", "It destroyed the architectural heritage of the Docklands"], correct: 1, exp: "The LDDC was a quango — not elected, not accountable to local residents. Its property-led approach attracted global financial firms and high-income workers, but local communities (Tower Hamlets, Bermondsey) saw little benefit. Employment mismatch between available jobs and local skills." },
+      { q: "Culture-led regeneration (as in Liverpool 2008) works mainly by:", opts: ["Directly employing local people in manufacturing", "Changing place perception to attract tourists, investors and higher-income residents, generating economic activity", "Building affordable housing for existing communities", "Reducing crime rates through social programmes"], correct: 1, exp: "Culture-led regeneration uses events, heritage and arts to rebrand a place — changing perception from deprived/declining to vibrant/creative. This attracts tourism spend, media attention and investor interest. Economic impact is real but may not reach most deprived communities." }
+    ],
+    quickPrompts: ["Evaluate the success of London Docklands regeneration for local communities", "What is gentrification and is it always negative?", "How does the IMD help measure the need for and success of regeneration?"]
+  },
+  {
+    id: 6, week: "Topic 7", type: "human",
+    title: "Global Development & Connections",
+    focus: "Measuring development, global health patterns, migration flows and human rights",
+    topics: [
+      { title: "Measuring Development", body: "Traditional measures: GNI per capita (income only), GDP growth rate. Composite measures: HDI (Human Development Index — income + health + education). Inequality measures: Gini coefficient (0 = perfect equality, 1 = perfect inequality). Gender inequality: GII (Gender Inequality Index). Limitations: HDI masks internal inequality; GNI ignores informal economy and subsistence. Alternative: Genuine Progress Indicator includes environmental costs and unpaid labour." },
+      { title: "Global Health Patterns", body: "Epidemiological transition: countries move from stage 1 (infectious disease dominates, high mortality) to stage 4 (degenerative diseases, cancer, heart disease — diseases of affluence). LICs: burden of communicable disease (malaria, TB, HIV/AIDS, diarrhoeal diseases — mainly affecting under-5s). HICs: non-communicable diseases (NCDs) dominate. Maternal mortality rate: 500× higher in Sub-Saharan Africa vs Western Europe." },
+      { title: "Migration Flows & Impacts", body: "Types: economic migration (voluntary, push/pull factors), refugee migration (involuntary, persecution, conflict), environmental migration (climate-related). Push factors: poverty, conflict, environmental hazard, lack of opportunity. Pull factors: higher wages, better services, political stability, diaspora communities. Brain drain: skilled workers leave LICs for HICs → LIC loses human capital investment. Remittances: migrants send money home — $647bn globally in 2022, exceeding ODA." },
+      { title: "Human Rights & Intervention", body: "Universal Declaration of Human Rights (1948): civil, political, economic, social and cultural rights. Violations occur where state capacity is weak or state itself is the violator. Responsibility to Protect (R2P): international norm that sovereignty does not protect governments that commit atrocities. Intervention: military (NATO Kosovo 1999), humanitarian (NGOs), economic sanctions. NGOs: MSF, Oxfam — operate in conflict zones with neutrality challenges." }
+    ],
+    keyTerms: [
+      { term: "Human Development Index (HDI)", def: "A composite index of three dimensions: health (life expectancy), education (mean and expected years of schooling) and standard of living (GNI per capita, PPP). Ranges from 0 (lowest) to 1 (highest development).", tip: "Norway scores 0.966 (2022 top). Niger scores 0.394 (bottom). Norway's GNI per capita is 15× Niger's but its HDI is 2.5× — education and health amplify or reduce the income gap." },
+      { term: "Gini coefficient", def: "A measure of income or wealth inequality within a country — 0 = perfect equality, 1 = perfect inequality. Based on the Lorenz curve. South Africa (0.63) is one of the world's most unequal; Nordic countries ~0.25.", tip: "A country can have high GDP per capita but also high Gini (e.g. USA, South Africa) — inequality is a separate dimension from average wealth. Always use both in development discussions." },
+      { term: "Epidemiological transition", def: "The shift in disease burden from infectious/communicable diseases to non-communicable degenerative diseases as a country develops — closely correlated with improved sanitation, nutrition, healthcare and urbanisation.", tip: "China and India are mid-transition — experiencing double burden: still dealing with infectious disease while NCDs (diabetes, heart disease) are rising rapidly due to urbanisation and dietary change." },
+      { term: "Brain drain", def: "The emigration of highly educated and skilled workers from LICs to HICs, depriving origin countries of their human capital investment — doctors, engineers, teachers leave for higher wages and better working conditions.", tip: "Ghana trains doctors at public expense who then emigrate to UK's NHS. The UK benefits from LIC educational investment without compensating the source country. Use for 'migration losers' argument." },
+      { term: "Remittances", def: "Money sent by migrants to their home country/families. Global remittances reached $647bn in 2022 — more than 3× all Official Development Assistance (ODA). Critical income for LICs: 34% of GDP in Tajikistan, 26% in Tonga.", tip: "Remittances are resilient (continue during crises), directly targeted at household needs (food, education, healthcare), and more stable than FDI. Strongest argument for 'migration benefits LICs' position." },
+      { term: "Responsibility to Protect (R2P)", def: "A 2005 UN norm: sovereignty is not absolute — if a government fails to protect its population from genocide, war crimes, ethnic cleansing or crimes against humanity, the international community has a responsibility to intervene.", tip: "R2P was invoked for Libya 2011 (NATO intervention) but not for Syria — inconsistency in application is a major criticism. Why does the international community protect some populations and not others?" }
+    ],
+    casestudies: [
+      {
+        name: "Syrian Refugee Crisis",
+        location: "Syria → Turkey (3.6m), Lebanon (1.5m), Jordan (0.7m), EU and beyond",
+        context: "Syrian Civil War from 2011. By 2016, 5 million Syrians had fled the country — the largest refugee crisis in Europe since WW2. Triggered a political crisis within the EU over burden-sharing and immigration policy.",
+        points: [
+          { text: "<strong>13.5 million Syrians displaced</strong> (6.6m internally, 6.9m refugees abroad) out of a pre-war population of 22 million — over 60% of the population affected." },
+          { text: "<strong>Turkey hosts the largest refugee population globally</strong> (3.6 million) — placing massive strain on public services, housing and social cohesion in border cities like Gaziantep and Hatay." },
+          { text: "<strong>EU quota system failed</strong>: mandatory relocation of 160,000 refugees agreed 2015 — only 37,000 actually relocated. Hungary and Poland refused to accept quotas, exposing EU solidarity limits." },
+          { text: "<strong>Economic integration evidence</strong>: Syrian refugees in Germany with access to language training and work permits show higher employment rates than those in camps. Policy design determines outcomes, not refugee characteristics." },
+          { text: "<strong>Brain drain in reverse</strong>: Syria had 30,000+ doctors pre-war — many now in Germany, UK, Jordan — severe healthcare collapse in remaining Syria." }
+        ],
+        significance: "✦ Key argument: The Syrian refugee crisis demonstrates that refugee outcomes are primarily determined by host country policy and political will, not by refugees' own characteristics or capacities."
+      },
+      {
+        name: "Sub-Saharan Africa — Development Challenges",
+        location: "Sub-Saharan Africa (48 countries, 1.2 billion people)",
+        context: "Sub-Saharan Africa contains 33 of the world's 50 least developed countries (LDCs). Paradox of resource wealth and underdevelopment: Democratic Republic of Congo has the world's largest reserves of cobalt, coltan and other minerals yet HDI of 0.459.",
+        points: [
+          { text: "<strong>Life expectancy 62 years</strong> (SSA average) vs 82 in Western Europe — driven by HIV/AIDS (25m living with HIV in SSA — 70% of global total), malaria (90% of deaths), maternal mortality (400 per 100,000 live births vs 7 in UK)." },
+          { text: "<strong>Resource curse</strong>: oil-rich Nigeria has HDI of 0.535 — lower than Honduras which has far fewer natural resources. Natural resource wealth often concentrates in elite hands, fuels conflict and discourages industrial diversification." },
+          { text: "<strong>Debt burden</strong>: SSA countries spend more on debt repayment than on health in many cases — legacy of structural adjustment loans and new Chinese BRI debt. Zambia defaulted on Chinese loans 2020." },
+          { text: "<strong>Mobile technology leapfrogging</strong>: 600 million Africans have mobile phone access — M-Pesa (Kenya) mobile money system bypassed the entire formal banking sector, enabling financial inclusion without bank infrastructure." },
+          { text: "<strong>Demographic dividend potential</strong>: SSA has the world's youngest population — median age 18. If education and employment are available, this could drive growth equivalent to East Asia's 1980s–90s trajectory." }
+        ],
+        significance: "✦ Key argument: Underdevelopment in SSA is not caused by a lack of resources but by structural factors — historical colonialism, unequal trade rules, governance failures and debt burdens — that prevent resource wealth from translating into human development."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Demographic Transition Model — Linking to Development",
+        steps: [
+          "Draw axes: vertical = birth/death rate per 1000; horizontal = time/development stage",
+          "Stage 1: both high birth rate (~40/1000) and high death rate (~40/1000) — population stable at low level. Pre-industrial societies",
+          "Stage 2: death rate falls sharply (improved sanitation, food, medicine) but birth rate stays high → rapid population growth — LDCs today",
+          "Stage 3: birth rate falls gradually (urbanisation, female education, contraception access) → growth slows — emerging economies",
+          "Stage 4: both low — natural increase near zero — most HICs. Population stable at high level",
+          "Stage 5 (some argue): birth rate below death rate → population decline — Germany, Japan, Russia",
+          "Annotate each stage with a country example. Link stages to epidemiological transition: Stage 1-2 = infectious disease dominant; Stage 4 = NCDs dominant"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Is Migration Net Positive or Negative for LIC Origin Countries?",
+        chain: "Skilled worker emigrates from LIC → brain drain → LIC loses human capital → healthcare, education systems weakened → economic loss exceeds what remittances compensate → BUT: migrant sends remittances → directly improves household welfare → more stable than FDI → migrants return with skills and networks → diaspora investment → circular migration can transfer skills AND capital",
+        evals: [
+          "The net effect depends critically on the skill level of migrants: loss of a doctor or engineer is harder to replace than loss of an unskilled worker whose remittances may substantially exceed their local salary",
+          "Remittances outstrip ODA globally ($647bn vs $200bn) and are more directly targeted at household welfare — food, school fees, healthcare. This is the strongest argument for migration benefiting origin countries",
+          "The political economy matters: migration safety valves may reduce pressure for reform in LICs — governments benefit from reduced unemployment and remittance inflows without addressing structural economic problems"
+        ],
+        mistake: "Don't take a binary position — 'migration is good/bad for LICs'. The evidence depends on scale of brain drain vs remittance volume, host country integration policy, and whether circular migration or permanent emigration occurs."
+      },
+      {
+        heading: "Why Does Poverty Persist Despite Economic Growth?",
+        chain: "GDP growth → national wealth increases → but: growth concentrated in urban elites → rural and informal sectors excluded → inequality rises (Gini ↑) → poor lack access to financial services, education, healthcare → structural barriers to social mobility → growth does not automatically trickle down → HDI may lag GDP by decades → without redistribution mechanisms (progressive taxation, social protection), growth and development diverge",
+        evals: [
+          "Kuznets curve hypothesis: inequality first rises then falls with economic development — but evidence is mixed and many countries have experienced sustained inequality rises with growth",
+          "Institutional quality is critical: same resource endowment produces vastly different outcomes depending on governance, corruption levels and rule of law — DRC vs Botswana (both diamond-rich)",
+          "Gender inequality acts as a drag on development — Nobel laureate Amartya Sen's 'missing women' concept shows that female education and empowerment are among the most effective development investments"
+        ],
+        mistake: "Development is not the same as economic growth. GDP can rise while HDI stagnates and inequality grows. Always distinguish between growth (quantity of output) and development (quality of life improvements for the population)."
+      }
+    ],
+    quiz: [
+      { q: "The Human Development Index (HDI) combines three dimensions. Which of the following is NOT one of them?", opts: ["Life expectancy at birth", "Gender equality (proportion of women in parliament)", "Education (mean and expected years of schooling)", "Standard of living (GNI per capita, PPP)"], correct: 1, exp: "HDI = health (life expectancy) + education (schooling years) + standard of living (GNI per capita, PPP). Gender inequality is measured separately by the Gender Inequality Index (GII). HDI scores range from 0 to 1." },
+      { q: "Remittances are significant to LIC development primarily because:", opts: ["They are controlled by governments and invested in infrastructure", "They exceed global Official Development Assistance in volume, are targeted at household welfare, and are resilient during crises", "They are interest-free loans that LICs can repay over decades", "They enable LIC governments to avoid structural adjustment conditions"], correct: 1, exp: "Global remittances (~$647bn in 2022) are 3× ODA. They go directly to families who spend them on food, education and healthcare — not subject to government corruption or conditionality. In some countries they exceed 30% of GDP." },
+      { q: "The 'resource curse' suggests that:", opts: ["Countries with abundant natural resources always develop faster than resource-poor countries", "Natural resource wealth can paradoxically lead to slower development due to elite capture, conflict and reduced economic diversification", "Only countries in tropical climates suffer from resource-related problems", "Natural resources should be nationalised to ensure development benefits"], correct: 1, exp: "The resource curse: oil/mineral wealth often concentrates in ruling elites, fuels corruption and conflict (civil war over control), appreciates exchange rate (Dutch Disease) making other exports uncompetitive, and discourages development of manufacturing and services. Nigeria and DRC are key examples." },
+      { q: "Brain drain harms LIC development mainly because:", opts: ["Migrants take all their savings out of the country before leaving", "LICs lose the human capital investment in skilled workers (doctors, engineers) who emigrate to HICs for higher wages", "Migrant workers reduce wages in their destination countries", "Remittances from migrants increase inflation in origin countries"], correct: 1, exp: "LIC governments (and families) invest in educating and training skilled professionals who then emigrate — the HIC gains the human capital without paying for the training. A Ghanaian doctor trained at public expense who works in the UK NHS represents a net resource transfer from Ghana to the UK." }
+    ],
+    quickPrompts: ["Evaluate remittances vs brain drain as migration impacts on LICs", "Explain the epidemiological transition model with country examples", "Why does sub-Saharan Africa remain underdeveloped despite natural resource wealth?"]
+  },
+  {
+    id: 7, week: "Topic 8", type: "synoptic",
+    title: "Paper 3, Synoptic Skills & Fieldwork",
+    focus: "Players-Attitudes-Actions framework, synoptic links, fieldwork design and statistical techniques",
+    topics: [
+      { title: "Players, Attitudes & Actions (PAA)", body: "Paper 3 synoptic framework. Players: all stakeholders with an interest in the issue — governments, corporations, NGOs, communities, international organisations. Attitudes: values and viewpoints that shape how players see the issue (economic growth vs environmental protection, national interest vs global responsibility). Actions: what players actually do — policies, investments, protests, campaigns, legal challenges." },
+      { title: "Synoptic Thinking", body: "Paper 3 requires you to draw connections across physical and human geography. Link examples: coastal erosion (physical) → managed retreat → displaces farming communities (human) → players negotiate over who bears the cost. Climate change (physical) → drives migration (human) → creates refugee crisis (political). The pre-released resource booklet provides focus — every answer must use material from it." },
+      { title: "Fieldwork Design", body: "Primary data: collected by you (observations, measurements, interviews, questionnaires). Secondary data: existing sources (census, Environment Agency data, newspaper articles). Sampling: random (unbiased), systematic (regular intervals), stratified (representative of subgroups). Null hypothesis: assumes no relationship — statistical test either rejects or fails to reject it. Risk assessment required for all fieldwork." },
+      { title: "Statistical Techniques", body: "Spearman's rank correlation coefficient (Rs): tests strength of relationship between two ranked variables. Range: −1 (perfect negative) to +1 (perfect positive); 0 = no correlation. Chi-squared (χ²): tests whether observed frequency distribution differs significantly from expected. Nearest neighbour analysis: tests whether a spatial pattern is random, dispersed or clustered. Significance level: typically 95% (p < 0.05) means 95% confident result not due to chance." }
+    ],
+    keyTerms: [
+      { term: "Players (stakeholders)", def: "All individuals, groups and organisations with an interest in a geographic issue or place. May have conflicting interests — their power to influence outcomes varies (governments have most, local communities often least).", tip: "Always identify at least 3 players in a Paper 3 answer. Classify by scale: local, national, international. Note that players with economic power (corporations) often have disproportionate influence vs those most affected." },
+      { term: "Attitudes & Values", def: "The beliefs, priorities and worldviews that determine how players approach an issue. Ecocentrism (nature has intrinsic value) vs technocentrism (technology can solve environmental problems) vs anthropocentrism (human welfare is paramount).", tip: "Naming value positions (ecocentric, technocentric) shows geographic conceptual literacy. A developer and an environmental NGO can look at the same flood plain and hold fundamentally different attitudes about what should happen to it." },
+      { term: "Spearman's rank correlation (Rs)", def: "A statistical test measuring the strength and direction of the relationship between two ranked variables. Formula: Rs = 1 − (6Σd²)/(n(n²−1)). Range: −1 to +1. Must be tested against critical values to determine significance.", tip: "In fieldwork: use Rs to test e.g. whether distance from town centre correlates with environmental quality scores. Always state: Ho (null hypothesis), result of Rs, critical value, and whether you accept/reject Ho." },
+      { term: "Null hypothesis (H₀)", def: "The starting assumption in statistical testing that there is NO significant relationship or difference between variables — the result is due to chance. Statistical tests either reject H₀ (significant result) or fail to reject H₀ (no significant result).", tip: "H₀ is always stated as 'There is no significant relationship between X and Y'. If Rs exceeds the critical value at 95%, you reject H₀ — there IS a significant relationship. Never say you 'prove' or 'accept' H₀." },
+      { term: "Stratified sampling", def: "A sampling method that divides the population into subgroups (strata) and samples each in proportion to their representation — ensures all groups are adequately represented in the sample.", tip: "For an urban quality of life survey: if 40% of residents are over 65, ensure 40% of your questionnaire respondents are over 65. Reduces sampling bias compared to random sampling alone." },
+      { term: "Significance level", def: "The probability threshold used to determine whether a statistical result is due to chance. 95% significance (p < 0.05) means there is less than a 5% probability the result occurred randomly.", tip: "Geographers typically use 95% significance. If your Rs or χ² value exceeds the critical value at 95%, the result is statistically significant and you can reject H₀ with confidence." }
+    ],
+    casestudies: [
+      {
+        name: "Coastal Fieldwork Investigation",
+        location: "Example: Formby Beach, Merseyside or any sandy beach with management interventions",
+        context: "Typical A Level coastal fieldwork: investigating sediment characteristics, beach profiles, and the effect of management on coastal processes. Demonstrates systematic data collection and statistical analysis.",
+        points: [
+          { text: "<strong>Beach profile measurement</strong>: clinometer and ranging poles at regular intervals across the beach — measures angle and height of beach face. Systematic sampling: transects at 10m intervals from high tide mark." },
+          { text: "<strong>Sediment analysis</strong>: size (ruler, Powers Roundness Scale), sorting (spread of sizes), lithology (rock type). Hypothesis: sediment becomes finer and more rounded with distance from cliff source — test with Spearman's rank." },
+          { text: "<strong>Questionnaire data</strong>: visitor perceptions of beach quality and management — allows qualitative/quantitative comparison. Stratified sampling by age group and visit frequency." },
+          { text: "<strong>Risk assessment</strong>: tide times, cliff instability, UV exposure, lone working protocols — must be completed before fieldwork and updated if conditions change." },
+          { text: "<strong>Statistical analysis</strong>: Rs between distance from groyne and sediment size. Chi-squared for visitor frequency vs perception of management effectiveness — tests if observed distributions are significantly different from expected." }
+        ],
+        significance: "✦ Fieldwork tip: The 'independent investigation' is worth 20% of A Level grade. Examiners reward: clear null hypothesis, justified methodology, honest evaluation of limitations, and sophisticated data presentation (not just bar charts)."
+      },
+      {
+        name: "PAA in Action: Fracking in the UK",
+        location: "Cuadrilla site at Preston New Road, Lancashire; Kirby Misperton, North Yorkshire",
+        context: "Hydraulic fracturing (fracking) for shale gas was tested in the UK 2011–2019 — then subject to a government moratorium after earthquakes. Illustrates PAA framework with multiple conflicting stakeholders.",
+        points: [
+          { text: "<strong>Cuadrilla (player: corporation)</strong>: attitude — fracking is safe, needed for energy security and jobs. Action — lobbied government, invested £1bn+ in UK shale exploration, took legal action against protesters." },
+          { text: "<strong>UK Government (player)</strong>: shifting attitude — initially supportive (energy security, reduce gas imports) → imposed moratorium 2019 after Cuadrilla's operations caused 2.9Mw earthquake → brief reversal 2022 (energy crisis) → moratorium re-imposed." },
+          { text: "<strong>Local residents and Frack Free Lancashire (player: civil society)</strong>: attitude — risks to water quality, seismic activity, industrialisation of rural landscape outweigh energy security benefits. Action — protests, legal challenges, monitoring, media campaigns." },
+          { text: "<strong>Environment Agency (player: regulatory body)</strong>: required to balance development permission with environmental protection — issued permits subject to conditions, faced political pressure from both sides." },
+          { text: "<strong>Outcome</strong>: moratorium (ban) reflects success of civil society action and precautionary principle — but also that UK shale gas economics were marginal even without protests." }
+        ],
+        significance: "✦ Key argument: The fracking debate illustrates how decisions about energy and environment are not purely technical — they reflect power imbalances between players, political contexts and the contested nature of 'acceptable risk'."
+      }
+    ],
+    diagrams: [
+      {
+        title: "Spearman's Rank — Step-by-Step Method",
+        steps: [
+          "State null hypothesis: 'There is no significant relationship between [Variable A] and [Variable B]'",
+          "Create a table with columns: Location, Variable A value, Variable B value, Rank A, Rank B, d (difference in ranks), d²",
+          "Rank both variables: give rank 1 to the highest value. If tied values, give them the mean of the ranks they would have occupied",
+          "Calculate d (Rank A minus Rank B) for each location — some will be negative",
+          "Square each d value → d². Sum all d² values → Σd²",
+          "Apply formula: Rs = 1 − (6Σd²) / (n(n²−1)) where n = number of data pairs",
+          "Compare your Rs value to the critical value table at 95% significance for your n value",
+          "Conclusion: if |Rs| > critical value → reject H₀ → significant relationship exists. State direction (+ve or −ve) and strength (close to ±1 = strong, close to 0 = weak)"
+        ]
+      }
+    ],
+    analysis: [
+      {
+        heading: "Applying the PAA Framework to Any Synoptic Issue",
+        chain: "Identify the geographic issue → list all relevant players (minimum 3, at different scales) → for each player: state their attitude (what they value, what they fear losing) → explain what actions they take as a result → assess the relative power of each player → explain why certain players' actions prevail over others → evaluate the outcome against sustainability / equity / effectiveness criteria",
+        evals: [
+          "Power asymmetry is central: corporations and governments have greater financial and legal resources to advance their interests vs communities and NGOs — this shapes outcomes more than 'the best argument'",
+          "Attitudes change: the same player (e.g. UK government on fracking) can shift position when context changes (energy crisis) — static characterisation of players misses this dynamism",
+          "Global-local tensions: national or TNC interests frequently override local community preferences — spatial injustice (those who bear the costs are not those who make the decisions) is a key analytical theme"
+        ],
+        mistake: "Don't just list players — you must link attitudes to actions and explain why those actions had the outcomes they did. An answer that stops at 'residents are opposed and protested' without explaining why protest succeeded or failed scores Level 2 at best."
+      },
+      {
+        heading: "Evaluating Fieldwork Methods and Data Quality",
+        chain: "Method chosen (e.g. systematic sampling of beach sediment) → justification (reduces bias vs random sampling, ensures spatial coverage) → BUT: limitations (fixed transect misses spatial variability between transect lines) → source of error (human error in measuring angle, weather affecting results) → how limitation affects conclusion (underestimate variability → conclusions about sediment gradient less reliable) → how to improve (closer transect spacing, larger sample size)",
+        evals: [
+          "Primary data is specific to your location and hypothesis — more valuable than secondary data for your specific question, but limited by the time and resources available to one researcher",
+          "Questionnaire data introduces respondent bias: people may give socially desirable answers or not represent the full population (e.g. visitors on a sunny day are more positive than residents)",
+          "Statistical significance is not the same as practical significance: a statistically significant Rs of 0.6 suggests a relationship exists, but explains only 36% of the variance (R² = 0.36) — other factors matter too"
+        ],
+        mistake: "Fieldwork evaluation must be specific to your own methodology — generic comments ('the sample size could have been larger') score poorly. Say: 'My sample of 20 pebbles at each site may not represent the full range of sediment sizes — a sample of 50 per site would reduce sampling error.'"
+      }
+    ],
+    quiz: [
+      { q: "In Spearman's rank correlation, a result of Rs = −0.85 (exceeding the critical value) means:", opts: ["There is no significant relationship between the variables", "There is a strong positive correlation — as one variable increases, so does the other", "There is a strong negative correlation — as one variable increases, the other decreases, and this is statistically significant", "The data is too scattered to draw any conclusions"], correct: 2, exp: "Rs = −0.85: strong (close to −1) negative correlation. Exceeding the critical value means the relationship is statistically significant at 95% confidence — not due to chance. Reject H₀: there IS a significant negative relationship." },
+      { q: "Stratified sampling is preferred over simple random sampling when:", opts: ["The researcher wants to ensure every individual has an equal chance of selection regardless of group", "The population has distinct subgroups and the researcher needs each subgroup to be proportionally represented", "The area is too large for systematic transect sampling", "Data is collected remotely via satellite rather than in person"], correct: 1, exp: "Stratified sampling ensures subgroups (by age, gender, land use etc.) are represented in proportion to their actual frequency in the population — random sampling alone may under- or over-represent subgroups by chance." },
+      { q: "The Players, Attitudes and Actions (PAA) framework is used in Paper 3 to:", opts: ["Describe the physical processes that created a landscape", "Analyse how different stakeholders with different values interact to produce geographic outcomes", "Calculate statistical relationships between geographic variables", "Measure changes in land use over time using GIS"], correct: 1, exp: "PAA is the core analytical framework for Paper 3 synoptic responses: identify who has a stake in the issue (players), what they believe and value (attitudes), and what they do as a result (actions). Outcomes reflect the balance of power between players with competing attitudes." },
+      { q: "A null hypothesis in fieldwork states:", opts: ["The researcher's expected result based on prior reading", "That there IS a significant relationship between the two variables being investigated", "That there is NO significant relationship — the pattern observed is due to chance", "The method that will be used to test the hypothesis"], correct: 2, exp: "H₀ assumes no relationship — it is the statement you are testing. If your statistical test exceeds the critical value, you REJECT H₀ and conclude a significant relationship exists. You never 'prove' or 'accept' H₀ — you only fail to reject it." }
+    ],
+    quickPrompts: ["Walk me through how to apply the PAA framework to a new geographic issue", "Explain Spearman's rank step by step with an example", "How do I write a strong Paper 3 synoptic answer?"]
+  },
+  {
+    id: 8, week: "MCQ Revision", type: "revision", isMCQ: true,
+    title: "Mixed MCQ Revision",
+    focus: "32 exam-style multiple choice questions across all 8 geography topics",
+    topics: [], keyTerms: [], casestudies: [], diagrams: [], analysis: [],
+    quickPrompts: [],
+    mcqBank: [
+      { topic:"Tectonic Hazards", q:"At a destructive (convergent) plate boundary, which combination of hazards is produced?", opts:["Rift valleys and shield volcanoes","Fold mountains only — no volcanic activity","Earthquakes, explosive composite volcanoes and ocean trenches","Mid-ocean ridges and basaltic lava flows"], correct:2, exp:"Oceanic plate subducts under continental plate → ocean trench forms at surface → subducting plate melts → magma rises → composite (explosive) volcano forms inland. Friction on the subduction zone generates powerful earthquakes. Transform boundaries produce earthquakes only; constructive boundaries produce basaltic volcanism." },
+      { topic:"Tectonic Hazards", q:"The 2015 Nepal earthquake killed nearly 9,000 people primarily because:", opts:["It was the most powerful earthquake ever recorded in the Himalayas","It struck at great depth (>100km) causing widespread surface rupture","Building quality was poor (unreinforced masonry) and the Kathmandu valley amplified seismic shaking on saturated sediments","Nepal had no seismic monitoring and no emergency services"], correct:2, exp:"Nepal's death toll reflects vulnerability, not just magnitude. Unreinforced brick and stone buildings collapsed catastrophically. Kathmandu is built on an ancient lake bed — soft sediments amplify shaking (site amplification). The disaster risk equation: high hazard × high vulnerability ÷ limited capacity to cope = disaster." },
+      { topic:"Tectonic Hazards", q:"The Park Model shows that after a disaster, LIC communities typically:", opts:["Recover faster than HIC communities due to strong community cohesion","Recover more slowly and may not return to pre-disaster quality of life due to limited financial and institutional capacity","Follow the same recovery trajectory as HIC communities","Experience immediate government rebuilding within 6 months"], correct:1, exp:"The Park Model plots quality of life against time post-disaster. LICs: drop further at impact, recover more slowly through relief → rehabilitation → reconstruction. Financial constraints, weak governance, aid dependency and physical access barriers all slow LIC recovery. Haiti 2010 earthquake shows incomplete recovery over 10+ years." },
+      { topic:"Tectonic Hazards", q:"A lahar is best defined as:", opts:["Fast-moving hot gas and rock fragments from a volcanic explosion","A volcanic mudflow formed when volcanic material mixes with water","Lava flowing slowly from an effusive eruption","A cloud of fine ash that can travel hundreds of kilometres"], correct:1, exp:"Lahar: volcanic mud flow — ash and debris mixed with water (from rainfall, snowmelt or crater lake breach). The Nevado del Ruiz lahar (Colombia, 1985) buried Armero killing 23,000 people. A secondary volcanic hazard that can travel great distances down river valleys long after an eruption." },
+      { topic:"Coastal Systems", q:"Longshore drift transports sediment along the coast in the direction of:", opts:["The backwash — perpendicular to the shoreline","The prevailing wind direction, as swash arrives at an angle","The offshore current — toward the open sea","The steepest gradient of the seabed"], correct:1, exp:"Swash arrives at angle (set by prevailing wind direction); backwash returns perpendicular. Net sediment movement = direction of prevailing wind. In the UK, dominant LSD direction is south-west to north-east along many coasts. Essential process understanding for spits, bars and coastal management." },
+      { topic:"Coastal Systems", q:"The Holderness coast erodes rapidly because:", opts:["It faces the high-energy Atlantic Ocean and is made of hard limestone","Glacial till (boulder clay) is weak, the North Sea provides fetch for storm waves, and the sediment budget is negative","Managed retreat has been deliberately imposed by the Environment Agency","It is experiencing isostatic uplift that exposes more cliff to wave erosion"], correct:1, exp:"Boulder clay (unconsolidated glacial till) has virtually no resistance to wave erosion. North Sea storms provide sufficient energy. Groynes downdrift (at Mappleton) have reduced natural sediment supply — negative sediment budget. Result: 1–2m/year erosion, up to 10m in storms." },
+      { topic:"Coastal Systems", q:"Managed retreat as a coastal management strategy involves:", opts:["Building higher and stronger sea walls further inland","Deliberately allowing the sea to flood low-lying land in a controlled way, creating intertidal habitat","Removing all human development from the coastal zone","Replenishing beaches with imported sand to maintain their protective function"], correct:1, exp:"Managed retreat (managed realignment): sea defences are breached or removed, allowing controlled flooding of low-lying land. Creates saltmarsh and intertidal habitat — these absorb wave energy (natural coastal defence) and provide ecological benefits. Medmerry, West Sussex is the largest UK example." },
+      { topic:"Coastal Systems", q:"A wave-cut platform is formed by:", opts:["Deposition of sediment in the sheltered water behind a headland","The progressive retreat of a cliff as wave erosion undercuts a notch at its base, leaving a gently sloping rock surface","Longshore drift depositing material across a bay mouth","Sea level rise flooding a former coastal plain"], correct:1, exp:"Wave erosion (hydraulic action, abrasion) concentrates at the base of a cliff → wave-cut notch forms → overhang collapses → cliff retreats → gently sloping rocky platform left behind, exposed at low tide. Wider platform = longer history of erosion." },
+      { topic:"Water Cycle", q:"Evapotranspiration combines:", opts:["Evaporation from the sea and transpiration from ocean plants","Evaporation from land surfaces and transpiration from plant leaves — the largest output from most drainage basins in humid climates","Evaporation from rivers and transpiration from urban surfaces","Only transpiration — evaporation from soil is negligible"], correct:1, exp:"ET = evaporation (from soil, lakes, streams) + transpiration (water vapour released through plant stomata). In humid temperate climates, ET is the largest water output from a catchment. Forests have higher ET than grassland — deforestation increases run-off and stream discharge." },
+      { topic:"Water Cycle", q:"A flashy hydrograph (short lag time, high peak) is associated with:", opts:["Dense forest cover with high infiltration capacity","Urbanisation: impermeable surfaces, drains and culverts speed run-off to channels","Deep permeable sandstone geology and low gradient","Long duration, low-intensity rainfall over a large catchment"], correct:1, exp:"Urban surfaces (tarmac, concrete, roofs) prevent infiltration → rapid surface run-off → water reaches channels quickly via drains and culverts → short lag time, high sharp peak. Flash floods in cities are a direct consequence of urbanisation reducing lag time." },
+      { topic:"Water Cycle", q:"The UN defines water stress as annual freshwater availability below:", opts:["500m³ per person","1,000m³ per person","1,700m³ per person","3,000m³ per person"], correct:2, exp:"1,700m³/person/year = water stress threshold. Below 1,000m³ = scarcity. Below 500m³ = absolute scarcity. These thresholds are standard UN/WRI definitions — always cite with units in exam answers." },
+      { topic:"Water Cycle", q:"Economic water scarcity (e.g. much of sub-Saharan Africa) is primarily caused by:", opts:["Insufficient annual rainfall to meet population needs","Lack of infrastructure to capture and distribute water that physically exists in adequate quantities","Over-abstraction of groundwater by industry","Climate change reducing precipitation by more than 50%"], correct:1, exp:"Economic scarcity: water physically exists (adequate rainfall) but infrastructure to capture, treat and distribute it is lacking — due to poverty, conflict, governance failures. Distinct from physical scarcity (genuinely arid regions). Solutions are different: investment in infrastructure vs supply-side engineering." },
+      { topic:"Carbon Cycle", q:"The largest carbon store in the Earth system is:", opts:["The atmosphere","The biosphere (living organisms and soil)","The lithosphere (fossil fuels and carbonate rocks)","The oceans"], correct:2, exp:"The lithosphere contains far the most carbon: fossil fuels + carbonate rocks (limestone) hold an estimated 100 million GtC. Oceans hold ~38,000 GtC; soils ~2,500 GtC; atmosphere ~860 GtC. The lithosphere flux is geologically slow — human extraction massively accelerates it." },
+      { topic:"Carbon Cycle", q:"Deforestation affects the carbon cycle by:", opts:["Increasing albedo only — no direct carbon effect","Releasing stored biosphere carbon AND reducing future photosynthesis capacity — a double impact on atmospheric CO₂","Increasing photosynthesis in remaining trees which compensates for trees removed","Only affecting local rainfall patterns, not global CO₂ levels"], correct:1, exp:"Deforestation: (1) destroys carbon store — stored carbon released via burning/decomposition, (2) reduces ongoing photosynthesis — smaller carbon sink. The Amazon (10% of terrestrial carbon) releasing carbon is critical — eastern Amazon is now a net carbon source due to deforestation and drought." },
+      { topic:"Carbon Cycle", q:"The energy trilemma in energy policy refers to the three competing objectives of:", opts:["Solar, wind and nuclear energy provision","Sustainability (low carbon), security (reliable supply) and affordability (low cost)","Production, distribution and consumption of energy","National, regional and local energy governance"], correct:1, exp:"The World Energy Council's energy trilemma: sustainability (reducing emissions), security (reliable, resilient supply) and affordability (accessible, low-cost energy). Maximising all three simultaneously is very difficult — trade-offs are inevitable (e.g. nuclear: secure and affordable but controversial on sustainability; offshore wind: sustainable and secure but currently expensive)." },
+      { topic:"Carbon Cycle", q:"A positive feedback loop in climate change refers to:", opts:["A beneficial policy that reduces carbon emissions","A self-reinforcing cycle that amplifies the original warming — e.g. ice melts → lower albedo → more warming → more ice melts","Ocean absorption of CO₂ reducing the rate of climate change","Government subsidies for renewable energy installations"], correct:1, exp:"Positive feedback = amplifying, not beneficial. The ice-albedo feedback is the most commonly tested: warming → sea ice melts → dark ocean replaces white ice → lower albedo → more solar energy absorbed → more warming. Also: permafrost thaw → methane release → more warming → more thaw." },
+      { topic:"Globalisation", q:"Containerisation drove globalisation primarily by:", opts:["Enabling faster internet connections between countries","Standardising shipping containers and mechanising loading — dramatically reducing the cost and time of moving goods internationally","Allowing cultural products to be distributed digitally","Reducing the distance between capital cities"], correct:1, exp:"TEU (twenty-foot equivalent unit) standardisation from the 1960s enabled seamless transfer between ship, rail and truck — mechanised cranes replaced dock labour. Shipping costs fell ~90% in real terms. Made it economical to manufacture in Asia and sell in Europe — the foundation of global supply chains." },
+      { topic:"Globalisation", q:"Glocalisation best describes:", opts:["The process by which all local cultures are replaced by a uniform global culture","The adaptation of global products and brands to local cultural and market conditions","The migration of skilled workers from LICs to HICs","The localisation of global supply chains to reduce carbon emissions"], correct:1, exp:"Glocalisation (global + local): TNCs modify products for local markets — McDonald's McAloo Tikki (India), McTeriyaki (Japan). Netflix produces local-language original content. Shows globalisation is not simply one-way cultural homogenisation — local adaptation is a commercial and social necessity." },
+      { topic:"Globalisation", q:"The 'resource curse' paradox refers to:", opts:["The fact that renewable energy resources are distributed unequally around the world","Natural resource wealth paradoxically leading to slower development through elite capture, conflict and Dutch Disease effects","The difficulty of extracting resources from tropical environments","The depletion of global natural resources due to over-consumption"], correct:1, exp:"Resource curse: oil/mineral wealth → revenue concentrated in ruling elites → corruption and rent-seeking → civil conflict over resource control → 'Dutch Disease' (resource exports raise exchange rate, making manufacturing uncompetitive) → economic diversification fails. DRC (cobalt, coltan, diamonds) = HDI 0.459 despite enormous mineral wealth." },
+      { topic:"Globalisation", q:"Apple's global production network is characterised by:", opts:["All stages of production located in California to protect intellectual property","Design in the USA capturing most value; low-margin assembly in China and India; components sourced from 43+ countries", "Manufacturing in the USA with retail exclusively in Asian markets","Equal distribution of profits between all countries in the supply chain"], correct:1, exp:"Apple captures ~60% of iPhone value through design, branding and IP (California). Foxconn/Pegatron assembly in China captures ~2%. Components: TSMC chips (Taiwan), cobalt (DRC), glass (USA/Japan). This 'smile curve' — high value at design and marketing ends, low at assembly — characterises all major TNC production networks." },
+      { topic:"Regenerating Places", q:"The Index of Multiple Deprivation (IMD) measures deprivation across:", opts:["3 domains: income, health and education","5 domains: income, employment, health, education, housing","7 domains including crime and living environment","10 domains including digital access and social capital"], correct:2, exp:"IMD has exactly 7 domains: income, employment, health & disability, education/skills/training, crime, barriers to housing & services, living environment. It ranks every LSOA in England — decile 1 = most deprived 10%. Essential quantitative tool for measuring need for regeneration." },
+      { topic:"Regenerating Places", q:"Gentrification is best described as:", opts:["Government-funded renewal of deprived areas through infrastructure investment","The process by which more affluent residents move into a low-income area, raising property values and often displacing original residents","The conversion of industrial brownfield land to new housing","The demolition of slum housing and replacement with social housing"], correct:1, exp:"Gentrification: middle-class in-migration → property prices rise → private landlords increase rents → original low-income residents cannot afford to stay → displacement. Physical environment improves; community character and affordability are lost. Brixton, Hackney, Shoreditch in London are classic UK examples." },
+      { topic:"Regenerating Places", q:"Culture-led regeneration (as exemplified by Liverpool 2008) works mainly through:", opts:["Providing direct employment for local people in manufacturing","Changing place perception to attract tourists, investors and businesses, generating economic activity and improving city image","Building affordable housing for deprived communities","Reducing crime rates through community arts programmes"], correct:1, exp:"European Capital of Culture 2008: 9.7m visitors, £800m economic impact. Culture rebrands the place — from deprived/post-industrial to vibrant/creative — attracting tourists, media coverage and investor interest. Economic impact is real but may not filter through to most deprived communities." },
+      { topic:"Regenerating Places", q:"A key criticism of the LDDC (London Docklands) regeneration is:", opts:["It failed to attract any significant businesses to the area","The LDDC was unaccountable to local residents and regeneration benefited incoming high-skill workers rather than existing working-class communities","It focused too heavily on affordable housing at the expense of commercial development","Environmental damage was caused by building on the river Thames"], correct:1, exp:"LDDC was a quango — not democratically elected, not accountable to Tower Hamlets or Southwark residents. Property-led model attracted global financial firms (Canary Wharf) requiring skills local communities did not have. Employment mismatch → local community did not primarily benefit from £7.7bn public investment." },
+      { topic:"Global Development", q:"The Human Development Index (HDI) measures development using three dimensions. Which three?", opts:["Income, trade balance and educational spending","Life expectancy, education (schooling years) and standard of living (GNI per capita, PPP)","GDP growth rate, infant mortality and literacy rate","Employment rate, gender equality and environmental quality"], correct:1, exp:"HDI = health dimension (life expectancy at birth) + education dimension (mean years of schooling + expected years of schooling) + income dimension (GNI per capita, PPP-adjusted). Ranges 0–1. Key advantage over GDP alone: captures non-income dimensions of wellbeing." },
+      { topic:"Global Development", q:"Remittances are particularly significant for LIC development because:", opts:["They are controlled by governments for infrastructure investment","They exceed ODA globally (~$647bn vs ~$200bn), go directly to household welfare, and are resilient during economic crises","They are interest-free and require no repayment","They fund government health and education systems directly"], correct:1, exp:"Remittances 2022: ~$647bn globally — more than 3× all ODA. They go directly to families (food, school fees, healthcare — not subject to government corruption). In Tajikistan: 34% of GDP. Resilient during crises (families need income most when economies collapse). Strongest argument for migration benefiting LIC origin countries." },
+      { topic:"Global Development", q:"The epidemiological transition describes:", opts:["The spread of infectious diseases across borders due to globalisation","The shift from infectious/communicable diseases (LIC stage) to non-communicable degenerative diseases (HIC stage) as countries develop","The seasonal variation in disease patterns in tropical regions","The development of new vaccines to combat previously untreatable diseases"], correct:1, exp:"As countries develop: improved sanitation, nutrition, healthcare reduce infectious disease mortality → populations live longer → degenerative diseases (heart disease, cancer, diabetes) become dominant causes of death. Sub-Saharan Africa: still stage 2 (infectious disease burden high). HICs: stage 4 (NCDs dominant). China/India: mid-transition." },
+      { topic:"Global Development", q:"Brain drain harms LIC development primarily because:", opts:["Migrants take physical capital (equipment, savings) out of the country","LICs lose their investment in educating skilled workers (doctors, engineers) who emigrate to HICs for higher wages","Migration increases competition for scarce jobs in LICs","Returning migrants destabilise LIC governments with foreign ideas"], correct:1, exp:"Ghana trains doctors at public expense — those doctors emigrate to UK's NHS. The UK receives skilled human capital without paying the training costs. For a country with severe doctor shortages, losing 50% of medical graduates to emigration is a genuine development crisis. Remittances partially compensate but do not replace the human capital loss." },
+      { topic:"Paper 3 & Fieldwork", q:"A null hypothesis (H₀) in geographic fieldwork states:", opts:["The researcher's expected result based on theory","That there is NO significant relationship between the variables — any pattern is due to chance","The minimum sample size required for statistical validity","The method that will be used to collect primary data"], correct:1, exp:"H₀ always assumes no relationship/no difference. Statistical testing either rejects H₀ (pattern is significant — unlikely due to chance) or fails to reject H₀ (pattern could be random). You never 'prove' or 'accept' H₀. Example: 'There is no significant relationship between distance from city centre and pedestrian counts.'" },
+      { topic:"Paper 3 & Fieldwork", q:"Spearman's rank correlation coefficient (Rs) of +0.91, exceeding the critical value, means:", opts:["There is no significant relationship between the variables","There is a weak positive correlation, unlikely to be significant","There is a strong positive correlation that is statistically significant — reject the null hypothesis","The data must be recollected as Rs values above 0.9 are not valid"], correct:2, exp:"Rs = +0.91: very strong (close to +1) positive correlation. Exceeding the critical value at 95% significance → reject H₀ → the relationship is statistically significant (less than 5% probability due to chance). Both variables increase together — state direction (+ve), strength (strong) and significance." },
+      { topic:"Paper 3 & Fieldwork", q:"The Players, Attitudes and Actions (PAA) framework in Paper 3 requires candidates to:", opts:["Describe the physical processes that created the landscape in the resource booklet","Identify stakeholders, explain their values and interests, and analyse what actions they take and why","Calculate statistical measures of change in the data provided","Evaluate only the government's response to the geographic issue"], correct:1, exp:"PAA: Players (all stakeholders at multiple scales), Attitudes (their values, priorities and worldviews — ecocentric vs technocentric vs anthropocentric), Actions (what they do as a result — policies, protests, investments, legal challenges). Outcomes reflect the balance of power between players with competing attitudes." },
+      { topic:"Paper 3 & Fieldwork", q:"Stratified sampling is chosen over random sampling when:", opts:["The population is too small for meaningful random sampling","The researcher needs each subgroup of the population to be represented proportionally","Only qualitative data is being collected","The geographic area is too remote for systematic transect sampling"], correct:1, exp:"Stratified sampling divides population into strata (e.g. by age, gender, land use type) and samples each in proportion. Ensures no subgroup is accidentally excluded or over-represented. More representative than random sampling when population has distinct, identifiable subgroups that may have different characteristics." }
+    ]
+  }
+];
+
+const TABS_GEO = ['overview','keyterms','casestudies','diagrams','analysis','quiz','tutor'];
+let currentWeek = 0;
+let activeTab = 'overview';
+let scores = {};
+let chatHistory = [];
+let mcqFilter = 'All';
+let mcqAnswers = {};
+let mcqDone = false;
+
+function buildNav() {
+  const nav = document.getElementById('navItems');
+  nav.innerHTML = weeks.map(w => `
+    <div class="nav-item ${w.id === currentWeek ? 'active' : ''}" onclick="selectWeek(${w.id})">
+      <div class="nav-dot dot-${w.type}"></div>
+      <div class="nav-content">
+        <div class="nav-week">${w.week}</div>
+        <div class="nav-title">${w.title}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectWeek(id) {
+  currentWeek = id;
+  activeTab = weeks[id].isMCQ ? 'mcq' : 'overview';
+  buildNav();
+  renderContent();
+  document.querySelector('.content').scrollTop = 0;
+}
+
+function renderContent() {
+  const w = weeks[currentWeek];
+  const score = scores[currentWeek] || { correct: 0, total: 0, done: false };
+  const content = document.getElementById('mainContent');
+  content.style.animation = 'none';
+  setTimeout(() => { content.style.animation = 'fadeUp 0.25s ease'; }, 10);
+
+  const typeLabel = w.type === 'physical' ? 'Physical Geography' : w.type === 'human' ? 'Human Geography' : w.type === 'revision' ? 'Revision · Mixed' : 'Synoptic · P3';
+  const tagClass = `tag-${w.type}`;
+
+  if (w.isMCQ) {
+    content.innerHTML = `
+      <div class="week-header">
+        <div class="week-meta">
+          <span class="week-tag tag-revision">Revision · Mixed</span>
+          <span class="week-number muted">${w.week}</span>
+        </div>
+        <div class="week-title-text">${w.title}</div>
+        <div class="week-focus">${w.focus}</div>
+      </div>
+      <div id="tabContent">${renderMCQRevision(w)}</div>
+    `;
+    return;
+  }
+
+  content.innerHTML = `
+    <div class="week-header">
+      <div class="week-meta">
+        <span class="week-tag ${tagClass}">${typeLabel}</span>
+        <span class="week-number muted">${w.week} of ${weeks.length - 1}</span>
+      </div>
+      <div class="week-title-text">${w.title}</div>
+      <div class="week-focus">${w.focus}</div>
+      <div class="progress-bar mt"><div class="progress-fill" style="width:${((w.id+1)/(weeks.length-1))*100}%"></div></div>
+    </div>
+    <div class="tabs">
+      <div class="tab ${activeTab==='overview'?'active':''}" onclick="switchTab('overview')">Overview</div>
+      <div class="tab ${activeTab==='keyterms'?'active':''}" onclick="switchTab('keyterms')">Key Terms</div>
+      <div class="tab ${activeTab==='casestudies'?'active':''}" onclick="switchTab('casestudies')">Case Studies</div>
+      <div class="tab ${activeTab==='diagrams'?'active':''}" onclick="switchTab('diagrams')">Diagrams</div>
+      <div class="tab ${activeTab==='analysis'?'active':''}" onclick="switchTab('analysis')">Analysis</div>
+      <div class="tab ${activeTab==='quiz'?'active':''}" onclick="switchTab('quiz')">Quiz${score.done ? ' ✓' : ''}</div>
+      <div class="tab ${activeTab==='tutor'?'active':''}" onclick="switchTab('tutor')">AI Tutor</div>
+    </div>
+    <div id="tabContent">${renderTab(w, score)}</div>
+  `;
+  attachHandlers();
+}
+
+function renderTab(w, score) {
+  switch(activeTab) {
+    case 'overview':    return renderOverview(w);
+    case 'keyterms':    return renderKeyTerms(w);
+    case 'casestudies': return renderCaseStudies(w);
+    case 'diagrams':    return renderDiagrams(w);
+    case 'analysis':    return renderAnalysis(w);
+    case 'quiz':        return renderQuiz(w, score);
+    case 'tutor':       return renderTutor(w);
+    default: return '';
+  }
+}
+
+function switchTab(tab) {
+  activeTab = tab;
+  const w = weeks[currentWeek];
+  const score = scores[currentWeek] || { correct: 0, total: 0, done: false };
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  const idx = TABS.indexOf(tab);
+  if (idx >= 0) document.querySelectorAll('.tab')[idx].classList.add('active');
+  document.getElementById('tabContent').innerHTML = renderTab(w, score);
+  attachHandlers();
+}
+
+function renderOverview(w) {
+  return `
+    <div class="topics-grid">
+      ${w.topics.map(t => `
+        <div class="topic-card">
+          <div class="topic-card-title">${t.title}</div>
+          <div class="topic-card-body">${t.body}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="tutor-section">
+      <div class="tutor-heading">Quick Tutor Prompts</div>
+      <div class="quick-prompts">
+        ${w.quickPrompts.map(p => `<button class="quick-btn" onclick="askTutor('${p.replace(/'/g,"\\'")}')">↗ ${p}</button>`).join('')}
+      </div>
+      <p style="font-size:13px;color:var(--muted)">Click any prompt or switch to the <strong style="color:var(--gold2)">AI Tutor</strong> tab for a full conversation.</p>
+    </div>
+  `;
+}
+
+function renderKeyTerms(w) {
+  return `
+    <div class="keyterm-section">
+      <div class="section-heading">Key Terms — ${w.title}</div>
+      <div class="keyterm-grid">
+        ${w.keyTerms.map(k => `
+          <div class="keyterm-card">
+            <div class="keyterm-name">${k.term}</div>
+            <div class="keyterm-def">${k.def}</div>
+            <div class="keyterm-tip">📌 ${k.tip}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+    <div style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">
+      Tip: For 4-mark definition questions, state the term → define precisely → give a located example → link to a process or impact.
+    </div>
+  `;
+}
+
+function renderCaseStudies(w) {
+  return w.casestudies.map((cs, i) => `
+    <div class="case-box">
+      <div class="case-header" onclick="toggleCase(${i})">
+        <div>
+          <div class="case-label">Case Study ${i+1}</div>
+          <div class="case-name">${cs.name}</div>
+          <div class="case-location">📍 ${cs.location}</div>
+        </div>
+        <div class="toggle-icon" id="cicon-${i}">▼</div>
+      </div>
+      <div class="case-body" id="cs-${i}">
+        <div class="case-context">${cs.context}</div>
+        ${cs.points.map((p, pi) => `
+          <div class="case-point">
+            <div class="case-num">${pi+1}</div>
+            <div class="case-text">${p.text}</div>
+          </div>
+        `).join('')}
+        <div class="case-sig">${cs.significance}</div>
+      </div>
+    </div>
+  `).join('') + `<p style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">Click to expand each case study. For exams: always include a located example with data (numbers, dates, places) for every case study point.</p>`;
+}
+
+function renderDiagrams(w) {
+  return w.diagrams.map(d => `
+    <div class="diagram-guide">
+      <div class="diagram-title">${d.title}</div>
+      <ol class="diagram-steps">
+        ${d.steps.map(s => `<li>${s}</li>`).join('')}
+      </ol>
+    </div>
+  `).join('') + `
+    <div class="diagram-guide" style="border-color:rgba(74,158,107,0.2);background:rgba(74,158,107,0.03);">
+      <div class="diagram-title" style="color:var(--gold)">Edexcel Diagram Rules for Geography</div>
+      <ol class="diagram-steps">
+        <li>Always label axes, curves, zones and key points — unlabelled diagrams lose marks</li>
+        <li>Use arrows to show direction of processes (wind direction, water movement, plate motion)</li>
+        <li>Annotate diagrams — brief labels explain what and why, not just what</li>
+        <li>Sketch maps should include a north arrow, scale bar or key where relevant</li>
+        <li>In essays: draw the diagram clearly but refer to it explicitly in the text ("as shown in the diagram...")</li>
+        <li>For graphs/data: always refer to specific data values, not just general trends</li>
+      </ol>
+    </div>
+  `;
+}
+
+function renderAnalysis(w) {
+  if (!w.analysis || w.analysis.length === 0) return '<p style="color:var(--muted);font-size:14px;font-style:italic;padding:1rem 0;">Analysis content coming soon.</p>';
+  return `
+    <div style="font-size:13px;color:var(--muted);margin-bottom:1.2rem;">
+      Each card shows the <strong style="color:var(--gold2)">reasoning chain</strong> for essay arguments, followed by evaluation points and a common mistake to avoid.
+    </div>
+    ${w.analysis.map(a => `
+      <div class="analysis-card">
+        <div class="analysis-heading">${a.heading}</div>
+        <div class="eval-label">Reasoning Chain</div>
+        <div class="analysis-chain">${a.chain}</div>
+        <div class="eval-label">Evaluation Points</div>
+        <div class="eval-list">
+          ${a.evals.map(e => `<div class="eval-item">${e}</div>`).join('')}
+        </div>
+        <div class="mistake-box">
+          <div class="mistake-label">⚠ Common Mistake</div>
+          <div class="mistake-text">${a.mistake}</div>
+        </div>
+      </div>
+    `).join('')}
+    <div style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">
+      Use the <strong style="color:var(--gold2)">AI Tutor</strong> tab to get a personalised essay paragraph on any of these arguments.
+    </div>
+  `;
+}
+
+function renderQuiz(w, score) {
+  if (score.done) {
+    return `
+      <div class="quiz-score">Score: ${score.correct} / ${w.quiz.length} — ${Math.round(score.correct/w.quiz.length*100)}%</div>
+      ${w.quiz.map((q, i) => `
+        <div class="quiz-card">
+          <div class="quiz-q">${i+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o, oi) => `<button class="quiz-opt ${oi === q.correct ? 'correct' : (score.answers && score.answers[i] === oi && oi !== q.correct ? 'wrong' : '')}" disabled>${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation show">${q.exp}</div>
+        </div>
+      `).join('')}
+      <button onclick="resetQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;margin-top:8px;">Retry Quiz</button>
+    `;
+  }
+  return `
+    <div class="quiz-score" id="quizScore">Question 1 of ${w.quiz.length}</div>
+    ${w.quiz.map((q, i) => `
+      <div class="quiz-card">
+        <div class="quiz-q">${i+1}. ${q.q}</div>
+        <div class="quiz-options">
+          ${q.opts.map((o, oi) => `<button class="quiz-opt" onclick="answerQuiz(${i}, ${oi})" id="q${i}o${oi}">${o}</button>`).join('')}
+        </div>
+        <div class="quiz-explanation" id="exp${i}">${q.exp}</div>
+      </div>
+    `).join('')}
+    <div id="submitRow" style="margin-top:12px;display:none;">
+      <button onclick="submitQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--teal2);background:rgba(61,168,194,0.1);color:var(--teal2);cursor:pointer;border-radius:3px;">Submit Answers</button>
+    </div>
+  `;
+}
+
+let quizAnswers = {};
+function answerQuiz(qi, oi) {
+  quizAnswers[qi] = oi;
+  const w = weeks[currentWeek];
+  w.quiz[qi].opts.forEach((_, i) => {
+    const btn = document.getElementById(`q${qi}o${i}`);
+    if (btn) btn.style.borderColor = i === oi ? 'var(--gold2)' : '';
+  });
+  const answered = Object.keys(quizAnswers).length;
+  document.getElementById('quizScore').textContent = `${answered} of ${w.quiz.length} answered`;
+  if (answered === w.quiz.length) document.getElementById('submitRow').style.display = 'block';
+}
+
+function submitQuiz() {
+  const w = weeks[currentWeek];
+  let correct = 0;
+  w.quiz.forEach((q, i) => {
+    const chosen = quizAnswers[i];
+    q.opts.forEach((_, oi) => {
+      const btn = document.getElementById(`q${i}o${oi}`);
+      if (!btn) return;
+      btn.disabled = true;
+      if (oi === q.correct) btn.classList.add('correct');
+      else if (chosen === oi) btn.classList.add('wrong');
+    });
+    if (chosen === q.correct) correct++;
+    const exp = document.getElementById(`exp${i}`);
+    if (exp) exp.classList.add('show');
+  });
+  scores[currentWeek] = { correct, total: w.quiz.length, done: true, answers: {...quizAnswers} };
+  quizAnswers = {};
+  document.getElementById('quizScore').textContent = `Score: ${correct} / ${w.quiz.length} — ${Math.round(correct/w.quiz.length*100)}%`;
+  document.getElementById('submitRow').innerHTML = `<button onclick="resetQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;">Retry Quiz</button>`;
+}
+
+function resetQuiz() {
+  scores[currentWeek] = { correct: 0, total: 0, done: false };
+  quizAnswers = {};
+  switchTab('quiz');
+}
+
+function renderMCQRevision(w) {
+  const bank = w.mcqBank;
+  const topics = ['All', ...new Set(bank.map(q => q.topic))];
+  const filtered = mcqFilter === 'All' ? bank : bank.filter(q => q.topic === mcqFilter);
+
+  if (mcqDone) {
+    let total = 0, correct = 0;
+    const byTopic = {};
+    bank.forEach((q, i) => {
+      byTopic[q.topic] = byTopic[q.topic] || { correct: 0, total: 0 };
+      byTopic[q.topic].total++; total++;
+      if (mcqAnswers[i] === q.correct) { correct++; byTopic[q.topic].correct++; }
+    });
+    const pct = Math.round(correct/total*100);
+    const grade = pct >= 80 ? '🏆 Excellent' : pct >= 60 ? '✓ Good' : pct >= 40 ? '△ Needs work' : '✗ Keep revising';
+    return `
+      <div class="mcq-results">
+        <div class="mcq-results-score">${correct} / ${total} — ${pct}%</div>
+        <div class="mcq-results-sub">${grade} · ${total} questions across all 8 topics</div>
+        <div class="mcq-breakdown">
+          ${Object.entries(byTopic).map(([t, s]) => `
+            <div class="mcq-breakdown-item">
+              <div class="mcq-breakdown-topic">${t}</div>
+              <div class="mcq-breakdown-score"><span>${s.correct}/${s.total}</span> — ${Math.round(s.correct/s.total*100)}%</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ${bank.map((q, i) => `
+        <div class="quiz-card">
+          <div class="q-topic-tag">${q.topic}</div>
+          <div class="quiz-q">${i+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o, oi) => `<button class="quiz-opt ${oi === q.correct ? 'correct' : (mcqAnswers[i] === oi && oi !== q.correct ? 'wrong' : '')}" disabled>${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation show">${q.exp}</div>
+        </div>
+      `).join('')}
+      <button onclick="resetMCQ()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;margin-top:8px;">Start Over</button>
+    `;
+  }
+
+  const answeredCount = Object.keys(mcqAnswers).length;
+  return `
+    <div class="mcq-filter-bar">
+      ${topics.map(t => `<button class="mcq-filter-btn ${mcqFilter === t ? 'active' : ''}" onclick="setMCQFilter('${t}')">${t}</button>`).join('')}
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;margin-bottom:1rem;">
+      Showing ${filtered.length} of ${bank.length} questions · ${answeredCount} answered
+    </div>
+    ${filtered.map((q) => {
+      const gi = bank.indexOf(q);
+      const chosen = mcqAnswers[gi];
+      return `
+        <div class="quiz-card">
+          <div class="q-topic-tag">${q.topic}</div>
+          <div class="quiz-q">${gi+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o, oi) => `<button class="quiz-opt${chosen !== undefined ? (oi === q.correct ? ' correct' : (chosen === oi ? ' wrong' : '')) : ''}" onclick="mcqAnswer(${gi},${oi})" ${chosen !== undefined ? 'disabled' : ''} id="mcq${gi}o${oi}">${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation${chosen !== undefined ? ' show' : ''}" id="mcqexp${gi}">${q.exp}</div>
+        </div>
+      `;
+    }).join('')}
+    ${mcqFilter === 'All' ? `
+      <div id="mcqSubmitRow" style="margin-top:12px;${answeredCount < bank.length ? 'display:none;' : ''}">
+        <button onclick="submitMCQ()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--teal2);background:rgba(61,168,194,0.1);color:var(--teal2);cursor:pointer;border-radius:3px;">See Full Results &amp; Breakdown</button>
+      </div>
+    ` : `<p style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">Select "All" to submit and see your results breakdown.</p>`}
+  `;
+}
+
+function setMCQFilter(topic) {
+  mcqFilter = topic;
+  document.getElementById('tabContent').innerHTML = renderMCQRevision(weeks[currentWeek]);
+}
+
+function mcqAnswer(qi, oi) {
+  if (mcqAnswers[qi] !== undefined) return;
+  mcqAnswers[qi] = oi;
+  const q = weeks[currentWeek].mcqBank[qi];
+  q.opts.forEach((_, i) => {
+    const btn = document.getElementById(`mcq${qi}o${i}`);
+    if (!btn) return;
+    btn.disabled = true;
+    if (i === q.correct) btn.classList.add('correct');
+    else if (i === oi) btn.classList.add('wrong');
+  });
+  const exp = document.getElementById(`mcqexp${qi}`);
+  if (exp) exp.classList.add('show');
+  const bank = weeks[currentWeek].mcqBank;
+  const answeredCount = Object.keys(mcqAnswers).length;
+  const submitRow = document.getElementById('mcqSubmitRow');
+  if (submitRow && answeredCount >= bank.length) submitRow.style.display = 'block';
+}
+
+function submitMCQ() { mcqDone = true; document.getElementById('tabContent').innerHTML = renderMCQRevision(weeks[currentWeek]); }
+function resetMCQ() { mcqAnswers = {}; mcqDone = false; mcqFilter = 'All'; document.getElementById('tabContent').innerHTML = renderMCQRevision(weeks[currentWeek]); }
+
+function renderTutor(w) {
+  const msgs = (chatHistory[currentWeek] || []);
+  return `
+    <div class="tutor-section" style="padding-top:0;border-top:none;margin-top:0;">
+      <div class="tutor-heading">AI Geography Tutor</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Ask anything about ${w.title}. Essay arguments, case study details, diagram guidance, exam technique.</p>
+      <div class="quick-prompts">
+        ${w.quickPrompts.map(p => `<button class="quick-btn" onclick="sendFromBtn('${p.replace(/'/g,"\\'")}')">↗ ${p}</button>`).join('')}
+      </div>
+      <div class="chat-area">
+        <div class="chat-messages" id="chatMsgs">
+          ${msgs.length === 0 ? `<div style="color:var(--muted);font-size:13px;text-align:center;margin:auto;padding:2rem;font-style:italic;">Ask a question about ${w.title} to begin…</div>` : msgs.map(m => `<div class="msg msg-${m.role}"><div class="msg-label">${m.role === 'user' ? 'You' : 'Tutor'}</div>${m.content}</div>`).join('')}
+        </div>
+        <div class="chat-input-row">
+          <textarea class="chat-input" id="chatInput" rows="1" placeholder="Ask about ${w.title}…" onkeydown="handleKey(event)"></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function attachHandlers() {
+  const ta = document.getElementById('chatInput');
+  if (ta) ta.addEventListener('input', function() { this.style.height = 'auto'; this.style.height = Math.min(this.scrollHeight, 100) + 'px'; });
+}
+
+function handleKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+
+function toggleCase(i) {
+  const body = document.getElementById(`cs-${i}`);
+  const icon = document.getElementById(`cicon-${i}`);
+  if (body.classList.contains('open')) { body.classList.remove('open'); icon.textContent = '▼'; }
+  else { body.classList.add('open'); icon.textContent = '▲'; }
+}
+
+function sendFromBtn(text) {
+  if (activeTab !== 'tutor') { activeTab = 'tutor'; switchTab('tutor'); }
+  setTimeout(() => { const inp = document.getElementById('chatInput'); if (inp) { inp.value = text; sendMessage(); } }, 100);
+}
+
+function askTutor(text) {
+  activeTab = 'tutor'; switchTab('tutor');
+  setTimeout(() => { const inp = document.getElementById('chatInput'); if (inp) { inp.value = text; sendMessage(); } }, 100);
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const msgs = document.getElementById('chatMsgs');
+  if (!input || !input.value.trim()) return;
+  const text = input.value.trim();
+  input.value = ''; input.style.height = 'auto';
+  if (sendBtn) sendBtn.disabled = true;
+  if (!chatHistory[currentWeek]) chatHistory[currentWeek] = [];
+  chatHistory[currentWeek].push({ role: 'user', content: text });
+  msgs.innerHTML = chatHistory[currentWeek].map(m => `<div class="msg msg-${m.role}"><div class="msg-label">${m.role === 'user' ? 'You' : 'Tutor'}</div>${m.content}</div>`).join('');
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'msg msg-ai';
+  typingDiv.innerHTML = `<div class="msg-label">Tutor</div><div class="typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(typingDiv);
+  msgs.scrollTop = msgs.scrollHeight;
+  const w = weeks[currentWeek];
+  const systemPrompt = `You are an expert Edexcel A Level Geography tutor. The student is currently studying: "${w.title}" (${w.week}). Focus: ${w.focus}.
+Key concepts: ${w.topics.map(t=>t.title).join(', ')}.
+Key terms: ${w.keyTerms.map(k=>k.term).join(', ')}.
+Case studies available: ${w.casestudies.map(c=>c.name).join(', ')}.
+
+Your role:
+- Give clear, exam-focused explanations with located, data-rich examples
+- Use Edexcel A Level Geography terminology and mark scheme language
+- For essay questions: structure responses using PEEL (Point, Evidence, Explain, Evaluate) or PAA (Players, Attitudes, Actions) where relevant
+- When discussing case studies: always include specific data (numbers, dates, places)
+- Give exam technique tips (e.g. for 8-mark, 12-mark, 20-mark questions)
+- Be concise but thorough. Use • bullet points for lists.
+- Always distinguish between correlation and causation, and between physical and human factors`;
+
+  const messages = chatHistory[currentWeek].map(m => ({ role: m.role === 'ai' ? 'assistant' : 'user', content: m.content.replace(/<[^>]*>/g, '') }));
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: systemPrompt, messages })
+    });
+    const data = await res.json();
+    const reply = data.content?.[0]?.text || 'Sorry, I could not get a response. Please try again.';
+    const formatted = reply
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/`([^`]+)`/g, '<code style="font-family:\'DM Mono\',monospace;background:rgba(61,168,194,0.12);color:var(--teal2);padding:1px 5px;border-radius:2px;font-size:13px;">$1</code>')
+      .replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>');
+    chatHistory[currentWeek].push({ role: 'ai', content: formatted });
+    typingDiv.remove();
+    msgs.innerHTML = chatHistory[currentWeek].map(m => `<div class="msg msg-${m.role}"><div class="msg-label">${m.role === 'user' ? 'You' : 'Tutor'}</div>${m.content}</div>`).join('');
+  } catch(e) {
+    typingDiv.remove();
+    const errDiv = document.createElement('div');
+    errDiv.className = 'msg msg-ai';
+    errDiv.innerHTML = `<div class="msg-label">Tutor</div>Network error — please check your connection and retry.`;
+    msgs.appendChild(errDiv);
+  }
+  if (sendBtn) sendBtn.disabled = false;
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+buildNav();
+renderContent();
+</script>
+</body>
+</html>
