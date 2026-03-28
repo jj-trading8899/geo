@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edexcel A Level Geography — Revision Helper</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:       #0d1117;
+  --surf:     #161b22;
+  --surf2:    #1e2530;
+  --border:   #2d3748;
+  --teal:     #4ecdc4;
+  --amber:    #f6ad55;
+  --rose:     #fc8181;
+  --sage:     #68d391;
+  --sky:      #63b3ed;
+  --lavender: #b794f4;
+  --text:     #e2e8f0;
+  --muted:    #718096;
+  --faint:    #2d3748;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.65;min-height:100vh;overflow-x:hidden}
+
+/* scrollbar */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(–bg)}
+::-webkit-scrollbar-thumb{background:var(–border);border-radius:3px}
+
+/* ── TOPBAR ── */
+#topbar{
+position:sticky;top:0;z-index:200;
+background:rgba(13,17,23,0.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid var(–border);
+padding:0 28px;
+height:56px;
+display:flex;align-items:center;justify-content:space-between;
+}
+.brand{font-family:‘Fraunces’,serif;font-size:18px;font-weight:900;color:var(–teal);letter-spacing:-0.5px;line-height:1}
+.brand small{display:block;font-family:‘DM Mono’,monospace;font-size:9px;font-weight:400;color:var(–muted);letter-spacing:2px;text-transform:uppercase;margin-top:2px}
+.pill{background:var(–teal);color:#000;font-size:9px;font-weight:600;padding:3px 9px;border-radius:12px;font-family:‘DM Mono’,monospace;letter-spacing:1.5px}
+
+/* ── API KEY BAR ── */
+#keybar{
+background:var(–surf);border-bottom:1px solid var(–border);
+padding:10px 28px;display:flex;align-items:center;gap:12px;
+animation:slideDown 0.4s ease;
+}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+#keybar label{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–muted);letter-spacing:1px;white-space:nowrap}
+#keybar input{
+flex:1;max-width:380px;background:var(–surf2);border:1px solid var(–border);
+color:var(–text);padding:7px 12px;border-radius:6px;font-family:‘DM Mono’,monospace;font-size:12px;outline:none;
+transition:border-color 0.2s;
+}
+#keybar input:focus{border-color:var(–teal)}
+#keybar input::placeholder{color:var(–muted)}
+#saveKey{background:var(–teal);color:#000;border:none;padding:7px 16px;border-radius:6px;font-weight:600;font-size:12px;cursor:pointer;font-family:‘DM Sans’,sans-serif;transition:opacity 0.2s}
+#saveKey:hover{opacity:0.85}
+.key-note{font-size:11px;color:var(–muted)}
+
+/* ── MAIN GRID ── */
+#app{display:grid;grid-template-columns:252px 1fr;min-height:calc(100vh - 56px)}
+
+/* ── SIDEBAR ── */
+aside{
+background:var(–surf);border-right:1px solid var(–border);
+padding:20px 0;
+position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;
+}
+.aside-head{padding:0 18px 12px;font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:2px;color:var(–muted);text-transform:uppercase}
+.paper-group{margin-bottom:4px}
+.paper-label{
+padding:6px 18px;font-size:10px;font-family:‘DM Mono’,monospace;letter-spacing:1.5px;text-transform:uppercase;
+display:flex;align-items:center;gap:8px;cursor:pointer;color:var(–muted);transition:color 0.15s;
+}
+.paper-label:hover{color:var(–text)}
+.paper-label .pdot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.p1-color{background:var(–teal)}
+.p2-color{background:var(–amber)}
+.p3-color{background:var(–lavender)}
+.topics{overflow:hidden;max-height:0;transition:max-height 0.35s ease}
+.topics.open{max-height:600px}
+.t-btn{
+display:block;width:100%;text-align:left;
+padding:9px 18px 9px 32px;
+background:none;border:none;color:var(–text);cursor:pointer;
+font-family:‘DM Sans’,sans-serif;font-size:12.5px;
+border-left:3px solid transparent;transition:all 0.15s;
+}
+.t-btn:hover{background:var(–surf2);color:var(–teal)}
+.t-btn.active{border-left-color:var(–teal);background:var(–surf2);color:var(–teal);font-weight:600}
+.sidebar-divider{height:1px;background:var(–border);margin:10px 18px}
+
+/* ── MAIN CONTENT ── */
+main{padding:28px 36px;overflow-y:auto}
+
+/* ── TOPIC HEADER ── */
+.topic-hdr{margin-bottom:24px;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.topic-hdr h1{font-family:‘Fraunces’,serif;font-size:28px;font-weight:900;line-height:1.1;color:var(–text)}
+.topic-hdr h1 span{color:var(–teal)}
+.topic-meta{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.meta-chip{
+font-family:‘DM Mono’,monospace;font-size:10px;padding:3px 10px;border-radius:12px;
+border:1px solid var(–border);color:var(–muted);
+}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(–border);margin-bottom:24px}
+.tab{
+padding:9px 18px;background:none;border:none;color:var(–muted);cursor:pointer;
+font-family:‘DM Sans’,sans-serif;font-size:13px;font-weight:500;
+border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;
+}
+.tab:hover{color:var(–text)}
+.tab.active{color:var(–teal);border-bottom-color:var(–teal)}
+
+/* ── PANEL ── */
+.panel{display:none;animation:fadeIn 0.25s ease}
+.panel.show{display:block}
+
+/* ── KNOWLEDGE CARDS ── */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:24px}
+.kcard{
+background:var(–surf);border:1px solid var(–border);border-radius:10px;
+padding:18px;transition:border-color 0.2s,transform 0.2s;
+}
+.kcard:hover{border-color:var(–teal);transform:translateY(-2px)}
+.kcard-tag{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(–teal);margin-bottom:8px}
+.kcard h3{font-family:‘Fraunces’,serif;font-size:15px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.kcard p{font-size:12.5px;color:#a0aec0;line-height:1.6}
+.kcard ul{padding-left:16px;font-size:12.5px;color:#a0aec0;margin-top:6px}
+.kcard ul li{margin-bottom:4px}
+.kcard .kex{
+margin-top:10px;padding:8px 12px;background:var(–surf2);border-radius:6px;
+font-size:11.5px;color:var(–amber);font-family:‘DM Mono’,monospace;border-left:2px solid var(–amber);
+}
+
+/* ── KEY TERMS ── */
+.terms-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.term-card{
+background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:14px;
+cursor:pointer;transition:all 0.15s;
+}
+.term-card:hover{border-color:var(–sky);background:var(–surf2)}
+.term-word{font-family:‘Fraunces’,serif;font-size:15px;font-weight:600;color:var(–sky);margin-bottom:4px}
+.term-def{font-size:12px;color:var(–muted);display:none}
+.term-card.revealed .term-def{display:block;color:#a0aec0}
+.term-hint{font-size:10px;color:var(–faint);font-style:italic;margin-top:4px}
+.term-card.revealed .term-hint{display:none}
+
+/* ── FLASHCARDS ── */
+.fc-wrap{max-width:580px;margin:0 auto}
+.fc{
+background:var(–surf);border:1px solid var(–border);border-radius:14px;
+min-height:200px;padding:32px;text-align:center;cursor:pointer;
+position:relative;transition:transform 0.15s;
+perspective:1000px;
+}
+.fc:hover{transform:scale(1.01)}
+.fc-front,.fc-back{transition:opacity 0.25s}
+.fc-label{font-family:‘DM Mono’,monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(–muted);margin-bottom:16px}
+.fc-q{font-family:‘Fraunces’,serif;font-size:20px;font-weight:600;line-height:1.3;color:var(–text)}
+.fc-a{font-size:13.5px;color:#a0aec0;line-height:1.7}
+.fc-controls{display:flex;gap:10px;justify-content:center;margin-top:20px}
+.fc-btn{
+padding:9px 22px;border-radius:8px;border:none;cursor:pointer;
+font-family:‘DM Sans’,sans-serif;font-size:13px;font-weight:600;transition:opacity 0.2s;
+}
+.fc-btn:hover{opacity:0.85}
+.fc-btn.flip{background:var(–surf2);color:var(–text);border:1px solid var(–border)}
+.fc-btn.next{background:var(–teal);color:#000}
+.fc-btn.prev{background:var(–surf2);color:var(–text);border:1px solid var(–border)}
+.fc-prog{text-align:center;font-family:‘DM Mono’,monospace;font-size:11px;color:var(–muted);margin-bottom:16px}
+
+/* ── ESSAY PRACTICE ── */
+.eq-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.eq-item{
+background:var(–surf);border:1px solid var(–border);border-radius:8px;
+padding:14px 16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+transition:border-color 0.15s;
+}
+.eq-item:hover{border-color:var(–lavender)}
+.eq-text{font-size:13px;color:var(–text);flex:1;line-height:1.5}
+.eq-marks{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–amber);white-space:nowrap;padding-top:2px}
+.try-btn{
+background:var(–lavender);color:#000;border:none;padding:7px 14px;border-radius:6px;
+font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;font-family:‘DM Sans’,sans-serif;
+flex-shrink:0;transition:opacity 0.2s;
+}
+.try-btn:hover{opacity:0.85}
+
+/* ── AI ESSAY PANEL ── */
+.ai-panel{
+background:var(–surf);border:1px solid var(–border);border-radius:12px;padding:24px;
+margin-top:8px;
+}
+.ai-question{
+font-family:‘Fraunces’,serif;font-size:16px;font-weight:600;color:var(–text);
+margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(–border);line-height:1.4;
+}
+.ai-question .marks-badge{
+display:inline-block;background:rgba(246,173,85,0.12);color:var(–amber);
+font-family:‘DM Mono’,monospace;font-size:10px;padding:2px 8px;border-radius:4px;margin-left:8px;
+font-weight:400;
+}
+textarea#essayInput{
+width:100%;min-height:220px;background:var(–surf2);border:1px solid var(–border);
+color:var(–text);padding:14px;border-radius:8px;font-family:‘DM Sans’,sans-serif;
+font-size:13px;line-height:1.7;resize:vertical;outline:none;transition:border-color 0.2s;
+}
+textarea#essayInput:focus{border-color:var(–teal)}
+textarea#essayInput::placeholder{color:var(–muted)}
+.ai-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;align-items:center}
+.ai-btn{
+padding:10px 20px;border-radius:8px;border:none;cursor:pointer;
+font-family:‘DM Sans’,sans-serif;font-size:13px;font-weight:600;transition:all 0.2s;
+}
+.ai-btn.primary{background:var(–teal);color:#000}
+.ai-btn.secondary{background:var(–surf2);color:var(–text);border:1px solid var(–border)}
+.ai-btn:hover{opacity:0.85}
+.ai-btn:disabled{opacity:0.4;cursor:not-allowed}
+#aiOutput{
+margin-top:20px;padding-top:20px;border-top:1px solid var(–border);
+font-size:13.5px;line-height:1.8;color:#a0aec0;display:none;
+}
+#aiOutput.show{display:block;animation:fadeIn 0.3s ease}
+#aiOutput h4{font-family:‘Fraunces’,serif;font-size:16px;color:var(–text);margin-bottom:10px;font-weight:600}
+#aiOutput .band{
+display:inline-block;font-family:‘DM Mono’,monospace;font-size:11px;
+padding:3px 10px;border-radius:5px;margin-bottom:12px;font-weight:500;
+}
+#aiOutput .fb-section{margin-bottom:14px}
+#aiOutput .fb-section strong{color:var(–text);font-weight:600}
+.typing-dots{display:inline-flex;gap:4px;align-items:center;padding:16px 0}
+.typing-dots span{width:7px;height:7px;border-radius:50%;background:var(–teal);animation:bounce 1.2s infinite}
+.typing-dots span:nth-child(2){animation-delay:0.2s}
+.typing-dots span:nth-child(3){animation-delay:0.4s}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:0.4}50%{transform:translateY(-6px);opacity:1}}
+.outline-hint{
+background:rgba(78,205,196,0.06);border:1px solid rgba(78,205,196,0.2);
+border-radius:8px;padding:12px 16px;margin-bottom:14px;font-size:12px;color:#a0aec0;
+}
+.outline-hint strong{color:var(–teal)}
+
+/* ── CASE STUDIES ── */
+.cs-card{
+background:var(–surf);border:1px solid var(–border);border-radius:10px;
+padding:20px;margin-bottom:14px;transition:border-color 0.2s;
+}
+.cs-card:hover{border-color:var(–sage)}
+.cs-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.cs-name{font-family:‘Fraunces’,serif;font-size:16px;font-weight:600;color:var(–sage)}
+.cs-loc{font-family:‘DM Mono’,monospace;font-size:10px;color:var(–muted);padding-top:3px}
+.cs-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.cs-tag{font-size:10px;padding:2px 8px;border-radius:10px;background:var(–surf2);color:var(–muted);border:1px solid var(–border);font-family:‘DM Mono’,monospace}
+.cs-body{font-size:12.5px;color:#a0aec0;line-height:1.65}
+.cs-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin-top:12px}
+.cs-stat{background:var(–surf2);border-radius:6px;padding:8px 12px}
+.cs-stat-val{font-family:‘DM Mono’,monospace;font-size:14px;font-weight:500;color:var(–amber)}
+.cs-stat-lbl{font-size:10px;color:var(–muted);margin-top:1px}
+
+/* ── WELCOME SCREEN ── */
+#welcome{padding:40px 0;animation:fadeIn 0.4s ease}
+#welcome h1{font-family:‘Fraunces’,serif;font-size:36px;font-weight:900;line-height:1.1;margin-bottom:14px}
+#welcome h1 em{color:var(–teal);font-style:normal}
+#welcome p{color:#a0aec0;max-width:520px;margin-bottom:28px;font-size:14px}
+.feature-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;max-width:700px}
+.feat{background:var(–surf);border:1px solid var(–border);border-radius:10px;padding:16px}
+.feat-icon{font-size:22px;margin-bottom:8px}
+.feat h3{font-size:13px;font-weight:600;margin-bottom:4px}
+.feat p{font-size:12px;color:var(–muted)}
+.start-prompt{
+margin-top:32px;display:flex;align-items:center;gap:8px;
+font-family:‘DM Mono’,monospace;font-size:11px;color:var(–muted);
+}
+.arrow-anim{animation:arrowPulse 1.5s infinite}
+@keyframes arrowPulse{0%,100%{transform:translateX(0)}50%{transform:translateX(-4px)}}
+
+/* ── PROGRESS TRACKER ── */
+.progress-bar-wrap{height:3px;background:var(–border);border-radius:2px;margin-bottom:20px}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(–teal),var(–sky));border-radius:2px;transition:width 0.4s ease}
+
+/* ── MARKS SCHEME ── */
+.ms-band{
+border:1px solid var(–border);border-radius:8px;margin-bottom:10px;overflow:hidden;
+}
+.ms-band-hdr{
+padding:10px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;
+background:var(–surf);transition:background 0.15s;
+}
+.ms-band-hdr:hover{background:var(–surf2)}
+.ms-band-lbl{font-family:‘DM Mono’,monospace;font-size:11px;font-weight:500}
+.ms-band-body{padding:14px 16px;background:var(–surf2);font-size:12.5px;color:#a0aec0;line-height:1.65;display:none}
+.ms-band.open .ms-band-body{display:block}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+#app{grid-template-columns:1fr}
+aside{position:relative;height:auto;top:0;border-right:none;border-bottom:1px solid var(–border)}
+main{padding:20px 16px}
+}
+</style>
+
+</head>
+<body>
+
+<!-- TOPBAR -->
+
+<div id="topbar">
+  <div class="brand">
+    Geo Revision
+    <small>Edexcel A Level · Papers 1, 2 &amp; 3</small>
+  </div>
+  <span class="pill">AI-POWERED</span>
+</div>
+
+<!-- API KEY BAR -->
+
+<div id="keybar">
+  <label>ANTHROPIC API KEY</label>
+  <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." autocomplete="off">
+  <button id="saveKey" onclick="saveKey()">Save</button>
+  <span class="key-note">Key stored in your browser only · never sent elsewhere</span>
+</div>
+
+<!-- APP -->
+
+<div id="app">
+
+  <!-- SIDEBAR -->
+
+  <aside>
+    <div class="aside-head">Core Topics</div>
+
+```
+<!-- PAPER 1 -->
+<div class="paper-group">
+  <div class="paper-label" onclick="togglePaper('p1')">
+    <span class="pdot p1-color"></span>Paper 1 · Physical
+    <span style="margin-left:auto;font-size:10px" id="p1arrow">▾</span>
+  </div>
+  <div class="topics open" id="p1-topics">
+    <button class="t-btn" onclick="loadTopic('tectonic')">🌋 Tectonic Hazards</button>
+    <button class="t-btn" onclick="loadTopic('coasts')">🌊 Coastal Landscapes</button>
+    <button class="t-btn" onclick="loadTopic('carbon')">🌿 Carbon Cycle</button>
+    <button class="t-btn" onclick="loadTopic('water')">💧 Water Cycle</button>
+    <button class="t-btn" onclick="loadTopic('glacial')">🏔️ Glacial Landscapes</button>
+  </div>
+</div>
+
+<div class="sidebar-divider"></div>
+
+<!-- PAPER 2 -->
+<div class="paper-group">
+  <div class="paper-label" onclick="togglePaper('p2')">
+    <span class="pdot p2-color"></span>Paper 2 · Human
+    <span style="margin-left:auto;font-size:10px" id="p2arrow">▾</span>
+  </div>
+  <div class="topics open" id="p2-topics">
+    <button class="t-btn" onclick="loadTopic('globalisation')">🌐 Globalisation</button>
+    <button class="t-btn" onclick="loadTopic('migration')">✈️ Migration &amp; Identity</button>
+    <button class="t-btn" onclick="loadTopic('regeneration')">🏙️ Regeneration</button>
+    <button class="t-btn" onclick="loadTopic('shaping')">🗺️ Diverse Places</button>
+    <button class="t-btn" onclick="loadTopic('superpowers')">🦅 Superpowers</button>
+  </div>
+</div>
+
+<div class="sidebar-divider"></div>
+
+<!-- PAPER 3 / SYNOPTIC -->
+<div class="paper-group">
+  <div class="paper-label" onclick="togglePaper('p3')">
+    <span class="pdot p3-color"></span>Paper 3 · Synoptic
+    <span style="margin-left:auto;font-size:10px" id="p3arrow">▾</span>
+  </div>
+  <div class="topics open" id="p3-topics">
+    <button class="t-btn" onclick="loadTopic('players')">♟️ Players &amp; Attitudes</button>
+    <button class="t-btn" onclick="loadTopic('interdependence')">🔗 Interdependence</button>
+    <button class="t-btn" onclick="loadTopic('futures')">🔭 Contested Futures</button>
+    <button class="t-btn" onclick="loadTopic('fieldwork')">📊 Fieldwork &amp; Methods</button>
+  </div>
+</div>
+```
+
+  </aside>
+
+  <!-- MAIN -->
+
+  <main id="main">
+
+```
+<!-- WELCOME -->
+<div id="welcome">
+  <h1>Master <em>Geography</em><br>for A Level.</h1>
+  <p>AI-powered revision covering all core Edexcel topics. Reinforce knowledge, practise essay answers, and get instant examiner-style feedback.</p>
+  <div class="feature-row">
+    <div class="feat"><div class="feat-icon">📚</div><h3>Knowledge Cards</h3><p>Key concepts, processes &amp; case studies per topic</p></div>
+    <div class="feat"><div class="feat-icon">🃏</div><h3>Flashcards</h3><p>Test yourself on key terms &amp; definitions</p></div>
+    <div class="feat"><div class="feat-icon">✍️</div><h3>Essay Practice</h3><p>Real exam questions with AI feedback &amp; mark bands</p></div>
+    <div class="feat"><div class="feat-icon">🌍</div><h3>Case Studies</h3><p>Named examples with statistics ready for exam</p></div>
+  </div>
+  <div class="start-prompt">
+    <span class="arrow-anim">←</span> Select a topic from the sidebar to begin
+  </div>
+</div>
+
+<!-- TOPIC CONTENT (hidden until topic selected) -->
+<div id="topicContent" style="display:none">
+
+  <div class="topic-hdr">
+    <h1 id="topicTitle">Topic</h1>
+    <div class="topic-meta" id="topicMeta"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('knowledge',this)">📖 Knowledge</button>
+    <button class="tab" onclick="switchTab('terms',this)">🔤 Key Terms</button>
+    <button class="tab" onclick="switchTab('flashcards',this)">🃏 Flashcards</button>
+    <button class="tab" onclick="switchTab('essay',this)">✍️ Essay Practice</button>
+    <button class="tab" onclick="switchTab('casestudies',this)">🌍 Case Studies</button>
+  </div>
+
+  <!-- KNOWLEDGE PANEL -->
+  <div class="panel show" id="panel-knowledge"></div>
+
+  <!-- TERMS PANEL -->
+  <div class="panel" id="panel-terms">
+    <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Click a term to reveal the definition.</p>
+    <div class="terms-grid" id="termsGrid"></div>
+  </div>
+
+  <!-- FLASHCARDS PANEL -->
+  <div class="panel" id="panel-flashcards">
+    <div class="fc-wrap">
+      <div class="fc-prog" id="fcProg"></div>
+      <div class="fc" id="fcCard" onclick="flipCard()">
+        <div id="fcFront">
+          <div class="fc-label">Question</div>
+          <div class="fc-q" id="fcQ"></div>
+        </div>
+        <div id="fcBack" style="display:none">
+          <div class="fc-label">Answer</div>
+          <div class="fc-a" id="fcA"></div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="fc-btn prev" onclick="prevCard()">← Prev</button>
+        <button class="fc-btn flip" onclick="flipCard()">Flip</button>
+        <button class="fc-btn next" onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESSAY PANEL -->
+  <div class="panel" id="panel-essay">
+    <div id="essayList">
+      <p style="color:var(--muted);font-size:12px;margin-bottom:16px">Choose a question to practise. Click <strong style="color:var(--lavender)">Try It</strong> for AI feedback.</p>
+      <div class="eq-list" id="eqList"></div>
+    </div>
+    <div id="essayPractice" style="display:none">
+      <button onclick="backToList()" style="background:none;border:none;color:var(--teal);cursor:pointer;font-size:13px;margin-bottom:18px;font-family:'DM Sans',sans-serif">← Back to questions</button>
+      <div class="ai-panel">
+        <div class="ai-question" id="aiQuestion"></div>
+        <div class="outline-hint">
+          <strong>Exam tip:</strong> For 20-mark essays aim for: intro (2–3 lines), 3–4 developed paragraphs using <strong>PEEL</strong> structure, a conclusion that evaluates the main argument. Use named case studies with statistics.
+        </div>
+        <textarea id="essayInput" placeholder="Write your essay answer here... (or write a brief plan and ask for an outline)"></textarea>
+        <div class="ai-actions">
+          <button class="ai-btn primary" id="submitBtn" onclick="submitEssay()">Get AI Feedback</button>
+          <button class="ai-btn secondary" onclick="getOutline()">Generate Outline</button>
+          <button class="ai-btn secondary" onclick="clearEssay()">Clear</button>
+        </div>
+        <div id="aiOutput"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE STUDIES PANEL -->
+  <div class="panel" id="panel-casestudies"></div>
+
+</div>
+```
+
+  </main>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// API KEY
+// ─────────────────────────────────────────────
+let API_KEY = localStorage.getItem('geo_api_key') || '';
+if (API_KEY) {
+  document.getElementById('apiKeyInput').value = API_KEY;
+  document.getElementById('keybar').style.display = 'none';
+}
+function saveKey() {
+  const v = document.getElementById('apiKeyInput').value.trim();
+  if (!v) return;
+  API_KEY = v;
+  localStorage.setItem('geo_api_key', v);
+  document.getElementById('keybar').style.display = 'none';
+}
+
+// ─────────────────────────────────────────────
+// TOPIC DATA
+// ─────────────────────────────────────────────
+const TOPICS = {
+
+  tectonic: {
+    title: 'Tectonic Hazards',
+    paper: 'Paper 1', color: 'var(--teal)',
+    chips: ['Physical Geography','Compulsory','High Weightage'],
+    knowledge: [
+      { tag:'Plate Margins', title:'Types of Plate Boundaries', body:'Convergent, divergent, and conservative margins each produce distinct hazard profiles.', points:['Convergent: subduction → stratovolcanoes, megathrust earthquakes (e.g. Japan 2011)','Divergent: rift valleys, shield volcanoes, lower magnitude quakes','Conservative: lateral shearing → powerful earthquakes, no volcanic activity'], example:'San Andreas Fault (conservative) vs Cascadia (convergent subduction zone)' },
+      { tag:'Earthquakes', title:'Earthquake Hazards & Impacts', body:'Primary hazards include ground shaking and surface rupture; secondary hazards include tsunamis, liquefaction, and landslides.', points:['Magnitude measured on Moment Magnitude Scale (Mw)','Depth: shallow focus (<70km) most destructive','Liquefaction: saturated soils behave like liquid during shaking'], example:'Haiti 2010 Mw7.0 vs Chile 2010 Mw8.8: magnitude similar but fatalities vastly different → governance matters' },
+      { tag:'Volcanoes', title:'Volcanic Hazards', body:'Effusive vs explosive eruptions determined by magma viscosity and silica content.', points:['Pyroclastic flows: most deadly; 700°C, 700km/h','Lahars: volcanic mudflows travel 100s km along river valleys','Tephra fall: disrupts aviation, collapses roofs'], example:'Mount Merapi (Indonesia): high population density in hazard zone; community-based monitoring reduces casualties' },
+      { tag:'Resilience', title:'Hazard Management: Reduce & Respond', body:'The Hazard Management Cycle: mitigation, preparedness, response, recovery.', points:['Primary effects managed through building codes, land-use zoning','Early warning systems critical for tsunamis (DART buoys)','Governance gap: wealthier nations have greater adaptive capacity'], example:'Japan: world-class seismic resilience vs Nepal 2015: institutional failure worsened impacts' },
+    ],
+    terms: [
+      {w:'Subduction',d:'Process where one tectonic plate descends beneath another into the mantle, generating earthquakes and volcanic activity.'},
+      {w:'Liquefaction',d:'Phenomenon where water-saturated soils temporarily lose strength during earthquake shaking and behave like a liquid.'},
+      {w:'Pyroclastic Flow',d:'Fast-moving current of hot gas and volcanic matter flowing down a volcano\'s slopes; most lethal volcanic hazard.'},
+      {w:'Lahar',d:'A violent type of mudflow composed of volcanic debris and water, often travelling along river valleys.'},
+      {w:'Moment Magnitude (Mw)',d:'Logarithmic scale measuring the total energy released by an earthquake, replacing the Richter scale.'},
+      {w:'Adaptive Capacity',d:'The ability of a system or community to adjust to hazard stress, moderate potential damage, and recover.'},
+      {w:'Megathrust Earthquake',d:'Extremely large earthquake occurring at a convergent boundary where a dense oceanic plate subducts beneath a continental plate.'},
+      {w:'Tephra',d:'All fragmental material produced by volcanic eruptions, including ash, lapilli, and volcanic bombs.'},
+    ],
+    flashcards: [
+      {q:'What is the difference between a shield volcano and a stratovolcano?',a:'Shield volcanoes have low-viscosity basaltic lava, gentle slopes, and effusive eruptions (e.g. Mauna Loa). Stratovolcanoes have high-viscosity silica-rich magma, steep cones, and explosive eruptions (e.g. Mount Pinatubo).'},
+      {q:'Explain why the Haiti 2010 earthquake (Mw7.0) caused far more deaths than the Chile 2010 earthquake (Mw8.8).',a:'Haiti had weak governance, poor building regulations, high poverty, inadequate emergency services, and buildings not designed to withstand earthquakes. Chile had strict building codes, better preparedness, and stronger institutions — demonstrating the role of development in hazard vulnerability.'},
+      {q:'What are the three types of plate boundary and what hazards does each produce?',a:'Convergent: earthquakes + volcanoes (subduction). Divergent: mild earthquakes + rift volcanoes. Conservative: powerful earthquakes only (no volcanism as no subduction/magma generation).'},
+      {q:'What factors affect the magnitude of a volcanic eruption?',a:'Silica content (higher = more viscous = explosive), gas content, depth of magma chamber, time since last eruption (pressure build-up), and vent geometry.'},
+      {q:'Define the "hazard management cycle" and its four stages.',a:'Mitigation (reducing risk before event), Preparedness (planning/training), Response (immediate post-event actions), Recovery (long-term rebuilding). Effective management requires investment at all four stages.'},
+    ],
+    questions: [
+      {q:'Assess the extent to which the level of development is the most important factor in determining the impacts of tectonic hazards.',marks:'[20]'},
+      {q:'"The primary effects of tectonic hazards are always more significant than secondary effects." Discuss.',marks:'[20]'},
+      {q:'Evaluate the effectiveness of strategies used to manage the risks associated with either earthquakes or volcanoes.',marks:'[20]'},
+      {q:'Explain how plate tectonics theory accounts for the global distribution of tectonic hazards.',marks:'[6]'},
+    ],
+    casestudies: [
+      { name:'Japan 2011 Tōhoku Earthquake & Tsunami', loc:'Convergent margin, Pacific Plate subducts beneath Eurasian Plate', tags:['Megathrust','Mw9.0','MEDC'], body:'Triggered a 40m tsunami that caused Fukushima nuclear disaster. 15,897 deaths — mainly from tsunami not earthquake. Japan\'s seismic preparedness (building codes, drills, DART buoys) limited earthquake casualties but underestimated tsunami height.', stats:[{v:'Mw 9.0',l:'Magnitude'},{v:'15,897',l:'Deaths'},{v:'$360bn',l:'Economic loss'},{v:'127,000',l:'Buildings destroyed'}] },
+      { name:'Haiti Earthquake 2010', loc:'Conservative margin — Caribbean & North American plates', tags:['Mw7.0','LEDC','Governance failure'], body:'Catastrophic governance failure: 250,000+ deaths vs Chile\'s 525 deaths despite similar magnitude. Weak building codes, dense informal settlements, and poor emergency response capacity. Reconstruction has been slow and fraught with corruption.', stats:[{v:'Mw 7.0',l:'Magnitude'},{v:'250,000+',l:'Deaths'},{v:'$14bn',l:'Economic loss'},{v:'1.5m',l:'Displaced'}] },
+      { name:'Mount Pinatubo 1991, Philippines', loc:'Convergent margin, subduction of Philippine Plate', tags:['Explosive eruption','Successful evacuation','VEI-6'], body:'One of the 20th century\'s largest eruptions. PHIVOLCS issued timely warnings; 60,000 people evacuated. Only 847 deaths — largely from lahars. Demonstrates how monitoring and governance can dramatically reduce volcanic mortality.', stats:[{v:'VEI 6',l:'Explosivity'},{v:'847',l:'Deaths'},{v:'20km',l:'Ash cloud height'},{v:'60,000',l:'Evacuated'}] },
+    ],
+  },
+
+  coasts: {
+    title: 'Coastal Landscapes',
+    paper: 'Paper 1', color: 'var(--sky)',
+    chips: ['Physical Geography','Compulsory'],
+    knowledge: [
+      { tag:'Processes', title:'Coastal Erosion Processes', body:'Four main types: hydraulic action, abrasion, attrition, and solution — all acting with different intensities depending on wave energy.', points:['Hydraulic action: wave compression of air in cracks','Abrasion (corrasion): rock particles scrape coastline','Attrition: particles collide and reduce in size','Solution (corrosion): chemical weathering of carbonates'], example:'Chalk cliffs at Flamborough Head show all four processes in action' },
+      { tag:'Landforms', title:'Erosional & Depositional Landforms', body:'Contrasting landforms reflect whether the coast is a high-energy (erosional) or low-energy (depositional) environment.', points:['Erosional: headlands, bays, caves, arches, stacks, stumps','Depositional: beaches, spits, bars, tombolos, cuspate forelands','Longshore drift transports sediment along the coast'], example:'Durdle Door (arch) and Old Harry Rocks (stack) in Dorset' },
+      { tag:'Systems', title:'Coastal Sediment Cells & Budgets', body:'Coasts operate as sediment cells — closed systems where inputs, transfers, and outputs of sediment must balance.', points:['Sediment budget: inputs (rivers, cliff erosion) vs outputs (offshore drift)','Littoral cell: self-contained coastal unit','Hard engineering disrupts sediment transfer'], example:'Holderness Coast: fastest-eroding in Europe (2m/year) due to negative sediment budget and weak boulder clay' },
+      { tag:'Management', title:'Coastal Management Strategies', body:'Hard vs soft engineering, and managed retreat — evaluated on costs, effectiveness, and shoreline management plans.', points:['Hard: sea walls, groynes, rock armour (rip-rap)','Soft: beach nourishment, dune restoration','Managed retreat (realignment): cost-effective; allows ecosystem services'], example:'Medmerry managed realignment (Sussex): 183ha of new habitat; cost-effective vs sea wall maintenance' },
+    ],
+    terms: [
+      {w:'Littoral Cell',d:'A self-contained section of coastline within which sediment is circulated without significant exchange with adjacent cells.'},
+      {w:'Longshore Drift',d:'The movement of sediment along a coast by wave action when waves approach at an angle to the shoreline.'},
+      {w:'Wave Refraction',d:'The bending of waves as they approach shallow water, concentrating energy on headlands and dissipating it in bays.'},
+      {w:'Sediment Budget',d:'The balance between inputs, storage, and outputs of sediment within a coastal system.'},
+      {w:'Managed Retreat',d:'A coastal management strategy allowing previously defended land to be flooded in a controlled manner.'},
+      {w:'Fetch',d:'The unobstructed distance over water that the wind travels, determining wave energy and height.'},
+      {w:'Beach Nourishment',d:'Artificial replenishment of beach sediment to counteract erosion, maintaining the beach as a natural buffer.'},
+      {w:'Tombolo',d:'A depositional landform where a spit connects an island to the mainland or another island.'},
+    ],
+    flashcards: [
+      {q:'Explain the formation of a spit.',a:'Longshore drift transports sediment along the coast. Where the coastline changes direction (e.g. at a bay), deposition occurs as wave energy decreases. A spit extends in the direction of drift, often with a recurved end due to secondary wave action and storm refraction. Example: Spurn Head, Yorkshire.'},
+      {q:'Why does Holderness Coast erode so rapidly?',a:'(1) Weak unconsolidated boulder clay — easily eroded by hydraulic action. (2) High wave energy from long North Sea fetch. (3) Negative sediment budget — groynes at Hornsea trap sediment, starving areas to the south. (4) Narrow beach offering little protection.'},
+      {q:'Compare hard engineering and managed retreat.',a:'Hard engineering (sea walls, groynes) protects property but is expensive, disrupts sediment cells, and can shift erosion elsewhere. Managed retreat allows flooding of low-value land, is cheaper, creates habitats, but displaces communities and is politically difficult.'},
+      {q:'What is the significance of wave type (constructive vs destructive) for coastal processes?',a:'Constructive waves: low frequency, strong swash, weak backwash → deposition. Destructive waves: high frequency, weak swash, strong backwash → erosion. Storm events produce destructive waves that rapidly reshape coastlines.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which human activity is the main cause of coastal recession.',marks:'[20]'},
+      {q:'"Hard engineering is always preferable to managed retreat as a coastal management strategy." Discuss.',marks:'[20]'},
+      {q:'Explain how wave processes create contrasting coastal landforms.',marks:'[6]'},
+      {q:'Assess the effectiveness of one coastal management strategy you have studied.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Holderness Coast, Yorkshire', loc:'East coast of England, North Sea', tags:['Rapid erosion','Boulder clay','MEDC'], body:'Fastest-eroding coastline in Europe: loses up to 2m/year. Weak glacial boulder clay, high-energy destructive waves from long North Sea fetch. Settlements like Mappleton receive protection; unprotected stretches erode faster as sediment is trapped.', stats:[{v:'2m/yr',l:'Avg erosion rate'},{v:'30+',l:'Villages lost since Roman times'},{v:'£2m',l:'Rock armour at Mappleton'},{v:'50km',l:'Length of coast affected'}] },
+      { name:'Medmerry Managed Realignment', loc:'West Sussex, English Channel', tags:['Soft engineering','Managed retreat','SSSI'], body:'UK\'s largest managed realignment (2013). 183 hectares of new intertidal habitat created. Old shingle bank breached deliberately. Cost-effective alternative to maintaining failing sea defences; provided new nature reserve.', stats:[{v:'183ha',l:'New habitat'},{v:'£28m',l:'Cost'},{v:'2013',l:'Year completed'},{v:'300+',l:'Bird species recorded'}] },
+    ],
+  },
+
+  globalisation: {
+    title: 'Globalisation',
+    paper: 'Paper 2', color: 'var(--amber)',
+    chips: ['Human Geography','Compulsory','High Weightage'],
+    knowledge: [
+      { tag:'Drivers', title:'Drivers of Globalisation', body:'Globalisation has been accelerated by technological, political, and economic drivers operating at multiple scales.', points:['Technology: containerisation (1950s), internet, smartphones','TNCs: global production networks, outsourcing, offshoring','Trade liberalisation: WTO, free trade agreements','Financial: deregulation of capital flows, financial centres'], example:'Apple\'s global supply chain: designed in USA, components from 40+ countries, assembled in China' },
+      { tag:'TNCs', title:'Transnational Corporations (TNCs)', body:'TNCs drive global economic integration through FDI, supply chains, and labour exploitation, with complex power dynamics.', points:['HQ in core countries, production in periphery','Transfer pricing: reduces tax liability','Race to bottom: seek lowest labour/environmental costs','Backward linkages to local suppliers; forward linkages to consumers'], example:'Nike: HQ in Oregon, production in Vietnam/Indonesia; workers earn <2% of retail price' },
+      { tag:'Inequality', title:'Global Patterns of Inequality', body:'Globalisation has created economic growth but also widened spatial and social inequalities.', points:['Core-periphery model: Wallerstein\'s World Systems Theory','BRICS nations: significant convergence with developed world','Sub-Saharan Africa largely marginalised from trade flows','Gini coefficient measures income inequality within countries'], example:'China\'s integration into global economy: 600m lifted from poverty 1990–2015; but internal inequality (Gini 0.46) remains high' },
+      { tag:'Culture', title:'Cultural Globalisation & Tensions', body:'The spread of Western cultural norms (McDonaldisation, Americanisation) coexists with cultural resistance and glocalisation.', points:['Cultural homogenisation: spread of English, US brands, Western media','Glocalisation: global products adapted for local markets','Cultural hybridisation: fusion of cultures','Anti-globalisation: rise of nationalism, cultural protectionism'], example:'McDonald\'s McAloo Tikki (India), McRice (Philippines): glocalisation in practice' },
+    ],
+    terms: [
+      {w:'Glocalisation',d:'The adaptation of globally produced goods or services to suit local cultural preferences and conditions.'},
+      {w:'Foreign Direct Investment (FDI)',d:'Investment made by a company in one country in business interests in another country, typically via business operations or acquisitions.'},
+      {w:'Transfer Pricing',d:'The practice by TNCs of setting prices for transactions between subsidiaries in different countries to minimise tax liability.'},
+      {w:'World Systems Theory',d:'Wallerstein\'s model dividing the world into core, semi-periphery, and periphery based on economic development and power.'},
+      {w:'Outsourcing',d:'Contracting out parts of production to external companies, often in lower-wage countries.'},
+      {w:'Cultural Homogenisation',d:'The process by which local cultures become increasingly similar due to global media, brands, and communication.'},
+      {w:'Gini Coefficient',d:'A statistical measure of income inequality within a country, ranging from 0 (perfect equality) to 1 (total inequality).'},
+      {w:'Race to the Bottom',d:'The competitive lowering of labour standards, wages, or environmental regulations by countries competing for TNC investment.'},
+    ],
+    flashcards: [
+      {q:'What is Wallerstein\'s World Systems Theory?',a:'Wallerstein divided the world into: Core (wealthy, high-tech, dominate trade — US, Europe, Japan), Semi-periphery (industrialising, moving up — Brazil, China, India), Periphery (export raw materials, receive low-value products — much of Sub-Saharan Africa). Core exploits periphery through unequal exchange.'},
+      {q:'Evaluate containerisation as a driver of globalisation.',a:'Containerisation (standardised 20/40ft boxes, from 1956) dramatically reduced shipping costs (by ~90%) and handling time, enabling cost-effective global supply chains. However, it also enabled offshoring of manufacturing, devastating industrial communities in developed nations.'},
+      {q:'Distinguish between outsourcing, offshoring, and reshoring.',a:'Outsourcing: contracting work to another company. Offshoring: moving production abroad (same company). Reshoring: bringing production back to home country (e.g. Apple plans to move some Mac production back to USA due to tariff threats). Globalisation makes all three viable.'},
+      {q:'How do TNCs impact host countries — both positively and negatively?',a:'Positive: FDI, jobs, technology transfer, tax revenues, infrastructure. Negative: profit repatriation, low wages, tax avoidance via transfer pricing, environmental damage, crowding out local firms, dependency.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which globalisation has increased global inequality.',marks:'[20]'},
+      {q:'"TNCs bring more benefits than costs to the countries in which they operate." Discuss.',marks:'[20]'},
+      {q:'Assess the importance of technology as a driver of globalisation.',marks:'[8]'},
+      {q:'Explain how Wallerstein\'s World Systems Theory accounts for global patterns of development.',marks:'[6]'},
+    ],
+    casestudies: [
+      { name:'Apple Inc. — Global Supply Chain', loc:'HQ: Cupertino, California; Production: Asia', tags:['TNC','Supply chain','Tax avoidance'], body:'Components sourced from 40+ countries. Assembly by Foxconn in China (700,000 workers). Apple avoids ~$40bn in US taxes through Irish subsidiaries. Workers in Zhengzhou earn ~$2/hr; iPhones retail at $1,200+. Exemplifies both the efficiency and inequality of global production networks.', stats:[{v:'40+',l:'Countries in supply chain'},{v:'$2/hr',l:'Foxconn worker wage'},{v:'$1,200',l:'iPhone retail price'},{v:'$94bn',l:'Annual profit (2023)'}] },
+      { name:'China\'s Economic Rise', loc:'East Asia — global integration via export manufacturing', tags:['Semi-periphery','Development','Inequality'], body:'WTO accession 2001 accelerated China\'s integration. 600m people lifted from poverty 1990–2015. Became world\'s manufacturing hub. However internal inequality (coastal vs interior) widened; now shifting to domestic consumption and high-tech exports.', stats:[{v:'600m',l:'Lifted from poverty'},{v:'18%',l:'Share of global manufacturing'},{v:'0.46',l:'Gini coefficient (2022)'},{v:'$18tn',l:'GDP (2023)'}] },
+    ],
+  },
+
+  superpowers: {
+    title: 'Superpowers',
+    paper: 'Paper 2', color: 'var(--rose)',
+    chips: ['Human Geography','Optional'],
+    knowledge: [
+      { tag:'Power', title:'Defining & Measuring Power', body:'Power operates through hard power (military, economic) and soft power (cultural influence, diplomacy) — Nye\'s concept of "smart power" combines both.', points:['Hard power: military capability, GDP, nuclear weapons','Soft power: cultural exports, language, values, aid diplomacy','Economic power: G7, G20, WTO influence','Hegemony: unipolar (USA post-1991) → multipolar era'], example:'USA: hard power (military budget >$800bn) + soft power (Hollywood, universities, dollar dominance)' },
+      { tag:'Emerging Powers', title:'BRICS and Emerging Powers', body:'The rise of China, India, and others challenges the post-WWII Western-led global order.', points:['China: GDP parity with USA (PPP), Belt and Road Initiative','India: demographic dividend, English language, IT sector','Brazil, Russia: resource-rich but institutional challenges','BRICS → BRICS+ 2024: expanded to 10 members'], example:'China\'s Belt and Road Initiative: $1tn+ investment in 140+ countries; debt diplomacy concerns' },
+      { tag:'Geopolitics', title:'Geopolitical Tensions & Contested Spaces', body:'Resource competition, spheres of influence, and ideological rivalry create geopolitical tensions.', points:['Arctic: melting ice → energy resources + new shipping routes','South China Sea: overlapping territorial claims','Ukraine: NATO expansion vs Russian sphere of influence','Taiwan: US–China strategic competition'], example:'Arctic Council: 8 Arctic nations + observers; competition for oil, gas, rare earths' },
+      { tag:'Institutions', title:'Global Governance & Institutions', body:'International institutions shape global power relationships but face legitimacy challenges.', points:['UN Security Council: P5 veto power perpetuates Cold War order','IMF/World Bank: conditionality reflects Western interests','WTO: dispute resolution but stalled Doha rounds','G20: more representative but non-binding'], example:'BRICS Development Bank (NDB): direct challenge to IMF/World Bank dominance' },
+    ],
+    terms: [
+      {w:'Soft Power',d:'The ability to influence others through cultural appeal, values, and diplomacy rather than coercion or force (Nye).'},
+      {w:'Hegemony',d:'The political, economic, and cultural dominance of one state over others in the international system.'},
+      {w:'Geopolitics',d:'The study of how geography influences politics and international relations, particularly competition for territory and resources.'},
+      {w:'Sphere of Influence',d:'A region where a powerful state exercises significant political, economic, or military control over weaker states.'},
+      {w:'Belt and Road Initiative',d:'China\'s global infrastructure investment programme, spanning 140+ countries, extending trade and political influence.'},
+      {w:'Multipolarity',d:'An international system characterised by multiple great powers, as opposed to unipolarity (one dominant power).'},
+      {w:'Conditionality',d:'Requirements attached by the IMF/World Bank to loans, typically demanding market liberalisation and fiscal austerity.'},
+      {w:'Demographic Dividend',d:'The economic growth potential from a shift in a population\'s age structure toward a higher proportion of working-age adults.'},
+    ],
+    flashcards: [
+      {q:'Distinguish between hard power and soft power. Give examples of each.',a:'Hard power: coercive — military force, economic sanctions, trade policy. Examples: US military bases in 80+ countries; Russian gas cut-off to Ukraine. Soft power: attractive — culture, values, diplomacy. Examples: Hollywood, US universities, Chinese Confucius Institutes, BBC World Service.'},
+      {q:'How does China\'s Belt and Road Initiative extend its global influence?',a:'BRI provides infrastructure loans (roads, ports, railways) to 140+ countries. Benefits: fills infrastructure gap in Global South. Concerns: "debt trap diplomacy" — Sri Lanka ceded Hambantota Port on 99-year lease when it couldn\'t repay debt. BRI also creates political leverage and expands Chinese trade routes.'},
+      {q:'Why is the Arctic increasingly geopolitically significant?',a:'Climate change is melting Arctic ice, opening (1) new shipping routes (Northwest Passage — 40% shorter Asia-Europe), (2) access to 13% of undiscovered oil and 30% of undiscovered gas reserves, and (3) rare earth minerals. Russia, USA, Canada, Norway, Denmark all have overlapping territorial claims.'},
+    ],
+    questions: [
+      {q:'"The USA is in irreversible decline as a global superpower." Discuss.',marks:'[20]'},
+      {q:'Evaluate the extent to which China\'s rise represents a fundamental shift in the global order.',marks:'[20]'},
+      {q:'Assess the role of international institutions in maintaining global stability.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'China\'s Belt and Road Initiative', loc:'140+ countries across Asia, Africa, Europe', tags:['Soft power','FDI','Debt diplomacy'], body:'$1tn+ infrastructure investment. Hambantota Port (Sri Lanka) became cautionary tale of debt diplomacy. Provides genuine development for some; creates dependency for others. Now faces Western counter-initiatives (G7\'s Partnership for Global Infrastructure).', stats:[{v:'140+',l:'Partner countries'},{v:'$1tn+',l:'Committed investment'},{v:'99yr',l:'Hambantota Port lease'},{v:'2013',l:'Initiative launched'}] },
+    ],
+  },
+
+  migration: {
+    title: 'Migration & Identity',
+    paper: 'Paper 2', color: 'var(--lavender)',
+    chips: ['Human Geography','Optional'],
+    knowledge: [
+      { tag:'Concepts', title:'Types & Drivers of Migration', body:'Migration is driven by push-pull factors operating at multiple scales; distinction between economic, forced, and environmental migrants.', points:['Push factors: conflict, poverty, environmental degradation','Pull factors: employment, political stability, diaspora networks','Voluntary vs forced (refugee, asylum seeker)','Lee\'s push-pull model + intervening obstacles'], example:'Syrian refugee crisis 2015: 5m+ fled conflict; EU received 1.3m asylum applications in 2015' },
+      { tag:'Identity', title:'Place Identity & Sense of Place', body:'Migration reshapes the identity of both sending and receiving places through cultural mixing and demographic change.', points:['Diaspora communities maintain transnational identities','Remittances: $800bn+ globally — largest capital flow to LICs','Brain drain: loss of skilled workers from sending countries','Cultural quarters: Little Italy, Chinatown — embedded identity'], example:'Polish immigration to UK post-2004 EU enlargement: 1m+ migrants; changed food, culture, local economies' },
+    ],
+    terms: [
+      {w:'Diaspora',d:'A scattered population that has originated from one place and settled in other locations, maintaining cultural ties to their homeland.'},
+      {w:'Remittances',d:'Money sent by migrants to their home countries, often forming a significant part of receiving countries\' GDP.'},
+      {w:'Brain Drain',d:'Emigration of highly skilled or educated workers from a country, depriving it of talent and investment.'},
+      {w:'Transnationalism',d:'The process by which migrants maintain social, economic, and cultural ties to both their country of origin and destination.'},
+      {w:'Intervening Obstacles',d:'Physical, political, or economic barriers that reduce the likelihood of migration despite strong push-pull factors.'},
+    ],
+    flashcards: [
+      {q:'What are the economic impacts of remittances on sending countries?',a:'Positive: significant income supplement ($800bn globally, 3x ODA). Mexico receives $60bn/yr. Reduces poverty; funds education, healthcare. Negative: dependency culture; volatile (fall in recession); often consumed not invested; don\'t address structural issues.'},
+      {q:'How does migration create both advantages and challenges for receiving countries?',a:'Advantages: fills labour shortages, young workforce (counteracts ageing), cultural diversity, entrepreneurship, tax contributions. Challenges: pressure on housing, schools, healthcare; social tension; wage depression in low-skill sectors; political backlash (Brexit).'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which migration has positive effects on both sending and receiving countries.',marks:'[20]'},
+      {q:'Assess the importance of diaspora communities in shaping the identity of places.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Syrian Refugee Crisis', loc:'Syria → Turkey, Lebanon, Jordan, EU', tags:['Forced migration','Conflict','UNHCR'], body:'Over 5 million Syrian refugees fled civil war from 2011. Turkey hosts 3.5m — largest refugee population globally. EU received 1.3m applications in 2015 alone. Stark contrast in response between Germany (Willkommenskultur) and Hungary (border fence).', stats:[{v:'5m+',l:'Refugees abroad'},{v:'3.5m',l:'In Turkey'},{v:'1.3m',l:'EU applications 2015'},{v:'6.7m',l:'Internally displaced'}] },
+    ],
+  },
+
+  carbon: {
+    title: 'Carbon Cycle & Energy Security',
+    paper: 'Paper 1', color: 'var(--sage)',
+    chips: ['Physical Geography','Compulsory'],
+    knowledge: [
+      { tag:'Carbon Stores', title:'Global Carbon Stores & Fluxes', body:'Carbon cycles between five major stores — atmosphere, oceans, vegetation, soils, and lithosphere — at varying timescales.', points:['Fastest fluxes: photosynthesis (GPP), respiration, ocean-atmosphere exchange','Slowest: lithospheric storage in fossil fuels (millions of years)','Ocean: largest active store (~38,000 GtC); absorbs 30% of CO₂ emissions','Permafrost thaw: positive feedback releasing methane (CH₄)'], example:'Amazon rainforest: stores 150–200 billion tonnes of carbon; deforestation releases 1–2 GtC/yr' },
+      { tag:'Human Impact', title:'Human Perturbation of the Carbon Cycle', body:'Fossil fuel combustion and land-use change have elevated atmospheric CO₂ from 280ppm (pre-industrial) to 420ppm+ today.', points:['Combustion: 36 GtCO₂ emitted annually','Deforestation: 1.5 GtCO₂/yr from land-use change','Ocean acidification: pH fallen from 8.2 to 8.1 since industrialisation','Positive feedbacks: permafrost thaw, reduced albedo'], example:'Keeling Curve: continuous CO₂ record from Mauna Loa since 1958 shows unambiguous rise' },
+      { tag:'Futures', title:'Low Carbon Futures & Energy Security', body:'Transition from fossil fuels to renewables involves trade-offs between energy security, cost, and geopolitics.', points:['Renewables: solar and wind now cheapest electricity sources globally','Energy mix: diversification reduces geopolitical dependency','Carbon capture: CCS technology still expensive and unproven at scale','Paris Agreement: 1.5°C target requires net-zero by ~2050'], example:'Denmark: 53% electricity from wind power in 2022; energy security through diversification' },
+    ],
+    terms: [
+      {w:'Net Primary Productivity (NPP)',d:'The rate at which plants convert solar energy into organic matter through photosynthesis, minus respiration losses.'},
+      {w:'Positive Feedback',d:'A process that amplifies an initial change — e.g. permafrost thaw releases methane, causing more warming, causing more thaw.'},
+      {w:'Ocean Acidification',d:'Reduction in ocean pH caused by absorption of atmospheric CO₂, threatening marine ecosystems especially calcifying organisms.'},
+      {w:'Carbon Sequestration',d:'The long-term removal and storage of carbon dioxide from the atmosphere, either naturally or artificially.'},
+      {w:'Keeling Curve',d:'A continuous record of atmospheric CO₂ concentrations measured at Mauna Loa, Hawaii, since 1958 by Charles Keeling.'},
+      {w:'Permafrost',d:'Ground that remains frozen for two or more consecutive years; contains large stores of frozen organic matter.'},
+    ],
+    flashcards: [
+      {q:'Explain one positive feedback mechanism in the carbon cycle.',a:'Permafrost thaw: Arctic warming melts permafrost, releasing stored CH₄ and CO₂. These greenhouse gases cause further warming, which melts more permafrost — a self-reinforcing loop. Particularly concerning because permafrost stores ~1.5 trillion tonnes of carbon.'},
+      {q:'How do oceans regulate the carbon cycle?',a:'Oceans absorb ~30% of anthropogenic CO₂ through physical dissolution (solubility pump) and biological uptake (biological pump — phytoplankton photosynthesis). They store ~38,000 GtC. However, warming reduces solubility; acidification threatens phytoplankton → reducing the ocean\'s ability to absorb future CO₂.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which human activities have disrupted the carbon cycle.',marks:'[20]'},
+      {q:'Assess the challenges of achieving energy security through a transition to renewable energy.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Amazon Deforestation & Carbon Release', loc:'Brazil — largest tropical rainforest', tags:['Deforestation','Carbon flux','Tipping point'], body:'Amazon stores 150–200 billion tonnes of carbon. Deforestation releases 1–2 GtCO₂/yr. Scientists warn ~20–25% deforestation (currently ~20%) could trigger dieback tipping point, turning forest from carbon sink to source — a catastrophic positive feedback.', stats:[{v:'20%',l:'Deforested to date'},{v:'150–200 GtC',l:'Carbon stored'},{v:'1–2 GtCO₂/yr',l:'Released by deforestation'},{v:'25%',l:'Estimated tipping point'}] },
+    ],
+  },
+
+  regeneration: {
+    title: 'Regeneration',
+    paper: 'Paper 2', color: 'var(--amber)',
+    chips: ['Human Geography','Optional'],
+    knowledge: [
+      { tag:'Decline', title:'Causes of Urban & Rural Decline', body:'Deindustrialisation, out-migration, and reduced investment create cycles of deprivation in urban and rural areas.', points:['Deindustrialisation: closure of manufacturing, mining, steelworks from 1970s','Counterurbanisation: middle-class flight to suburbs/rural areas','Cumulative causation: decline becomes self-reinforcing','Index of Multiple Deprivation (IMD): measures composite deprivation'], example:'Detroit, Michigan: car industry collapse → population fell from 1.85m (1950) to 680k (2020)' },
+      { tag:'Strategies', title:'Regeneration Strategies', body:'Regeneration operates through property-led, flagship projects, community-led, and policy approaches.', points:['Property-led: gentrification risk, but tax base renewal','Flagship: Bilbao Guggenheim effect; cultural tourism','Enterprise zones: tax breaks to attract investment','Community-led: bottom-up, more inclusive but less capital'], example:'London Docklands: LDDC (1981–98) attracted £9bn investment; 85,000 new jobs but critics say excluded original community' },
+    ],
+    terms: [
+      {w:'Gentrification',d:'The process by which urban neighbourhoods are transformed as higher-income residents move in, raising property prices and displacing original residents.'},
+      {w:'Deindustrialisation',d:'The decline of manufacturing industry in a region, often leading to unemployment and urban decay.'},
+      {w:'Flagship Development',d:'A high-profile regeneration project designed to stimulate wider investment and change the image of a place.'},
+      {w:'Index of Multiple Deprivation',d:'A UK government measure of relative deprivation combining indicators of income, employment, health, education, crime, and environment.'},
+    ],
+    flashcards: [
+      {q:'Evaluate the Guggenheim effect as a regeneration strategy.',a:'Bilbao\'s Guggenheim museum (1997) triggered 3.5m visitors/yr, $2.5bn economic impact, and transformed the city\'s global image. However, critics note: benefits concentrated in tourism sector, not manufacturing jobs that were lost; risk of over-reliance on cultural economy; gentrification of surrounding area.'},
+    ],
+    questions: [
+      {q:'"Property-led regeneration strategies always prioritise economic growth over social equity." Discuss.',marks:'[20]'},
+      {q:'Assess the effectiveness of one urban regeneration scheme you have studied.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'London Docklands (LDDC)', loc:'East London — former port areas', tags:['Property-led','Flagship','Gentrification'], body:'Urban Development Corporation 1981–1998. Canary Wharf became global financial centre. £9bn private investment, 85,000 jobs. Critics: original working-class communities priced out; housing for city workers not dockers; top-down governance excluded locals.', stats:[{v:'£9bn',l:'Private investment'},{v:'85,000',l:'New jobs'},{v:'24,000',l:'New homes'},{v:'1981–1998',l:'LDDC lifespan'}] },
+    ],
+  },
+
+  players: {
+    title: 'Players, Attitudes & Actions',
+    paper: 'Paper 3 Synoptic', color: 'var(--lavender)',
+    chips: ['Synoptic','Paper 3','Key Framework'],
+    knowledge: [
+      { tag:'Synoptic', title:'The Players Framework', body:'Paper 3 requires synoptic analysis — connecting players, attitudes, and actions across all topics. Key players operate at local, national, and global scales.', points:['Players: individuals, communities, NGOs, TNCs, governments, IGOs','Attitudes: reflect values, power, and interests of each player','Actions: policies, campaigns, investments, protests','Scale: local actions ↔ global processes'], example:'Climate change players: IPCC (knowledge), UNFCCC (policy), Exxon (vested interest), Fridays for Future (civil society)' },
+      { tag:'Power', title:'Contested Decisions & Power Dynamics', body:'Decisions about places and environments reflect power imbalances between players with competing interests.', points:['Hegemonic players: shape rules and norms (G7, IMF, US)','Marginalised players: often most affected, least heard (indigenous communities)','Scale conflicts: local opposition to national infrastructure','Information asymmetry: TNCs, governments withhold data'], example:'Dakota Access Pipeline: TNC + US federal government vs Standing Rock Sioux Nation → local vs global power' },
+    ],
+    terms: [
+      {w:'Stakeholder',d:'Any individual, group, or organisation with an interest in, or affected by, a decision or place.'},
+      {w:'Governance',d:'The systems of rules, practices, and processes by which an organisation or territory is directed and controlled.'},
+      {w:'Civil Society',d:'Organisations and associations outside the state and market — NGOs, community groups, trade unions, religious organisations.'},
+      {w:'Vested Interest',d:'A personal stake in a decision or outcome, often leading players to act in ways that protect their position rather than the common good.'},
+    ],
+    flashcards: [
+      {q:'How does the players framework apply to a globalisation case study?',a:'For a TNC like Nike: TNC (player) seeks profit → locates in Vietnam (action) due to low wages/regulation (attitude: profit maximisation) → local community (player) receives jobs but low wages (contested attitude: development vs exploitation). Government of Vietnam (player) encourages FDI. NGOs (player) campaign for workers\' rights. All reflect competing values at different scales.'},
+    ],
+    questions: [
+      {q:'Evaluate the role of different players in addressing the challenges of one global issue you have studied.',marks:'[20]'},
+      {q:'To what extent do the attitudes of powerful players determine the outcomes of contested geographical issues?',marks:'[20]'},
+    ],
+    casestudies: [],
+  },
+
+  interdependence: {
+    title: 'Interdependence',
+    paper: 'Paper 3 Synoptic', color: 'var(--teal)',
+    chips: ['Synoptic','Paper 3','Key Framework'],
+    knowledge: [
+      { tag:'Concept', title:'Global Interdependence', body:'Economic, environmental, cultural, and political interdependence links all parts of the world — actions in one place create consequences elsewhere.', points:['Economic: global supply chains; currency fluctuations affect all','Environmental: transboundary pollution, climate change','Political: alliances, sanctions, multilateral agreements','Cultural: media, diaspora, migration'], example:'2008 Financial Crisis: US subprime mortgage collapse → global recession within months; demonstrates deep economic interdependence' },
+      { tag:'Tensions', title:'Unequal Interdependence', body:'Interdependence is not symmetric — power differentials mean some players benefit more than others.', points:['Core countries set terms of trade','Periphery dependent on commodity prices beyond their control','Debt dependency: IMF conditionality constrains policy space','Environmental justice: Global South suffers most from emissions of Global North'], example:'Jamaica: dependent on imported oil, food, and tourist dollars; heavily indebted; highly vulnerable to external shocks' },
+    ],
+    terms: [
+      {w:'Interdependence',d:'The mutual reliance between countries, regions, or entities where each is dependent on the others.'},
+      {w:'Commodity Dependency',d:'Over-reliance on primary commodity exports, leaving a country vulnerable to price volatility and terms of trade deterioration.'},
+      {w:'Conditionality',d:'Requirements imposed by the IMF/World Bank on loan recipients, typically including fiscal austerity and market liberalisation.'},
+    ],
+    flashcards: [
+      {q:'How does interdependence create vulnerability for peripheral countries?',a:'Peripheral countries often depend on commodity exports (price-volatile), FDI from TNCs (footloose), remittances (recession-sensitive), and tourism. They have limited control over these flows. IMF debt conditionality removes policy space. A recession in core countries ripples immediately to periphery — Jamaica\'s tourism revenue collapsed 70% in COVID-19.'},
+    ],
+    questions: [
+      {q:'Evaluate the view that interdependence creates as many risks as opportunities for developing countries.',marks:'[20]'},
+    ],
+    casestudies: [],
+  },
+
+  futures: {
+    title: 'Contested Futures',
+    paper: 'Paper 3 Synoptic', color: 'var(--rose)',
+    chips: ['Synoptic','Paper 3','Key Framework'],
+    knowledge: [
+      { tag:'Scenarios', title:'Possible Geographical Futures', body:'Different pathways for the future of the planet reflect contrasting values and assumptions about technology, governance, and equity.', points:['Business as usual: continued carbon emissions, widening inequality','Green growth: decoupling GDP from emissions via technology','Degrowth: reduce consumption, prioritise wellbeing','Just transition: equitable shift to low-carbon economy'], example:'IPCC RCP scenarios: from RCP2.6 (aggressive mitigation, 1.5°C) to RCP8.5 (business as usual, 4°C+)' },
+      { tag:'Resilience', title:'Building Resilience & Sustainability', body:'Resilience thinking moves beyond single-hazard management to address systemic vulnerability.', points:['Urban resilience: diverse economies, flood-resistant infrastructure','Community resilience: social capital, local food systems','Planetary boundaries: Rockström\'s nine safe operating space metrics','SDGs: 17 goals operationalise sustainable development'], example:'Rotterdam: "sponge city" approach — water squares, green roofs, floating homes; city designed for climate adaptation' },
+    ],
+    terms: [
+      {w:'Planetary Boundaries',d:'Rockström et al\'s framework of nine Earth-system processes within which humanity can safely operate.'},
+      {w:'Just Transition',d:'An equitable shift to a low-carbon economy that addresses the social impacts on workers and communities in fossil-fuel industries.'},
+      {w:'Degrowth',d:'An economic theory arguing for planned reduction of economic output to achieve ecological sustainability and social equity.'},
+      {w:'Resilience',d:'The capacity of a system — ecological, social, or economic — to absorb disturbance and reorganise so as to retain essentially the same structure and function.'},
+    ],
+    flashcards: [
+      {q:'What are Rockström\'s Planetary Boundaries?',a:'Nine Earth-system processes: climate change, biosphere integrity, land-system change, freshwater use, biogeochemical flows (N/P), ocean acidification, stratospheric ozone, atmospheric aerosol loading, novel entities (chemicals). Three already breached (climate, biodiversity, land): we are in the "danger zone."'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which technological solutions alone can deliver a sustainable future.',marks:'[20]'},
+      {q:'Assess the concept of a "just transition" in the context of climate change.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Rotterdam Climate Adaptation', loc:'Netherlands — below sea-level delta city', tags:['Urban resilience','Adaptation','Sponge city'], body:'Rotterdam faces 90cm sea-level rise by 2100. City redesigned as "water city": water squares absorb 10m litres, floating homes, green roofs. $120m investment. Model for global climate-adaptive urban planning — now exported to Miami, Jakarta, Rotterdam\'s urban lab consulted globally.', stats:[{v:'90cm',l:'Projected SLR by 2100'},{v:'$120m',l:'Adaptation investment'},{v:'10m litres',l:'Water square capacity'},{v:'2030',l:'Target for full implementation'}] },
+    ],
+  },
+
+  fieldwork: {
+    title: 'Fieldwork & Research Methods',
+    paper: 'Paper 3 Synoptic', color: 'var(--sky)',
+    chips: ['Synoptic','Paper 3','Fieldwork'],
+    knowledge: [
+      { tag:'Methods', title:'Quantitative & Qualitative Methods', body:'Geographers use a range of methods to collect, analyse, and present data — each with trade-offs between validity and reliability.', points:['Quantitative: surveys, measurements, GIS, remote sensing — objective but may miss context','Qualitative: interviews, observation, photography — rich but subjective','Mixed methods: triangulation improves validity','Sampling: random, systematic, stratified, opportunistic'], example:'River fieldwork: discharge measured quantitatively (flow meter); residents\' flood risk perception measured qualitatively (semi-structured interviews)' },
+      { tag:'Ethics', title:'Ethical Considerations in Fieldwork', body:'Fieldwork involves ethical obligations to participants, communities, and the environment.', points:['Informed consent: participants understand and agree to involvement','Confidentiality: anonymise sensitive data','Positionality: researcher\'s own background affects findings','Risk assessment: safety of researcher and participants'], example:'Fieldwork in deprived urban areas: informed consent critical; potential to reinforce negative stereotypes if not designed carefully' },
+    ],
+    terms: [
+      {w:'Triangulation',d:'Using multiple data sources or methods to cross-check findings and improve validity.'},
+      {w:'Validity',d:'The extent to which a method measures what it claims to measure.'},
+      {w:'Reliability',d:'The extent to which results are reproducible if the study is repeated under the same conditions.'},
+      {w:'Positionality',d:'The researcher\'s own social, cultural, and political position and how it affects their interpretation of data.'},
+      {w:'Sampling Frame',d:'The complete list of units from which a sample is drawn.'},
+    ],
+    flashcards: [
+      {q:'What is the difference between validity and reliability in geographical research?',a:'Validity: are we measuring what we intend? A biased interview question has low validity. Reliability: if repeated, do we get the same result? A precise instrument used consistently is reliable. Both are needed: a method can be reliable (consistent) but invalid (consistently measuring the wrong thing). Triangulation improves both.'},
+      {q:'When should a geographer use qualitative rather than quantitative methods?',a:'Qualitative methods are preferable when: exploring complex human experiences and meanings (e.g. sense of place), generating hypotheses, studying sensitive topics where numbers dehumanise, or when context matters more than generalisability. Quantitative methods better for establishing patterns, testing hypotheses, and enabling comparison across large samples.'},
+    ],
+    questions: [
+      {q:'Evaluate the relative merits of quantitative and qualitative methods in geographical enquiry.',marks:'[20]'},
+      {q:'Assess the ethical challenges of conducting fieldwork in communities experiencing deprivation.',marks:'[8]'},
+    ],
+    casestudies: [],
+  },
+
+  water: {
+    title: 'Water Cycle & Water Insecurity',
+    paper: 'Paper 1', color: 'var(--sky)',
+    chips: ['Physical Geography','Compulsory'],
+    knowledge: [
+      { tag:'Cycle', title:'Global Water Cycle Processes', body:'The hydrological cycle moves water between atmosphere, land, and oceans through interception, infiltration, runoff, evapotranspiration, and precipitation.', points:['Drainage basin: open system with inputs (precipitation), stores (groundwater), outputs (discharge)','Storm hydrograph: lag time reflects basin characteristics','Interception reduces peak discharge; urbanisation increases it','Climate change alters precipitation intensity and distribution'], example:'Boscastle 2004 flash flood: impermeable soils + intense convectional rainfall + steep valley = extreme flood hydrograph' },
+      { tag:'Security', title:'Water Insecurity & Geopolitics', body:'1 in 4 people face water insecurity; physical and economic scarcity interact with governance failures.', points:['Physical scarcity: arid regions with low precipitation','Economic scarcity: sufficient water but lack of infrastructure','Virtual water trade: embedded water in food and goods','Transboundary rivers: geopolitical flashpoints (Nile, Mekong)'], example:'Cape Town Day Zero crisis 2018: near-total reservoir failure due to drought + demand management failure; barely averted through emergency measures' },
+    ],
+    terms: [
+      {w:'Water Stress',d:'Condition when demand for water exceeds available supply or when poor quality restricts use; defined as <1,700m³/person/year.'},
+      {w:'Virtual Water',d:'The hidden water embedded in the production of goods and services — trade in virtual water redistributes water-scarce resources.'},
+      {w:'Hydrograph',d:'A graph showing river discharge over time in response to a rainfall event; characterised by rising limb, peak, and recession.'},
+      {w:'Groundwater',d:'Water stored beneath the Earth\'s surface in aquifers; often ancient (fossil) water; threatened by over-abstraction.'},
+    ],
+    flashcards: [
+      {q:'How does urbanisation affect the drainage basin hydrological cycle?',a:'Urbanisation: (1) impermeable surfaces → less infiltration, more surface runoff; (2) drains/culverts reduce lag time; (3) removal of vegetation reduces interception and evapotranspiration; (4) result: higher, sharper flood peaks and faster response to rainfall. Counter-measures: sustainable urban drainage (SUDs), green roofs, permeable paving.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which water insecurity is caused by physical rather than human factors.',marks:'[20]'},
+      {q:'Assess the effectiveness of different strategies to achieve water security.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Cape Town Water Crisis 2018', loc:'South Africa — Western Cape', tags:['Water scarcity','Demand management','Urban'], body:'Three-year drought (2015–18) and population growth pushed reservoirs to <20% capacity. "Day Zero" (taps turned off) nearly triggered for 4m people. Avoided through emergency demand restrictions (50L/person/day), agriculture cut-offs. Exposed vulnerability of single-source water supply.', stats:[{v:'<20%',l:'Reservoir level at crisis peak'},{v:'50L/day',l:'Emergency water limit'},{v:'4m',l:'People at risk'},{v:'2018',l:'Day Zero narrowly averted'}] },
+    ],
+  },
+
+  glacial: {
+    title: 'Glacial Landscapes',
+    paper: 'Paper 1', color: 'var(--sky)',
+    chips: ['Physical Geography','Optional'],
+    knowledge: [
+      { tag:'Processes', title:'Glacial Erosion & Deposition', body:'Ice sheets and valley glaciers reshape landscapes through abrasion, plucking, and deposition over long timescales.', points:['Abrasion: rock fragments embedded in ice scrape bedrock','Plucking (quarrying): ice freezes to rock and pulls it away','Freeze-thaw weathering prepares rock for erosion','Deposition: lodgement till (beneath ice) vs ablation till (at margin)'], example:'Snowdonia: cwms (corries), arêtes, and pyramidal peaks — glacial erosion during Last Glacial Maximum' },
+      { tag:'Landforms', title:'Glacial Landforms', body:'Erosional and depositional landforms together tell the story of glacial advance and retreat.', points:['Erosional: corrie, arête, pyramidal peak, U-shaped valley, truncated spurs, hanging valleys','Depositional: drumlins, erratics, moraines (terminal, lateral, medial)','Outwash plains (sandur) and meltwater channels'], example:'Lake District: U-shaped valleys (Borrowdale), ribbon lakes (Windermere), roches moutonnées' },
+    ],
+    terms: [
+      {w:'Ablation',d:'The loss of ice and snow from a glacier through melting, evaporation, calving, and sublimation.'},
+      {w:'Accumulation',d:'The gain of snow and ice in a glacier through precipitation and avalanche.'},
+      {w:'Glacial Budget',d:'The balance between accumulation (snow gain) and ablation (ice loss) determining whether a glacier advances or retreats.'},
+      {w:'Drumlin',d:'An elongated hill of glacial till, shaped by the overriding glacier, with a steep stoss (upstream) face and gentle lee face.'},
+      {w:'Arête',d:'A narrow rocky ridge formed between two adjacent corries eroding back-to-back.'},
+    ],
+    flashcards: [
+      {q:'Explain the formation of a corrie.',a:'Snow accumulates in a north-facing hollow (Northern Hemisphere) sheltered from sun. Snow compacts to névé then ice. Rotational ice movement erodes the back wall by plucking and abrasion. The base is over-deepened; a lip of resistant rock or moraine at the front creates a corrie loch (e.g. Glaslyn, Snowdonia). Freeze-thaw steepens the back wall.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which glacial landforms provide evidence for past climate change.',marks:'[20]'},
+      {q:'Explain the processes responsible for creating named erosional glacial landforms.',marks:'[6]'},
+    ],
+    casestudies: [],
+  },
+
+  shaping: {
+    title: 'Diverse Places',
+    paper: 'Paper 2', color: 'var(--amber)',
+    chips: ['Human Geography','Compulsory'],
+    knowledge: [
+      { tag:'Identity', title:'How Place Identity is Shaped', body:'Place identity is shaped by demographic, cultural, and economic change — both endogenous and exogenous factors.', points:['Endogenous: physical geography, historical economic activities, local culture','Exogenous: migration, deindustrialisation, regeneration, globalisation','Representation of place: media, literature, tourism marketing shape perceptions','Insider vs outsider perspectives on place'], example:'Bradford: identity shaped by textile industry decline (exogenous) + South Asian immigration (demographic) + regeneration attempts' },
+      { tag:'Change', title:'Managing Population & Cultural Change', body:'Demographic change creates tensions around identity, belonging, and integration.', points:['Gentrification: class-based displacement','Migration: cultural diversification vs social tension','Ageing population: healthcare demands, political conservatism','Rural change: counterurbanisation, second homes, loss of services'], example:'Notting Hill Carnival: celebrates Caribbean cultural heritage; contested space — community vs police vs gentrification' },
+    ],
+    terms: [
+      {w:'Sense of Place',d:'The subjective feelings and perceptions people have about particular places, shaped by lived experience and cultural values.'},
+      {w:'Endogenous Factors',d:'Internal characteristics that shape place identity, such as physical geography and historical land use.'},
+      {w:'Exogenous Factors',d:'External forces that shape place identity, such as investment decisions, migration, or national policy.'},
+      {w:'Place Representation',d:'How places are portrayed through media, art, and literature — often contested between insiders and outsiders.'},
+    ],
+    flashcards: [
+      {q:'Distinguish between endogenous and exogenous factors that shape place identity.',a:'Endogenous: internal — physical geography (coastal vs inland), historical industries (mining town), demographic mix, local architecture. Exogenous: external — national policy (investment/disinvestment), TNC decisions, migration flows, globalisation, media representation. Most place identities result from complex interaction of both.'},
+    ],
+    questions: [
+      {q:'Evaluate the extent to which exogenous factors are more important than endogenous factors in shaping place identity.',marks:'[20]'},
+      {q:'Assess how the representation of places can create conflict between different groups.',marks:'[8]'},
+    ],
+    casestudies: [
+      { name:'Notting Hill, London', loc:'West London — changing urban neighbourhood', tags:['Gentrification','Migration','Identity'], body:'Post-WWII Caribbean immigration created strong Afro-Caribbean community; Notting Hill Carnival (1966) celebrates this heritage. From 1980s: rapid gentrification — average house price now £1.5m. Carnival becomes contested — original community priced out, now attracts global tourism. Case study in how place identity is both celebrated and commodified.', stats:[{v:'1m+',l:'Carnival attendance'},{v:'£1.5m',l:'Average house price'},{v:'1966',l:'Carnival established'},{v:'1958',l:'Race riots preceded it'}] },
+    ],
+  },
+};
+
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+let currentTopic = null;
+let currentTab = 'knowledge';
+let fcIndex = 0;
+let fcFlipped = false;
+let currentQuestion = null;
+
+// ─────────────────────────────────────────────
+// SIDEBAR
+// ─────────────────────────────────────────────
+function togglePaper(id) {
+  const el = document.getElementById(id + '-topics');
+  const arrow = document.getElementById(id + 'arrow');
+  el.classList.toggle('open');
+  arrow.textContent = el.classList.contains('open') ? '▾' : '▸';
+}
+
+// ─────────────────────────────────────────────
+// LOAD TOPIC
+// ─────────────────────────────────────────────
+function loadTopic(key) {
+  currentTopic = TOPICS[key];
+  if (!currentTopic) return;
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('topicContent').style.display = 'block';
+
+  // update active button
+  document.querySelectorAll('.t-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+
+  // header
+  document.getElementById('topicTitle').innerHTML = currentTopic.title;
+  const meta = document.getElementById('topicMeta');
+  meta.innerHTML = currentTopic.chips.map(c =>
+    `<span class="meta-chip">${c}</span>`
+  ).join('');
+
+  // reset tabs
+  switchTabById('knowledge');
+
+  // build panels
+  buildKnowledge();
+  buildTerms();
+  buildFlashcards();
+  buildEssay();
+  buildCaseStudies();
+}
+
+// ─────────────────────────────────────────────
+// TABS
+// ─────────────────────────────────────────────
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('show'));
+  document.getElementById('panel-' + name).classList.add('show');
+  currentTab = name;
+  if (name === 'flashcards') { fcIndex = 0; renderFlashcard(); }
+}
+function switchTabById(name) {
+  document.querySelectorAll('.tab').forEach((t,i) => {
+    const names = ['knowledge','terms','flashcards','essay','casestudies'];
+    t.classList.toggle('active', names[i] === name);
+  });
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('show'));
+  document.getElementById('panel-' + name).classList.add('show');
+  currentTab = name;
+}
+
+// ─────────────────────────────────────────────
+// BUILD: KNOWLEDGE
+// ─────────────────────────────────────────────
+function buildKnowledge() {
+  const p = document.getElementById('panel-knowledge');
+  const t = currentTopic;
+  p.innerHTML = `<div class="card-grid">
+    ${t.knowledge.map(k => `
+      <div class="kcard">
+        <div class="kcard-tag">${k.tag}</div>
+        <h3>${k.title}</h3>
+        <p>${k.body}</p>
+        ${k.points ? `<ul>${k.points.map(pt=>`<li>${pt}</li>`).join('')}</ul>` : ''}
+        ${k.example ? `<div class="kex">📌 ${k.example}</div>` : ''}
+      </div>
+    `).join('')}
+  </div>`;
+}
+
+// ─────────────────────────────────────────────
+// BUILD: TERMS
+// ─────────────────────────────────────────────
+function buildTerms() {
+  const grid = document.getElementById('termsGrid');
+  grid.innerHTML = currentTopic.terms.map((t, i) => `
+    <div class="term-card" onclick="this.classList.toggle('revealed')" id="term${i}">
+      <div class="term-word">${t.w}</div>
+      <div class="term-def">${t.d}</div>
+      <div class="term-hint">Click to reveal definition</div>
+    </div>
+  `).join('');
+}
+
+// ─────────────────────────────────────────────
+// BUILD: FLASHCARDS
+// ─────────────────────────────────────────────
+function buildFlashcards() {
+  fcIndex = 0; fcFlipped = false;
+}
+function renderFlashcard() {
+  const cards = currentTopic.flashcards;
+  if (!cards || cards.length === 0) {
+    document.getElementById('fcCard').innerHTML = '<div class="fc-q" style="color:var(--muted)">No flashcards for this topic yet.</div>';
+    document.getElementById('fcProg').textContent = '';
+    return;
+  }
+  const c = cards[fcIndex];
+  fcFlipped = false;
+  document.getElementById('fcProg').textContent = `Card ${fcIndex + 1} of ${cards.length}`;
+  document.getElementById('fcFront').style.display = 'block';
+  document.getElementById('fcBack').style.display = 'none';
+  document.getElementById('fcQ').textContent = c.q;
+  document.getElementById('fcA').textContent = c.a;
+}
+function flipCard() {
+  fcFlipped = !fcFlipped;
+  document.getElementById('fcFront').style.display = fcFlipped ? 'none' : 'block';
+  document.getElementById('fcBack').style.display = fcFlipped ? 'block' : 'none';
+}
+function nextCard() {
+  const cards = currentTopic.flashcards;
+  fcIndex = (fcIndex + 1) % cards.length;
+  renderFlashcard();
+}
+function prevCard() {
+  const cards = currentTopic.flashcards;
+  fcIndex = (fcIndex - 1 + cards.length) % cards.length;
+  renderFlashcard();
+}
+
+// ─────────────────────────────────────────────
+// BUILD: ESSAY QUESTIONS
+// ─────────────────────────────────────────────
+function buildEssay() {
+  const list = document.getElementById('eqList');
+  const qs = currentTopic.questions;
+  if (!qs || qs.length === 0) {
+    list.innerHTML = '<p style="color:var(--muted)">No practice questions for this topic yet.</p>';
+    return;
+  }
+  list.innerHTML = qs.map((q, i) => `
+    <div class="eq-item">
+      <div class="eq-text">${q.q}</div>
+      <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+        <span class="eq-marks">${q.marks}</span>
+        <button class="try-btn" onclick="startEssay(${i})">Try It</button>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('essayList').style.display = 'block';
+  document.getElementById('essayPractice').style.display = 'none';
+}
+function startEssay(i) {
+  currentQuestion = currentTopic.questions[i];
+  const marks = currentQuestion.marks.replace(/[^0-9]/g,'');
+  document.getElementById('aiQuestion').innerHTML =
+    currentQuestion.q + ` <span class="marks-badge">${currentQuestion.marks}</span>`;
+  document.getElementById('essayInput').value = '';
+  document.getElementById('aiOutput').className = '';
+  document.getElementById('aiOutput').innerHTML = '';
+  document.getElementById('essayList').style.display = 'none';
+  document.getElementById('essayPractice').style.display = 'block';
+}
+function backToList() {
+  document.getElementById('essayList').style.display = 'block';
+  document.getElementById('essayPractice').style.display = 'none';
+}
+function clearEssay() {
+  document.getElementById('essayInput').value = '';
+  document.getElementById('aiOutput').className = '';
+  document.getElementById('aiOutput').innerHTML = '';
+}
+
+// ─────────────────────────────────────────────
+// AI FEEDBACK
+// ─────────────────────────────────────────────
+async function submitEssay() {
+  if (!API_KEY) { alert('Please enter your Anthropic API key at the top of the page.'); return; }
+  const essay = document.getElementById('essayInput').value.trim();
+  if (essay.length < 30) { alert('Please write a more substantial answer first.'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  const out = document.getElementById('aiOutput');
+  out.className = 'show';
+  out.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+
+  const marks = currentQuestion.marks.replace(/[^0-9]/g,'');
+  const isShort = parseInt(marks) <= 8;
+
+  const prompt = `You are an experienced Edexcel A Level Geography examiner marking a student's essay.
+
+QUESTION: ${currentQuestion.q} ${currentQuestion.marks}
+TOPIC: ${currentTopic.title}
+
+STUDENT'S ANSWER:
+${essay}
+
+Provide concise examiner-style feedback in this exact HTML structure (no markdown, use HTML only):
+
+<h4>📊 Examiner Feedback</h4>
+<p><span class="band" style="background:rgba(${getBandColor(marks)},0.15);color:${getBandHex(marks)}">Estimated Band: [give mark band or marks/total e.g. 14/20]</span></p>
+
+<div class="fb-section"><strong>✅ Strengths:</strong><br>[2-3 specific strengths with reference to the answer]</div>
+
+<div class="fb-section"><strong>⚠️ Areas to Improve:</strong><br>[2-3 specific improvements with examples of what to add]</div>
+
+<div class="fb-section"><strong>🔑 Key Geography to Include:</strong><br>[specific concepts, case studies, or data that would strengthen this answer for Edexcel]</div>
+
+<div class="fb-section"><strong>💬 Examiner Note:</strong><br>[1-2 sentence overall verdict focusing on geographical understanding, use of evidence, and evaluation]</div>
+
+Keep feedback focused, specific, and constructive. Reference Edexcel mark scheme criteria.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    const text = data.content.map(b => b.text || '').join('');
+    out.innerHTML = text;
+  } catch(e) {
+    out.innerHTML = `<p style="color:var(--rose)">⚠️ Error: ${e.message}. Check your API key and try again.</p>`;
+  }
+  btn.disabled = false;
+}
+
+async function getOutline() {
+  if (!API_KEY) { alert('Please enter your Anthropic API key.'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  const out = document.getElementById('aiOutput');
+  out.className = 'show';
+  out.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+
+  const prompt = `You are an Edexcel A Level Geography teacher. Generate a detailed essay plan/outline for this question.
+
+QUESTION: ${currentQuestion.q} ${currentQuestion.marks}
+TOPIC: ${currentTopic.title}
+
+Provide a structured plan in HTML (no markdown) with:
+
+<h4>📝 Essay Outline</h4>
+
+<div class="fb-section"><strong>Introduction (2-3 lines):</strong><br>[What to include — define terms, signpost argument, mini-thesis]</div>
+
+<div class="fb-section"><strong>Paragraph 1 — [heading]:</strong><br>[Key point + evidence/case study + link to question]</div>
+
+<div class="fb-section"><strong>Paragraph 2 — [heading]:</strong><br>[Key point + evidence/case study + link to question]</div>
+
+<div class="fb-section"><strong>Paragraph 3 — [heading]:</strong><br>[Key point + evidence/case study + link to question]</div>
+
+<div class="fb-section"><strong>Counter-argument / Alternative View:</strong><br>[What the 'other side' argues + evidence]</div>
+
+<div class="fb-section"><strong>Conclusion:</strong><br>[Balanced judgement — refer back to question wording; avoid sitting on the fence]</div>
+
+<div class="fb-section"><strong>🏆 Key Case Studies to Use:</strong><br>[List specific examples with statistics relevant to this question]</div>
+
+Keep it specific to Edexcel A Level Geography expectations.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    const text = data.content.map(b => b.text || '').join('');
+    out.innerHTML = text;
+  } catch(e) {
+    out.innerHTML = `<p style="color:var(--rose)">⚠️ Error: ${e.message}</p>`;
+  }
+  btn.disabled = false;
+}
+
+function getBandColor(marks) {
+  const m = parseInt(marks);
+  if (m >= 20) return '104,211,145';
+  if (m >= 8) return '104,211,145';
+  return '104,211,145';
+}
+function getBandHex(marks) { return 'var(--sage)'; }
+
+// ─────────────────────────────────────────────
+// BUILD: CASE STUDIES
+// ─────────────────────────────────────────────
+function buildCaseStudies() {
+  const panel = document.getElementById('panel-casestudies');
+  const cs = currentTopic.casestudies;
+  if (!cs || cs.length === 0) {
+    panel.innerHTML = '<p style="color:var(--muted);padding:20px 0">Case studies for this topic are embedded within the Knowledge cards above. Use the Knowledge tab to review named examples with statistics.</p>';
+    return;
+  }
+  panel.innerHTML = cs.map(c => `
+    <div class="cs-card">
+      <div class="cs-head">
+        <div>
+          <div class="cs-name">${c.name}</div>
+          <div class="cs-loc">📍 ${c.loc}</div>
+        </div>
+      </div>
+      <div class="cs-tags">${c.tags.map(t=>`<span class="cs-tag">${t}</span>`).join('')}</div>
+      <div class="cs-body">${c.body}</div>
+      <div class="cs-stats">${c.stats.map(s=>`
+        <div class="cs-stat">
+          <div class="cs-stat-val">${s.v}</div>
+          <div class="cs-stat-lbl">${s.l}</div>
+        </div>
+      `).join('')}</div>
+    </div>
+  `).join('');
+}
+</script>
+
+</body>
+</html>
