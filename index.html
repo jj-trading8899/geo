@@ -305,7 +305,32 @@ background:var(–surf);transition:background 0.15s;
       display: inline-block;
       margin-top: 20px;
     }
-  
+
+/* navigation */
+.navbar {
+  background-color: #333;  /* Dark background for dark mode */
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0;
+}
+.navbar a {
+  display: block;
+  color: #ADD8E6;  /* Light blue text */
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: bold;  /* Bold text */
+}
+.navbar a:hover {
+  background-color: #ADD8E6;  /* Light blue hover bg */
+  color: #333;  /* Dark text on hover */
+}
+
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
 #app{grid-template-columns:1fr}
@@ -333,9 +358,9 @@ main{padding:20px 16px}
 
 <nav class="navbar">
   <ul>
-    <li><a href="index.html" class="about-link">Home</a></li>
-    <li><a href="about.html" class="about-link">Alt Geog</a></li>
-    <li><a href="dt.html" class="about-link">DT</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">Alt Geog</a></li>
+    <li><a href="dt.html">DT</a></li>
   </ul>
 </nav>
 
