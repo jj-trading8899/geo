@@ -468,7 +468,7 @@ main{padding:20px 16px}
     <button class="t-btn" onclick="loadTopic('regeneration')">🏙️ Regeneration</button>
     <button class="t-btn" onclick="loadTopic('shaping')">🗺️ Diverse Places</button>
     <button class="t-btn" onclick="loadTopic('superpowers')">🦅 Superpowers</button>
-    <button class="t-btn" onclick="loadTopic('human')">🦅 Human Migration</button>
+    <button class="t-btn" onclick="loadTopic('health')">🏥 Health, Rights &amp; Intervention</button>
   </div>
 </div>
 
@@ -997,197 +997,231 @@ const TOPICS = {
     casestudies: [],
   },
 
-  human:{
-    title: "Health, Human Rights & Intervention",
-    focus: "Global health patterns, disease burden, human rights frameworks and international intervention",
-    topics: [
+  health: {
+    title: 'Health, Human Rights &amp; Intervention',
+    paper: 'Paper 2 — Option B', color: 'var(--rose)',
+    chips: ['Human Geography','Optional 6A','Paper 2'],
+    knowledge: [
       {
-        title: "Global Health Patterns",
-        body: "Health varies enormously across and within countries. Key measures: life expectancy, infant mortality rate (IMR), maternal mortality rate (MMR), disease burden (DALYs — Disability Adjusted Life Years). Epidemiological transition: LICs dominated by communicable diseases (malaria, TB, HIV/AIDS, diarrhoeal diseases); HICs dominated by non-communicable diseases (NCDs — cardiovascular disease, cancer, diabetes). Double burden: middle-income countries face both simultaneously. Social determinants of health: income, education, housing, sanitation, nutrition — these explain more variation in health outcomes than healthcare spending alone."
+        tag: 'Global Health Patterns',
+        title: 'Measuring & Mapping Global Health',
+        body: 'Health is unequally distributed globally; multiple indicators capture different dimensions of wellbeing and disease burden.',
+        points: [
+          'Life expectancy: global average 73 years (2023); range from 54 (Chad) to 85 (Japan)',
+          'DALYs (Disability-Adjusted Life Years): measures healthy life lost through disease, injury, and premature death',
+          'Infant mortality rate (IMR): powerful proxy for development; 2/1,000 (Iceland) vs 80+/1,000 (Somalia)',
+          'Epidemiological transition (Omran): shift from infectious to non-communicable disease (NCD) as countries develop',
+          'Double burden of disease: LICs face both communicable diseases AND rising NCDs simultaneously'
+        ],
+        example: 'Sub-Saharan Africa: 70% of global HIV/AIDS burden despite 14% of world population — spatial concentration of communicable disease'
       },
       {
-        title: "Disease Case Studies: HIV/AIDS & Malaria",
-        body: "HIV/AIDS: 38 million living with HIV globally; 71% in sub-Saharan Africa. Antiretroviral therapy (ART) transformed HIV from a death sentence to a manageable condition — but access is unequal. PEPFAR (US govt): $100bn+ since 2003, saved 25 million lives. Malaria: 249 million cases and 608,000 deaths in 2022 (WHO), 95% in Africa. Highly preventable (bed nets, IRS) and treatable. Eradication historically achieved in temperate zones; still endemic in tropical LICs due to poverty, weak health systems, mosquito resistance to insecticides."
+        tag: 'Determinants of Health',
+        title: 'Factors Controlling Health Outcomes',
+        body: 'Health outcomes reflect the interaction of physical environment, socioeconomic factors, governance, and access to healthcare.',
+        points: [
+          'Physical: climate (malaria belt 25°N–25°S), water quality, air pollution, natural hazards',
+          'Socioeconomic: income, education, gender equality, housing quality — social determinants of health (WHO)',
+          'Governance: healthcare expenditure per capita; USA $12,000 vs Chad $22; universal health coverage (UHC)',
+          'Access: distance to facilities, cost barriers, trained healthcare workers per 1,000 population',
+          'Gender: women\'s health outcomes tied to reproductive rights, gender-based violence, maternal mortality'
+        ],
+        example: 'Maternal mortality rate: 2/100,000 (Sweden) vs 1,150/100,000 (South Sudan) — driven by healthcare access, skilled birth attendants, governance'
       },
       {
-        title: "Human Rights Frameworks",
-        body: "Universal Declaration of Human Rights (UDHR) 1948: 30 articles covering civil, political, economic, social and cultural rights. Not legally binding but forms basis for binding treaties: ICCPR (civil/political), ICESCR (economic/social/cultural). Violations occur where: states lack capacity to protect rights, or states actively violate rights. Right to health (Article 25 UDHR): progressive realisation — states must take steps to maximise health rights within available resources. Challenges: cultural relativism (some rights contested across cultures), enforcement without a global government, sovereignty as a shield for violators."
+        tag: 'Human Rights Framework',
+        title: 'Health as a Human Right',
+        body: 'The right to health is enshrined in international law; the gap between legal entitlement and reality drives global health inequalities.',
+        points: [
+          'UDHR Article 25 (1948): right to adequate standard of living including medical care',
+          'WHO constitution: "highest attainable standard of health" as fundamental human right',
+          'ICESCR Article 12: covenant obliges states to provide conditions for health',
+          'Right to health = availability + accessibility + acceptability + quality (AAAQ framework)',
+          'Health rights violations: denial of emergency care, discrimination, lack of essential medicines'
+        ],
+        example: 'Médecins Sans Frontières (MSF): operates where states fail their health rights obligations — treats regardless of nationality, politics, or ability to pay'
       },
       {
-        title: "Intervention Types & Effectiveness",
-        body: "Military: NATO Kosovo 1999 (R2P before formal doctrine), Libya 2011 (UN Security Council Resolution 1973). Humanitarian: NGOs (MSF, Oxfam, IRC), UN agencies (UNHCR, UNICEF, WFP). Economic: sanctions (Iran, North Korea, Russia), aid conditionality. Responsibility to Protect (R2P, 2005): sovereignty is conditional — states that commit atrocities (genocide, war crimes, ethnic cleansing, crimes against humanity) can be subject to international intervention. Three pillars: state's own responsibility; international assistance; timely decisive action. Inconsistency: Libya intervened (2011) but Syria not — undermines R2P's credibility."
+        tag: 'Infectious Disease',
+        title: 'Patterns & Spread of Infectious Disease',
+        body: 'Infectious diseases follow spatial and temporal patterns shaped by environment, mobility, and immunity.',
+        points: [
+          'Vector-borne: malaria (Anopheles mosquito), dengue — restricted by climate to tropical/subtropical zones',
+          'R₀ (basic reproduction number): average infections per case in susceptible population; COVID-19 original strain R₀ 2.5–3',
+          'Diffusion: contagious (person-to-person spread) vs hierarchical (city-to-city) vs network (air routes)',
+          'Pandemic: global spread; COVID-19 spread to 220+ countries in 3 months via air travel network',
+          'Antibiotic resistance (AMR): 1.27 million deaths/yr directly attributable; growing global health crisis'
+        ],
+        example: 'HIV/AIDS diffusion: initially hierarchical via transport nodes (Kinshasa → other African cities → global cities via air routes); now endemic in Sub-Saharan Africa'
+      },
+      {
+        tag: 'Non-Communicable Disease',
+        title: 'The NCD Burden',
+        body: 'NCDs (cardiovascular disease, cancer, diabetes, respiratory disease) now cause 74% of global deaths — increasingly affecting LMICs.',
+        points: [
+          'Lifestyle risk factors: tobacco, physical inactivity, unhealthy diet, alcohol',
+          'NCDs causing 74% of all global deaths; 77% of NCD deaths in LMICs',
+          'Nutrition transition: shift to processed/high-calorie diets as incomes rise; globalisation of fast food',
+          'Urbanisation link: sedentary lifestyles, stress, air pollution — urban penalty for NCD risk',
+          'Economic cost: WHO estimates NCDs will cost $47 trillion globally 2011–2030 in lost productivity'
+        ],
+        example: 'Mexico: obesity rate 36% (3rd highest globally); sugar tax (2014) on SSBs reduced consumption by 7.6% — policy intervention success'
+      },
+      {
+        tag: 'Intervention',
+        title: 'Interventions: Aid, NGOs & International Bodies',
+        body: 'Health interventions range from global governance frameworks to community-level NGO delivery; effectiveness is contested.',
+        points: [
+          'WHO: global health governance, disease surveillance, standard-setting; budget ~$6.7bn (2022–23)',
+          'PEPFAR (USA): $100bn since 2003; 20m+ on antiretroviral therapy; most successful bilateral health programme',
+          'Global Fund: public-private partnership for HIV, TB, malaria; $5bn/yr disbursed',
+          'NGO spectrum: emergency (MSF) vs development (Partners in Health) vs advocacy (Oxfam)',
+          'Vertical vs horizontal programmes: vertical (single-disease, donor-driven) vs horizontal (health system strengthening)'
+        ],
+        example: 'Eradication of smallpox (1980): WHO-coordinated global vaccination campaign — only human disease ever eradicated; shows multilateral intervention can work'
+      },
+      {
+        tag: 'Military Intervention',
+        title: 'Military & Humanitarian Intervention',
+        body: '"Responsibility to Protect" (R2P) doctrine establishes conditions under which international community can intervene in sovereign states.',
+        points: [
+          'R2P (2005 UN World Summit): states have primary responsibility to protect citizens; if they fail, international community can intervene',
+          'Three pillars: state responsibility, international assistance, timely decisive response',
+          'Libya 2011: UN Security Council Resolution 1973 authorised military intervention — first use of R2P militarily',
+          'Sovereignty vs intervention: tension between non-interference principle (UN Charter Art 2.7) and human rights obligations',
+          'Contested interventions: Rwanda genocide (1994) — failure to intervene; Kosovo (1999) — intervention without UNSC authorisation'
+        ],
+        example: 'Syrian civil war: 500,000+ deaths, 13m displaced — international community failed to invoke R2P effectively; veto power of Russia/China in UNSC blocked action'
+      },
+      {
+        tag: 'Ethical Dimensions',
+        title: 'Ethics of Intervention',
+        body: 'Interventions raise ethical questions about sovereignty, dependency, power, and whose values are promoted.',
+        points: [
+          'Neo-colonialism critique: Western-funded health programmes impose values, create dependency',
+          'Tied aid: donor conditions distort health priorities toward donor interests',
+          'Brain drain: international recruitment depletes health workers from LICs',
+          'TRIPS agreement: intellectual property rules limit access to generic medicines in LICs',
+          'Community ownership: top-down vs bottom-up; community health workers (CHWs) as bridge'
+        ],
+        example: 'HIV/AIDS: TRIPS flexibility — Doha Declaration (2001) allowed compulsory licensing of ARVs for LICs; South Africa defied pharmaceutical companies to provide generic ARVs — human rights vs IP rights'
       }
     ],
-    keyTerms: [
+    terms: [
+      { w: 'Epidemiological Transition', d: 'Omran\'s model describing the shift in mortality patterns from infectious to chronic non-communicable diseases as countries develop.' },
+      { w: 'DALYs', d: 'Disability-Adjusted Life Years: a measure of disease burden combining years of life lost to premature death and years lived with disability.' },
+      { w: 'Double Burden of Disease', d: 'The situation in which LMICs simultaneously face high rates of both communicable diseases and rising non-communicable diseases.' },
+      { w: 'R₀ (Basic Reproduction Number)', d: 'The average number of secondary infections produced by one infected person in a fully susceptible population.' },
+      { w: 'Universal Health Coverage (UHC)', d: 'WHO goal ensuring all people can access quality health services without suffering financial hardship.' },
+      { w: 'Responsibility to Protect (R2P)', d: 'UN doctrine (2005) establishing that the international community has a responsibility to protect populations from genocide, war crimes, ethnic cleansing, and crimes against humanity when states fail to do so.' },
+      { w: 'Vertical Programme', d: 'A donor-funded health intervention targeting a single disease or condition, rather than strengthening the overall health system.' },
+      { w: 'TRIPS Agreement', d: 'WTO Agreement on Trade-Related Aspects of Intellectual Property Rights; limits production of generic medicines but includes flexibilities for public health emergencies.' },
+      { w: 'Social Determinants of Health', d: 'WHO concept: the conditions in which people are born, grow, live, work, and age — income, education, housing, employment — which shape health outcomes.' },
+      { w: 'Antibiotic Resistance (AMR)', d: 'The ability of bacteria to resist the effects of antibiotics, making infections harder to treat; caused by overuse and misuse of antimicrobials.' },
+      { w: 'Malaria Belt', d: 'The tropical/subtropical zone (approximately 25°N–25°S) where Anopheles mosquito vectors survive, enabling malaria transmission.' },
+      { w: 'Médecins Sans Frontières (MSF)', d: 'International humanitarian NGO providing medical care in conflict zones and countries with endemic disease, regardless of nationality or politics.' }
+    ],
+    flashcards: [
       {
-        term: "DALYs",
-        def: "Disability Adjusted Life Years — a measure of overall disease burden. One DALY = one year of healthy life lost. Combines years of life lost (YLL) due to premature death and years lived with disability (YLD). Allows comparison of diseases across populations.",
-        tip: "DALYs are better than death rates alone because they capture the burden of non-fatal conditions (mental illness, chronic pain). Sub-Saharan Africa bears 24% of global disease burden but has only 3% of global health workers."
+        q: 'Explain Omran\'s epidemiological transition model.',
+        a: 'Stage 1: "Age of Pestilence" — high mortality from infectious disease, famine. Stage 2: "Receding Pandemics" — mortality falls, life expectancy rises. Stage 3: "Degenerative/Man-Made Disease" — NCDs dominate (heart disease, cancer). Stage 4 (Olshansky): delayed NCDs, very elderly populations. LICs face "double burden" — stuck between stages 2 and 3 simultaneously.'
       },
       {
-        term: "Epidemiological transition",
-        def: "The shift in disease burden as countries develop — from infectious/communicable diseases (Stage 2–3 DTM) to non-communicable degenerative diseases (Stage 4). Associated with improved sanitation, nutrition, healthcare and urbanisation.",
-        tip: "China and India face a 'double burden' — still dealing with infectious disease in rural areas while NCDs (diabetes, heart disease) are rising rapidly in cities. This creates competing health system demands."
+        q: 'What is R₀ and why does it matter for disease management?',
+        a: 'R₀ = average infections generated by one case in fully susceptible population. If R₀ > 1, epidemic grows. If R₀ < 1, disease dies out. Measles R₀ = 12–18 (very high → 92–95% vaccination needed for herd immunity). COVID-19 original R₀ ≈ 2.5. Interventions (vaccination, social distancing, masks) aim to reduce effective R to below 1.'
       },
       {
-        term: "Universal Declaration of Human Rights (UDHR)",
-        def: "A 1948 UN General Assembly resolution setting out 30 fundamental rights for all people. Non-binding but forms the basis for legally binding treaties (ICCPR, ICESCR). Covers civil, political, economic, social and cultural rights.",
-        tip: "Article 25 includes the right to an adequate standard of living including food, clothing, housing AND medical care. The progressive realisation principle means states must continuously improve health access — not achieve it instantly."
+        q: 'Evaluate PEPFAR as an international health intervention.',
+        a: 'Strengths: $100bn invested since 2003; 20m+ people on ARVs in Africa; reduced HIV mortality dramatically in Sub-Saharan Africa; most effective bilateral health programme ever. Weaknesses: vertical (disease-specific) not system-strengthening; US gag rule restricted reproductive health services; creates dependency on US political goodwill; tied to US policy priorities.'
       },
       {
-        term: "Responsibility to Protect (R2P)",
-        def: "A 2005 UN norm establishing that sovereignty is not absolute — if a state fails to protect its population from genocide, war crimes, ethnic cleansing or crimes against humanity, the international community has a responsibility to act. Three pillars: state responsibility, international assistance, timely action.",
-        tip: "R2P has been applied inconsistently — Libya 2011 (yes), Syria (no), Yemen (no). This inconsistency undermines the doctrine's legitimacy and reflects the veto power of P5 Security Council members (China, Russia often block)."
+        q: 'What is the Responsibility to Protect (R2P) and what are its limitations?',
+        a: 'R2P (2005): states must protect citizens from atrocities; if they fail, international community has responsibility to act. Three pillars: state responsibility → international assistance → decisive response. Limitations: UNSC veto can block action (Syria); selective application (Libya yes, Syria no); sovereignty concerns; regime change risk; post-intervention instability (Libya became failed state).'
       },
       {
-        term: "Social determinants of health",
-        def: "The non-medical factors that influence health outcomes — income, education, occupation, housing quality, neighbourhood environment, social support, early childhood development. The WHO Commission on Social Determinants concluded these account for more variation in health than genetics or healthcare access.",
-        tip: "In the UK, men in the most deprived areas live on average 9 years less than those in the least deprived. This 'health gap' exists within HICs as well as between countries — demonstrates that healthcare spending alone cannot explain health inequality."
+        q: 'How does the TRIPS agreement affect global health equity?',
+        a: 'TRIPS protects pharmaceutical patents for 20 years, maintaining high drug prices. This restricts LICs\' access to essential medicines. The Doha Declaration (2001) created "flexibilities" allowing compulsory licensing of generic drugs for public health emergencies. South Africa used this to provide generic ARVs. However, pressure from pharmaceutical companies and developed nations often discourages LICs from using these flexibilities — IP rights vs right to health.'
       },
       {
-        term: "NGO (Non-Governmental Organisation)",
-        def: "An organisation independent of government, typically non-profit, operating in areas including humanitarian assistance, development, human rights advocacy and health. Examples: MSF (Médecins Sans Frontières), Oxfam, IRC, Red Cross. Operate with varying degrees of neutrality.",
-        tip: "MSF's principle of neutrality — treating all parties in conflict regardless of affiliation — has been challenged when neutrality allows atrocities to continue undocumented. The tension between humanitarian impartiality and human rights advocacy is a key evaluation point."
+        q: 'Distinguish between vertical and horizontal health programmes. What are the trade-offs?',
+        a: 'Vertical: single-disease focus (PEPFAR for HIV, Roll Back Malaria). Quick, measurable results; attractive to donors. But fragments health systems, ignores co-morbidities, creates parallel structures, unsustainable after donor withdrawal. Horizontal: strengthens entire health system (training, infrastructure, supply chains). More sustainable long-term but slower, harder to attribute results, less donor appeal. Most effective programmes (e.g. Thailand UHC) combine both.'
+      },
+      {
+        q: 'Why does Sub-Saharan Africa bear a disproportionate burden of global disease?',
+        a: 'Environmental: tropical climate enables malaria/dengue/Ebola vectors. Socioeconomic: poverty limits access to clean water, sanitation, healthcare. Governance: weak health systems, low per-capita health expenditure ($22 in Chad vs $12,000 in USA). Historical: colonial legacies, brain drain of health workers to HICs. Structural: TRIPS limits generic medicines; trade rules disadvantage agricultural exports. Cannot be explained by any single factor — requires intersectional analysis.'
       }
+    ],
+    questions: [
+      { q: '"The unequal global distribution of disease is primarily the result of physical factors." Assess this statement.', marks: '[20]' },
+      { q: 'Evaluate the extent to which international intervention has been effective in improving global health outcomes.', marks: '[20]' },
+      { q: '"The Responsibility to Protect principle has failed to protect human rights in practice." Discuss.', marks: '[20]' },
+      { q: 'Assess the extent to which socioeconomic factors are the most important determinants of health outcomes.', marks: '[20]' },
+      { q: 'Explain how the epidemiological transition model accounts for changing patterns of disease.', marks: '[6]' },
+      { q: 'Explain why some countries experience a "double burden" of disease.', marks: '[6]' },
+      { q: 'Assess the role of NGOs in delivering healthcare in low-income countries.', marks: '[8]' },
+      { q: 'Evaluate the ethical issues surrounding international health interventions.', marks: '[8]' }
     ],
     casestudies: [
       {
-        name: "PEPFAR and the HIV/AIDS Response in Sub-Saharan Africa",
-        location: "Sub-Saharan Africa — focus countries: South Africa, Uganda, Ethiopia (US PEPFAR programme)",
-        context: "HIV/AIDS killed 36+ million people globally before antiretroviral therapy (ART) became available. Sub-Saharan Africa bears 71% of the global HIV burden. PEPFAR (President's Emergency Plan for AIDS Relief), launched by President George W. Bush in 2003, is the largest commitment by any nation to combat a single disease in history.",
-        points: [
-          { text: "<strong>$100+ billion invested</strong> since 2003 — PEPFAR has supported ART for 21 million people and saved an estimated 25 million lives as of 2023." },
-          { text: "<strong>AIDS-related deaths fell 68%</strong> in PEPFAR-supported countries between 2004 and 2022, compared to a 52% fall globally — demonstrating the programme's targeted impact above the global trend." },
-          { text: "<strong>Prevention of mother-to-child transmission (PMTCT)</strong>: PEPFAR supported 5.5 million HIV-free births by 2022. South Africa's PMTCT programme reduced infant HIV infection rates from ~30% to under 2% of births to HIV-positive mothers." },
-          { text: "<strong>Health system strengthening</strong>: PEPFAR trained over 340,000 health workers — but also accelerated brain drain as PEPFAR-funded posts in LICs offer better pay than government health services, distorting local health labour markets." },
-          { text: "<strong>Criticism: disease-specific focus</strong>. By concentrating resources on HIV, PEPFAR may have crowded out investment in broader health system strengthening (tuberculosis, maternal health, primary care) — vertical vs horizontal health system debate." }
-        ],
-        significance: "✦ Key argument: PEPFAR demonstrates that large-scale international health intervention can dramatically reduce disease burden — but vertical (disease-specific) programmes risk neglecting horizontal (health system) needs. Political commitment and sustained financing are the critical variables."
-      },
-      {
-        name: "Malaria Control — Comparing Approaches",
-        location: "Sub-Saharan Africa; Sri Lanka (historical); Bhutan (recent success)",
-        context: "Malaria remains one of the world's most preventable and treatable diseases, yet kills 608,000 people per year — 76% of them children under 5 in Africa. Control relies on: insecticide-treated bed nets (ITNs), indoor residual spraying (IRS), artemisinin-combination therapy (ACT), and RTS,S/AS01 malaria vaccine (recommended by WHO 2021).",
-        points: [
-          { text: "<strong>Global Fund to Fight AIDS, TB and Malaria</strong>: distributed 2.5 billion bed nets since 2002. Net coverage is the single most cost-effective malaria intervention — ~$5 per net, protecting a family for 3 years." },
-          { text: "<strong>Sri Lanka: near-eradication then resurgence</strong>. Reduced malaria from 1 million cases (1940s) to near-zero by 1963 using DDT. Stopped spraying prematurely (cost and complacency) → 1 million cases again by 1969. Resumed control → reduced again. Shows: sustained investment required; eradication must be complete." },
-          { text: "<strong>RTS,S vaccine (trade name Mosquirix)</strong>: first approved malaria vaccine. 40% efficacy in clinical trials — modest but significant for a disease of this scale. Ghana, Kenya and Malawi pilot programmes since 2019; full WHO rollout recommended 2021. Estimated to prevent 5.4 million malaria cases and 23,000 child deaths per year if fully deployed." },
-          { text: "<strong>Insecticide resistance</strong>: Anopheles mosquitoes are developing resistance to pyrethroids used in bed nets — threatens the primary prevention tool. Requires ongoing R&D investment in new insecticides." },
-          { text: "<strong>Climate change dimension</strong>: rising temperatures are expanding the malaria belt — projections suggest malaria range will extend to higher altitudes and latitudes by 2070, affecting populations with no existing immunity." }
-        ],
-        significance: "✦ Key argument: Malaria is a disease of poverty and political priority, not technical impossibility. The tools exist — bed nets, ACT, IRS, vaccine — but their deployment requires sustained funding, functional health systems and political will that many endemic countries lack."
-      },
-      {
-        name: "R2P in Practice: Libya 2011 vs Syria",
-        location: "Libya (NATO intervention 2011); Syria (ongoing conflict from 2011 — no R2P intervention)",
-        context: "The Arab Spring produced two civil conflicts in 2011 with apparently similar conditions — government violence against civilian populations, documented human rights violations, internal conflict — but radically different international responses. This comparison tests the consistency and credibility of the R2P doctrine.",
-        points: [
-          { text: "<strong>Libya 2011</strong>: UN Security Council Resolution 1973 authorised a no-fly zone and 'all necessary measures' to protect civilians. NATO interpreted this broadly → air campaign → contributed to Gaddafi's fall. 30,000 deaths in the 8-month civil war. Libya subsequently descended into a failed state — raises question of whether intervention improved or worsened long-term human rights." },
-          { text: "<strong>Syria</strong>: 500,000+ deaths and 13 million displaced since 2011. China and Russia vetoed all Security Council resolutions on Syria, citing Libya precedent as evidence that R2P authorisation leads to regime change rather than civilian protection. Structural veto power prevents R2P application when P5 interests are involved." },
-          { text: "<strong>Double standard exposed</strong>: no intervention in Yemen (Saudi Arabia is a Western ally), Bahrain (US Fifth Fleet based there), or Myanmar's Rohingya crisis (2017) — political and strategic interests shape which populations receive R2P protection." },
-          { text: "<strong>MSF in Syria</strong>: operating in one of the world's most dangerous humanitarian environments — multiple MSF hospitals were deliberately bombed (Al-Quds Hospital 2016, investigated as possible war crime). Shows limits of humanitarian NGO neutrality in geopolitically contested conflicts." },
-          { text: "<strong>ICC referral failure</strong>: attempt to refer Syria to the International Criminal Court (ICC) vetoed by Russia and China in 2014 — demonstrates the structural limits of international justice mechanisms." }
-        ],
-        significance: "✦ Key argument: R2P is not a consistent legal obligation but a political tool whose application depends on great power interests, Security Council consensus and strategic calculations. Its inconsistent application may undermine its deterrent effect on potential perpetrators of atrocities."
-      }
-    ],
-    diagrams: [
-      {
-        title: "Epidemiological Transition — Linking to Health Policy",
-        steps: [
-          "Draw a diagram showing four stages on a horizontal axis (Stage 1 → 4)",
-          "Stage 1 (pre-industrial): high death rates from infectious diseases — famines, epidemics. High birth rate. Population grows slowly. Example: pre-1800 Europe",
-          "Stage 2 (early industrial): death rate falls (improved sanitation, food supply) but birth rate stays high. Infectious disease still dominant. Rapid population growth. Example: most LDCs 1950s–70s",
-          "Stage 3 (industrial): birth rate begins to fall. NCDs begin to rise alongside declining infectious disease. Example: China, Brazil today",
-          "Stage 4 (post-industrial): both rates low. NCDs dominate (heart disease, cancer, diabetes). Ageing population. Example: UK, France, Japan",
-          "Add a second layer showing health system implications: Stage 2 needs vaccines, clean water, sanitation (cheap, high impact); Stage 4 needs expensive long-term care for chronic conditions",
-          "Mark the 'double burden' zone between Stage 3 and 4 — countries facing BOTH simultaneously (India, Indonesia, Nigeria urban areas)"
+        name: 'HIV/AIDS in Sub-Saharan Africa',
+        loc: 'Sub-Saharan Africa — global epicentre',
+        tags: ['Communicable disease', 'PEPFAR', 'ARVs', 'Human rights'],
+        body: 'Sub-Saharan Africa carries 70% of the global HIV burden (25.6 million people living with HIV). PEPFAR has put 20m+ on ARVs, reducing mortality dramatically. South Africa\'s defiance of pharmaceutical patents to produce generic ARVs was a landmark human rights victory. However, HIV remains structurally linked to poverty, gender inequality, and stigma — medical intervention alone insufficient.',
+        stats: [
+          { v: '25.6m', l: 'PLHIV in Sub-Saharan Africa' },
+          { v: '70%', l: 'Share of global HIV burden' },
+          { v: '20m+', l: 'On ARVs via PEPFAR' },
+          { v: '$100bn', l: 'PEPFAR investment since 2003' }
         ]
       },
       {
-        title: "R2P Three Pillars — Framework Diagram",
-        steps: [
-          "Draw three vertical pillars with a roof labelled 'International Peace and Security'",
-          "Pillar 1 — State Responsibility: 'Each state has the primary responsibility to protect its populations from genocide, war crimes, ethnic cleansing and crimes against humanity'",
-          "Pillar 2 — International Assistance: 'The international community should assist states in building capacity to protect their populations — prevention and early warning'",
-          "Pillar 3 — Timely and Decisive Response: 'When a state manifestly fails, the international community must respond — through UN Security Council, Chapter VII if necessary'",
-          "Add arrows showing escalation: Pillar 1 fails → Pillar 2 activated → Pillar 2 fails → Pillar 3 (only with UN SC authorisation)",
-          "Annotate the structural weakness: Security Council veto (P5 — US, UK, France, China, Russia) can block Pillar 3 action regardless of humanitarian need. This is the critical evaluation point for any R2P question"
+        name: 'COVID-19 Pandemic',
+        loc: 'Global — emerged Wuhan, China, Dec 2019',
+        tags: ['Pandemic', 'Vaccine inequality', 'WHO', 'Governance'],
+        body: 'COVID-19 spread to 220+ countries in 3 months via air travel networks. Exposed stark vaccine inequalities: by mid-2021, 80% of vaccines had gone to high-income countries. COVAX initiative aimed to supply LICs but failed to prevent rich-country hoarding. WHO\'s response criticised for delayed PHEIC declaration. Demonstrated that global health security requires equitable access, not just national protection.',
+        stats: [
+          { v: '7m+', l: 'Confirmed deaths' },
+          { v: '220+', l: 'Countries affected' },
+          { v: '80%', l: 'Vaccines to HICs initially' },
+          { v: 'R₀ 2.5–3', l: 'Original strain reproduction number' }
+        ]
+      },
+      {
+        name: 'Malaria in Sub-Saharan Africa',
+        loc: 'Malaria belt — tropical Africa',
+        tags: ['Vector-borne', 'ITNs', 'Roll Back Malaria', 'Physical determinants'],
+        body: '94% of global malaria deaths occur in Africa; children under 5 and pregnant women most vulnerable. Anopheles mosquito vector restricted to tropical/subtropical zones. Roll Back Malaria partnership (WHO, UNICEF, World Bank): ITN distribution, IRS, ACT medicines. Malaria cases fell 40% 2000–2015 before progress stalled. Climate change expanding malaria belt into higher altitudes.',
+        stats: [
+          { v: '619,000', l: 'Deaths in 2021' },
+          { v: '94%', l: 'Deaths in Africa' },
+          { v: '40%', l: 'Reduction in cases 2000–2015' },
+          { v: '76%', l: 'Efficacy of RTS,S malaria vaccine' }
+        ]
+      },
+      {
+        name: 'Syrian Civil War — Failure of R2P',
+        loc: 'Syria — Middle East, 2011–present',
+        tags: ['R2P failure', 'Humanitarian crisis', 'UNSC veto', 'Intervention'],
+        body: 'Syria\'s civil war (2011–) has killed 500,000+ and displaced 13 million. Russia and China used UNSC veto power 16+ times to block resolutions against Assad government. R2P invoked rhetorically but never operationalised — contrasts with Libya 2011. MSF lost 7 hospitals to bombing. Demonstrates that R2P is selective and contingent on geopolitical interests of permanent UNSC members.',
+        stats: [
+          { v: '500,000+', l: 'Deaths' },
+          { v: '13m', l: 'Displaced' },
+          { v: '16+', l: 'Russian UNSC vetoes' },
+          { v: '6.8m', l: 'Refugees abroad' }
+        ]
+      },
+      {
+        name: 'Mexico Sugar Tax (2014)',
+        loc: 'Mexico — NCD policy intervention',
+        tags: ['NCD', 'Obesity', 'Policy intervention', 'Nutrition transition'],
+        body: 'Mexico introduced a 1 peso/litre tax on sugar-sweetened beverages (SSBs) in 2014 following an obesity crisis (36% obesity rate, 3rd globally). Consumption of SSBs fell 7.6% in year 1 and 11.7% by year 2. Lower-income households showed greatest response. Hailed globally as a model for NCD policy; inspired similar taxes in UK (2018), South Africa, and 40+ countries.',
+        stats: [
+          { v: '36%', l: 'Adult obesity rate' },
+          { v: '7.6%', l: 'SSB consumption fall, Year 1' },
+          { v: '11.7%', l: 'SSB consumption fall, Year 2' },
+          { v: '40+', l: 'Countries with similar taxes now' }
         ]
       }
-    ],
-    analysis: [
-      {
-        heading: "Vertical vs Horizontal Health Interventions",
-        chain: "Disease-specific problem identified (e.g. HIV/AIDS crisis) → vertical programme funded (PEPFAR, Global Fund) → concentrates resources on one disease → rapid measurable results → saves lives in short term → BUT: diverts health workers from primary care → creates parallel health infrastructure → neglects diseases without donor interest (neglected tropical diseases) → health system remains fragile → next epidemic (Ebola 2014) reveals systemic weakness → horizontal approach needed: strengthen entire health system (training, infrastructure, supply chains, governance) → slower results but more resilient",
-        evals: [
-          "Vertical programmes produce donor-visible outcomes (lives saved from HIV, bed nets distributed) which justify continued funding — the political economy of aid favours measurable, marketable interventions over invisible system strengthening",
-          "Ebola in West Africa 2014 killed 11,000 people in countries whose health systems had been weakened by decade of vertical HIV/AIDS programming that had taken trained nurses into HIV clinics — the fragility was exposed",
-          "The Gates Foundation (largest private global health funder) has moved toward blended vertical/horizontal approaches — funding disease programmes that simultaneously build health system capacity, recognising the tension cannot be fully resolved"
-        ],
-        mistake: "Don't describe PEPFAR as straightforwardly 'successful' or 'unsuccessful'. It saved millions of lives (success by any humanitarian measure) while simultaneously creating distortions in LIC health labour markets and neglecting non-HIV conditions (complexity that earns Level 4 credit)."
-      },
-      {
-        heading: "Evaluating International Intervention — Effectiveness and Ethics",
-        chain: "Human rights violation occurs → international community debates response → military intervention: can stop immediate violence BUT risks: civilian casualties ('collateral damage'), power vacuum post-intervention (Libya, Iraq), regime change mission creep, loss of sovereignty → humanitarian NGO intervention: provides relief but does not address causes, may extend conflict by sustaining populations in war zones → economic sanctions: target regime economically BUT: ordinary population bears cost (Iraq sanctions 1990s estimated 500,000 child deaths) → best outcomes combine: preventive diplomacy + targeted sanctions on individuals + humanitarian access + accountability (ICC)",
-        evals: [
-          "The 'do no harm' principle (medical ethics, applied to humanitarian intervention): intervening can make situations worse — post-Gaddafi Libya became a failed state and human trafficking hub, arguably worse for human rights than under Gaddafi's authoritarian stability",
-          "Non-intervention also has costs: Syria — 500,000+ deaths, 13 million displaced in 12 years of international inaction demonstrates that failure to intervene is itself a moral choice with consequences",
-          "Accountability gap: perpetrators of atrocities are rarely prosecuted. ICC has indicted fewer than 50 individuals in 20 years, largely from Africa, leading to accusations of selective justice. Without credible accountability, deterrence of future atrocities is limited"
-        ],
-        mistake: "Avoid concluding that intervention is always right or always wrong. Evaluate using the Just War criteria (right intention, proportionality, last resort, reasonable chance of success) and assess each case on its specific context — there is no universal answer."
-      }
-    ],
-    quiz: [
-      {
-        q: "DALYs (Disability Adjusted Life Years) are a better measure of health burden than death rates because:",
-        opts: [
-          "They are easier to calculate using census data",
-          "They capture both fatal and non-fatal disease burden — years of life lost to premature death AND years lived with disability",
-          "They only count deaths from infectious diseases",
-          "They measure the economic cost of disease to a government"
-        ],
-        correct: 1,
-        exp: "DALYs = YLL (years of life lost to premature death) + YLD (years lived with disability or illness). This means conditions like depression, chronic pain and HIV (which can be managed but not cured) are captured — not just death rates. Sub-Saharan Africa carries 24% of the global disease burden (DALYs) but has only 3% of global health workers."
-      },
-      {
-        q: "The Responsibility to Protect (R2P) doctrine was established in 2005 primarily to address:",
-        opts: [
-          "The right of states to intervene in foreign economies to promote development",
-          "The obligation to intervene militarily in any country experiencing civil war",
-          "The conditional nature of sovereignty — states committing genocide, war crimes, ethnic cleansing or crimes against humanity can be subject to international intervention",
-          "The requirement for all UN member states to provide humanitarian aid to disaster zones"
-        ],
-        correct: 2,
-        exp: "R2P (2005 UN World Summit): sovereignty is conditional, not absolute. If a state fails to protect its population from the four specified crimes (genocide, war crimes, ethnic cleansing, crimes against humanity), the international community has a responsibility to act — first through prevention and assistance, then through decisive action if necessary. Crucially, this requires UN Security Council authorisation, giving China and Russia effective veto power."
-      },
-      {
-        q: "PEPFAR's approach to HIV/AIDS in sub-Saharan Africa is an example of which type of health intervention?",
-        opts: [
-          "Horizontal health system strengthening — building overall health capacity across all diseases",
-          "Vertical disease-specific programming — concentrated resources on a single disease with measurable outcomes",
-          "Community-based primary healthcare — training village health workers for all conditions",
-          "Structural adjustment — conditional aid requiring recipient governments to privatise health services"
-        ],
-        correct: 1,
-        exp: "PEPFAR is the classic example of a vertical programme: massive, sustained investment in one disease (HIV/AIDS). Highly effective for that disease — 25 million lives saved — but criticised for distorting health labour markets (HIV clinics pay better than government primary care), neglecting other diseases, and creating dependency on US political priorities. Horizontal approaches (e.g. WHO's primary healthcare model) build system-wide capacity but show slower, less visible results."
-      },
-      {
-        q: "The inconsistent application of R2P (intervention in Libya 2011 but not Syria) is primarily explained by:",
-        opts: [
-          "Libya had a worse human rights record than Syria before the conflict",
-          "The UN had better evidence of atrocities in Libya than in Syria",
-          "China and Russia vetoed Security Council resolutions on Syria, citing the Libya intervention as evidence that R2P leads to regime change rather than civilian protection",
-          "Syria's population was smaller, making intervention less cost-effective"
-        ],
-        correct: 2,
-        exp: "Russia and China vetoed all substantive Syria Security Council resolutions from 2012 onwards, arguing that the Libya intervention (UNSCR 1973) was used as a mandate for regime change — NATO's campaign went far beyond the authorised civilian protection mandate. This created a precedent that made P5 consensus for Syria impossible. The structural flaw of R2P is that the Security Council veto allows great powers to block action when their strategic interests are served by inaction."
-      }
-    ],
-    quickPrompts: [
-      "Explain the difference between vertical and horizontal health interventions with the PEPFAR example",
-      "Walk me through the three pillars of R2P and why the doctrine is applied inconsistently",
-      "Evaluate international intervention in Libya 2011 — did R2P work?"
     ]
   },
 
