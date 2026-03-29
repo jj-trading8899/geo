@@ -447,7 +447,7 @@ main{padding:20px 16px}
   </div>
   <div class="topics open" id="p1-topics">
     <button class="t-btn" onclick="loadTopic('tectonic')">🌋 Tectonic Hazards</button>
-    <button class="t-btn" onclick="loadTopic('coasts')">🌊 Coastal Landscapes</button>
+    <!-- <button class="t-btn" onclick="loadTopic('coasts')">🌊 Coastal Landscapes</button> -->
     <button class="t-btn" onclick="loadTopic('carbon')">🌿 Carbon Cycle</button>
     <button class="t-btn" onclick="loadTopic('water')">💧 Water Cycle</button>
     <button class="t-btn" onclick="loadTopic('glacial')">🏔️ Glacial Landscapes</button>
@@ -464,7 +464,7 @@ main{padding:20px 16px}
   </div>
   <div class="topics open" id="p2-topics">
     <button class="t-btn" onclick="loadTopic('globalisation')">🌐 Globalisation</button>
-    <button class="t-btn" onclick="loadTopic('migration')">✈️ Migration &amp; Identity</button>
+    <!-- <button class="t-btn" onclick="loadTopic('migration')">✈️ Migration &amp; Identity</button> -->
     <button class="t-btn" onclick="loadTopic('regeneration')">🏙️ Regeneration</button>
     <button class="t-btn" onclick="loadTopic('shaping')">🗺️ Diverse Places</button>
     <button class="t-btn" onclick="loadTopic('superpowers')">🦅 Superpowers</button>
@@ -652,43 +652,43 @@ const TOPICS = {
     ],
   },
 
-  coasts: {
-    title: 'Coastal Landscapes',
-    paper: 'Paper 1', color: 'var(--sky)',
-    chips: ['Physical Geography','Compulsory'],
-    knowledge: [
-      { tag:'Processes', title:'Coastal Erosion Processes', body:'Four main types: hydraulic action, abrasion, attrition, and solution — all acting with different intensities depending on wave energy.', points:['Hydraulic action: wave compression of air in cracks','Abrasion (corrasion): rock particles scrape coastline','Attrition: particles collide and reduce in size','Solution (corrosion): chemical weathering of carbonates'], example:'Chalk cliffs at Flamborough Head show all four processes in action' },
-      { tag:'Landforms', title:'Erosional & Depositional Landforms', body:'Contrasting landforms reflect whether the coast is a high-energy (erosional) or low-energy (depositional) environment.', points:['Erosional: headlands, bays, caves, arches, stacks, stumps','Depositional: beaches, spits, bars, tombolos, cuspate forelands','Longshore drift transports sediment along the coast'], example:'Durdle Door (arch) and Old Harry Rocks (stack) in Dorset' },
-      { tag:'Systems', title:'Coastal Sediment Cells & Budgets', body:'Coasts operate as sediment cells — closed systems where inputs, transfers, and outputs of sediment must balance.', points:['Sediment budget: inputs (rivers, cliff erosion) vs outputs (offshore drift)','Littoral cell: self-contained coastal unit','Hard engineering disrupts sediment transfer'], example:'Holderness Coast: fastest-eroding in Europe (2m/year) due to negative sediment budget and weak boulder clay' },
-      { tag:'Management', title:'Coastal Management Strategies', body:'Hard vs soft engineering, and managed retreat — evaluated on costs, effectiveness, and shoreline management plans.', points:['Hard: sea walls, groynes, rock armour (rip-rap)','Soft: beach nourishment, dune restoration','Managed retreat (realignment): cost-effective; allows ecosystem services'], example:'Medmerry managed realignment (Sussex): 183ha of new habitat; cost-effective vs sea wall maintenance' },
-    ],
-    terms: [
-      {w:'Littoral Cell',d:'A self-contained section of coastline within which sediment is circulated without significant exchange with adjacent cells.'},
-      {w:'Longshore Drift',d:'The movement of sediment along a coast by wave action when waves approach at an angle to the shoreline.'},
-      {w:'Wave Refraction',d:'The bending of waves as they approach shallow water, concentrating energy on headlands and dissipating it in bays.'},
-      {w:'Sediment Budget',d:'The balance between inputs, storage, and outputs of sediment within a coastal system.'},
-      {w:'Managed Retreat',d:'A coastal management strategy allowing previously defended land to be flooded in a controlled manner.'},
-      {w:'Fetch',d:'The unobstructed distance over water that the wind travels, determining wave energy and height.'},
-      {w:'Beach Nourishment',d:'Artificial replenishment of beach sediment to counteract erosion, maintaining the beach as a natural buffer.'},
-      {w:'Tombolo',d:'A depositional landform where a spit connects an island to the mainland or another island.'},
-    ],
-    flashcards: [
-      {q:'Explain the formation of a spit.',a:'Longshore drift transports sediment along the coast. Where the coastline changes direction (e.g. at a bay), deposition occurs as wave energy decreases. A spit extends in the direction of drift, often with a recurved end due to secondary wave action and storm refraction. Example: Spurn Head, Yorkshire.'},
-      {q:'Why does Holderness Coast erode so rapidly?',a:'(1) Weak unconsolidated boulder clay — easily eroded by hydraulic action. (2) High wave energy from long North Sea fetch. (3) Negative sediment budget — groynes at Hornsea trap sediment, starving areas to the south. (4) Narrow beach offering little protection.'},
-      {q:'Compare hard engineering and managed retreat.',a:'Hard engineering (sea walls, groynes) protects property but is expensive, disrupts sediment cells, and can shift erosion elsewhere. Managed retreat allows flooding of low-value land, is cheaper, creates habitats, but displaces communities and is politically difficult.'},
-      {q:'What is the significance of wave type (constructive vs destructive) for coastal processes?',a:'Constructive waves: low frequency, strong swash, weak backwash → deposition. Destructive waves: high frequency, weak swash, strong backwash → erosion. Storm events produce destructive waves that rapidly reshape coastlines.'},
-    ],
-    questions: [
-      {q:'Evaluate the extent to which human activity is the main cause of coastal recession.',marks:'[20]'},
-      {q:'"Hard engineering is always preferable to managed retreat as a coastal management strategy." Discuss.',marks:'[20]'},
-      {q:'Explain how wave processes create contrasting coastal landforms.',marks:'[6]'},
-      {q:'Assess the effectiveness of one coastal management strategy you have studied.',marks:'[8]'},
-    ],
-    casestudies: [
-      { name:'Holderness Coast, Yorkshire', loc:'East coast of England, North Sea', tags:['Rapid erosion','Boulder clay','MEDC'], body:'Fastest-eroding coastline in Europe: loses up to 2m/year. Weak glacial boulder clay, high-energy destructive waves from long North Sea fetch. Settlements like Mappleton receive protection; unprotected stretches erode faster as sediment is trapped.', stats:[{v:'2m/yr',l:'Avg erosion rate'},{v:'30+',l:'Villages lost since Roman times'},{v:'£2m',l:'Rock armour at Mappleton'},{v:'50km',l:'Length of coast affected'}] },
-      { name:'Medmerry Managed Realignment', loc:'West Sussex, English Channel', tags:['Soft engineering','Managed retreat','SSSI'], body:'UK\'s largest managed realignment (2013). 183 hectares of new intertidal habitat created. Old shingle bank breached deliberately. Cost-effective alternative to maintaining failing sea defences; provided new nature reserve.', stats:[{v:'183ha',l:'New habitat'},{v:'£28m',l:'Cost'},{v:'2013',l:'Year completed'},{v:'300+',l:'Bird species recorded'}] },
-    ],
-  },
+  // coasts: {
+  //   title: 'Coastal Landscapes',
+  //   paper: 'Paper 1', color: 'var(--sky)',
+  //   chips: ['Physical Geography','Compulsory'],
+  //   knowledge: [
+  //     { tag:'Processes', title:'Coastal Erosion Processes', body:'Four main types: hydraulic action, abrasion, attrition, and solution — all acting with different intensities depending on wave energy.', points:['Hydraulic action: wave compression of air in cracks','Abrasion (corrasion): rock particles scrape coastline','Attrition: particles collide and reduce in size','Solution (corrosion): chemical weathering of carbonates'], example:'Chalk cliffs at Flamborough Head show all four processes in action' },
+  //     { tag:'Landforms', title:'Erosional & Depositional Landforms', body:'Contrasting landforms reflect whether the coast is a high-energy (erosional) or low-energy (depositional) environment.', points:['Erosional: headlands, bays, caves, arches, stacks, stumps','Depositional: beaches, spits, bars, tombolos, cuspate forelands','Longshore drift transports sediment along the coast'], example:'Durdle Door (arch) and Old Harry Rocks (stack) in Dorset' },
+  //     { tag:'Systems', title:'Coastal Sediment Cells & Budgets', body:'Coasts operate as sediment cells — closed systems where inputs, transfers, and outputs of sediment must balance.', points:['Sediment budget: inputs (rivers, cliff erosion) vs outputs (offshore drift)','Littoral cell: self-contained coastal unit','Hard engineering disrupts sediment transfer'], example:'Holderness Coast: fastest-eroding in Europe (2m/year) due to negative sediment budget and weak boulder clay' },
+  //     { tag:'Management', title:'Coastal Management Strategies', body:'Hard vs soft engineering, and managed retreat — evaluated on costs, effectiveness, and shoreline management plans.', points:['Hard: sea walls, groynes, rock armour (rip-rap)','Soft: beach nourishment, dune restoration','Managed retreat (realignment): cost-effective; allows ecosystem services'], example:'Medmerry managed realignment (Sussex): 183ha of new habitat; cost-effective vs sea wall maintenance' },
+  //   ],
+  //   terms: [
+  //     {w:'Littoral Cell',d:'A self-contained section of coastline within which sediment is circulated without significant exchange with adjacent cells.'},
+  //     {w:'Longshore Drift',d:'The movement of sediment along a coast by wave action when waves approach at an angle to the shoreline.'},
+  //     {w:'Wave Refraction',d:'The bending of waves as they approach shallow water, concentrating energy on headlands and dissipating it in bays.'},
+  //     {w:'Sediment Budget',d:'The balance between inputs, storage, and outputs of sediment within a coastal system.'},
+  //     {w:'Managed Retreat',d:'A coastal management strategy allowing previously defended land to be flooded in a controlled manner.'},
+  //     {w:'Fetch',d:'The unobstructed distance over water that the wind travels, determining wave energy and height.'},
+  //     {w:'Beach Nourishment',d:'Artificial replenishment of beach sediment to counteract erosion, maintaining the beach as a natural buffer.'},
+  //     {w:'Tombolo',d:'A depositional landform where a spit connects an island to the mainland or another island.'},
+  //   ],
+  //   flashcards: [
+  //     {q:'Explain the formation of a spit.',a:'Longshore drift transports sediment along the coast. Where the coastline changes direction (e.g. at a bay), deposition occurs as wave energy decreases. A spit extends in the direction of drift, often with a recurved end due to secondary wave action and storm refraction. Example: Spurn Head, Yorkshire.'},
+  //     {q:'Why does Holderness Coast erode so rapidly?',a:'(1) Weak unconsolidated boulder clay — easily eroded by hydraulic action. (2) High wave energy from long North Sea fetch. (3) Negative sediment budget — groynes at Hornsea trap sediment, starving areas to the south. (4) Narrow beach offering little protection.'},
+  //     {q:'Compare hard engineering and managed retreat.',a:'Hard engineering (sea walls, groynes) protects property but is expensive, disrupts sediment cells, and can shift erosion elsewhere. Managed retreat allows flooding of low-value land, is cheaper, creates habitats, but displaces communities and is politically difficult.'},
+  //     {q:'What is the significance of wave type (constructive vs destructive) for coastal processes?',a:'Constructive waves: low frequency, strong swash, weak backwash → deposition. Destructive waves: high frequency, weak swash, strong backwash → erosion. Storm events produce destructive waves that rapidly reshape coastlines.'},
+  //   ],
+  //   questions: [
+  //     {q:'Evaluate the extent to which human activity is the main cause of coastal recession.',marks:'[20]'},
+  //     {q:'"Hard engineering is always preferable to managed retreat as a coastal management strategy." Discuss.',marks:'[20]'},
+  //     {q:'Explain how wave processes create contrasting coastal landforms.',marks:'[6]'},
+  //     {q:'Assess the effectiveness of one coastal management strategy you have studied.',marks:'[8]'},
+  //   ],
+  //   casestudies: [
+  //     { name:'Holderness Coast, Yorkshire', loc:'East coast of England, North Sea', tags:['Rapid erosion','Boulder clay','MEDC'], body:'Fastest-eroding coastline in Europe: loses up to 2m/year. Weak glacial boulder clay, high-energy destructive waves from long North Sea fetch. Settlements like Mappleton receive protection; unprotected stretches erode faster as sediment is trapped.', stats:[{v:'2m/yr',l:'Avg erosion rate'},{v:'30+',l:'Villages lost since Roman times'},{v:'£2m',l:'Rock armour at Mappleton'},{v:'50km',l:'Length of coast affected'}] },
+  //     { name:'Medmerry Managed Realignment', loc:'West Sussex, English Channel', tags:['Soft engineering','Managed retreat','SSSI'], body:'UK\'s largest managed realignment (2013). 183 hectares of new intertidal habitat created. Old shingle bank breached deliberately. Cost-effective alternative to maintaining failing sea defences; provided new nature reserve.', stats:[{v:'183ha',l:'New habitat'},{v:'£28m',l:'Cost'},{v:'2013',l:'Year completed'},{v:'300+',l:'Bird species recorded'}] },
+  //   ],
+  // },
 
   globalisation: {
     title: 'Globalisation',
@@ -763,33 +763,33 @@ const TOPICS = {
     ],
   },
 
-  migration: {
-    title: 'Migration & Identity',
-    paper: 'Paper 2', color: 'var(--lavender)',
-    chips: ['Human Geography','Optional'],
-    knowledge: [
-      { tag:'Concepts', title:'Types & Drivers of Migration', body:'Migration is driven by push-pull factors operating at multiple scales; distinction between economic, forced, and environmental migrants.', points:['Push factors: conflict, poverty, environmental degradation','Pull factors: employment, political stability, diaspora networks','Voluntary vs forced (refugee, asylum seeker)','Lee\'s push-pull model + intervening obstacles'], example:'Syrian refugee crisis 2015: 5m+ fled conflict; EU received 1.3m asylum applications in 2015' },
-      { tag:'Identity', title:'Place Identity & Sense of Place', body:'Migration reshapes the identity of both sending and receiving places through cultural mixing and demographic change.', points:['Diaspora communities maintain transnational identities','Remittances: $800bn+ globally — largest capital flow to LICs','Brain drain: loss of skilled workers from sending countries','Cultural quarters: Little Italy, Chinatown — embedded identity'], example:'Polish immigration to UK post-2004 EU enlargement: 1m+ migrants; changed food, culture, local economies' },
-    ],
-    terms: [
-      {w:'Diaspora',d:'A scattered population that has originated from one place and settled in other locations, maintaining cultural ties to their homeland.'},
-      {w:'Remittances',d:'Money sent by migrants to their home countries, often forming a significant part of receiving countries\' GDP.'},
-      {w:'Brain Drain',d:'Emigration of highly skilled or educated workers from a country, depriving it of talent and investment.'},
-      {w:'Transnationalism',d:'The process by which migrants maintain social, economic, and cultural ties to both their country of origin and destination.'},
-      {w:'Intervening Obstacles',d:'Physical, political, or economic barriers that reduce the likelihood of migration despite strong push-pull factors.'},
-    ],
-    flashcards: [
-      {q:'What are the economic impacts of remittances on sending countries?',a:'Positive: significant income supplement ($800bn globally, 3x ODA). Mexico receives $60bn/yr. Reduces poverty; funds education, healthcare. Negative: dependency culture; volatile (fall in recession); often consumed not invested; don\'t address structural issues.'},
-      {q:'How does migration create both advantages and challenges for receiving countries?',a:'Advantages: fills labour shortages, young workforce (counteracts ageing), cultural diversity, entrepreneurship, tax contributions. Challenges: pressure on housing, schools, healthcare; social tension; wage depression in low-skill sectors; political backlash (Brexit).'},
-    ],
-    questions: [
-      {q:'Evaluate the extent to which migration has positive effects on both sending and receiving countries.',marks:'[20]'},
-      {q:'Assess the importance of diaspora communities in shaping the identity of places.',marks:'[8]'},
-    ],
-    casestudies: [
-      { name:'Syrian Refugee Crisis', loc:'Syria → Turkey, Lebanon, Jordan, EU', tags:['Forced migration','Conflict','UNHCR'], body:'Over 5 million Syrian refugees fled civil war from 2011. Turkey hosts 3.5m — largest refugee population globally. EU received 1.3m applications in 2015 alone. Stark contrast in response between Germany (Willkommenskultur) and Hungary (border fence).', stats:[{v:'5m+',l:'Refugees abroad'},{v:'3.5m',l:'In Turkey'},{v:'1.3m',l:'EU applications 2015'},{v:'6.7m',l:'Internally displaced'}] },
-    ],
-  },
+  // migration: {
+  //   title: 'Migration & Identity',
+  //   paper: 'Paper 2', color: 'var(--lavender)',
+  //   chips: ['Human Geography','Optional'],
+  //   knowledge: [
+  //     { tag:'Concepts', title:'Types & Drivers of Migration', body:'Migration is driven by push-pull factors operating at multiple scales; distinction between economic, forced, and environmental migrants.', points:['Push factors: conflict, poverty, environmental degradation','Pull factors: employment, political stability, diaspora networks','Voluntary vs forced (refugee, asylum seeker)','Lee\'s push-pull model + intervening obstacles'], example:'Syrian refugee crisis 2015: 5m+ fled conflict; EU received 1.3m asylum applications in 2015' },
+  //     { tag:'Identity', title:'Place Identity & Sense of Place', body:'Migration reshapes the identity of both sending and receiving places through cultural mixing and demographic change.', points:['Diaspora communities maintain transnational identities','Remittances: $800bn+ globally — largest capital flow to LICs','Brain drain: loss of skilled workers from sending countries','Cultural quarters: Little Italy, Chinatown — embedded identity'], example:'Polish immigration to UK post-2004 EU enlargement: 1m+ migrants; changed food, culture, local economies' },
+  //   ],
+  //   terms: [
+  //     {w:'Diaspora',d:'A scattered population that has originated from one place and settled in other locations, maintaining cultural ties to their homeland.'},
+  //     {w:'Remittances',d:'Money sent by migrants to their home countries, often forming a significant part of receiving countries\' GDP.'},
+  //     {w:'Brain Drain',d:'Emigration of highly skilled or educated workers from a country, depriving it of talent and investment.'},
+  //     {w:'Transnationalism',d:'The process by which migrants maintain social, economic, and cultural ties to both their country of origin and destination.'},
+  //     {w:'Intervening Obstacles',d:'Physical, political, or economic barriers that reduce the likelihood of migration despite strong push-pull factors.'},
+  //   ],
+  //   flashcards: [
+  //     {q:'What are the economic impacts of remittances on sending countries?',a:'Positive: significant income supplement ($800bn globally, 3x ODA). Mexico receives $60bn/yr. Reduces poverty; funds education, healthcare. Negative: dependency culture; volatile (fall in recession); often consumed not invested; don\'t address structural issues.'},
+  //     {q:'How does migration create both advantages and challenges for receiving countries?',a:'Advantages: fills labour shortages, young workforce (counteracts ageing), cultural diversity, entrepreneurship, tax contributions. Challenges: pressure on housing, schools, healthcare; social tension; wage depression in low-skill sectors; political backlash (Brexit).'},
+  //   ],
+  //   questions: [
+  //     {q:'Evaluate the extent to which migration has positive effects on both sending and receiving countries.',marks:'[20]'},
+  //     {q:'Assess the importance of diaspora communities in shaping the identity of places.',marks:'[8]'},
+  //   ],
+  //   casestudies: [
+  //     { name:'Syrian Refugee Crisis', loc:'Syria → Turkey, Lebanon, Jordan, EU', tags:['Forced migration','Conflict','UNHCR'], body:'Over 5 million Syrian refugees fled civil war from 2011. Turkey hosts 3.5m — largest refugee population globally. EU received 1.3m applications in 2015 alone. Stark contrast in response between Germany (Willkommenskultur) and Hungary (border fence).', stats:[{v:'5m+',l:'Refugees abroad'},{v:'3.5m',l:'In Turkey'},{v:'1.3m',l:'EU applications 2015'},{v:'6.7m',l:'Internally displaced'}] },
+  //   ],
+  // },
 
   carbon: {
     title: 'Carbon Cycle & Energy Security',
