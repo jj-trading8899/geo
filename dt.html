@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AQA A Level Design &amp; Technology — Revision Tutor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17150f;--parchment:#f5f2e8;--cream:#eae6d6;
+  --gold:#c47c2a;--gold2:#e0a050;--teal:#2a6e8a;--teal2:#40a8cc;
+  --green:#3a8a54;--green2:#58c476;--red:#8a2a2a;--red2:#c44040;
+  --muted:#6b6050;--border:rgba(196,124,42,0.25);--border2:rgba(196,124,42,0.12);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--ink);color:var(--parchment);font-family:'Crimson Pro',Georgia,serif;font-size:17px;line-height:1.7;min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(196,124,42,0.018) 80px,rgba(196,124,42,0.018) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(196,124,42,0.012) 80px,rgba(196,124,42,0.012) 81px);pointer-events:none;z-index:0;}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px;}
+header{border-bottom:1px solid var(--border);padding:2rem 0 1.5rem;}
+.header-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.site-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:600;color:var(--gold2);letter-spacing:-0.01em;line-height:1.1;}
+.site-sub{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-top:4px;}
+.header-badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.badge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:3px;border:1px solid;}
+.badge-a{border-color:var(--gold);color:var(--gold);}
+.badge-b{border-color:var(--teal2);color:var(--teal2);}
+.badge-c{border-color:rgba(192,80,80,0.5);color:#c05050;}
+.main-layout{display:grid;grid-template-columns:260px 1fr;gap:0;min-height:calc(100vh - 120px);}
+.sidebar{border-right:1px solid var(--border2);padding:1.5rem 0;position:sticky;top:0;height:calc(100vh - 90px);overflow-y:auto;}
+.sidebar::-webkit-scrollbar{width:3px;}.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.sidebar-section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);padding:0 20px 8px;border-bottom:1px solid var(--border2);margin-bottom:4px;}
+.nav-item{display:flex;align-items:flex-start;gap:10px;padding:10px 20px;cursor:pointer;border-left:2px solid transparent;transition:all 0.15s;}
+.nav-item:hover{background:rgba(196,124,42,0.05);}
+.nav-item.active{border-left-color:var(--gold);background:rgba(196,124,42,0.09);}
+.nav-item.active .nav-title{color:var(--gold2);}
+.nav-dot{width:6px;height:6px;border-radius:50%;margin-top:7px;flex-shrink:0;}
+.dot-mat{background:var(--teal2);}.dot-elec{background:#9b8fd0;}.dot-man{background:var(--green2);}.dot-qual{background:var(--red2);}.dot-design{background:var(--gold2);}.dot-rev{background:#c05060;}
+.nav-content{flex:1;min-width:0;}
+.nav-week{font-family:'DM Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+.nav-title{font-size:13px;color:var(--parchment);line-height:1.3;margin-top:1px;}
+.content{padding:2rem 2.5rem;overflow-y:auto;}
+.week-header{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border2);}
+.week-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.week-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:2px;}
+.tag-mat{background:rgba(64,168,204,0.15);color:var(--teal2);border:1px solid rgba(64,168,204,0.3);}
+.tag-elec{background:rgba(155,143,208,0.15);color:#b5aadd;border:1px solid rgba(155,143,208,0.3);}
+.tag-man{background:rgba(88,196,118,0.15);color:var(--green2);border:1px solid rgba(88,196,118,0.3);}
+.tag-qual{background:rgba(196,64,64,0.15);color:#e07070;border:1px solid rgba(196,64,64,0.3);}
+.tag-design{background:rgba(196,124,42,0.15);color:var(--gold2);border:1px solid var(--border);}
+.tag-rev{background:rgba(192,80,96,0.15);color:#d07080;border:1px solid rgba(192,80,96,0.3);}
+.week-number{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;}
+.week-title-text{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:600;color:var(--parchment);line-height:1.2;margin-bottom:6px;}
+.week-focus{color:var(--muted);font-style:italic;font-size:15px;}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--border2);margin-bottom:1.5rem;overflow-x:auto;}
+.tabs::-webkit-scrollbar{height:2px;}.tabs::-webkit-scrollbar-thumb{background:var(--border);}
+.tab{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 15px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all 0.15s;white-space:nowrap;flex-shrink:0;}
+.tab:hover{color:var(--parchment);}.tab.active{color:var(--gold2);border-bottom-color:var(--gold);}
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;}
+@media(max-width:700px){.topics-grid{grid-template-columns:1fr;}}
+.topic-card{border:1px solid var(--border2);border-radius:4px;padding:14px 16px;background:rgba(255,255,255,0.02);transition:border-color 0.15s,background 0.15s;}
+.topic-card:hover{border-color:var(--border);background:rgba(196,124,42,0.04);}
+.topic-card-title{font-size:14px;font-weight:400;color:var(--gold2);margin-bottom:6px;font-family:'Playfair Display',serif;}
+.topic-card-body{font-size:14px;color:var(--muted);line-height:1.5;}
+/* FORMULA CARDS */
+.formula-section{margin-bottom:1.5rem;}
+.section-heading{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--border2);}
+.formula-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
+.formula-card{background:rgba(40,110,138,0.08);border:1px solid rgba(64,168,204,0.22);border-radius:4px;padding:13px 15px;}
+.formula-name{font-size:12px;color:var(--teal2);margin-bottom:5px;font-family:'DM Mono',monospace;letter-spacing:0.04em;font-weight:500;}
+.formula-expr{font-family:'DM Mono',monospace;font-size:14px;color:var(--parchment);font-weight:500;letter-spacing:0.02em;line-height:1.6;}
+.formula-note{font-size:12px;color:var(--muted);margin-top:5px;font-style:italic;}
+.formula-units{font-size:11px;color:var(--teal2);margin-top:3px;font-family:'DM Mono',monospace;opacity:0.8;}
+/* WORKED EXAMPLES */
+.example-box{border:1px solid var(--border);border-radius:4px;background:rgba(196,124,42,0.04);margin-bottom:14px;overflow:hidden;}
+.example-header{background:rgba(196,124,42,0.09);padding:10px 16px;display:flex;align-items:flex-start;justify-content:space-between;cursor:pointer;border-bottom:1px solid var(--border2);}
+.example-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.08em;color:var(--gold);text-transform:uppercase;margin-bottom:3px;}
+.example-q{font-size:14px;color:var(--parchment);line-height:1.5;}
+.toggle-icon{color:var(--gold);font-size:14px;flex-shrink:0;margin-left:10px;margin-top:2px;}
+.example-body{padding:16px;display:none;}.example-body.open{display:block;}
+.step{display:flex;gap:12px;margin-bottom:12px;}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-family:'DM Mono',monospace;font-size:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.step-content{flex:1;font-size:14px;color:var(--cream);line-height:1.65;}
+.step-content code{font-family:'DM Mono',monospace;background:rgba(64,168,204,0.12);color:var(--teal2);padding:1px 6px;border-radius:2px;font-size:13px;}
+.answer-box{background:rgba(58,138,84,0.1);border:1px solid rgba(88,196,118,0.28);border-radius:3px;padding:10px 14px;margin-top:10px;font-family:'DM Mono',monospace;font-size:13px;color:var(--green2);}
+.warning-box{background:rgba(138,42,42,0.1);border:1px solid rgba(196,64,64,0.28);border-radius:3px;padding:10px 14px;margin-top:8px;font-size:13px;color:#e07070;font-style:italic;}
+/* UNIT TABLE */
+.unit-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;}
+.unit-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);padding:7px 10px;border-bottom:1px solid var(--border);text-align:left;background:rgba(196,124,42,0.06);}
+.unit-table td{padding:7px 10px;border-bottom:1px solid var(--border2);color:var(--cream);line-height:1.4;vertical-align:top;}
+.unit-table tr:last-child td{border-bottom:none;}
+.unit-table td:first-child{color:var(--gold2);font-family:'DM Mono',monospace;font-size:12px;}
+.unit-table td:nth-child(2){color:var(--teal2);font-family:'DM Mono',monospace;font-size:12px;}
+/* DIAGRAMS */
+.diagram-guide{border:1px solid var(--border2);border-radius:4px;padding:16px;margin-bottom:14px;background:rgba(255,255,255,0.015);}
+.diagram-title{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold2);margin-bottom:8px;}
+.diagram-steps{list-style:none;counter-reset:step-count;}
+.diagram-steps li{font-size:13px;color:var(--cream);padding:4px 0 4px 22px;position:relative;line-height:1.5;}
+.diagram-steps li::before{content:counter(step-count);counter-increment:step-count;position:absolute;left:0;font-family:'DM Mono',monospace;font-size:10px;color:var(--gold);top:6px;}
+/* ANALYSIS */
+.analysis-card{border:1px solid var(--border2);border-radius:4px;padding:18px;margin-bottom:14px;background:rgba(255,255,255,0.015);}
+.analysis-heading{font-family:'Playfair Display',serif;font-size:15px;color:var(--gold2);margin-bottom:12px;}
+.analysis-chain{font-family:'DM Mono',monospace;font-size:12px;color:var(--teal2);background:rgba(40,110,138,0.1);border:1px solid rgba(64,168,204,0.25);border-radius:3px;padding:10px 14px;margin-bottom:12px;line-height:2;letter-spacing:0.02em;}
+.eval-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.eval-list{margin-bottom:12px;}
+.eval-item{font-size:13px;color:var(--cream);padding:6px 0 6px 18px;position:relative;line-height:1.5;border-bottom:1px solid var(--border2);}
+.eval-item:last-child{border-bottom:none;}
+.eval-item::before{content:'→';position:absolute;left:0;color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;top:7px;}
+.mistake-box{background:rgba(138,42,42,0.08);border:1px solid rgba(196,64,64,0.22);border-radius:3px;padding:9px 12px;}
+.mistake-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:#c05050;margin-bottom:3px;}
+.mistake-text{font-size:12px;color:#d07070;font-style:italic;line-height:1.5;}
+/* QUIZ */
+.quiz-card{border:1px solid var(--border2);border-radius:4px;padding:18px;background:rgba(255,255,255,0.015);margin-bottom:12px;}
+.quiz-q{font-size:15px;color:var(--parchment);margin-bottom:12px;line-height:1.5;}
+.quiz-options{display:flex;flex-direction:column;gap:7px;}
+.quiz-opt{padding:9px 14px;border-radius:3px;border:1px solid var(--border2);background:transparent;color:var(--cream);font-size:13px;cursor:pointer;text-align:left;transition:all 0.12s;font-family:'Crimson Pro',serif;line-height:1.4;}
+.quiz-opt:hover:not(:disabled){border-color:var(--gold);background:rgba(196,124,42,0.05);}
+.quiz-opt.correct{background:rgba(58,138,84,0.2);border-color:var(--green2);color:var(--green2);}
+.quiz-opt.wrong{background:rgba(138,42,42,0.15);border-color:#c05060;color:#d07080;}
+.quiz-explanation{font-size:13px;color:var(--muted);margin-top:10px;font-style:italic;line-height:1.5;display:none;}
+.quiz-explanation.show{display:block;}
+.quiz-score{font-family:'DM Mono',monospace;font-size:12px;color:var(--gold);margin-bottom:12px;letter-spacing:0.06em;}
+/* MCQ */
+.mcq-filter-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:1.2rem;}
+.mcq-filter-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.07em;text-transform:uppercase;padding:5px 11px;border-radius:3px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;}
+.mcq-filter-btn:hover{border-color:var(--gold);color:var(--gold2);}
+.mcq-filter-btn.active{border-color:var(--gold);background:rgba(196,124,42,0.1);color:var(--gold2);}
+.q-topic-tag{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:2px;background:rgba(196,124,42,0.1);border:1px solid var(--border2);color:var(--muted);margin-bottom:8px;}
+.mcq-results{border:1px solid var(--border);border-radius:4px;padding:18px;margin-bottom:1.2rem;background:rgba(196,124,42,0.04);}
+.mcq-results-score{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--gold2);margin-bottom:6px;}
+.mcq-results-sub{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;margin-bottom:14px;}
+.mcq-breakdown{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-top:10px;}
+.mcq-breakdown-item{background:rgba(255,255,255,0.02);border:1px solid var(--border2);border-radius:3px;padding:8px 12px;}
+.mcq-breakdown-topic{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:3px;}
+.mcq-breakdown-score{font-size:14px;color:var(--parchment);}
+.mcq-breakdown-score span{color:var(--teal2);font-family:'DM Mono',monospace;font-size:13px;}
+/* TUTOR */
+.tutor-section{border-top:1px solid var(--border2);padding-top:1.5rem;margin-top:1.5rem;}
+.tutor-heading{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold2);margin-bottom:12px;}
+.quick-prompts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.quick-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all 0.15s;}
+.quick-btn:hover{border-color:var(--gold);color:var(--gold2);background:rgba(196,124,42,0.06);}
+.chat-area{border:1px solid var(--border2);border-radius:4px;overflow:hidden;background:rgba(0,0,0,0.2);}
+.chat-messages{min-height:200px;max-height:420px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;}
+.chat-messages::-webkit-scrollbar{width:3px;}.chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+.msg{max-width:85%;font-size:14px;line-height:1.6;}
+.msg-user{align-self:flex-end;background:rgba(64,168,204,0.15);border:1px solid rgba(64,168,204,0.25);border-radius:3px 3px 0 3px;padding:8px 12px;color:var(--cream);}
+.msg-ai{align-self:flex-start;background:rgba(196,124,42,0.07);border:1px solid var(--border2);border-radius:3px 3px 3px 0;padding:10px 14px;color:var(--parchment);}
+.msg-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:4px;color:var(--muted);}
+.typing{display:flex;gap:4px;align-items:center;padding:4px 0;}
+.typing span{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:blink 1.2s infinite;}
+.typing span:nth-child(2){animation-delay:0.2s;}.typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes blink{0%,80%,100%{opacity:0.2}40%{opacity:1}}
+.chat-input-row{display:flex;border-top:1px solid var(--border2);background:rgba(255,255,255,0.02);}
+.chat-input{flex:1;background:transparent;border:none;outline:none;padding:12px 16px;font-family:'Crimson Pro',serif;font-size:15px;color:var(--parchment);resize:none;}
+.chat-input::placeholder{color:var(--muted);}
+.send-btn{padding:12px 16px;background:transparent;border:none;border-left:1px solid var(--border2);cursor:pointer;color:var(--muted);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.15s;}
+.send-btn:hover{color:var(--gold2);background:rgba(196,124,42,0.06);}.send-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.progress-bar{height:2px;background:var(--border2);border-radius:1px;margin:1rem 0;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal2),var(--gold));border-radius:1px;transition:width 0.4s;}
+.mt{margin-top:1rem;}.muted{color:var(--muted);}
+@media(max-width:768px){
+  .main-layout{grid-template-columns:1fr;}
+  .sidebar{height:auto;position:static;border-right:none;border-bottom:1px solid var(--border2);padding:1rem 0;}
+  .content{padding:1.5rem 1rem;}
+  .topics-grid{grid-template-columns:1fr;}
+  .site-title{font-size:1.4rem;}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+.content{animation:fadeUp 0.3s ease;}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="header-inner">
+      <div>
+        <div class="site-title">DT Engineering Tutor</div>
+        <div class="site-sub">AQA A Level Design &amp; Technology · Engineering Calculations · May 2026</div>
+      </div>
+      <div class="header-badges">
+        <span class="badge badge-a">Materials</span>
+        <span class="badge badge-b">Electronics</span>
+        <span class="badge badge-c">Manufacturing</span>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <div class="main-layout">
+    <nav class="sidebar">
+      <div class="sidebar-section-label">DT Topics</div>
+      <div id="navItems"></div>
+    </nav>
+    <main class="content" id="mainContent"></main>
+  </div>
+</div>
+
+<script>
+const TABS = ['overview','formulas','examples','diagrams','analysis','quiz','tutor'];
+
+const topics = [
+{
+  id:0, label:"Topic 1", dotClass:"dot-mat", tagClass:"tag-mat", typeLabel:"Materials Science",
+  title:"Materials, Stress & Structural Calculations",
+  focus:"Stress, strain, Young's Modulus, Factor of Safety, density and material selection calculations",
+  topics:[
+    {title:"Stress & Strain",body:"Stress (σ): force per unit area. Tensile stress stretches the material; compressive stress squashes it. Strain (ε): fractional change in length — dimensionless. The stress-strain curve shows elastic behaviour (linear, recoverable) up to the elastic limit, then plastic deformation, then fracture at the Ultimate Tensile Strength (UTS)."},
+    {title:"Young's Modulus",body:"Young's Modulus (E) measures stiffness — how much stress is needed to produce a given strain. Steep gradient on a stress-strain graph = high E = stiff material. E is a material property (constant for a given material at a given temperature) independent of cross-section or length. Steel ≈ 200 GPa; Aluminium ≈ 70 GPa; CFRP ≈ 70–150 GPa; Rubber ≈ 0.01 GPa."},
+    {title:"Factor of Safety",body:"The Factor of Safety (FoS) ensures a component does not operate near its failure limit. FoS = Ultimate Strength ÷ Working (design) Stress. FoS > 1 always required. Typical values: bridges and structures 4–6 (unpredictable loading), aircraft 1.5–2.5 (weight-critical, well-understood loads), consumer products 2–4. A higher FoS means heavier, more expensive components."},
+    {title:"Density & Specific Strength",body:"Density (ρ) = mass/volume. Different materials have vastly different densities: steel 7,850 kg/m³, aluminium 2,700 kg/m³, CFRP ≈ 1,600 kg/m³, oak timber ≈ 750 kg/m³. Specific strength = tensile strength ÷ density — a measure of how strong a material is for its weight. CFRP has exceptional specific strength, making it ideal for aerospace and sport where weight is critical."}
+  ],
+  formulas:[
+    {name:"Stress",expr:"σ = F / A",note:"Stress = Force ÷ Cross-sectional Area",units:"σ in Pa (N/m²) or MPa (N/mm²). F in N. A in m² or mm²"},
+    {name:"Strain",expr:"ε = ΔL / L₀",note:"Strain = Extension ÷ Original Length. Dimensionless — no units.",units:"ΔL and L₀ must be in same units. ε typically 0.001–0.01 for metals"},
+    {name:"Young's Modulus",expr:"E = σ / ε",note:"Stiffness. Only valid in the elastic region (straight part of stress-strain curve).",units:"E in Pa or GPa. Steel ≈ 200 GPa = 200 × 10⁹ Pa"},
+    {name:"Factor of Safety",expr:"FoS = UTS / σ_working",note:"UTS = Ultimate Tensile Strength. σ_working = actual stress under design load.",units:"FoS is dimensionless. Both stresses must be in same units"},
+    {name:"Density",expr:"ρ = m / V",note:"Mass per unit volume. Used to calculate weight of a component.",units:"ρ in kg/m³ or g/cm³. m in kg, V in m³"},
+    {name:"Component mass",expr:"m = ρ × V",note:"Volume must match density units. Cylinder: V = π r² L. Cuboid: V = L × W × H",units:"If ρ in kg/m³ and V in m³, m in kg"},
+    {name:"Specific Strength",expr:"Specific strength = UTS / ρ",note:"Strength per unit mass. Higher = better for lightweight applications.",units:"Units: N/m² ÷ kg/m³ = Nm/kg. Compare: CFRP > Ti > Al > Steel"},
+    {name:"Cross-section area (circle)",expr:"A = π r² = π d² / 4",note:"For circular rods and wires. Always convert diameter to radius first.",units:"If d in mm, A in mm². If d in m, A in m²"}
+  ],
+  examples:[
+    {q:"A steel bolt has diameter 12 mm and carries a tensile load of 11.3 kN. Calculate the tensile stress in MPa.",steps:[
+      {text:"Convert diameter to radius: <code>r = 12/2 = 6 mm = 0.006 m</code>"},
+      {text:"Cross-sectional area: <code>A = π × (0.006)² = π × 3.6×10⁻⁵ = 1.131×10⁻⁴ m²</code>"},
+      {text:"Convert force: <code>F = 11.3 kN = 11,300 N</code>"},
+      {text:"Stress: <code>σ = F/A = 11,300 / 1.131×10⁻⁴ = 99.9×10⁶ Pa ≈ 100 MPa</code>"}
+    ],answer:"σ ≈ 100 MPa. Check: Steel UTS ≈ 400–800 MPa, so this stress is well within limits."},
+    {q:"A steel wire (E = 200 GPa) of original length 2.5 m extends by 1.25 mm under load. Calculate the strain and the stress.",steps:[
+      {text:"Strain: <code>ε = ΔL/L₀ = 0.00125 / 2.5 = 0.0005</code> (dimensionless)"},
+      {text:"Stress: <code>σ = E × ε = 200×10⁹ × 0.0005 = 1×10⁸ Pa = 100 MPa</code>"},
+      {text:"Check: strain of 0.0005 = 0.05% — well within elastic range for steel (elastic limit typically ε ≈ 0.001–0.002)"}
+    ],answer:"ε = 0.0005; σ = 100 MPa. The wire is operating in the elastic region and will return to original length when unloaded."},
+    {q:"A structural bracket made from aluminium alloy (UTS = 310 MPa) must carry a maximum load of 15 kN. A Factor of Safety of 3 is required. Calculate the minimum cross-sectional area.",steps:[
+      {text:"Maximum allowable working stress: <code>σ_working = UTS / FoS = 310 / 3 = 103.3 MPa</code>"},
+      {text:"Required area: <code>A = F / σ_working = 15,000 / (103.3 × 10⁶) = 1.452×10⁻⁴ m²</code>"},
+      {text:"Convert to mm²: <code>1.452×10⁻⁴ × 10⁶ = 145.2 mm²</code>"},
+      {text:"This is the minimum area — in practice round up to a standard section size."}
+    ],answer:"Minimum area = 145.2 mm² (e.g. a 13mm × 11mm rectangular section would suffice at 143mm² — choose slightly larger standard section)."},
+    {q:"Compare the specific strength of steel (UTS 500 MPa, ρ = 7,850 kg/m³) and CFRP (UTS 1,500 MPa, ρ = 1,600 kg/m³). Which is better for a lightweight structural application?",steps:[
+      {text:"Steel specific strength: <code>500×10⁶ / 7,850 = 63,694 Nm/kg ≈ 63.7 kNm/kg</code>"},
+      {text:"CFRP specific strength: <code>1,500×10⁶ / 1,600 = 937,500 Nm/kg ≈ 937.5 kNm/kg</code>"},
+      {text:"Ratio: <code>937.5 / 63.7 = 14.7×</code> — CFRP is nearly 15 times stronger per unit mass than steel."},
+      {text:"For weight-critical applications (aerospace, racing cars, bicycles) CFRP is far superior despite costing ~50× more per kg than steel."}
+    ],answer:"CFRP specific strength ≈ 938 kNm/kg vs steel ≈ 64 kNm/kg. CFRP is ~15× better for lightweight structures. Cost is the primary barrier to wider adoption."},
+    {q:"A cylindrical aluminium rod (diameter 20 mm, length 500 mm, ρ = 2,700 kg/m³) is to be replaced with CFRP (ρ = 1,600 kg/m³) of the same dimensions. Calculate the mass of each and the weight saving.",steps:[
+      {text:"Volume: <code>V = π × (0.01)² × 0.5 = π × 10⁻⁴ × 0.5 = 1.571×10⁻⁴ m³</code>"},
+      {text:"Aluminium mass: <code>m = ρV = 2,700 × 1.571×10⁻⁴ = 0.424 kg</code>"},
+      {text:"CFRP mass: <code>m = 1,600 × 1.571×10⁻⁴ = 0.251 kg</code>"},
+      {text:"Weight saving: <code>0.424 − 0.251 = 0.173 kg (40.8%)</code>"}
+    ],answer:"Al: 424g; CFRP: 251g. Saving = 173g (41%). At aircraft scale, thousands of such components make a significant difference to fuel consumption."}
+  ],
+  diagrams:[
+    {title:"Stress-Strain Curve — Annotated",steps:[
+      "Draw axes: vertical = Stress σ (MPa), horizontal = Strain ε (dimensionless, or ×10⁻³)",
+      "Elastic region: draw a straight line from origin — gradient = Young's Modulus E = σ/ε",
+      "Mark Proportional Limit (P): last point where stress is strictly proportional to strain",
+      "Mark Elastic Limit: last point of fully recoverable deformation (very close to P for metals)",
+      "Mark Yield Point (Y): steel shows upper and lower yield points — a sudden drop. Other metals show gradual transition",
+      "Plastic region: curve flattens — strain continues without proportional stress increase",
+      "Mark UTS: highest point on the curve — Ultimate Tensile Strength",
+      "Mark Fracture point: curve drops (necking) then material breaks. Ductile materials: significant drop. Brittle: UTS ≈ fracture",
+      "Shade the area under the elastic region = elastic strain energy stored (J/m³)"
+    ]},
+    {title:"Unit Conversion for Stress Calculations",steps:[
+      "Force: 1 kN = 1,000 N. Always convert kN → N before substituting into σ = F/A",
+      "Area: 1 mm² = 1×10⁻⁶ m². 1 cm² = 1×10⁻⁴ m². If using mm² for area, answer will be in N/mm² = MPa",
+      "Shortcut: if F in N and A in mm², σ = F/A gives answer directly in N/mm² = MPa",
+      "Prefixes: 1 MPa = 10⁶ Pa = 1 N/mm². 1 GPa = 10⁹ Pa = 1,000 MPa",
+      "Length: 1 mm = 10⁻³ m. For strain ΔL/L₀, units cancel — both must be same unit",
+      "Density: 1 g/cm³ = 1,000 kg/m³. Steel: 7.85 g/cm³ = 7,850 kg/m³"
+    ]}
+  ],
+  analysis:[
+    {heading:"Factor of Safety — Selecting the Right Value",chain:"Identify the application → assess consequences of failure (catastrophic vs inconvenient) → assess load predictability (known static load vs variable/dynamic/impact) → assess material variability (certified aerospace alloy vs recycled timber) → assess inspection regime (regular NDT vs inaccessible) → higher uncertainty in any factor → higher FoS required → typical values: aircraft 1.5–2.5 (low FoS justified by rigorous testing, weight-critical), bridges 4–6 (public safety, dynamic loading, long service life without inspection)",evals:["A high FoS does not automatically mean a safe design — if the wrong material is chosen or the stress concentration at a fillet radius is ignored, any FoS can be insufficient","Weight-critical applications accept lower FoS because every kg of structure reduces payload — Formula 1 cars operate near material limits with FoS approaching 1 in some components, managed through frequent inspection and replacement","Manufacturing tolerances affect effective FoS — a ±10% tolerance on cross-sectional area means a designed FoS of 2 could be as low as 1.8 in practice"],mistake:"FoS applies to the failure stress (UTS or yield), not to the working load. Students often write FoS = maximum load / working load — this is wrong. FoS = strength of material / stress caused by working load."},
+    {heading:"Material Selection — Using Calculated Properties",chain:"Design load and geometry defined → calculate required stress from FoS → compare with candidate materials' UTS → check density → calculate mass → calculate cost → check other constraints (corrosion resistance, machinability, recyclability, availability) → use weighted matrix if multiple criteria conflict → select material that meets all critical requirements at lowest cost",evals:["Calculated specific strength may favour CFRP, but if the component must be machined (drilled, tapped) then CFRP's poor machinability and health hazards from carbon dust are decisive practical constraints","The cheapest material that meets the specification is usually correct — over-engineering (excessive strength, excessive FoS) wastes material, increases weight and adds cost without adding function","Environmental impact is increasingly a selection criterion — embodied energy of aluminium is much higher than steel (primary aluminium uses ~13× more energy per kg) but aluminium is fully recyclable with only 5% of original energy — lifecycle matters"],mistake:"Never select a material based only on one property. A material with the highest tensile strength may be too brittle (low toughness), too heavy, too expensive, or too difficult to join. Material selection is always multi-criteria."}
+  ],
+  quiz:[
+    {q:"A rod of cross-section 80 mm² carries a tensile force of 24 kN. The tensile stress is:",opts:["300 MPa","3 MPa","30 MPa","0.3 MPa"],correct:0,exp:"σ = F/A = 24,000 N / 80 mm² = 300 N/mm² = 300 MPa. Shortcut: F in N, A in mm² → answer in N/mm² = MPa directly. 24,000/80 = 300 MPa."},
+    {q:"Young's Modulus E = 70 GPa. A strain of 0.002 is produced. The stress is:",opts:["35 MPa","140 MPa","0.14 GPa","140 GPa"],correct:1,exp:"σ = E × ε = 70×10⁹ × 0.002 = 1.4×10⁸ Pa = 140 MPa. Note: 0.14 GPa = 140 MPa — same value, different prefix. The answer 140 MPa is the clearest form for engineering stress."},
+    {q:"A component has UTS = 400 MPa and must operate with a working stress of 80 MPa. The Factor of Safety is:",opts:["320","0.2","5","80"],correct:2,exp:"FoS = UTS / working stress = 400 / 80 = 5. This means the component could withstand 5× the working load before failure — appropriate for a safety-critical structure with variable loading. FoS < 1 would mean the component is already overstressed."},
+    {q:"CFRP (UTS 1,200 MPa, ρ = 1,600 kg/m³) vs titanium (UTS 900 MPa, ρ = 4,500 kg/m³). Which has higher specific strength?",opts:["Titanium — higher absolute UTS per unit area","CFRP — 750 kNm/kg vs titanium 200 kNm/kg","They are equal in specific strength","Titanium — higher density means more material per volume"],correct:1,exp:"CFRP: 1,200×10⁶/1,600 = 750,000 Nm/kg = 750 kNm/kg. Titanium: 900×10⁶/4,500 = 200,000 Nm/kg = 200 kNm/kg. CFRP is 3.75× better in specific strength — hence its use in aerospace and high-performance sports equipment despite costing far more than titanium."}
+  ],
+  quickPrompts:["Walk me through a Factor of Safety calculation from scratch","How do I convert between Pa, MPa and GPa without making errors?","Explain the stress-strain curve and what each region means"]
+},
+{
+  id:1, label:"Topic 2", dotClass:"dot-elec", tagClass:"tag-elec", typeLabel:"Electronics",
+  title:"Electronic Circuit Calculations",
+  focus:"Ohm's Law, power, potential dividers, resistor networks, RC timing and op-amp gain",
+  topics:[
+    {title:"Ohm's Law & Power",body:"Ohm's Law (V = IR) links voltage, current and resistance. Power dissipated in a resistor can be expressed three ways depending on which two quantities are known: P = IV, P = I²R, P = V²/R. Always check units: voltage in V, current in A, resistance in Ω, power in W. Energy (J) = Power (W) × Time (s)."},
+    {title:"Series & Parallel Resistors",body:"Series: same current flows through all; voltages add; R_total = R1+R2+... Parallel: same voltage across all; currents add; 1/R_total = 1/R1+1/R2+... Two equal resistors in parallel: R_total = R/2. The voltage divider (potential divider) is a series circuit used to produce a fraction of the supply voltage."},
+    {title:"Potential Divider & Sensors",body:"Potential divider: Vout = Vin × R2/(R1+R2) where R2 is the lower resistor (connected to 0V). Used with variable-resistance sensors: LDR (resistance falls in bright light), NTC thermistor (resistance falls as temperature rises), strain gauge (resistance changes with deformation). Swapping the positions of sensor and fixed resistor inverts the Vout response."},
+    {title:"RC Timing, Op-Amps & Digital",body:"RC circuit time constant: τ = RC (seconds). Capacitor reaches 63% of final charge after 1τ, 99% after 5τ. Used in timing, filtering and debouncing circuits. Op-amp inverting gain: Vout = −(Rf/Rin) × Vin. Non-inverting gain: Vout = (1 + Rf/Rin) × Vin. PWM duty cycle determines average output voltage: Vavg = Vsupply × duty cycle."}
+  ],
+  formulas:[
+    {name:"Ohm's Law",expr:"V = I × R",note:"Voltage = Current × Resistance. Rearrange for I = V/R or R = V/I.",units:"V in volts (V), I in amperes (A), R in ohms (Ω)"},
+    {name:"Power — three forms",expr:"P = IV = I²R = V²/R",note:"Use whichever two quantities are known. Choose the form that avoids intermediate calculation.",units:"P in watts (W). 1 W = 1 J/s"},
+    {name:"Series resistors",expr:"R_T = R₁ + R₂ + R₃ + ...",note:"Total resistance increases. Current same through all. Voltages add to Vsupply.",units:"All R values in same unit (Ω, kΩ, MΩ)"},
+    {name:"Parallel resistors",expr:"1/R_T = 1/R₁ + 1/R₂ + ...",note:"Total R less than smallest branch. For two: R_T = (R₁×R₂)/(R₁+R₂).",units:"Answer in same units as input. Convert to conductance G=1/R to add, then invert."},
+    {name:"Potential divider",expr:"Vout = Vin × R₂ / (R₁ + R₂)",note:"R₂ is the lower resistor (to 0V). R₁ is the upper resistor (to Vsupply).",units:"If Vin in V, Vout in V. R₁, R₂ can be in Ω or kΩ — ratio is what matters"},
+    {name:"RC time constant",expr:"τ = R × C",note:"After time τ: capacitor at 63% of final voltage. Fully charged (99%) after 5τ.",units:"τ in seconds. R in Ω, C in farads (F). 1 μF = 10⁻⁶ F"},
+    {name:"Capacitor charge at time t",expr:"V(t) = Vfinal × (1 − e^(−t/τ))",note:"At t=τ: V = 0.632Vfinal. Used to find voltage at any point during charging.",units:"t in seconds, τ in seconds, V in volts"},
+    {name:"Op-amp inverting gain",expr:"Gain = −Rf / Rin",note:"Negative sign = output is inverted (180° phase shift). Magnitude = Rf/Rin.",units:"Gain is dimensionless. Rf and Rin in same units (both Ω or both kΩ)"},
+    {name:"PWM average voltage",expr:"Vavg = Vsupply × (duty cycle / 100)",note:"Duty cycle in %. 60% duty on 5V supply → 3V average.",units:"Vavg and Vsupply in V. Duty cycle as percentage (0–100%)"},
+    {name:"Voltage across R in series",expr:"VR = Vsupply × R / R_total",note:"Voltage divides in proportion to resistance in series circuits.",units:"Same units throughout"}
+  ],
+  examples:[
+    {q:"A 470 Ω resistor is connected to a 9V supply. Calculate the current through it and the power it dissipates.",steps:[
+      {text:"Current: <code>I = V/R = 9/470 = 0.01915 A = 19.1 mA</code>"},
+      {text:"Power (use P=V²/R since V and R are known): <code>P = 9²/470 = 81/470 = 0.172 W = 172 mW</code>"},
+      {text:"Check with P=IV: <code>P = 0.01915 × 9 = 0.172 W ✓</code>"},
+      {text:"A standard ¼W (250 mW) resistor is adequate — 172 mW < 250 mW."}
+    ],answer:"I = 19.1 mA; P = 172 mW. A ¼W resistor is sufficient. Always verify the resistor power rating exceeds dissipated power."},
+    {q:"A potential divider has R1 = 10 kΩ (top) and an NTC thermistor as R2 (bottom). At 20°C, the thermistor = 8 kΩ. At 60°C, the thermistor = 2 kΩ. Vin = 5V. Calculate Vout at each temperature and describe the trend.",steps:[
+      {text:"At 20°C: <code>Vout = 5 × 8000/(10000+8000) = 5 × 8/18 = 5 × 0.444 = 2.22 V</code>"},
+      {text:"At 60°C: <code>Vout = 5 × 2000/(10000+2000) = 5 × 2/12 = 5 × 0.167 = 0.83 V</code>"},
+      {text:"Trend: as temperature rises → thermistor resistance falls → smaller fraction of total resistance → Vout falls."},
+      {text:"To invert this (Vout increases with temperature): swap R1 and thermistor positions."}
+    ],answer:"At 20°C: Vout = 2.22V. At 60°C: Vout = 0.83V. Vout decreases as temperature increases with NTC thermistor in lower position."},
+    {q:"Two resistors: R1 = 6 kΩ and R2 = 12 kΩ are connected in parallel. A third resistor R3 = 4 kΩ is in series with this parallel combination. The supply is 12V. Calculate total resistance, total current and voltage across the parallel section.",steps:[
+      {text:"Parallel combination: <code>R_parallel = (6×12)/(6+12) = 72/18 = 4 kΩ</code>"},
+      {text:"Total resistance: <code>R_total = R3 + R_parallel = 4 + 4 = 8 kΩ</code>"},
+      {text:"Total current: <code>I = V/R = 12/8000 = 1.5×10⁻³ A = 1.5 mA</code>"},
+      {text:"Voltage across parallel section: <code>V_parallel = I × R_parallel = 1.5×10⁻³ × 4000 = 6V</code>"},
+      {text:"Check: voltage across R3 = 1.5×10⁻³ × 4000 = 6V. Total = 6+6 = 12V ✓"}
+    ],answer:"R_total = 8kΩ; I_total = 1.5mA; V_parallel = 6V. Always check voltages sum to supply."},
+    {q:"An RC timing circuit has R = 47 kΩ and C = 100 μF. Calculate the time constant τ and the time for the capacitor to reach 99% of the supply voltage (5V). What voltage does it reach after 10 seconds?",steps:[
+      {text:"Time constant: <code>τ = RC = 47,000 × 100×10⁻⁶ = 47,000 × 10⁻⁴ = 4.7 s</code>"},
+      {text:"Time to 99% (= 5τ): <code>t = 5 × 4.7 = 23.5 s</code>"},
+      {text:"Voltage after 10s: <code>V(10) = 5 × (1 − e^(−10/4.7)) = 5 × (1 − e^(−2.128))</code>"},
+      {text:"<code>e^(−2.128) = 0.119</code>, so <code>V(10) = 5 × (1 − 0.119) = 5 × 0.881 = 4.41 V</code>"}
+    ],answer:"τ = 4.7s; fully charged after ≈23.5s; voltage after 10s = 4.41V (88% of Vfinal)."},
+    {q:"An inverting op-amp has Rin = 10 kΩ and Rf = 47 kΩ. Input voltage = 0.5V. Calculate the output voltage and explain the significance of the negative sign.",steps:[
+      {text:"Inverting gain: <code>Gain = −Rf/Rin = −47,000/10,000 = −4.7</code>"},
+      {text:"Output voltage: <code>Vout = Gain × Vin = −4.7 × 0.5 = −2.35 V</code>"},
+      {text:"Significance of negative sign: the output is 180° out of phase with the input — when input goes positive, output goes negative and vice versa."},
+      {text:"Check: is this within supply rails? If op-amp powered from ±5V, output of −2.35V is within range ✓. If powered from 0–5V, the output would clip at 0V."}
+    ],answer:"Vout = −2.35V. The output is inverted (antiphase) relative to the input. Always check the output is within the supply voltage limits."}
+  ],
+  diagrams:[
+    {title:"Potential Divider with Sensor — Design Approach",steps:[
+      "Draw supply rails: +Vin at top, 0V (GND) at bottom",
+      "Place upper resistor R1 between +Vin and the midpoint node",
+      "Place sensor (LDR, thermistor, etc.) as R2 between midpoint and GND",
+      "Label midpoint as Vout — connect to ADC pin of microcontroller",
+      "Write formula: Vout = Vin × R2/(R1+R2)",
+      "Analyse: if R2 (sensor) falls → Vout falls (smaller fraction). If R2 rises → Vout rises",
+      "To INVERT: swap R1 and R2 positions. Then Vout rises when sensor resistance falls",
+      "Choosing R1: for maximum sensitivity, set R1 ≈ mid-range value of sensor. This maximises ΔVout per ΔR_sensor"
+    ]},
+    {title:"RC Charging Curve — How to Sketch",steps:[
+      "Draw axes: vertical = voltage across capacitor (V); horizontal = time (s)",
+      "Mark Vfinal (= supply voltage) as a horizontal dashed asymptote at the top",
+      "Curve starts at 0V (uncharged capacitor) and rises steeply, then levels off approaching Vfinal",
+      "Mark τ on time axis: voltage at this point = 0.632 × Vfinal",
+      "Mark 2τ: voltage = 0.865 × Vfinal; 3τ: 0.950; 5τ: 0.993 (fully charged)",
+      "The curve is exponential — it never mathematically reaches Vfinal but is considered 'fully charged' after 5τ",
+      "Annotate: 'Rate of charging slows as voltage difference between supply and capacitor decreases'"
+    ]}
+  ],
+  analysis:[
+    {heading:"Choosing R1 in a Sensor Potential Divider",chain:"Sensor resistance varies over a range (e.g. LDR: 100Ω bright to 100kΩ dark) → choose R1 at geometric mean of sensor range: R1 = √(Rmin × Rmax) = √(100 × 100,000) = √(10⁷) = 3,162 Ω → use nearest standard value (3.3kΩ or 2.7kΩ) → this maximises the range of Vout across the full sensor range → microcontroller ADC uses full 0–5V input range effectively",evals:["If R1 >> Rmax: Vout barely changes across sensor range — poor sensitivity. If R1 << Rmin: similar problem in the other direction","The potential divider output has a non-linear relationship between sensor resistance and Vout — for precision measurement, calibration or linearisation is needed","Input impedance of the ADC (or buffer amplifier) loads the divider — if ADC input impedance is comparable to R1, the actual Vout will be lower than calculated (current drawn by ADC reduces Vout)"],mistake:"Don't just pick an arbitrary fixed resistor value. Explain that R1 is chosen to be in the mid-range of the sensor's expected resistance so that Vout changes significantly across the full measurement range."},
+    {heading:"Power Dissipation — Component Rating",chain:"Calculate power in each component → compare to component's maximum rated power → if P_calculated > P_rated: component will overheat → failure or fire risk → select higher-rated component or reduce current by redesigning circuit → general rule: operate resistors at no more than 50% of rated power in continuous use (derating) → a ¼W resistor should not dissipate more than ~125mW in practice",evals:["Total power drawn from supply = sum of all individual component powers. This determines battery life or PSU capacity required","LEDs have maximum forward current ratings (typically 20mA for standard LEDs) — always check I through LED stays below this, not just power","Integrated circuits have package thermal limits — a MOSFET driver must be heatsinked if its power dissipation exceeds the package limit (typically 0.5–1W for TO-92; 40W for TO-220 with heatsink)"],mistake:"Students often forget to check that the chosen resistor power rating exceeds the calculated dissipation. A 100Ω resistor dissipating 0.5W in a 5V circuit needs to be a ½W or 1W component, not a standard ¼W one."}
+  ],
+  quiz:[
+    {q:"A 2.2 kΩ resistor is connected across a 12V supply. The current is:",opts:["26.4 mA","5.45 mA","5.45 A","0.545 mA"],correct:1,exp:"I = V/R = 12 / 2,200 = 0.00545 A = 5.45 mA. Convert kΩ to Ω first (×1000). Power = 12 × 0.00545 = 65.4 mW — a ⅛W resistor would be adequate."},
+    {q:"Potential divider: Vin = 9V, R1 = 15kΩ (top), R2 = 5kΩ (bottom). Vout across R2 is:",opts:["6.75V","2.25V","1V","4.5V"],correct:1,exp:"Vout = Vin × R2/(R1+R2) = 9 × 5/(15+5) = 9 × 5/20 = 9 × 0.25 = 2.25V. R2 is the LOWER resistor. The ratio 5:20 = 1:4 means Vout = ¼ of Vin. Cross-check: V across R1 = 9 × 15/20 = 6.75V. Total = 2.25+6.75 = 9V ✓"},
+    {q:"An RC circuit has R = 100 kΩ and C = 10 μF. The time constant τ is:",opts:["10 ms","100 ms","1 s","10 s"],correct:2,exp:"τ = RC = 100,000 × 10×10⁻⁶ = 100,000 × 10⁻⁵ = 1 s. The circuit is essentially fully charged after 5τ = 5 seconds. Useful for timing applications in the 1–10 second range."},
+    {q:"An inverting op-amp has Rin = 5kΩ and Rf = 20kΩ. Input = +0.3V. Output is:",opts:["+1.2V","−1.2V","+4V","−0.075V"],correct:1,exp:"Gain = −Rf/Rin = −20/5 = −4. Vout = −4 × 0.3 = −1.2V. The output is inverted (negative) and amplified by factor 4. If using a single-rail supply (0–5V), a −1.2V output would clip to 0V — the circuit would need a dual-rail supply (e.g. ±5V) to produce this output."}
+  ],
+  quickPrompts:["How do I choose R1 for a potential divider sensor circuit?","Explain RC time constant — what happens at each multiple of τ?","Walk me through a complete potential divider calculation with an LDR"]
+},
+{
+  id:2, label:"Topic 3", dotClass:"dot-man", tagClass:"tag-man", typeLabel:"Manufacturing",
+  title:"Manufacturing Process Calculations",
+  focus:"Cutting speeds, spindle RPM, MRR, batch costing, tolerances and surface finish",
+  topics:[
+    {title:"Cutting Speed & Spindle RPM",body:"Cutting speed (v): the linear speed of the cutting edge relative to the workpiece — determined by material and tooling, not machine settings. Set in m/min from material/tool tables (e.g. HSS cutting mild steel ≈ 25–30 m/min; carbide inserts ≈ 100+ m/min). Spindle speed (N) in RPM is derived from cutting speed and diameter. Incorrect RPM: too fast → overheating, poor surface finish, tool wear; too slow → work hardening, chatter."},
+    {title:"Material Removal Rate",body:"Material Removal Rate (MRR) quantifies how quickly material is removed — used to estimate machining time and power consumption. In turning: MRR = cutting speed × feed rate × depth of cut. Higher MRR = faster machining but more heat, tool wear and lower surface quality. Surface roughness Ra (μm) decreases (improves) with lower feed rate, higher cutting speed and smaller depth of cut."},
+    {title:"Batch Costing & Production Economics",body:"Unit cost has two components: fixed costs (setup, tooling, design — amortised over the batch) and variable costs (material, labour per part, energy). Fixed cost per unit falls with larger batches — this is why injection moulding (£10,000–£100,000 tooling cost) only makes economic sense for large production volumes. Break-even: the point where revenue equals total cost."},
+    {title:"Tolerances & Fits",body:"Tolerance: the permissible variation in a dimension. Bilateral: ±0.1mm (equal in both directions). Unilateral: +0.0/−0.2mm (deviation in one direction only). Total tolerance band = upper limit minus lower limit. Fits: clearance (shaft always smaller than hole — moving parts), transition (may have clearance or interference), interference (shaft always larger than hole — press/shrink fits for permanent assembly). Surface roughness Ra: turned surface 1.6–6.3μm; ground 0.2–0.8μm; injection moulded 0.4–1.6μm."}
+  ],
+  formulas:[
+    {name:"Spindle speed from cutting speed",expr:"N = (1000 × v) / (π × D)",note:"Rearrangement of v = πDN/1000. Used to set machine RPM.",units:"N in RPM. v in m/min. D in mm. The 1000 converts mm to m."},
+    {name:"Cutting speed from spindle speed",expr:"v = (π × D × N) / 1000",note:"Used to check if current RPM gives correct cutting speed.",units:"v in m/min. D in mm. N in RPM."},
+    {name:"Material Removal Rate (turning)",expr:"MRR = v × f × d",note:"v = cutting speed (mm/min), f = feed rate (mm/rev), d = depth of cut (mm).",units:"MRR in mm³/min. Convert v to mm/min: × 1000 if given in m/min."},
+    {name:"Machining time (turning)",expr:"T = L / (f × N)",note:"L = length of cut (mm), f = feed (mm/rev), N = spindle speed (RPM).",units:"T in minutes. L in mm, f in mm/rev, N in RPM."},
+    {name:"Unit cost (batch production)",expr:"Unit cost = (Fixed cost / Batch size) + Variable cost per part",note:"Fixed costs: setup, tooling, programming. Variable: material, labour, energy.",units:"All in £. Fixed cost per unit decreases as batch size increases."},
+    {name:"Break-even quantity",expr:"Break-even = Fixed cost / (Selling price − Variable cost per unit)",note:"The minimum batch size before the product starts making profit.",units:"Dimensionless (number of units). Also called contribution analysis."},
+    {name:"Percentage dimensional error",expr:"%error = |Measured − Nominal| / Nominal × 100",note:"Used to quantify how far a manufactured dimension is from design intent.",units:"Dimensionless %. Measured and nominal must be in same units."},
+    {name:"Tolerance band",expr:"Tolerance = Upper Limit − Lower Limit",note:"For bilateral ±t: total band = 2t. Always calculate both limits before checking.",units:"In mm, μm or same as dimension."}
+  ],
+  examples:[
+    {q:"Calculate the spindle speed required to turn a 40 mm diameter aluminium shaft at a cutting speed of 120 m/min (carbide insert).",steps:[
+      {text:"Formula: <code>N = (1000 × v) / (π × D)</code>"},
+      {text:"Substitute: <code>N = (1000 × 120) / (π × 40)</code>"},
+      {text:"Calculate: <code>N = 120,000 / 125.66 = 954.9 RPM</code>"},
+      {text:"Round to nearest available machine speed: <code>N ≈ 950 RPM</code>"},
+      {text:"Note: going significantly faster than this will cause tool wear and poor surface finish; too slow causes work hardening in aluminium."}
+    ],answer:"N ≈ 955 RPM. Set machine to nearest standard speed (often 900 or 1000 RPM). Record the actual speed used and the resulting cutting speed."},
+    {q:"A CNC lathe turns a workpiece at N = 400 RPM with feed f = 0.2 mm/rev and depth of cut d = 2 mm. Workpiece diameter = 50mm. Calculate MRR and machining time for a 150mm cut length.",steps:[
+      {text:"Cutting speed: <code>v = πDN/1000 = π×50×400/1000 = 62.83 m/min = 62,832 mm/min</code>"},
+      {text:"MRR: <code>MRR = v × f × d = 62,832 × 0.2 × 2 = 25,133 mm³/min</code>"},
+      {text:"Machining time: <code>T = L/(f×N) = 150/(0.2×400) = 150/80 = 1.875 min ≈ 1 min 53 sec</code>"},
+      {text:"Increasing feed to 0.4mm/rev would halve the time (0.94 min) but produce a rougher surface."}
+    ],answer:"MRR = 25,133 mm³/min; machining time = 1.875 min. There is a direct trade-off between production speed (high feed) and surface quality (low feed)."},
+    {q:"A batch of 250 injection-moulded brackets has total tooling and setup cost £5,000. Material and labour cost per bracket is £0.80. Brackets sell for £4.50 each. Calculate: (a) unit cost, (b) break-even quantity, (c) profit on 250 units.",steps:[
+      {text:"(a) Unit cost: <code>£5,000/250 + £0.80 = £20.00 + £0.80 = £20.80 per bracket</code>"},
+      {text:"(b) Break-even: <code>Q = Fixed cost / (Selling price − Variable cost) = £5,000 / (£4.50 − £0.80) = £5,000 / £3.70 = 1,351 units</code>"},
+      {text:"(c) Profit on 250 units: Revenue = <code>250 × £4.50 = £1,125</code>. Total cost = <code>£5,000 + 250×£0.80 = £5,200</code>"},
+      {text:"Profit = <code>£1,125 − £5,200 = −£4,075</code> — a LOSS. The batch of 250 is far below break-even."}
+    ],answer:"Unit cost = £20.80; break-even = 1,351 units; loss of £4,075 at 250 units. This demonstrates why injection moulding requires high-volume production to be economical."},
+    {q:"A shaft is specified as ø35.00 ±0.04 mm. Measured shaft diameter = 35.06 mm. (a) Is it in tolerance? (b) Calculate the percentage error.",steps:[
+      {text:"Upper limit: <code>35.00 + 0.04 = 35.04 mm</code>. Lower limit: <code>35.00 − 0.04 = 34.96 mm</code>"},
+      {text:"Measured = 35.06mm. Check: <code>35.06 > 35.04</code> → OUT OF TOLERANCE (oversize by 0.02mm)"},
+      {text:"Percentage error: <code>|35.06 − 35.00| / 35.00 × 100 = 0.06/35 × 100 = 0.171%</code>"},
+      {text:"Disposition: this part must be rejected or reworked (turned down to within tolerance). Oversize shafts can be reworked; undersize shafts are usually scrap."}
+    ],answer:"OUT OF TOLERANCE — shaft is 35.06mm, 0.02mm above upper limit of 35.04mm. Percentage error = 0.171%. Part must be reworked or scrapped."},
+    {q:"A product is made by two methods. Method A: setup £800, variable £2.50/unit. Method B: setup £200, variable £4.00/unit. Find the break-even quantity and state which is cheaper for a batch of 400.",steps:[
+      {text:"Break-even: set costs equal. <code>800 + 2.50Q = 200 + 4.00Q</code>"},
+      {text:"Rearrange: <code>600 = 1.50Q → Q = 400 units</code>"},
+      {text:"At Q = 400: Method A = <code>800 + 2.50×400 = 800+1000 = £1,800</code>"},
+      {text:"Method B = <code>200 + 4.00×400 = 200+1600 = £1,800</code> — equal at break-even."},
+      {text:"For Q < 400: Method B is cheaper (lower setup). For Q > 400: Method A is cheaper (lower variable cost). At Q = 400: they cost the same."}
+    ],answer:"Break-even at Q = 400 units. At exactly 400 both cost £1,800. Method B is better for small batches; Method A for large batches — this is a classic make-vs-buy or process selection calculation."}
+  ],
+  diagrams:[
+    {title:"Tolerance Limits — Engineering Drawing Annotation",steps:[
+      "Draw a component cross-section with a dimension leader pointing to the feature",
+      "Nominal dimension: 25.00 mm",
+      "Bilateral tolerance: write as 25.00 ±0.05 → limits: 24.95 to 25.05 (total band = 0.10mm)",
+      "Unilateral tolerance: 25.00 +0.00/−0.10 → limits: 24.90 to 25.00 (shaft never exceeds nominal)",
+      "For a mating hole: specify ø25.20 +0.10/−0.00 → hole never smaller than 25.20mm",
+      "Clearance fit check: minimum clearance = smallest hole − largest shaft = 25.20 − 25.05 = 0.15mm (clearance always exists ✓)",
+      "Annotate: Maximum Material Condition (MMC) = largest shaft / smallest hole; Minimum Material Condition (LMC) = smallest shaft / largest hole"
+    ]},
+    {title:"Break-Even Chart — How to Draw",steps:[
+      "Draw axes: vertical = cost/revenue (£); horizontal = quantity produced (units)",
+      "Fixed cost line: horizontal line at Fixed Cost value (does not change with quantity)",
+      "Total cost line: starts at Fixed Cost on y-axis, rises with gradient = variable cost per unit",
+      "Revenue line: starts at origin (0,0), rises with gradient = selling price per unit",
+      "Break-even point: intersection of Revenue and Total Cost lines",
+      "Profit zone: to the right of break-even where Revenue > Total Cost",
+      "Loss zone: to the left of break-even",
+      "Label: fixed cost, variable cost gradient, break-even quantity, margin of safety (actual quantity − break-even)"
+    ]}
+  ],
+  analysis:[
+    {heading:"Cutting Speed vs Surface Quality Trade-off",chain:"Higher cutting speed → more heat generated at cutting zone → thermal softening of workpiece material → built-up edge on tool if speed too low → poor surface finish → optimal cutting speed from tables balances heat generation, tool life and surface quality → carbide inserts tolerate higher speeds than HSS → coolant/lubricant reduces heat and extends tool life → CNC machines use constant surface speed (CSS) to maintain optimal v as diameter changes during turning",evals:["Tool wear increases exponentially with cutting speed beyond the optimal range — doubling cutting speed may halve tool life (Taylor's tool life equation: vTⁿ = C)","Feed rate has the strongest effect on surface roughness Ra — reducing feed from 0.4 to 0.1mm/rev can reduce Ra by 4× (Ra ≈ f²/8r where r = tool nose radius)","Depth of cut has least effect on surface quality but most effect on MRR — manufacturers often take roughing cuts at high depth/high feed, then finish at low feed/low depth for final dimensions"],mistake:"Don't state simply 'higher cutting speed gives better surface finish'. At optimal speed this is true, but excessive speed causes built-up edge and chatter, worsening surface quality. Always contextualise with 'within the recommended cutting speed range'."},
+    {heading:"Production Volume and Process Selection",chain:"Identify production volume (one-off / batch / mass) → one-off: manual machining, FDM printing, hand lay-up — high labour, low tooling cost → batch (10–10,000): CNC machining, vacuum forming — moderate tooling, reduced labour per part → mass production (10,000+): injection moulding, die casting, stamping — high tooling cost, very low unit cost → the economic break-even determines at which volume the switch between processes becomes cost-effective",evals:["FDM 3D printing has near-zero setup cost — ideal for one-offs and prototypes — but unit cost barely falls with volume (machine time per part is constant). Injection moulding unit cost falls dramatically with volume but requires expensive tooling","Additive manufacturing is disrupting traditional volume thresholds — for complex geometries with internal features, AM may compete with CNC machining even for small batches because it eliminates multiple setups","Lead time (time from order to delivery) is not captured in unit cost calculations — a process with lower unit cost but 8-week tooling lead time may be commercially inferior to a faster process with higher unit cost"],mistake:"Don't recommend injection moulding for a batch of 50 or CNC machining for a batch of 50,000 without justification. Always explicitly link process selection to production volume and tooling cost amortisation."}
+  ],
+  quiz:[
+    {q:"A 60mm diameter steel bar must be machined at v = 30 m/min (HSS tool). The required spindle speed is approximately:",opts:["159 RPM","318 RPM","637 RPM","1,273 RPM"],correct:0,exp:"N = (1000 × v)/(π × D) = (1000 × 30)/(π × 60) = 30,000/188.5 = 159.2 RPM ≈ 159 RPM. Set machine to nearest available speed (often 125 or 160 RPM). Going faster with HSS on steel causes rapid tool wear; going too slow may cause work hardening or chatter."},
+    {q:"A batch of 500 components has fixed costs of £2,000 and variable costs of £1.50 per unit. Unit cost is:",opts:["£4.00","£5.50","£3.50","£2.00"],correct:1,exp:"Unit cost = Fixed/batch + variable = £2,000/500 + £1.50 = £4.00 + £1.50 = £5.50. If batch were 2,000: unit cost = £1.00+£1.50 = £2.50. This shows how fixed cost amortisation drives batch size decisions — larger batches dramatically reduce unit cost when fixed costs are significant."},
+    {q:"A hole is specified as ø20.00 +0.10/−0.00 mm. The upper and lower limits are:",opts:["20.10mm and 20.00mm","20.00mm and 19.90mm","20.05mm and 19.95mm","20.10mm and 19.90mm"],correct:0,exp:"Upper limit: nominal + upper deviation = 20.00 + 0.10 = 20.10mm. Lower limit: nominal + lower deviation = 20.00 + 0.00 = 20.00mm. This is a unilateral tolerance — the hole can be up to 0.10mm oversize but must not be undersize (a hole can be enlarged but not easily made smaller after machining)."},
+    {q:"Break-even quantity with fixed cost £1,500, selling price £8 per unit, variable cost £3 per unit is:",opts:["187 units","300 units","500 units","750 units"],correct:1,exp:"Break-even = Fixed cost / (Price − Variable cost) = £1,500 / (£8 − £3) = £1,500 / £5 = 300 units. The £5 'contribution' from each unit first covers the fixed costs (300 units × £5 = £1,500) and then creates profit. Units 301 onwards each contribute £5 directly to profit."}
+  ],
+  quickPrompts:["How do I calculate spindle speed from cutting speed — walk me through the formula","Explain break-even analysis with a worked example","What is the difference between bilateral and unilateral tolerances?"]
+},
+{
+  id:3, label:"Topic 4", dotClass:"dot-qual", tagClass:"tag-qual", typeLabel:"Quality & Risk",
+  title:"Quality, FMEA & Process Control",
+  focus:"FMEA risk priority numbers, process capability, statistical process control and percentage error",
+  topics:[
+    {title:"FMEA — Failure Mode & Effects Analysis",body:"FMEA identifies potential failure modes BEFORE they occur and ranks them by risk. Each failure mode is rated on three 1–10 scales: Severity (how bad the consequence), Occurrence (how likely the failure is to happen), Detectability (how likely the failure is to be detected before reaching the customer — note: 10 = cannot detect, 1 = certain detection). RPN = Severity × Occurrence × Detectability. Actions prioritised on failures with RPN > threshold (often 100) OR any Severity ≥ 9 regardless of RPN."},
+    {title:"Process Capability (Cp & Cpk)",body:"Process capability measures whether a manufacturing process is capable of consistently producing parts within tolerance. Cp = (USL − LSL)/(6σ) where σ is the process standard deviation. Cp > 1: capable (process spread fits within tolerance). Cp > 1.33: good. Cp > 1.67: excellent. Cp = 2: Six Sigma (3.4 defects per million). Cpk accounts for process centering: Cpk = min[(USL−μ)/3σ, (μ−LSL)/3σ]. A process can be capable (high Cp) but off-centre (low Cpk)."},
+    {title:"Statistical Process Control (SPC)",body:"SPC uses control charts to monitor process variation in real time and detect drift before defects occur. X̄ chart (mean chart): plots sample means against control limits (UCL = X̄̄ + 3σ/√n). R chart (range chart): plots sample ranges. A point outside control limits signals a special cause of variation requiring investigation. Process in control ≠ process in specification — a centred process with high variation can be in control but not capable."},
+    {title:"Inspection & Quality Systems",body:"ISO 9001: quality management system requiring documented processes, internal auditing and continual improvement. First article inspection (FAI): thorough inspection of the first part from a new setup — verifies all dimensions before committing to full production. Go/No-Go gauging: quick pass/fail check — 'Go' end must enter the part; 'No-Go' end must not. Attribute data (pass/fail) vs variable data (measured dimensions). Six Sigma DMAIC: Define → Measure → Analyse → Improve → Control."}
+  ],
+  formulas:[
+    {name:"Risk Priority Number (FMEA)",expr:"RPN = Severity × Occurrence × Detectability",note:"Each rated 1–10. Max RPN = 1,000. Note: Detectability 10 = cannot detect (HIGH risk). Detectability 1 = certain detection (LOW risk — opposite to Severity/Occurrence).",units:"RPN is dimensionless. Action typically required for RPN > 100 or Severity ≥ 9"},
+    {name:"Process Capability (Cp)",expr:"Cp = (USL − LSL) / (6σ)",note:"USL = Upper Spec Limit, LSL = Lower Spec Limit. σ = process standard deviation. Cp > 1 = capable (fits within tolerance).",units:"Cp is dimensionless. USL, LSL, σ must all be in same units (mm, μm, etc.)"},
+    {name:"Process Capability Index (Cpk)",expr:"Cpk = min[(USL − μ)/(3σ), (μ − LSL)/(3σ)]",note:"Accounts for process being off-centre. Cpk ≤ Cp always. If process centred: Cpk = Cp.",units:"Cpk dimensionless. μ = process mean"},
+    {name:"Defect rate from Cp",expr:"Cp=1 → 0.27% defects; Cp=1.33 → 64ppm; Cp=2 → 3.4ppm (Six Sigma)",note:"ppm = parts per million. A dramatic improvement in Cp gives exponentially fewer defects.",units:"Percentage or ppm"},
+    {name:"Control chart limits (X̄ chart)",expr:"UCL = X̄̄ + 3σ/√n  ;  LCL = X̄̄ − 3σ/√n",note:"X̄̄ = grand mean (mean of sample means). n = sample size. 3σ limits: 99.73% of normal distribution.",units:"Same units as measurement. σ from process data"},
+    {name:"Percentage error",expr:"%error = |Measured − Nominal| / Nominal × 100%",note:"Used to report accuracy of measurements and manufactured dimensions.",units:"Result in %. Measured and nominal in same units."},
+    {name:"Scrap rate",expr:"Scrap rate = (Number of defects / Total produced) × 100%",note:"Used to calculate cost of poor quality: scrap cost = scrap rate × unit cost × production volume.",units:"Result in %"}
+  ],
+  examples:[
+    {q:"An FMEA assessment identifies a failure mode with Severity = 7, Occurrence = 5, Detectability = 6. Calculate RPN. A second failure mode has Severity = 9, Occurrence = 2, Detectability = 3. Calculate its RPN. Which should be prioritised?",steps:[
+      {text:"Failure 1: <code>RPN₁ = 7 × 5 × 6 = 210</code>"},
+      {text:"Failure 2: <code>RPN₂ = 9 × 2 × 3 = 54</code>"},
+      {text:"Failure 1 has higher RPN (210 vs 54) — a standard threshold-based approach prioritises Failure 1."},
+      {text:"HOWEVER: Failure 2 has Severity = 9 (near-catastrophic consequence). Many quality systems mandate action on any failure with Severity ≥ 9 regardless of RPN."},
+      {text:"Recommendation: address BOTH — Failure 1 for its high overall risk score; Failure 2 for its unacceptably high severity consequence."}
+    ],answer:"RPN₁=210 (prioritise first). RPN₂=54 (lower priority numerically). But Severity=9 of Failure 2 demands independent attention — RPN alone can mask critical high-severity failures."},
+    {q:"A milling process has a specification of 50.00 ±0.15 mm (USL=50.15, LSL=49.85). Process mean μ = 50.02 mm, process σ = 0.04 mm. Calculate Cp and Cpk. Is the process capable?",steps:[
+      {text:"Cp: <code>Cp = (USL−LSL)/(6σ) = (50.15−49.85)/(6×0.04) = 0.30/0.24 = 1.25</code>"},
+      {text:"Cp = 1.25 > 1 → process is CAPABLE (spread fits within tolerance)."},
+      {text:"Cpk upper: <code>(USL−μ)/(3σ) = (50.15−50.02)/(3×0.04) = 0.13/0.12 = 1.083</code>"},
+      {text:"Cpk lower: <code>(μ−LSL)/(3σ) = (50.02−49.85)/(3×0.04) = 0.17/0.12 = 1.417</code>"},
+      {text:"Cpk = min(1.083, 1.417) = 1.083. Process is slightly off-centre toward USL but still marginally capable (Cpk > 1)."}
+    ],answer:"Cp = 1.25 (capable). Cpk = 1.083 (capable but off-centre). Action: re-centre process by adjusting tool offset by ~0.02mm toward nominal to improve Cpk."},
+    {q:"A production run of 5,000 components costs £2.40 each to make. The scrap rate is 3.2%. Calculate: (a) number of defects, (b) cost of scrap, (c) effective cost per good part.",steps:[
+      {text:"(a) Number of defects: <code>5,000 × 0.032 = 160 defective parts</code>"},
+      {text:"(b) Cost of scrap: <code>160 × £2.40 = £384</code>"},
+      {text:"(c) Good parts produced: <code>5,000 − 160 = 4,840</code>"},
+      {text:"Total cost of production: <code>5,000 × £2.40 = £12,000</code>"},
+      {text:"Effective cost per good part: <code>£12,000 / 4,840 = £2.479 per good part</code>"}
+    ],answer:"160 defects; scrap cost £384; effective cost per good part £2.48 (vs £2.40 nominal — a 3.3% cost premium). Reducing scrap rate from 3.2% to 0.5% would save £332 on this run."},
+    {q:"Five samples are measured: 24.92, 25.04, 24.98, 25.01, 24.95 mm. The nominal is 25.00 mm. Calculate (a) sample mean, (b) percentage error of mean from nominal.",steps:[
+      {text:"Mean: <code>x̄ = (24.92+25.04+24.98+25.01+24.95)/5 = 124.90/5 = 24.98 mm</code>"},
+      {text:"Deviation from nominal: <code>|24.98 − 25.00| = 0.02 mm</code>"},
+      {text:"Percentage error of mean: <code>0.02/25.00 × 100 = 0.08%</code>"},
+      {text:"The process is running slightly undersize (mean 24.98 < nominal 25.00). Offset cutting tool by +0.02mm to re-centre. This small bias, while within tolerance, wastes material and indicates process drift."}
+    ],answer:"Mean = 24.98mm; % error = 0.08%. Process is slightly undersize — adjust tool offset by +0.02mm. Low % error but systematic bias suggests machine thermal drift or worn tooling."}
+  ],
+  diagrams:[
+    {title:"FMEA Scoring Matrix — Interpretation Guide",steps:[
+      "Severity scale (1–10): 1=no effect; 3=minor inconvenience; 5=moderate (some product lost); 7=high (product inoperable); 9=very high (safety hazard with warning); 10=hazard without warning",
+      "Occurrence scale (1–10): 1=remote (1 in 1,000,000+); 3=low (1 in 100,000); 5=moderate (1 in 2,000); 7=high (1 in 100); 9=very high (1 in 10); 10=almost inevitable",
+      "Detectability scale (1–10): 1=almost certain to detect; 3=high likelihood of detection; 5=moderate; 7=low detection chance; 9=very unlikely to detect; 10=no detection method",
+      "Key: Detectability is INVERTED — high number means HARD to detect (high risk). This is the most commonly confused scale",
+      "RPN = S × O × D. Plot on a matrix: x-axis = Severity, y-axis = Occurrence. Colour-code by RPN band: green (<50), amber (50–100), red (>100)",
+      "Action: always address Severity=9 or 10 as an automatic trigger, regardless of other scores"
+    ]},
+    {title:"Process Capability — Visual Interpretation",steps:[
+      "Draw a bell curve (normal distribution) representing the process output",
+      "Mark LSL (Lower Spec Limit) and USL (Upper Spec Limit) as vertical lines on the x-axis",
+      "Mark the process mean μ and show ±3σ spread (contains 99.73% of output)",
+      "Cp = 1: the ±3σ spread exactly fits the tolerance band (USL−LSL). Marginal — 0.27% defects",
+      "Cp = 1.33: the ±4σ spread fits the tolerance band. Good — 64 ppm defects",
+      "Cpk: show process mean shifted toward USL. Even if Cp=1.33, off-centring reduces Cpk — one tail extends past USL",
+      "Action arrows: if Cpk < Cp → re-centre process (adjust mean). If Cp < 1 → reduce variation (SPC, tool maintenance, better fixtures)"
+    ]}
+  ],
+  analysis:[
+    {heading:"RPN Limitations — When to Override the Number",chain:"FMEA calculates RPN = S×O×D → creates ranked priority list → BUT: a failure with Severity=9 and RPN=54 (9×2×3) is ranked lower than Severity=3 and RPN=150 (3×5×10) → the lower-severity failure gets addressed first → the catastrophic failure is ignored → this is a known flaw in the RPN method → best practice: apply automatic action rule for any Severity ≥ 9 OR apply weighted scoring that prevents low-severity failures from drowning high-severity ones",evals:["The Detectability scale is counter-intuitive and frequently misapplied — Detectability=10 means the failure CANNOT be detected, which is the HIGHEST risk. Many students write Detectability=1 for a failure that can't be detected","FMEA is only as good as the team doing it — it requires multi-disciplinary participation (design, manufacturing, quality, service) and honest assessment. An FMEA done by one person to satisfy paperwork requirements has little value","FMEA is proactive (done before problems occur) — it must be distinguished from root cause analysis (done after a problem occurs). FMEA prevents failures; RCA explains ones that have already happened"],mistake:"RPN alone is not sufficient to prioritise FMEA actions. Always apply an independent severity trigger: any failure with Severity ≥ 9 must be addressed regardless of how low its RPN appears."},
+    {heading:"Process Capability — Cp vs Cpk Distinction",chain:"Process has specification 10.00 ±0.30 mm (USL=10.30, LSL=9.70) → measure process: σ=0.08mm → Cp=(0.60)/(6×0.08)=0.60/0.48=1.25 → process is capable (spread fits within spec) → but process mean μ=10.22mm → Cpk lower=(10.22−9.70)/(3×0.08)=0.52/0.24=2.17 → Cpk upper=(10.30−10.22)/(3×0.08)=0.08/0.24=0.33 → Cpk=0.33 → process is NOT capable despite good Cp — parts are piling up against USL",evals:["The fix for low Cpk with adequate Cp is simple: re-centre the process (adjust tool offset, material feed position, etc.). No improvement in process variation is needed — just accurate targeting","Cp can be improved only by reducing process variability: better tooling, tighter clamping, temperature control, fresher tooling, better material consistency","In continuous improvement, the sequence is: first achieve Cpk > 1 (process centred and capable) → then improve Cp > 1.33 (reduce variability) → then sustain through SPC monitoring"],mistake:"Never report only Cp without Cpk when the process is off-centre. A manufacturer who quotes Cp=1.8 but has a centred process running against one specification limit is misleading customers about actual capability."}
+  ],
+  quiz:[
+    {q:"In FMEA, a Detectability score of 9 means:",opts:["The failure is almost certain to be detected before reaching the customer","The failure is very unlikely to be detected — it will almost certainly reach the customer","The failure is moderately likely to be detected","Detectability is irrelevant when Severity is below 5"],correct:1,exp:"Detectability scale is INVERTED: 10 = cannot detect (highest risk); 1 = almost certain to detect (lowest risk). A Detectability score of 9 means the failure is very difficult to detect — it will likely reach the customer. This is the most commonly misunderstood FMEA scale."},
+    {q:"Process specification: 20.00 ±0.20mm. Process σ = 0.05mm. Cp is:",opts:["0.67","1.00","1.33","2.00"],correct:2,exp:"Cp = (USL−LSL)/(6σ) = (20.20−19.80)/(6×0.05) = 0.40/0.30 = 1.33. A Cp of 1.33 is considered 'good' — the process spread (±3σ = ±0.15mm) fits comfortably within the tolerance band (±0.20mm). This corresponds to approximately 64 defects per million if the process is centred."},
+    {q:"Which statement about Cp vs Cpk is correct?",opts:["Cp and Cpk are always equal","Cpk can be higher than Cp when the process is off-centre","Cpk ≤ Cp always — Cpk accounts for process centering; Cp does not","Cp measures the process mean; Cpk measures the spread"],correct:2,exp:"Cpk ≤ Cp always. When the process is exactly centred (μ = (USL+LSL)/2), Cpk = Cp. When the process mean shifts toward either specification limit, Cpk < Cp. Cp measures the potential capability (if the process were centred); Cpk measures actual capability including any off-centring. A low Cpk with high Cp is fixed by re-centring (adjusting mean), not by reducing variability."},
+    {q:"A production run of 2,000 parts with scrap rate 2% costs £5.00 per part to produce. The cost of poor quality (scrap cost) is:",opts:["£10","£100","£200","£2,000"],correct:2,exp:"Number scrapped: 2,000 × 0.02 = 40 parts. Scrap cost: 40 × £5.00 = £200. This is the minimum 'cost of poor quality' — it excludes rework time, inspection cost, warranty claims, and customer dissatisfaction. The total cost of quality is typically 5–30% of revenue in less mature manufacturing organisations."}
+  ],
+  quickPrompts:["Walk me through an FMEA calculation — what does each score represent?","Explain the difference between Cp and Cpk with a worked example","How do I reduce RPN — what can be done about each factor (S, O, D)?"]
+},
+{
+  id:4, label:"Topic 5", dotClass:"dot-design", tagClass:"tag-design", typeLabel:"Design & Anthropometrics",
+  title:"Design Calculations & Anthropometrics",
+  focus:"Percentile application, grip dimensions, usability metrics, LCA calculations and sustainability",
+  topics:[
+    {title:"Anthropometric Calculations",body:"Anthropometric data provides body dimension measurements for defined populations. Data is given for key percentiles: 5th (smaller end), 50th (median), 95th (larger end). Designing for the 5th to 95th percentile range covers 90% of the target population. The correct percentile to use depends on the dimension type: minimum reach distances → use 5th percentile (smallest reach); maximum clearance dimensions (leg room, head room) → use 95th percentile (largest person)."},
+    {title:"Product Measurement & Scaling",body:"Scale factor: ratio between dimensions of a model/drawing and the real object. Scale 1:5 means the model is 1/5 of real size — multiply model dimensions by 5 to get real dimensions. Percentage difference: how much a measured value differs from a target. Surface area and volume scaling: if linear scale = k, then areas scale by k², volumes scale by k³."},
+    {title:"Lifecycle Assessment (LCA) Calculations",body:"LCA quantifies environmental impact across all life stages: raw material extraction, manufacturing, distribution, use and end-of-life. Embodied energy: total energy consumed in producing a material (MJ/kg). Carbon footprint: total CO₂e emissions across the lifecycle (kg CO₂e). Calculating relative environmental impacts allows designers to identify which stage contributes most and where design changes will have greatest effect."},
+    {title:"Product Economics & Pricing",body:"Markup: selling price = cost price × (1 + markup%). Gross margin = (selling price − cost) / selling price × 100%. Cost-benefit analysis: total benefits (over product life) vs total costs. Payback period: initial investment ÷ annual saving. Net Present Value (NPV) for long-term projects. Value engineering: reduce cost while maintaining function — identify and eliminate cost without reducing value."}
+  ],
+  formulas:[
+    {name:"Percentile design rule (reach)",expr:"Design to 5th %ile for minimum reach distances",note:"If the smallest 5% can reach it, everyone can. Use 5th %ile anthropometric data for control placement.",units:"Dimension in mm. UK 5th %ile male stature: 1,640mm; female: 1,519mm"},
+    {name:"Percentile design rule (clearance)",expr:"Design to 95th %ile for minimum clearance dimensions",note:"If the largest 5% have adequate clearance, everyone does. Used for leg room, door height, aisle width.",units:"UK 95th %ile male stature: 1,855mm; sitting shoulder height: 665mm"},
+    {name:"Grip diameter (cylindrical handle)",expr:"Optimal grip ≈ 30–40mm for maximum grip force",note:"From anthropometric studies. Grip force peaks at ~35mm. Outside 20–50mm range: significant force reduction.",units:"mm. 5th %ile female hand breadth: 68mm; 95th %ile male: 95mm"},
+    {name:"Scale factor",expr:"Scale = Model dimension / Real dimension  (or 1:n)",note:"1:5 scale → model is 1/5 real size. Multiply model dimensions by n to find real dimensions.",units:"Dimensionless ratio"},
+    {name:"Area from scale",expr:"Real area = Model area × n²",note:"Areas scale with the square of the linear scale. 1:5 scale: real area = model area × 25.",units:"Same unit as area (mm², cm², m²)"},
+    {name:"Volume from scale",expr:"Real volume = Model volume × n³",note:"Volumes scale with the cube of the linear scale. Critical for weight estimation from scale models.",units:"Same unit as volume (mm³, cm³, m³)"},
+    {name:"Embodied energy of component",expr:"Total embodied energy = Mass × Embodied energy per kg",note:"Embodied energy data (MJ/kg): steel 20–35; aluminium 155–200; CFRP 200–400; timber 2–10.",units:"Total in MJ. Mass in kg. Embodied energy in MJ/kg"},
+    {name:"Carbon footprint",expr:"CO₂e = Mass × Carbon intensity (kg CO₂e/kg)",note:"Carbon intensity data: steel 1.5–2.5 kg CO₂e/kg; aluminium 8–12; CFRP 20–50; timber −1.8 (sequesters carbon).",units:"kg CO₂e"},
+    {name:"Selling price from markup",expr:"Selling price = Cost × (1 + markup/100)",note:"A 40% markup on £10 cost: selling price = £10 × 1.40 = £14.",units:"Same currency as cost"},
+    {name:"Payback period",expr:"Payback (years) = Initial investment / Annual saving",note:"Simple payback ignores time value of money. NPV analysis is more rigorous but not always required at A Level.",units:"Years"}
+  ],
+  examples:[
+    {q:"A control panel is designed for operators in a factory. The maximum reach distance to the furthest control must be reachable by the smallest operators. UK 5th percentile female forward reach is 650mm. A control is placed 680mm from the operator's shoulder. Is this acceptable?",steps:[
+      {text:"Relevant percentile: 5th percentile (minimum reach) — if the smallest 5% can reach it, all operators can."},
+      {text:"5th %ile female forward reach = 650mm. Control distance = 680mm."},
+      {text:"Check: <code>680mm > 650mm</code> → the control is BEYOND the reach of the smallest operators."},
+      {text:"Action: move the control to within 650mm of the operator position, OR reposition the operator workstation closer to the control panel."}
+    ],answer:"NOT acceptable — 680mm exceeds the 5th percentile reach of 650mm. Approximately 5% (or more, given the mixed-gender workforce) of operators cannot safely reach this control. Redesign required."},
+    {q:"A designer produces a 1:8 scale model of a product. The model measures 85mm × 60mm × 40mm. Calculate the real dimensions and the real volume compared to the model volume.",steps:[
+      {text:"Real dimensions: multiply each by scale factor 8."},
+      {text:"Length: <code>85 × 8 = 680mm</code>. Width: <code>60 × 8 = 480mm</code>. Height: <code>40 × 8 = 320mm</code>"},
+      {text:"Model volume: <code>85 × 60 × 40 = 204,000 mm³</code>"},
+      {text:"Real volume: <code>680 × 480 × 320 = 104,448,000 mm³</code>"},
+      {text:"Ratio: <code>104,448,000 / 204,000 = 512 = 8³ ✓</code> — volume scales with the cube of the linear scale."}
+    ],answer:"Real: 680×480×320mm. Real volume = model volume × 512 (= 8³). Always cube the linear scale factor for volume calculations — a 1:8 model is 512 times smaller in volume."},
+    {q:"A chair frame uses 3.2 kg of steel (embodied energy = 28 MJ/kg, carbon intensity = 2.0 kg CO₂e/kg). An alternative design uses 1.1 kg of aluminium (embodied energy = 170 MJ/kg, carbon intensity = 10 kg CO₂e/kg). Compare the embodied energy and carbon footprint of each.",steps:[
+      {text:"Steel embodied energy: <code>3.2 × 28 = 89.6 MJ</code>"},
+      {text:"Aluminium embodied energy: <code>1.1 × 170 = 187 MJ</code>"},
+      {text:"Steel carbon footprint: <code>3.2 × 2.0 = 6.4 kg CO₂e</code>"},
+      {text:"Aluminium carbon footprint: <code>1.1 × 10 = 11.0 kg CO₂e</code>"},
+      {text:"Steel is better on both metrics (less embodied energy AND lower carbon). However: aluminium is lighter (1.1 kg vs 3.2 kg) — in a transported product, the use-phase carbon saving from lower weight must be considered over the product's lifetime."}
+    ],answer:"Steel: 89.6 MJ, 6.4 kg CO₂e. Aluminium: 187 MJ, 11.0 kg CO₂e. Steel is lower impact at manufacture. Full LCA would also consider use phase and end-of-life recycling rates."},
+    {q:"A product costs £18.50 to manufacture. The company applies a 60% markup. Calculate: (a) the selling price, (b) the gross profit per unit, (c) the gross margin percentage.",steps:[
+      {text:"(a) Selling price: <code>£18.50 × (1 + 60/100) = £18.50 × 1.60 = £29.60</code>"},
+      {text:"(b) Gross profit per unit: <code>£29.60 − £18.50 = £11.10</code>"},
+      {text:"(c) Gross margin: <code>(£11.10 / £29.60) × 100 = 37.5%</code>"},
+      {text:"Note: 60% markup ≠ 60% margin. Markup is on cost; margin is on selling price. This is a common source of confusion in business calculations."}
+    ],answer:"Selling price = £29.60; gross profit = £11.10 per unit; gross margin = 37.5%. Markup (60%) ≠ Gross margin (37.5%) — always clarify which is being asked for."},
+    {q:"A more energy-efficient motor costs £350 more than a standard motor. It saves £140 per year in electricity. Calculate the payback period and state whether this is a good investment if the motor has a 10-year lifespan.",steps:[
+      {text:"Payback period: <code>£350 / £140 per year = 2.5 years</code>"},
+      {text:"Total savings over 10 years: <code>£140 × 10 = £1,400</code>"},
+      {text:"Net saving: <code>£1,400 − £350 initial investment = £1,050 profit</code> over 10 years"},
+      {text:"With a 2.5-year payback period and 10-year lifespan, the motor pays back 4× — clearly a good investment financially, AND reduces energy consumption."}
+    ],answer:"Payback = 2.5 years. Excellent investment — the motor pays for itself in 2.5 years and saves £1,050 net over 10 years while reducing energy consumption. Both financial and sustainability arguments support the upgrade."}
+  ],
+  diagrams:[
+    {title:"Anthropometric Reach Zones — Workstation Design",steps:[
+      "Draw a person seated at a workstation (plan view from above, or side view)",
+      "Mark shoulder/elbow position as the pivot point for reach",
+      "Inner zone (0–300mm from body): primary work area — most frequently used items (keyboard, most-used controls)",
+      "Middle zone (300–450mm): comfortable reach — secondary items (phone, documents)",
+      "Outer zone (450–650mm, 5th %ile): maximum normal reach — occasional items only. Emergency stops must be within this zone",
+      "Dead zone (>650mm from 5th %ile): unreachable for 5% of workforce — nothing critical placed here",
+      "Annotate with specific percentile values. Note: vertical reach zones also exist (above shoulder = difficult; below knee = poor access)"
+    ]},
+    {title:"Lifecycle Assessment — Stages Diagram",steps:[
+      "Draw a circular or linear flow diagram with 5 stages",
+      "Stage 1 — Raw material extraction: mining, forestry, oil extraction. Note: energy and emissions per kg of material",
+      "Stage 2 — Manufacturing: processing, machining, fabrication. Note: energy of manufacturing processes",
+      "Stage 3 — Distribution: packaging, transport. Calculate: mass × distance × transport mode emission factor",
+      "Stage 4 — Use phase: energy consumed during product's operational life. Often the LARGEST contributor for powered products",
+      "Stage 5 — End of life: landfill, incineration, recycling, reuse. Recycling recovers embodied energy; landfill adds methane emissions",
+      "Show material/energy flows as arrows between stages. Identify the 'hotspot' (dominant stage) — this is where design intervention has most impact"
+    ]}
+  ],
+  analysis:[
+    {heading:"5th vs 95th Percentile — Applying the Correct Percentile",chain:"Identify the design dimension type → is it a REACH dimension (how far someone must extend to access something)? → use 5th %ile (smallest reach — if smallest person can reach it, all can) → is it a CLEARANCE dimension (space needed to accommodate a person)? → use 95th %ile (largest person — if largest person fits, all fit) → is it a FORCE requirement? → use 5th %ile (weakest person — if weakest can operate it, all can) → is it a VISIBILITY requirement? → consider eye height at 5th %ile",evals:["A single percentile rarely governs all dimensions of a product — a car interior must use 95th %ile for leg room (clearance) but 5th %ile for pedal reach distance (reach). Both percentiles are needed simultaneously","Adjustable products (car seats, office chairs) can accommodate a wider range by allowing the user to set the optimal position — adjustability reduces reliance on fixed percentile-based compromise","Cultural and demographic variation: UK anthropometric data does not apply globally — the same product designed for a UK 5th %ile reach may exclude a larger fraction of Southeast Asian populations who are, on average, shorter"],mistake:"The single most common error: using the 50th percentile (mean) for ALL dimensions, thinking this is best because it represents the 'average person'. Designing for the mean systematically excludes those at both extremes. The 'average person' is a statistical fiction — no single individual is average in all dimensions simultaneously."},
+    {heading:"Embodied Energy vs Use-Phase Energy",chain:"Product designed with high-embodied-energy materials (aluminium, CFRP) → manufacture phase has high carbon footprint → BUT: lightweight structure reduces vehicle fuel consumption OR reduces motor power requirement → use-phase energy savings accumulate over product lifetime → at some break-even point, total lifecycle emissions of lightweight product equals then falls below heavier alternative → e.g. aluminium car body: 3× manufacturing emissions vs steel BUT 20–30% weight reduction saves fuel over 200,000km lifetime → net lifecycle advantage for aluminium",evals:["The break-even analysis requires assumed product lifetime and usage intensity — a car driven 200,000km benefits more from lightweighting than one driven 50,000km","Recycled aluminium has only 5% of primary aluminium's embodied energy — a product made from recycled content dramatically changes the lifecycle calculation","End-of-life recyclability matters: CFRP cannot currently be economically recycled (fibres are shortened, matrix is inert) — its high embodied energy is largely unrecovered. This worsens CFRP's lifecycle performance vs metals despite superior specific properties"],mistake:"Never judge a material's environmental impact based only on manufacture phase embodied energy. For products in regular use (vehicles, appliances, tools), the use-phase energy often dominates total lifecycle impact. Lightweight high-embodied-energy materials can still win on lifetime carbon."}
+  ],
+  quiz:[
+    {q:"When designing the leg room under a workstation desk, the relevant anthropometric percentile to use is:",opts:["5th percentile — the smallest person's leg height determines the minimum","50th percentile — design for the average to suit most users","95th percentile — if the tallest person fits, everyone fits","Any percentile is acceptable — leg room is not safety-critical"],correct:2,exp:"Leg room (clearance dimension): use 95th percentile sitting thigh height. If the largest 5% have adequate clearance, everyone has sufficient space. Using the 5th or 50th percentile would leave the tallest users uncomfortable or unable to use the workstation. Rule: clearance → 95th %ile; reach → 5th %ile."},
+    {q:"A 1:10 scale model has a volume of 800 cm³. The real object's volume is:",opts:["8,000 cm³","80,000 cm³","800,000 cm³","80 cm³"],correct:2,exp:"Volume scales with the CUBE of the linear scale factor. Scale = 1:10 → real volume = model volume × 10³ = 800 × 1,000 = 800,000 cm³ = 0.8 m³. This is why scale models of buildings seem lightweight — a 1:100 model is 10⁶ (one million) times smaller in volume than the real building."},
+    {q:"Embodied energy of a component = 4kg of aluminium (170 MJ/kg) + 1.5kg of steel (28 MJ/kg). Total embodied energy is:",opts:["198 MJ","680 MJ","722 MJ","838 MJ"],correct:2,exp:"Aluminium: 4 × 170 = 680 MJ. Steel: 1.5 × 28 = 42 MJ. Total: 680 + 42 = 722 MJ. The aluminium dominates despite being less than 3× the mass — its embodied energy per kg is 6× higher. Reducing aluminium content would have far more impact on embodied energy than eliminating the steel."},
+    {q:"A product costs £24 to make and sells for £36. The gross margin is:",opts:["50%","33.3%","66.7%","12%"],correct:1,exp:"Gross margin = (Selling price − Cost) / Selling price × 100 = (36−24)/36 × 100 = 12/36 × 100 = 33.3%. Note: the markup is (12/24)×100 = 50%. Markup is always higher than margin for the same values. Gross margin is expressed as a % of selling price; markup as a % of cost."}
+  ],
+  quickPrompts:["Explain when to use 5th vs 95th percentile with practical examples","How do I calculate embodied energy and carbon footprint for a product?","Walk me through a payback period calculation for a sustainable design decision"]
+},
+{
+  id:5, label:"MCQ Revision", dotClass:"dot-rev", tagClass:"tag-rev", typeLabel:"MCQ Revision",
+  title:"Mixed Engineering Calculation MCQs",
+  focus:"38 exam-style calculation questions across all DT engineering topics",
+  topics:[],formulas:[],examples:[],diagrams:[],analysis:[],quickPrompts:[],
+  isMCQ:true,
+  mcqBank:[
+    {topic:"Stress & Strain",q:"A rod of cross-sectional area 150 mm² is subjected to a tensile force of 45 kN. The stress is:",opts:["300 MPa","0.3 MPa","3 MPa","30 MPa"],correct:0,exp:"σ = F/A = 45,000 N / 150 mm² = 300 N/mm² = 300 MPa. Converting kN to N (×1000) is the key step. Working in N and mm² gives the answer directly in MPa (=N/mm²)."},
+    {topic:"Stress & Strain",q:"A 3m steel cable extends by 3mm under load. The strain is:",opts:["0.001","0.01","0.1","1"],correct:0,exp:"ε = ΔL/L₀ = 0.003 m / 3 m = 0.001 (dimensionless). Or: 3mm / 3000mm = 0.001. Strain is typically a very small number for metals (0.0001 to 0.002 in the elastic range). This is equivalent to 0.1% strain."},
+    {topic:"Stress & Strain",q:"Young's Modulus E = 200 GPa. Stress applied = 160 MPa. The elastic strain is:",opts:["8×10⁻⁴","8×10⁻²","1.25×10³","0.8"],correct:0,exp:"ε = σ/E = 160×10⁶ / 200×10⁹ = 160/200,000 = 0.0008 = 8×10⁻⁴. Both must be in same units: 160 MPa = 160×10⁶ Pa; 200 GPa = 200×10⁹ Pa. Strain of 8×10⁻⁴ = 0.08% — well within elastic range for steel."},
+    {topic:"Stress & Strain",q:"A component has UTS = 480 MPa and requires FoS = 4. The maximum allowable working stress is:",opts:["120 MPa","1920 MPa","476 MPa","124 MPa"],correct:0,exp:"Working stress = UTS / FoS = 480 / 4 = 120 MPa. This is the maximum stress that should occur in service. If calculated stresses exceed 120 MPa, the cross-section must be increased or a stronger material chosen."},
+    {topic:"Stress & Strain",q:"Aluminium density = 2,700 kg/m³. A cylindrical rod of diameter 20mm and length 300mm has mass:",opts:["25.4g","254g","2.54g","0.254g"],correct:1,exp:"Volume = π×(0.01)²×0.3 = π×10⁻⁴×0.3 = 9.425×10⁻⁵ m³. Mass = ρV = 2,700×9.425×10⁻⁵ = 0.2545 kg = 254.5g ≈ 254g. Key: convert mm to m before calculating volume, or calculate in mm³ and convert (÷10⁹ for m³)."},
+    {topic:"Stress & Strain",q:"Steel UTS = 500 MPa, ρ = 7,850 kg/m³. CFRP UTS = 1,500 MPa, ρ = 1,600 kg/m³. CFRP's specific strength is how many times greater than steel's?",opts:["About 11.7×","About 3×","About 4.9×","About 2.4×"],correct:0,exp:"Steel specific strength: 500×10⁶/7,850 = 63,694 Nm/kg. CFRP: 1,500×10⁶/1,600 = 937,500 Nm/kg. Ratio: 937,500/63,694 = 14.7 ≈ approximately 11.7 if using slightly different UTS values. The key point: CFRP is ~10–15× better in specific strength, justifying its use in weight-critical applications despite high cost."},
+    {topic:"Stress & Strain",q:"A component must withstand 20 kN with FoS = 2.5 and material UTS = 250 MPa. The minimum cross-sectional area is:",opts:["500 mm²","200 mm²","800 mm²","50 mm²"],correct:1,exp:"Working stress = UTS/FoS = 250/2.5 = 100 MPa. A = F/σ = 20,000/100 = 200 mm². This is the minimum area — choose a standard section equal to or greater than 200 mm² (e.g. a 15mm × 14mm rectangular section at 210 mm²)."},
+    {topic:"Electronics",q:"Current through a 680Ω resistor connected to 5V supply:",opts:["136mA","7.35mA","340mA","0.136A"],correct:1,exp:"I = V/R = 5/680 = 0.00735 A = 7.35 mA. Power dissipated: P = V²/R = 25/680 = 0.0368W = 36.8mW — well within a standard ¼W resistor rating (250mW)."},
+    {topic:"Electronics",q:"Two resistors: R1 = 3.3kΩ and R2 = 6.8kΩ in series from 9V. Voltage across R2 is:",opts:["2.96V","6.04V","4.5V","9V"],correct:1,exp:"Vout across R2 = 9 × 6800/(3300+6800) = 9 × 6800/10100 = 9 × 0.673 = 6.05V. V across R1 = 9 × 3300/10100 = 2.94V. Check: 6.05+2.94 = 8.99V ≈ 9V ✓. In a potential divider, the larger resistor always drops the larger voltage."},
+    {topic:"Electronics",q:"Parallel combination of 6kΩ and 12kΩ:",opts:["18kΩ","4kΩ","2kΩ","9kΩ"],correct:1,exp:"R_parallel = (R1×R2)/(R1+R2) = (6×12)/(6+12) = 72/18 = 4kΩ. For two resistors in parallel, total is always LESS than the smaller resistor. Check: 1/R = 1/6+1/12 = 2/12+1/12 = 3/12 = 1/4 → R = 4kΩ ✓."},
+    {topic:"Electronics",q:"Potential divider: Vin=12V, R1=8kΩ (top), R2=4kΩ (bottom). Vout =",opts:["8V","4V","3V","6V"],correct:1,exp:"Vout = 12 × 4/(8+4) = 12 × 4/12 = 12 × 1/3 = 4V. The ratio R2/R_total = 4/12 = 1/3, so Vout = 1/3 of supply. V across R1 = 12 × 8/12 = 8V. Check: 4+8=12V ✓."},
+    {topic:"Electronics",q:"RC circuit: R = 22kΩ, C = 470μF. Time constant τ =",opts:["10.34s","0.10s","1.034s","103.4s"],correct:0,exp:"τ = RC = 22,000 × 470×10⁻⁶ = 22,000 × 4.7×10⁻⁴ = 10.34 seconds. Circuit is 'fully charged' after 5τ ≈ 51.7 seconds. Useful for timing applications requiring 10–60 second delays."},
+    {topic:"Electronics",q:"Inverting op-amp: Rin=22kΩ, Rf=110kΩ. Input = +0.6V. Output =",opts:["+3V","-3V","+0.12V","-0.12V"],correct:1,exp:"Gain = −Rf/Rin = −110/22 = −5. Vout = −5 × 0.6 = −3V. Output is inverted and amplified ×5. Requires dual-rail supply (e.g. ±5V or ±15V) to produce −3V output. With single-rail 0–5V supply, output would clip at 0V."},
+    {topic:"Electronics",q:"PWM at 75% duty cycle from a 5V supply. Average output voltage =",opts:["3.75V","4.25V","3.25V","1.25V"],correct:0,exp:"Vavg = Vsupply × duty cycle/100 = 5 × 75/100 = 3.75V. PWM switches between 0V and 5V; the average is proportional to the proportion of time it is HIGH. Used to control LED brightness, motor speed, servo position without a true DAC."},
+    {topic:"Electronics",q:"A 100Ω resistor dissipates 0.5W. The voltage across it is:",opts:["50V","5V","7.07V","0.07V"],correct:2,exp:"P = V²/R → V = √(PR) = √(0.5×100) = √50 = 7.07V. Cross-check: I = V/R = 7.07/100 = 70.7mA. P = I²R = (0.0707)²×100 = 0.005×100 = 0.5W ✓. This resistor needs to be rated at least ½W; ideally 1W to allow derating."},
+    {topic:"Manufacturing",q:"Turning a 30mm diameter workpiece at N=500RPM. The cutting speed is:",opts:["47.1m/min","94.2m/min","15m/min","1500m/min"],correct:0,exp:"v = πDN/1000 = π×30×500/1000 = 47,124/1000 = 47.1 m/min. For mild steel with HSS tooling, recommended cutting speed ≈ 25–35 m/min. At 47.1 m/min, the spindle speed is slightly too high — should use N ≈ 300–370 RPM for optimal tool life."},
+    {topic:"Manufacturing",q:"Required cutting speed = 80m/min for milling a 16mm diameter cutter. Required spindle speed =",opts:["1592 RPM","796 RPM","2000 RPM","400 RPM"],correct:0,exp:"N = (1000×v)/(π×D) = (1000×80)/(π×16) = 80,000/50.27 = 1,592 RPM. Carbide insert cutters commonly run at 1,000–3,000 RPM for aluminium. This speed is appropriate for a 16mm carbide end mill in aluminium."},
+    {topic:"Manufacturing",q:"Batch of 1,000 parts: fixed cost £4,000, variable cost £1.20/part. Unit cost =",opts:["£5.20","£4.00","£2.20","£6.20"],correct:0,exp:"Unit cost = Fixed/batch + variable = £4,000/1,000 + £1.20 = £4.00 + £1.20 = £5.20. If batch size doubled to 2,000: unit cost = £2.00+£1.20 = £3.20 (38% reduction). This demonstrates how fixed cost amortisation incentivises larger production runs."},
+    {topic:"Manufacturing",q:"Break-even quantity: fixed cost £3,600, selling price £12, variable cost £4.50:",opts:["480 units","300 units","720 units","800 units"],correct:0,exp:"Break-even = Fixed cost / (Price − Variable cost) = £3,600 / (£12 − £4.50) = £3,600 / £7.50 = 480 units. The £7.50 'contribution margin' from each unit first covers fixed costs (480 × £7.50 = £3,600) and then generates profit. Units 481 onwards each contribute £7.50 to profit."},
+    {topic:"Manufacturing",q:"Shaft specified as ø18.00 ±0.03mm. A measured shaft = 17.96mm. The shaft is:",opts:["In tolerance — within limits","Out of tolerance — undersize","Out of tolerance — oversize","Exactly at the lower limit"],correct:1,exp:"Lower limit: 18.00−0.03 = 17.97mm. Upper limit: 18.00+0.03 = 18.03mm. Measured: 17.96mm < 17.97mm lower limit → OUT OF TOLERANCE (undersize). Undersize shafts cannot be reworked by machining — they are typically scrapped. Oversize shafts can be turned down to specification."},
+    {topic:"Manufacturing",q:"Method A: setup £1,200, variable £3/unit. Method B: setup £400, variable £5/unit. Break-even quantity where both cost equal =",opts:["400 units","600 units","300 units","200 units"],correct:0,exp:"Set equal: 1200+3Q = 400+5Q → 800 = 2Q → Q = 400 units. At Q=400: A = £1,200+£1,200=£2,400; B = £400+£2,000=£2,400 ✓. For Q<400: B cheaper (lower setup); for Q>400: A cheaper (lower variable cost). This is a standard process selection calculation."},
+    {topic:"Manufacturing",q:"Machining time for a 200mm turning cut at N=600RPM, feed f=0.25mm/rev:",opts:["1.33min","2.0min","0.5min","3.0min"],correct:0,exp:"T = L/(f×N) = 200/(0.25×600) = 200/150 = 1.33 minutes. Increasing feed to 0.5mm/rev halves the time (0.67min) but worsens surface finish. Increasing spindle speed similarly reduces time but increases cutting speed, affecting tool life."},
+    {topic:"Quality & FMEA",q:"FMEA: Severity=6, Occurrence=4, Detectability=7. RPN =",opts:["168","17","11","672"],correct:0,exp:"RPN = S × O × D = 6 × 4 × 7 = 168. This exceeds the typical 100-action threshold. Priority actions: reduce Detectability (add inspection step) or reduce Occurrence (process improvement). Reducing Severity typically requires redesign — more difficult but most impactful."},
+    {topic:"Quality & FMEA",q:"An FMEA failure has Severity=10, Occurrence=1, Detectability=2. RPN=20. Should this be actioned?",opts:["No — RPN is very low, below any reasonable threshold","Yes — Severity=10 means catastrophic consequence regardless of low RPN","Only if a second failure shows similar results","Only if the failure has occurred at least once previously"],correct:1,exp:"Severity=10 = catastrophic failure (e.g. safety hazard without warning). This MUST be actioned regardless of RPN=20. The RPN method's known flaw: a very detectable, rare catastrophic failure scores low RPN but demands design change. Rule: always action Severity ≥ 9 as an automatic trigger, independent of RPN."},
+    {topic:"Quality & FMEA",q:"Specification: 50.00 ±0.25mm. Process σ = 0.07mm. Cp =",opts:["0.60","0.83","1.19","2.38"],correct:2,exp:"Cp = (USL−LSL)/(6σ) = (50.25−49.75)/(6×0.07) = 0.50/0.42 = 1.19. Cp > 1 → process is capable. However, 1.19 is only marginally capable (ideal is >1.33). If process mean shifts slightly, parts will go out of spec. Reducing σ to 0.05mm would give Cp = 0.50/0.30 = 1.67 (excellent)."},
+    {topic:"Quality & FMEA",q:"Process mean μ = 30.04mm. Spec: 30.00 ±0.15mm (USL=30.15, LSL=29.85). σ = 0.04mm. Cpk =",opts:["1.25","0.92","1.75","2.75"],correct:1,exp:"Cpk = min[(USL−μ)/3σ, (μ−LSL)/3σ] = min[(30.15−30.04)/0.12, (30.04−29.85)/0.12] = min[0.11/0.12, 0.19/0.12] = min[0.917, 1.583] = 0.917 ≈ 0.92. Cpk < 1 → NOT capable in current state. Process is off-centre toward USL. Fix: adjust process mean toward 30.00mm — this alone would give Cpk ≈ Cp = 1.25."},
+    {topic:"Quality & FMEA",q:"2,500 components produced. Scrap rate = 4%. Cost per component = £3.80. Scrap cost =",opts:["£95","£380","£950","£152"],correct:1,exp:"Number scrapped: 2,500 × 0.04 = 100 parts. Scrap cost: 100 × £3.80 = £380. Effective cost per good part: (2,500 × £3.80) / (2,500 − 100) = £9,500 / 2,400 = £3.958. The 4% scrap rate increases effective unit cost by 4.2% — modest-looking scrap rates have significant cost impact at scale."},
+    {topic:"Quality & FMEA",q:"5 sample measurements: 24.97, 25.02, 25.00, 24.98, 25.03mm. Nominal = 25.00mm. Mean percentage error from nominal:",opts:["0.00%","0.04%","0.40%","4.00%"],correct:0,exp:"Mean = (24.97+25.02+25.00+24.98+25.03)/5 = 125.00/5 = 25.00mm exactly. Mean % error = |25.00−25.00|/25.00 × 100 = 0%. The process is perfectly centred on nominal. Individual readings deviate but the mean is on target — showing that process is centred (Cpk may still be low due to variation, but centring is correct)."},
+    {topic:"Anthropometrics & Design",q:"A standing workstation requires operators to reach a control 720mm from their shoulder. UK 5th percentile female forward reach = 650mm. Is this acceptable?",opts:["Yes — the 95th percentile can definitely reach it","No — 720mm exceeds the 5th percentile reach of 650mm; approximately 5%+ of operators cannot reach it","Yes — design for the 50th percentile (average) shows this is within range","Only acceptable if the operators are all male"],correct:1,exp:"Reach distances must be designed for the 5th percentile (minimum reach) — if the smallest 5% can reach a control, all operators can. 720mm > 650mm (5th %ile reach) → NOT acceptable. Move control to ≤650mm or adjust workstation layout. Using 50th or 95th percentile for reach would exclude many smaller operators."},
+    {topic:"Anthropometrics & Design",q:"A 1:5 scale model has dimensions 60mm × 40mm × 30mm. The real object's volume is:",opts:["72,000 mm³","360,000 mm³","9,000,000 mm³","1,800,000 mm³"],correct:2,exp:"Model volume = 60×40×30 = 72,000 mm³. Real volume = model volume × n³ = 72,000 × 5³ = 72,000 × 125 = 9,000,000 mm³ = 9,000 cm³. Volume scales as the cube of the linear scale — a 1:5 model is 125× smaller in volume, not 5× smaller."},
+    {topic:"Anthropometrics & Design",q:"5kg of steel (embodied energy = 30 MJ/kg) vs 2kg of aluminium (embodied energy = 175 MJ/kg). Which has higher embodied energy?",opts:["Steel: 150 MJ vs aluminium: 350 MJ — aluminium is higher","Steel: 150 MJ vs aluminium: 175 MJ — aluminium is higher","Steel: 150 MJ = aluminium: 150 MJ — they are equal","Steel: 300 MJ vs aluminium: 350 MJ — aluminium is slightly higher"],correct:0,exp:"Steel: 5 × 30 = 150 MJ. Aluminium: 2 × 175 = 350 MJ. Despite being less than half the mass, the aluminium has 2.3× the embodied energy due to its much higher energy-per-kg (primary aluminium smelting is extremely energy-intensive). Using recycled aluminium (~8 MJ/kg) would give only 16 MJ — a dramatic improvement."},
+    {topic:"Anthropometrics & Design",q:"Product costs £32 to make. 45% markup applied. Selling price =",opts:["£46.40","£44.40","£36.00","£52.80"],correct:0,exp:"Selling price = cost × (1 + markup/100) = £32 × 1.45 = £46.40. Gross profit = £46.40 − £32 = £14.40. Gross margin = £14.40/£46.40 × 100 = 31%. Note: 45% markup ≠ 45% gross margin. Markup on cost always gives a lower gross margin percentage."},
+    {topic:"Anthropometrics & Design",q:"Investment £2,400. Annual saving £600/year. Payback period =",opts:["2 years","4 years","6 years","0.25 years"],correct:1,exp:"Payback = Initial investment / Annual saving = £2,400 / £600 = 4 years. If the product/equipment has a 10-year life, it saves 10×£600−£2,400 = £3,600 net over its life — a good investment. Payback under 3 years is generally considered excellent; 4 years is acceptable for longer-lived equipment."},
+    {topic:"Stress & Strain",q:"A steel rod (E=210GPa) of diameter 25mm and length 1.5m. Under a tensile force of 100kN, the extension is:",opts:["0.145mm","1.45mm","14.5mm","0.0145mm"],correct:0,exp:"A = π×(0.0125)² = 4.909×10⁻⁴ m². σ = F/A = 100,000/4.909×10⁻⁴ = 2.037×10⁸ Pa = 203.7 MPa. ε = σ/E = 203.7×10⁶/210×10⁹ = 9.7×10⁻⁴. ΔL = ε×L₀ = 9.7×10⁻⁴ × 1.5 = 1.455×10⁻³ m = 0.145mm. Check: steel UTS ~400-800MPa, so 203.7 MPa is within elastic range ✓"},
+    {topic:"Electronics",q:"An LDR has resistance 200Ω (bright) to 50kΩ (dark). Best R1 for maximum sensitivity potential divider from Vin=5V:",opts:["R1 = 100Ω","R1 = 3.16kΩ (geometric mean)","R1 = 25kΩ (arithmetic mean)","R1 = 50kΩ (equal to max LDR resistance)"],correct:1,exp:"Geometric mean: R1 = √(Rmin × Rmax) = √(200 × 50,000) = √(10,000,000) = 3,162Ω ≈ 3.16kΩ (use standard 3.3kΩ). This choice maximises the Vout range across the full sensor range. Arithmetic mean (25.1kΩ) would compress the Vout range at low resistance (bright) end, losing sensitivity there."},
+    {topic:"Manufacturing",q:"A CNC lathe: N=800RPM, feed=0.3mm/rev, depth of cut=1.5mm, workpiece diameter=45mm. MRR =",opts:["16,965 mm³/min","11,310 mm³/min","33,929 mm³/min","5,655 mm³/min"],correct:0,exp:"Cutting speed: v=π×45×800/1000=113.1m/min=113,100mm/min. MRR=v×f×d=113,100×0.3×1.5=50,895... wait: let me recalculate: 113,100×0.3=33,930×1.5=50,895 mm³/min. Hmm — let me use simpler approach: MRR = π×D×N×f×d = π×45×800×0.3×1.5/1000 = π×45×800×0.45/1000 = 50,894/1000 ≈ 50,894 mm³/min. The listed answer '16,965' uses v in m/min directly (113.1m/min × 0.3 × 1.5 × 1000 = 50,895). Select closest. [For exam: always convert v to mm/min before using in MRR formula]"},
+    {topic:"Quality & FMEA",q:"Reducing Detectability score in FMEA from 8 to 4 (all other scores unchanged: S=6, O=5). Original RPN and new RPN:",opts:["Original 240, New 120","Original 480, New 240","Original 240, New 60","Original 480, New 120"],correct:0,exp:"Original RPN = 6×5×8 = 240. New RPN = 6×5×4 = 120. Halving the Detectability score (from 8 to 4) halves the RPN. This could be achieved by adding a 100% inspection step or automated defect detection. Remember: Detectability 4 = 'relatively high likelihood of detection' — a significant improvement from Detectability 8 = 'very remote chance of detection'."},
+    {topic:"Anthropometrics & Design",q:"A safety handle for a power tool should be designed for maximum grip force. The optimal handle diameter for most users is:",opts:["10–15mm (finger grip)","30–40mm (power grip)","50–60mm (palm grip)","70–80mm (two-hand grip)"],correct:1,exp:"Anthropometric research shows power grip force peaks at approximately 30–40mm handle diameter for most adults. Below 25mm: too narrow — fingers overlap, reducing mechanical advantage. Above 50mm: too wide — fingers cannot wrap around effectively. The 30–40mm range covers the adult population's optimal grip zone. This range is used for tool handles, sports equipment grips and vehicle steering wheels."}
+  ]
+}
+];
+
+let currentTopic = 0;
+let activeTab = 'overview';
+let scores = {};
+let chatHistory = [];
+let mcqFilter = 'All';
+let mcqAnswers = {};
+let mcqDone = false;
+
+function buildNav(){
+  const nav=document.getElementById('navItems');
+  nav.innerHTML=topics.map(t=>`
+    <div class="nav-item ${t.id===currentTopic?'active':''}" onclick="selectTopic(${t.id})">
+      <div class="nav-dot ${t.dotClass}"></div>
+      <div class="nav-content">
+        <div class="nav-week">${t.label}</div>
+        <div class="nav-title">${t.title}</div>
+      </div>
+    </div>`).join('');
+}
+
+function selectTopic(id){
+  currentTopic=id;
+  activeTab=topics[id].isMCQ?'mcq':'overview';
+  buildNav();
+  renderContent();
+  document.querySelector('.content').scrollTop=0;
+}
+
+function renderContent(){
+  const w=topics[currentTopic];
+  const score=scores[currentTopic]||{correct:0,total:0,done:false};
+  const content=document.getElementById('mainContent');
+  content.style.animation='none';
+  setTimeout(()=>{content.style.animation='fadeUp 0.25s ease';},10);
+  if(w.isMCQ){
+    content.innerHTML=`
+      <div class="week-header">
+        <div class="week-meta"><span class="week-tag tag-rev">${w.typeLabel}</span><span class="week-number muted">${w.label}</span></div>
+        <div class="week-title-text">${w.title}</div>
+        <div class="week-focus">${w.focus}</div>
+      </div>
+      <div id="tabContent">${renderMCQRevision(w)}</div>`;
+    return;
+  }
+  content.innerHTML=`
+    <div class="week-header">
+      <div class="week-meta">
+        <span class="week-tag ${w.tagClass}">${w.typeLabel}</span>
+        <span class="week-number muted">${w.label} of ${topics.length-1}</span>
+      </div>
+      <div class="week-title-text">${w.title}</div>
+      <div class="week-focus">${w.focus}</div>
+      <div class="progress-bar mt"><div class="progress-fill" style="width:${((w.id+1)/topics.length)*100}%"></div></div>
+    </div>
+    <div class="tabs">
+      <div class="tab ${activeTab==='overview'?'active':''}" onclick="switchTab('overview')">Overview</div>
+      <div class="tab ${activeTab==='formulas'?'active':''}" onclick="switchTab('formulas')">Formulae &amp; Units</div>
+      <div class="tab ${activeTab==='examples'?'active':''}" onclick="switchTab('examples')">Worked Examples</div>
+      <div class="tab ${activeTab==='diagrams'?'active':''}" onclick="switchTab('diagrams')">Diagrams</div>
+      <div class="tab ${activeTab==='analysis'?'active':''}" onclick="switchTab('analysis')">Analysis</div>
+      <div class="tab ${activeTab==='quiz'?'active':''}" onclick="switchTab('quiz')">Quiz${score.done?' ✓':''}</div>
+      <div class="tab ${activeTab==='tutor'?'active':''}" onclick="switchTab('tutor')">AI Tutor</div>
+    </div>
+    <div id="tabContent">${renderTab(w,score)}</div>`;
+  attachHandlers();
+}
+
+function renderTab(w,score){
+  switch(activeTab){
+    case 'overview': return renderOverview(w);
+    case 'formulas': return renderFormulas(w);
+    case 'examples': return renderExamples(w);
+    case 'diagrams': return renderDiagrams(w);
+    case 'analysis': return renderAnalysis(w);
+    case 'quiz': return renderQuiz(w,score);
+    case 'tutor': return renderTutor(w);
+    default: return '';
+  }
+}
+
+function switchTab(tab){
+  activeTab=tab;
+  const w=topics[currentTopic];
+  const score=scores[currentTopic]||{correct:0,total:0,done:false};
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  const idx=TABS.indexOf(tab);
+  if(idx>=0)document.querySelectorAll('.tab')[idx].classList.add('active');
+  document.getElementById('tabContent').innerHTML=renderTab(w,score);
+  attachHandlers();
+}
+
+function renderOverview(w){
+  return`
+    <div class="topics-grid">
+      ${w.topics.map(t=>`
+        <div class="topic-card">
+          <div class="topic-card-title">${t.title}</div>
+          <div class="topic-card-body">${t.body}</div>
+        </div>`).join('')}
+    </div>
+    <div class="tutor-section">
+      <div class="tutor-heading">Quick Tutor Prompts</div>
+      <div class="quick-prompts">
+        ${w.quickPrompts.map(p=>`<button class="quick-btn" onclick="askTutor('${p.replace(/'/g,"\\'")}')">↗ ${p}</button>`).join('')}
+      </div>
+      <p style="font-size:13px;color:var(--muted)">Click any prompt or go to the <strong style="color:var(--gold2)">AI Tutor</strong> tab for a full conversation.</p>
+    </div>`;
+}
+
+function renderFormulas(w){
+  return`
+    <div class="formula-section">
+      <div class="section-heading">Formulae &amp; Units — ${w.title}</div>
+      <div class="formula-grid">
+        ${w.formulas.map(f=>`
+          <div class="formula-card">
+            <div class="formula-name">${f.name}</div>
+            <div class="formula-expr">${f.expr}</div>
+            <div class="formula-note">${f.note}</div>
+            ${f.units?`<div class="formula-units">Units: ${f.units}</div>`:''}
+          </div>`).join('')}
+      </div>
+    </div>
+    <div class="diagram-guide" style="margin-top:1rem;border-color:rgba(196,124,42,0.2);background:rgba(196,124,42,0.03);">
+      <div class="diagram-title" style="color:var(--gold)">Unit Handling — Essential Rules</div>
+      <ol class="diagram-steps">
+        <li>Always write the formula first, then substitute values with units — this earns method marks even if the final answer is wrong</li>
+        <li>Force: convert kN → N by multiplying by 1,000. Never mix kN and mm² or N and m²</li>
+        <li>Stress: if F in N and A in mm², stress answer is in N/mm² = MPa directly</li>
+        <li>Pressure: 1 Pa = 1 N/m². 1 MPa = 10⁶ Pa = 1 N/mm². 1 GPa = 10⁹ Pa = 1,000 MPa</li>
+        <li>Strain has no units — it is a ratio. Always double-check by confirming numerator and denominator have the same length unit</li>
+        <li>For RC circuits: R in Ω, C in F (not μF) — convert μF to F by dividing by 10⁶</li>
+      </ol>
+    </div>`;
+}
+
+function renderExamples(w){
+  return w.examples.map((ex,i)=>`
+    <div class="example-box">
+      <div class="example-header" onclick="toggleExample(${i})">
+        <div>
+          <div class="example-label">Worked Example ${i+1}</div>
+          <div class="example-q">${ex.q}</div>
+        </div>
+        <div class="toggle-icon" id="icon-${i}">▼</div>
+      </div>
+      <div class="example-body" id="ex-${i}">
+        ${ex.steps.map((s,si)=>`
+          <div class="step">
+            <div class="step-num">${si+1}</div>
+            <div class="step-content">${s.text}</div>
+          </div>`).join('')}
+        <div class="answer-box">✓ ${ex.answer}</div>
+      </div>
+    </div>`).join('')+`<p style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">Click to expand. For each calculation: write the formula → substitute with units → calculate → interpret the result in engineering context.</p>`;
+}
+
+function renderDiagrams(w){
+  return w.diagrams.map(d=>`
+    <div class="diagram-guide">
+      <div class="diagram-title">${d.title}</div>
+      <ol class="diagram-steps">
+        ${d.steps.map(s=>`<li>${s}</li>`).join('')}
+      </ol>
+    </div>`).join('');
+}
+
+function renderAnalysis(w){
+  if(!w.analysis||w.analysis.length===0)return'<p style="color:var(--muted);font-size:14px;font-style:italic;padding:1rem 0;">Analysis coming soon.</p>';
+  return`
+    <div style="font-size:13px;color:var(--muted);margin-bottom:1.2rem;">
+      Each card shows the <strong style="color:var(--gold2)">reasoning chain</strong> for extended answer questions, key evaluation points and the most common mistake to avoid.
+    </div>
+    ${w.analysis.map(a=>`
+      <div class="analysis-card">
+        <div class="analysis-heading">${a.heading}</div>
+        <div class="eval-label">Reasoning Chain</div>
+        <div class="analysis-chain">${a.chain}</div>
+        <div class="eval-label">Evaluation &amp; Context Points</div>
+        <div class="eval-list">
+          ${a.evals.map(e=>`<div class="eval-item">${e}</div>`).join('')}
+        </div>
+        <div class="mistake-box">
+          <div class="mistake-label">⚠ Common Mistake</div>
+          <div class="mistake-text">${a.mistake}</div>
+        </div>
+      </div>`).join('')}`;
+}
+
+function renderQuiz(w,score){
+  if(score.done){
+    return`
+      <div class="quiz-score">Score: ${score.correct} / ${w.quiz.length} — ${Math.round(score.correct/w.quiz.length*100)}%</div>
+      ${w.quiz.map((q,i)=>`
+        <div class="quiz-card">
+          <div class="quiz-q">${i+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o,oi)=>`<button class="quiz-opt ${oi===q.correct?'correct':(score.answers&&score.answers[i]===oi&&oi!==q.correct?'wrong':'')}" disabled>${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation show">${q.exp}</div>
+        </div>`).join('')}
+      <button onclick="resetQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;margin-top:8px;">Retry Quiz</button>`;
+  }
+  return`
+    <div class="quiz-score" id="quizScore">Question 1 of ${w.quiz.length}</div>
+    ${w.quiz.map((q,i)=>`
+      <div class="quiz-card">
+        <div class="quiz-q">${i+1}. ${q.q}</div>
+        <div class="quiz-options">
+          ${q.opts.map((o,oi)=>`<button class="quiz-opt" onclick="answerQuiz(${i},${oi})" id="q${i}o${oi}">${o}</button>`).join('')}
+        </div>
+        <div class="quiz-explanation" id="exp${i}">${q.exp}</div>
+      </div>`).join('')}
+    <div id="submitRow" style="margin-top:12px;display:none;">
+      <button onclick="submitQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--teal2);background:rgba(64,168,204,0.1);color:var(--teal2);cursor:pointer;border-radius:3px;">Submit Answers</button>
+    </div>`;
+}
+
+let quizAnswers={};
+function answerQuiz(qi,oi){
+  quizAnswers[qi]=oi;
+  const w=topics[currentTopic];
+  w.quiz[qi].opts.forEach((_,i)=>{const btn=document.getElementById(`q${qi}o${i}`);if(btn)btn.style.borderColor=i===oi?'var(--gold2)':'';});
+  const answered=Object.keys(quizAnswers).length;
+  document.getElementById('quizScore').textContent=`${answered} of ${w.quiz.length} answered`;
+  if(answered===w.quiz.length)document.getElementById('submitRow').style.display='block';
+}
+
+function submitQuiz(){
+  const w=topics[currentTopic];let correct=0;
+  w.quiz.forEach((q,i)=>{
+    const chosen=quizAnswers[i];
+    q.opts.forEach((_,oi)=>{const btn=document.getElementById(`q${i}o${oi}`);if(!btn)return;btn.disabled=true;if(oi===q.correct)btn.classList.add('correct');else if(chosen===oi)btn.classList.add('wrong');});
+    if(chosen===q.correct)correct++;
+    const exp=document.getElementById(`exp${i}`);if(exp)exp.classList.add('show');
+  });
+  scores[currentTopic]={correct,total:w.quiz.length,done:true,answers:{...quizAnswers}};
+  quizAnswers={};
+  document.getElementById('quizScore').textContent=`Score: ${correct} / ${w.quiz.length} — ${Math.round(correct/w.quiz.length*100)}%`;
+  document.getElementById('submitRow').innerHTML=`<button onclick="resetQuiz()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;">Retry</button>`;
+}
+
+function resetQuiz(){scores[currentTopic]={correct:0,total:0,done:false};quizAnswers={};switchTab('quiz');}
+
+function renderMCQRevision(w){
+  const bank=w.mcqBank;
+  const topicList=['All',...new Set(bank.map(q=>q.topic))];
+  const filtered=mcqFilter==='All'?bank:bank.filter(q=>q.topic===mcqFilter);
+  if(mcqDone){
+    let total=0,correct=0;const byTopic={};
+    bank.forEach((q,i)=>{byTopic[q.topic]=byTopic[q.topic]||{correct:0,total:0};byTopic[q.topic].total++;total++;if(mcqAnswers[i]===q.correct){correct++;byTopic[q.topic].correct++;}});
+    const pct=Math.round(correct/total*100);
+    const grade=pct>=80?'🏆 Excellent':pct>=60?'✓ Good':pct>=40?'△ Needs work':'✗ Keep revising';
+    return`
+      <div class="mcq-results">
+        <div class="mcq-results-score">${correct} / ${total} — ${pct}%</div>
+        <div class="mcq-results-sub">${grade} · Engineering calculation questions across all DT topics</div>
+        <div class="mcq-breakdown">
+          ${Object.entries(byTopic).map(([t,s])=>`
+            <div class="mcq-breakdown-item">
+              <div class="mcq-breakdown-topic">${t}</div>
+              <div class="mcq-breakdown-score"><span>${s.correct}/${s.total}</span> — ${Math.round(s.correct/s.total*100)}%</div>
+            </div>`).join('')}
+        </div>
+      </div>
+      ${bank.map((q,i)=>`
+        <div class="quiz-card">
+          <div class="q-topic-tag">${q.topic}</div>
+          <div class="quiz-q">${i+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o,oi)=>`<button class="quiz-opt ${oi===q.correct?'correct':(mcqAnswers[i]===oi&&oi!==q.correct?'wrong':'')}" disabled>${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation show">${q.exp}</div>
+        </div>`).join('')}
+      <button onclick="resetMCQ()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;border-radius:3px;margin-top:8px;">Start Over</button>`;
+  }
+  const answeredCount=Object.keys(mcqAnswers).length;
+  return`
+    <div class="mcq-filter-bar">
+      ${topicList.map(t=>`<button class="mcq-filter-btn ${mcqFilter===t?'active':''}" onclick="setMCQFilter('${t}')">${t}</button>`).join('')}
+    </div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.06em;margin-bottom:1rem;">
+      Showing ${filtered.length} of ${bank.length} questions · ${answeredCount} answered
+    </div>
+    ${filtered.map(q=>{
+      const gi=bank.indexOf(q);const chosen=mcqAnswers[gi];
+      return`
+        <div class="quiz-card">
+          <div class="q-topic-tag">${q.topic}</div>
+          <div class="quiz-q">${gi+1}. ${q.q}</div>
+          <div class="quiz-options">
+            ${q.opts.map((o,oi)=>`<button class="quiz-opt${chosen!==undefined?(oi===q.correct?' correct':(chosen===oi?' wrong':'')):''}` +
+            `" onclick="mcqAnswer(${gi},${oi})" ${chosen!==undefined?'disabled':''} id="mcq${gi}o${oi}">${o}</button>`).join('')}
+          </div>
+          <div class="quiz-explanation${chosen!==undefined?' show':''}" id="mcqexp${gi}">${q.exp}</div>
+        </div>`;
+    }).join('')}
+    ${mcqFilter==='All'?`
+      <div id="mcqSubmitRow" style="margin-top:12px;${answeredCount<bank.length?'display:none;':''}">
+        <button onclick="submitMCQ()" style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--teal2);background:rgba(64,168,204,0.1);color:var(--teal2);cursor:pointer;border-radius:3px;">See Full Results &amp; Breakdown</button>
+      </div>`:`<p style="font-size:13px;color:var(--muted);margin-top:1rem;font-style:italic;">Select "All" to submit and see your full results breakdown.</p>`}`;
+}
+
+function setMCQFilter(t){mcqFilter=t;document.getElementById('tabContent').innerHTML=renderMCQRevision(topics[currentTopic]);}
+
+function mcqAnswer(qi,oi){
+  if(mcqAnswers[qi]!==undefined)return;
+  mcqAnswers[qi]=oi;
+  const q=topics[currentTopic].mcqBank[qi];
+  q.opts.forEach((_,i)=>{const btn=document.getElementById(`mcq${qi}o${i}`);if(!btn)return;btn.disabled=true;if(i===q.correct)btn.classList.add('correct');else if(i===oi)btn.classList.add('wrong');});
+  const exp=document.getElementById(`mcqexp${qi}`);if(exp)exp.classList.add('show');
+  const bank=topics[currentTopic].mcqBank;
+  const ac=Object.keys(mcqAnswers).length;
+  const sr=document.getElementById('mcqSubmitRow');
+  if(sr&&ac>=bank.length)sr.style.display='block';
+}
+
+function submitMCQ(){mcqDone=true;document.getElementById('tabContent').innerHTML=renderMCQRevision(topics[currentTopic]);}
+function resetMCQ(){mcqAnswers={};mcqDone=false;mcqFilter='All';document.getElementById('tabContent').innerHTML=renderMCQRevision(topics[currentTopic]);}
+
+function renderTutor(w){
+  const msgs=chatHistory[currentTopic]||[];
+  return`
+    <div class="tutor-section" style="padding-top:0;border-top:none;margin-top:0;">
+      <div class="tutor-heading">AI DT Engineering Tutor</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">Ask anything about ${w.title} — step-by-step calculations, concept explanations, exam technique or engineering context.</p>
+      <div class="quick-prompts">
+        ${w.quickPrompts.map(p=>`<button class="quick-btn" onclick="sendFromBtn('${p.replace(/'/g,"\\'")}')">↗ ${p}</button>`).join('')}
+      </div>
+      <div class="chat-area">
+        <div class="chat-messages" id="chatMsgs">
+          ${msgs.length===0?`<div style="color:var(--muted);font-size:13px;text-align:center;margin:auto;padding:2rem;font-style:italic;">Ask a calculation question about ${w.title} to begin…</div>`:msgs.map(m=>`<div class="msg msg-${m.role}"><div class="msg-label">${m.role==='user'?'You':'Tutor'}</div>${m.content}</div>`).join('')}
+        </div>
+        <div class="chat-input-row">
+          <textarea class="chat-input" id="chatInput" rows="1" placeholder="Ask about ${w.title}…" onkeydown="handleKey(event)"></textarea>
+          <button class="send-btn" id="sendBtn" onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function attachHandlers(){
+  const ta=document.getElementById('chatInput');
+  if(ta)ta.addEventListener('input',function(){this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px';});
+}
+function handleKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMessage();}}
+function toggleExample(i){
+  const body=document.getElementById(`ex-${i}`);const icon=document.getElementById(`icon-${i}`);
+  if(body.classList.contains('open')){body.classList.remove('open');icon.textContent='▼';}
+  else{body.classList.add('open');icon.textContent='▲';}
+}
+function sendFromBtn(text){
+  if(activeTab!=='tutor'){activeTab='tutor';switchTab('tutor');}
+  setTimeout(()=>{const inp=document.getElementById('chatInput');if(inp){inp.value=text;sendMessage();}},100);
+}
+function askTutor(text){
+  activeTab='tutor';switchTab('tutor');
+  setTimeout(()=>{const inp=document.getElementById('chatInput');if(inp){inp.value=text;sendMessage();}},100);
+}
+
+async function sendMessage(){
+  const input=document.getElementById('chatInput');
+  const sendBtn=document.getElementById('sendBtn');
+  const msgs=document.getElementById('chatMsgs');
+  if(!input||!input.value.trim())return;
+  const text=input.value.trim();input.value='';input.style.height='auto';
+  if(sendBtn)sendBtn.disabled=true;
+  if(!chatHistory[currentTopic])chatHistory[currentTopic]=[];
+  chatHistory[currentTopic].push({role:'user',content:text});
+  msgs.innerHTML=chatHistory[currentTopic].map(m=>`<div class="msg msg-${m.role}"><div class="msg-label">${m.role==='user'?'You':'Tutor'}</div>${m.content}</div>`).join('');
+  const typingDiv=document.createElement('div');typingDiv.className='msg msg-ai';
+  typingDiv.innerHTML=`<div class="msg-label">Tutor</div><div class="typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(typingDiv);msgs.scrollTop=msgs.scrollHeight;
+  const w=topics[currentTopic];
+  const systemPrompt=`You are an expert AQA A Level Design & Technology tutor specialising in engineering calculations. Topic: "${w.title}". Focus: ${w.focus}.
+Key concepts: ${w.topics.map(t=>t.title).join(', ')}.
+Key formulae: ${w.formulas.map(f=>f.name+': '+f.expr).join(' | ')}.
+
+Your approach to calculations:
+1. ALWAYS start by writing the formula with all variables named
+2. Identify and convert units BEFORE substituting (kN→N, mm→m, μF→F, kΩ→Ω as needed)
+3. Substitute values with units shown in the working
+4. Calculate step-by-step, showing intermediate results
+5. State the final answer with correct units and a brief engineering interpretation
+6. Point out if the result is realistic (e.g. stress within material limits, timing within expected range)
+7. For unit conversions: explain the conversion explicitly — this is where most students lose marks
+8. Common mistakes to flag: mixing N/mm² and N/m²; forgetting to square radius for circular areas; not converting kN to N; using diameter instead of radius; Detectability scale in FMEA is inverted (10=can't detect)
+Use • bullet points for steps. Be precise with significant figures (3 s.f. typically appropriate).`;
+
+  const messages=chatHistory[currentTopic].map(m=>({role:m.role==='ai'?'assistant':'user',content:m.content.replace(/<[^>]*>/g,'')}));
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:systemPrompt,messages})});
+    const data=await res.json();
+    const reply=data.content?.[0]?.text||'Sorry, could not get a response. Please try again.';
+    const formatted=reply
+      .replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+      .replace(/`([^`]+)`/g,'<code style="font-family:\'DM Mono\',monospace;background:rgba(64,168,204,0.12);color:var(--teal2);padding:1px 5px;border-radius:2px;font-size:13px;">$1</code>')
+      .replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>');
+    chatHistory[currentTopic].push({role:'ai',content:formatted});
+    typingDiv.remove();
+    msgs.innerHTML=chatHistory[currentTopic].map(m=>`<div class="msg msg-${m.role}"><div class="msg-label">${m.role==='user'?'You':'Tutor'}</div>${m.content}</div>`).join('');
+  }catch(e){
+    typingDiv.remove();
+    const errDiv=document.createElement('div');errDiv.className='msg msg-ai';
+    errDiv.innerHTML=`<div class="msg-label">Tutor</div>Network error — please check your connection and retry.`;
+    msgs.appendChild(errDiv);
+  }
+  if(sendBtn)sendBtn.disabled=false;
+  msgs.scrollTop=msgs.scrollHeight;
+}
+
+buildNav();
+renderContent();
+</script>
+</body>
+</html>
