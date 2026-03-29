@@ -334,9 +334,23 @@ background:var(–surf);transition:background 0.15s;
 */
 
 .navbar {
+  /*
   background-color: #333; /* 404040 !important */
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);  /* Modern shadow */
   padding: 0;
+  */
+
+  display: inline-block;
+  padding: 6px 14px; /* Space inside the box */
+  margin: 0 8px;    /* Space between buttons */
+  
+  /* Keep your current font color here */
+  /* color: inherit; or your specific hex code */
+  
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Very subtle border */
+  border-radius: 4px; /* Slight rounding for a modern look */
+  transition: all 0.2s ease-in-out;
 }
 .navbar ul {
   display: flex;
